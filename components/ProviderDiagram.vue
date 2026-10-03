@@ -1,17 +1,27 @@
 <script setup>
+import { useId } from "vue";
+
 defineProps({
   compact: {
     type: Boolean,
     default: false,
   },
+  showExamples: {
+    type: Boolean,
+    default: false,
+  },
 });
+
+const diagramId = useId();
+const titleId = `${diagramId}-provider-title`;
+const descriptionId = `${diagramId}-provider-desc`;
 </script>
 
 <template>
-  <figure class="provider-diagram" :class="{ compact }" aria-label="ORD provider overview">
-    <svg viewBox="0 0 640 460" role="img" aria-labelledby="provider-title provider-desc">
-      <title id="provider-title">ORD provider overview</title>
-      <desc id="provider-desc">
+  <figure class="provider-diagram" :class="{ compact, 'with-examples': showExamples }" aria-label="ORD provider overview">
+    <svg viewBox="0 0 640 460" role="img" :aria-labelledby="`${titleId} ${descriptionId}`">
+      <title :id="titleId">ORD provider overview</title>
+      <desc :id="descriptionId">
         An application or service exposes ORD resources through provided interfaces and states integration dependencies
         through a required interface socket connected to a resource described by another ORD Provider.
       </desc>
@@ -54,9 +64,10 @@ defineProps({
         <tspan x="320" dy="30">/ Service</tspan>
       </text>
 
-      <g class="tag provided-tag" transform="translate(222 47)">
-        <rect width="156" height="42" rx="21" />
-        <text x="78" y="27" text-anchor="middle">Capabilities</text>
+      <g class="tag provided-tag" :transform="showExamples ? 'translate(172 28)' : 'translate(222 47)'">
+        <rect :width="showExamples ? 256 : 156" :height="showExamples ? 60 : 42" rx="8" />
+        <text :x="showExamples ? 128 : 78" y="27" text-anchor="middle">Capabilities</text>
+        <text v-if="showExamples" class="protocol-examples" x="128" y="47" text-anchor="middle">Skills · agent plugins (proposed)</text>
       </g>
 
       <g class="tag provided-tag api-examples" transform="translate(460 42)">
@@ -65,29 +76,39 @@ defineProps({
         <text class="protocol-examples" x="85" y="46" text-anchor="middle">REST · MCP · A2A</text>
       </g>
 
-      <g class="tag provided-tag" transform="translate(40 151)">
-        <rect width="136" height="42" rx="21" />
-        <text x="68" y="27" text-anchor="middle">Entity Types</text>
+      <g class="tag provided-tag" :transform="showExamples ? 'translate(28 140)' : 'translate(40 151)'">
+        <rect :width="showExamples ? 148 : 136" :height="showExamples ? 76 : 42" rx="8" />
+        <text :x="showExamples ? 74 : 68" y="27" text-anchor="middle">Entity Types</text>
+        <template v-if="showExamples">
+          <text class="protocol-examples" x="74" y="46" text-anchor="middle">Domain Model</text>
+          <text class="protocol-examples" x="74" y="64" text-anchor="middle">taxonomy / Ontology</text>
+        </template>
       </g>
 
-      <g class="tag provided-tag" transform="translate(28 225)">
-        <rect width="148" height="42" rx="21" />
+      <g class="tag provided-tag" :transform="showExamples ? 'translate(28 228)' : 'translate(28 225)'">
+        <rect width="148" :height="showExamples ? 72 : 42" rx="8" />
         <text x="74" y="23" text-anchor="middle">Data Products</text>
-        <text class="beta-label" x="74" y="36" text-anchor="middle">beta</text>
+        <text v-if="showExamples" class="protocol-examples" x="74" y="46" text-anchor="middle">Delta Sharing · SQL</text>
+        <text class="beta-label" x="74" :y="showExamples ? 61 : 36" text-anchor="middle">beta</text>
       </g>
 
       <g class="tag provided-tag" transform="translate(468 329)">
-        <rect width="118" height="42" rx="21" />
-        <text x="59" y="27" text-anchor="middle">Events</text>
+        <rect :width="showExamples ? 164 : 118" :height="showExamples ? 80 : 42" rx="8" />
+        <text :x="showExamples ? 82 : 59" y="27" text-anchor="middle">Events</text>
+        <template v-if="showExamples">
+          <text class="protocol-examples" x="82" y="48" text-anchor="middle">CloudEvents</text>
+          <text class="protocol-examples" x="82" y="66" text-anchor="middle">AsyncAPI definitions</text>
+        </template>
       </g>
 
-      <g class="tag provided-tag" transform="translate(310 386)">
-        <rect width="110" height="42" rx="8" />
-        <text x="55" y="23" text-anchor="middle">Agents</text>
-        <text class="beta-label" x="55" y="36" text-anchor="middle">beta</text>
+      <g class="tag provided-tag" :transform="showExamples ? 'translate(298 386)' : 'translate(310 386)'">
+        <rect :width="showExamples ? 134 : 110" :height="showExamples ? 68 : 42" rx="8" />
+        <text :x="showExamples ? 67 : 55" y="23" text-anchor="middle">Agents</text>
+        <text v-if="showExamples" class="protocol-examples" x="67" y="44" text-anchor="middle">A2A Agent Cards</text>
+        <text class="beta-label" :x="showExamples ? 67 : 55" :y="showExamples ? 59 : 36" text-anchor="middle">beta</text>
       </g>
 
-      <g class="tag required-tag" transform="translate(30 386)">
+      <g class="tag required-tag" :transform="showExamples ? 'translate(18 386)' : 'translate(30 386)'">
         <rect width="268" height="54" rx="8" />
         <text x="134" y="23" text-anchor="middle">Integration Dependencies</text>
         <text class="dependency-reference" x="134" y="42" text-anchor="middle">References external APIs or Events</text>
@@ -99,10 +120,10 @@ defineProps({
         <text class="external-provider-role" x="80" y="364" text-anchor="middle">ORD Provider</text>
       </g>
 
-      <g class="api-card" transform="translate(482 198)">
-        <rect width="146" height="64" rx="8" />
-        <text class="api-title" x="16" y="25">Provider API</text>
-        <text class="api-subtitle" x="16" y="46">Expose metadata</text>
+      <g class="api-card" transform="translate(478 198)">
+        <rect width="154" height="64" rx="8" />
+        <text class="api-title" x="10" y="25">ORD Provider API</text>
+        <text class="api-subtitle" x="10" y="46">Expose metadata</text>
       </g>
 
       <g class="definition-note" transform="translate(450 143)">
@@ -206,6 +227,7 @@ text {
 }
 
 .tag text.protocol-examples { fill: var(--ord-muted); font-size: 12px; font-weight: 600; }
+.with-examples .tag text.protocol-examples { font-size: 13px; font-weight: 520; }
 .tag text.beta-label { fill: var(--ord-provider); font-size: 9px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 .tag text.dependency-reference { fill: var(--ord-muted); font-size: 12px; font-weight: 520; }
 .external-provider text { fill: var(--ord-hex-text); font-size: 16px; font-weight: 750; }
@@ -220,7 +242,7 @@ text {
 
 .api-title {
   fill: var(--ord-text);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 760;
 }
 

@@ -86,6 +86,27 @@ routeAlias: self-description
 <section class="diagram-column">
 <ProviderDiagram></ProviderDiagram>
 </section>
+<DeepDiveLink to="self-description-examples" label="With examples" kicker="Compare"></DeepDiveLink>
+</div>
+
+---
+routeAlias: self-description-examples
+---
+
+<div class="slide-shell split-slide light-slide">
+<DeckLogo section="Self-description · alternative"></DeckLogo>
+<DeepDiveNav back-to="self-description" back-label="Original diagram"></DeepDiveNav>
+<section class="text-column">
+<h2>A protocol for self-description</h2>
+<p class="lead small">Open Resource Discovery enables applications and services to describe their exposed resources and capabilities in a standardized, machine-readable way.</p>
+<div class="boundary-callout">
+<strong>ORD adds the shared context.</strong>
+<span>Detailed contracts remain in formats such as OpenAPI, AsyncAPI, OData CSDL, A2A Agent Cards, or other definitions.</span>
+</div>
+</section>
+<section class="diagram-column">
+<ProviderDiagram show-examples></ProviderDiagram>
+</section>
 </div>
 
 ---

@@ -4,7 +4,7 @@
       <span class="role-kicker">Publish</span>
       <h3>Provider</h3>
       <p>Describes one application or service.</p>
-      <div class="role-items"><span>Provider API</span><span>ORD documents</span><span>Definitions</span></div>
+      <div class="role-items"><span>ORD Provider API</span><span>ORD documents</span><span>Definitions</span></div>
     </section>
 
     <div class="flow-arrow"><span>Metadata</span></div>
