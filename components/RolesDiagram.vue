@@ -3,7 +3,7 @@
     <section class="role provider">
       <span class="role-kicker">Publish</span>
       <h3>Provider</h3>
-      <p>Describes one application or service.</p>
+      <p>Describes an application or service.</p>
       <div class="role-items"><span>ORD Provider API</span><span>ORD documents</span><span>Definitions</span></div>
     </section>
 
@@ -25,7 +25,7 @@
       <div class="role-items"><span>Catalogs</span><span>Developer tools</span><span>Automation &amp; AI</span></div>
     </section>
 
-    <div class="direct-path"><span>One system may play multiple roles · Direct provider consumption is supported</span></div>
+    <figcaption class="direct-path">Arrows show metadata delivery. Roles can overlap; consumers may also read a Provider directly.</figcaption>
   </figure>
 </template>
 
@@ -38,7 +38,7 @@
   align-items: center;
   gap: 12px;
   margin: 0;
-  padding-bottom: 54px;
+  grid-template-rows: 1fr auto;
 }
 
 .role {
@@ -100,23 +100,11 @@
 }
 
 .direct-path {
-  position: absolute;
-  right: 9%;
-  bottom: 2px;
-  left: 9%;
-  height: 34px;
-  border-right: 1px dashed var(--ord-border);
-  border-bottom: 1px dashed var(--ord-border);
-  border-left: 1px dashed var(--ord-border);
+  grid-column: 1 / -1;
+  color: var(--ord-muted);
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 12px 0;
   text-align: center;
-}
-.direct-path span {
-  position: relative;
-  top: 22px;
-  background: var(--ord-bg);
-  color: var(--ord-faint);
-  font-family: var(--ord-font);
-  font-size: 14px;
-  padding: 0 12px;
 }
 </style>

@@ -22,9 +22,6 @@ const descriptionId = `${diagramId}-provider-desc`;
         <path d="M400 200 L502 132" />
         <circle cx="502" cy="132" r="10" />
 
-        <path d="M281.2 232 H218" />
-        <circle cx="218" cy="232" r="10" />
-
         <path d="M272.9 324 H218" />
         <circle cx="218" cy="324" r="10" />
 
@@ -40,6 +37,8 @@ const descriptionId = `${diagramId}-provider-desc`;
         <path d="M131.3 420 H190" />
         <circle cx="200" cy="420" r="10" />
       </g>
+
+      <path class="taxonomy-association" d="M281.2 232 H192" />
 
       <g class="required">
         <path d="M300 370 L218 420" />
@@ -65,16 +64,16 @@ const descriptionId = `${diagramId}-provider-desc`;
         <text class="protocol-examples" x="80" y="47" text-anchor="middle">REST · MCP · A2A</text>
       </g>
 
-      <g class="tag provided-tag" transform="translate(24 185)">
+      <g class="tag taxonomy-tag" transform="translate(24 185)">
         <rect width="168" height="78" rx="8" />
         <text x="84" y="25" text-anchor="middle">Entity Types</text>
-        <text class="protocol-examples" x="84" y="45" text-anchor="middle">Domain Model</text>
-        <text class="protocol-examples" x="84" y="63" text-anchor="middle">taxonomy / Ontology</text>
+        <text class="protocol-examples" x="84" y="45" text-anchor="middle">Order domain model</text>
+        <text class="protocol-examples" x="84" y="65" text-anchor="middle">Internal taxonomy</text>
       </g>
 
       <g class="tag provided-tag" transform="translate(24 287)">
         <rect width="168" height="62" rx="8" />
-        <text x="84" y="25" text-anchor="middle">Data Products <tspan class="beta-label">beta</tspan></text>
+        <text x="84" y="25" text-anchor="middle">Data Products</text>
         <text class="protocol-examples" x="84" y="47" text-anchor="middle">Delta Sharing · SQL</text>
       </g>
 
@@ -87,20 +86,20 @@ const descriptionId = `${diagramId}-provider-desc`;
 
       <g class="tag provided-tag" transform="translate(308 478)">
         <rect width="164" height="62" rx="8" />
-        <text x="82" y="25" text-anchor="middle">Agents · beta</text>
+        <text x="82" y="25" text-anchor="middle">Agents</text>
         <text class="protocol-examples" x="82" y="47" text-anchor="middle">Link API Resources</text>
       </g>
 
       <g class="tag required-tag" transform="translate(24 478)">
         <rect width="268" height="62" rx="8" />
         <text x="134" y="25" text-anchor="middle">Integration Dependencies</text>
-        <text class="dependency-reference" x="134" y="47" text-anchor="middle">References external APIs or Events</text>
+        <text class="dependency-reference" x="134" y="47" text-anchor="middle">Requires external APIs / Events</text>
       </g>
 
       <g class="external-provider">
         <polygon class="hex" points="32,419 57,384 107,384 132,419 107,454 57,454" />
-        <text x="82" y="417" text-anchor="middle">Other app</text>
-        <text class="external-provider-role" x="82" y="438" text-anchor="middle">ORD Provider</text>
+        <text x="82" y="417" text-anchor="middle">Orders</text>
+        <text class="external-provider-role" x="82" y="438" text-anchor="middle">Provider</text>
       </g>
 
       <g class="api-card" transform="translate(494 250)">
@@ -114,6 +113,7 @@ const descriptionId = `${diagramId}-provider-desc`;
         <text class="definition-title" x="0" y="0">Detailed definitions</text>
         <text class="definition-subtitle" x="0" y="23">for example OpenAPI</text>
       </g>
+      <text class="feature-status" x="350" y="560" text-anchor="middle">Data Products and Agents · beta</text>
     </svg>
   </figure>
 </template>
@@ -205,11 +205,13 @@ text {
   font-weight: 740;
 }
 
-.tag text.protocol-examples { fill: var(--ord-muted); font-size: 13px; font-weight: 520; }
-.tag .beta-label { font-size: 10px; fill: var(--ord-muted); }
-.tag text.dependency-reference { fill: var(--ord-muted); font-size: 12px; font-weight: 520; }
+.tag text.protocol-examples { fill: var(--ord-muted); font-size: 15px; font-weight: 520; }
+.taxonomy-tag rect { stroke: var(--ord-faint); stroke-dasharray: 4 3; }
+.taxonomy-association { fill: none; stroke: var(--ord-faint); stroke-width: 2; stroke-dasharray: 5 4; }
+.feature-status { fill: var(--ord-muted); font-size: 15px; }
+.tag text.dependency-reference { fill: var(--ord-muted); font-size: 15px; font-weight: 520; }
 .external-provider text { fill: var(--ord-hex-text); font-size: 16px; font-weight: 750; }
-.external-provider text.external-provider-role { fill: var(--ord-provider); font-size: 9px; }
+.external-provider text.external-provider-role { fill: var(--ord-provider); font-size: 11px; }
 .external-provider .hex { stroke-width: 3; }
 
 .api-card rect {

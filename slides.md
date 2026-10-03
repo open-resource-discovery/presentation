@@ -208,7 +208,7 @@ routeAlias: connected-landscape
 <div class="slide-shell light-slide">
 <DeckLogo section="Connected landscape"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Link Fulfillment's dependency to the Orders contract</h2>
+<h2>Connect Fulfillment to the Orders contract</h2>
 <p class="slide-subtitle">An aggregator connects Provider descriptions by ORD ID: required interfaces, their contracts, and shared business semantics.</p>
 </header>
 <LandscapeDiagram></LandscapeDiagram>
@@ -247,23 +247,13 @@ routeAlias: outcomes
 routeAlias: ai-discovery
 ---
 
-<div class="slide-shell split-slide light-slide">
+<div class="slide-shell light-slide">
 <DeckLogo section="AI-ready discovery"></DeckLogo>
-<section class="text-column">
-<h2>Give AI consumers context, not another silo</h2>
-<ul class="statement-list compact-list">
-<li>Agents <span class="beta-pill">beta</span> can be cataloged with ownership, purpose, relationships, and lifecycle metadata.</li>
-<li>A2A interfaces and MCP servers can be represented through ORD API Resources; A2A resources link Agent Card definitions.</li>
-<li><code>aiHint</code> adds focused guidance for LLMs and agent orchestrators without mixing it into human-facing descriptions.</li>
-</ul>
-<a class="outlook-callout" href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank">
-<span>Outlook · proposed for 1.17</span>
-<strong>Agent Skills and Agent Plugins as discoverable Capability types</strong>
-</a>
-</section>
-<section class="diagram-column">
+<header class="slide-header wide-header">
+<h2>Follow an Agent's resource graph</h2>
+<p class="slide-subtitle">An Agent can require APIs directly. The Skill proposal adds a reusable capability that declares its own API dependencies.</p>
+</header>
 <AiDiscoveryDiagram></AiDiscoveryDiagram>
-</section>
 <DeepDiveLink to="skills-preview" label="Skills preview"></DeepDiveLink>
 </div>
 
