@@ -595,6 +595,11 @@
   align-items: center;
 }
 
+.self-description-slide {
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 36px;
+}
+
 .combined-heading {
   font-size: 40px !important;
   line-height: 1.1 !important;

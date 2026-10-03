@@ -1,6 +1,6 @@
 # Slide review against ORD 1.16.4
 
-Reviewed on 2026-10-03, directly on `main`, using the running presentation at `http://localhost:3030`. All 48 slides were rendered and visually inspected at 1280×720, including the main story, deep dives, and ecosystem appendix.
+Reviewed on 2026-10-03, directly on `main`, using the running presentation at `http://localhost:3030`. All 47 slides were rendered and visually inspected at 1280×720, including the main story, deep dives, and ecosystem appendix.
 
 ## Changes
 
@@ -30,12 +30,13 @@ Reviewed on 2026-10-03, directly on `main`, using the running presentation at `h
 - Replaced the full-height deep-dive hover underline with a compact rounded background. Hover leaves the link's position unchanged; keyboard focus has a visible outline.
 - Kept the current slide label non-clickable and added a navbar breadcrumb back to the current section's divider.
 - Removed the decorative gradient line from the footer. Each slide now shows its own number and the deck total, including in print/export contexts.
-- Added stable, unique URL slugs to all 48 slides and changed internal links and the inspection script to use them. The complete list is in [slide-navigation.md](./slide-navigation.md).
+- Added stable, unique URL slugs to all 47 slides and changed internal links and the inspection script to use them. The complete list is in [slide-navigation.md](./slide-navigation.md).
 - Rebuilt the Outcomes cards with native SVG icons, compact spacing, and matching heading/description rows. Adoption, perspective, skill, and index cards also use consistent text rows where appropriate.
 - Introduced explicit semantic role colors matching the specification's roles drawing: **Provider = blue**, **Aggregator = purple**, **Consumer = green**. These are used consistently in role/adoption cards, alignment, landscape views, and transport participants; general card accents use a softer palette.
 - Increased separation between the white canvas and neutral cards with subtle light-grey surfaces and clearer borders. Cards with colored tops have very pale matching tints; role surfaces are explicitly defined in the light theme so they cannot inherit a dark background. The original rounded border/top style is kept consistent. The pull-overview cards also use shared rows for their numbers, headings, and descriptions.
-- The self-description diagram introduces the blue ORD Provider hexagon and matching exposed ports, adds REST/MCP/A2A examples and an Agent port marked beta. The required socket connects to a second blue Provider hexagon and explicitly references its external API/Event contract. Detailed definitions use a neutral annotation, distinct from dependency ports. The metadata-silos diagram adds Systems / Services inventory and service discovery alongside the four resource catalogs.
-- Added `self-description-examples` immediately after the original, with comparison links in both directions. It includes REST/MCP/A2A, CloudEvents and AsyncAPI definitions, Domain Model taxonomy / Ontology, Delta Sharing / SQL, A2A Agent Cards, and proposed Skills / agent plugins. Both Provider diagrams use consistent label boxes with an 8-unit corner radius and the exact label “ORD Provider API”; the roles overview uses the same API label.
+- The self-description diagram introduces the blue ORD Provider hexagon and matching exposed ports, adds REST/MCP/A2A examples and an Agent port. The required socket connects to a second blue Provider hexagon and explicitly references its external API/Event contract. Detailed definitions use a neutral annotation, distinct from dependency ports. The metadata-silos diagram adds Systems / Services inventory and service discovery alongside the four resource catalogs.
+- Kept the selected diagram with examples on `self-description` and removed the duplicate comparison slide. It includes REST/MCP/A2A, CloudEvents and AsyncAPI definitions, Domain Model taxonomy / Ontology, Delta Sharing / SQL, A2A Agent Cards, and proposed Skills / Agent Plugins. Label boxes use a consistent 8-unit corner radius and “ORD Provider API”; the roles overview uses the same API label. The former `self-description-examples` URL redirects to the retained slide.
+- Expanded the Provider diagram to a 700×570 viewBox in a 680-pixel-wide column, with longer port stems, wider label padding, larger gaps between the labels, and more vertical room. Removed the Data Product and Agent beta labels from this overview diagram; detailed resource-status labeling elsewhere remains unchanged.
 - Reduced the Provider port circles and required-interface socket by about a quarter, with lighter connector strokes and adjusted endpoints so the lines remain attached.
 
 - Replaced resource chips on the cover with five chapter links, beginning with “Connect fragmented metadata”. The pre-header is “Connected metadata, open discovery”, and the description explains ORD as an open protocol that builds on existing industry standards.
@@ -51,8 +52,8 @@ The sibling `ord-public/package.json` identifies release **1.16.4**. The review 
 
 | Slide slugs / topic | Grounding in `../ord-public/` |
 | --- | --- |
-| `metadata-silos`, `metadata-alignment`, `self-description`, `self-description-examples` | `docs/introduction.mdx`; `static/img/no-aligned-standards.svg`, `aligned-standards.svg`, `ord-provider-overview.svg` |
-| `self-description-examples` category examples | `spec/v1/Document.schema.yaml` API protocols, Event resource definitions, Agent resource definitions; `docs/spec-v1/concepts/data-product.md`, `grouping-and-bundling.md`; Skills remain a proposal, as described below |
+| `metadata-silos`, `metadata-alignment`, `self-description` | `docs/introduction.mdx`; `static/img/no-aligned-standards.svg`, `aligned-standards.svg`, `ord-provider-overview.svg` |
+| `self-description` category examples | `spec/v1/Document.schema.yaml` API protocols, Event resource definitions, Agent resource definitions; `docs/spec-v1/concepts/data-product.md`, `grouping-and-bundling.md`; Skills remain a proposal, as described below |
 | `information-model` | `docs/spec-v1/concepts/system-landscape-model.md`; `static/img/ord-high-level-data-model.drawio.svg`; `spec/v1/Document.schema.yaml` |
 | `ord-roles`, `adoption` | `docs/spec-v1/index.md` ORD roles; `static/img/ord-roles-overview.svg` |
 | `pull-overview`, `pull-sequence` | `docs/spec-v1/index.md` pull transport; `static/img/ord-pull-transport-sequence.mmd` and `.svg`; `spec/v1/Configuration.schema.yaml` |
@@ -78,11 +79,11 @@ Proposal references are separate from released 1.16.4 behavior: [Agent Skills PR
 - `npm run build` passes. The build emits the existing dependency annotation warnings from `@vueuse/core`.
 - `git diff --check` passes.
 - `npm start -- -- --help` confirms the alias invokes Slidev through the dev script.
-- Chapter breadcrumbs, non-clickable current labels, hover/focus layout, aligned Outcomes text, and all 48 print-context counters pass browser checks.
+- Chapter breadcrumbs, non-clickable current labels, hover/focus layout, aligned Outcomes text, and all 47 print-context counters pass browser checks.
 - The five cover agenda links and 15 deep-dive destinations resolve correctly; the pull overview directly precedes the example.
-- Both Provider SVG variants have no detected text overlap or overflow; definition annotations and required-interface sockets use distinct colors.
+- The selected Provider SVG has no detected text overlap or overflow, with every label contained inside its box; definition annotations and required-interface sockets use distinct colors. The retired comparison URL redirects correctly, preserving its query and hash.
 - Live example tab switching and the pull deep-dive round trip were checked in Chromium, including the displayed response content.
-- The final inspection covers all 48 slides, with zero slide-boundary overflows, zero detected HTML text overlaps, and zero browser errors.
+- The final inspection covers all 47 slides, with zero slide-boundary overflows, zero detected HTML text overlaps, and zero browser errors.
 - Screenshots and the machine-readable report are in the ignored `screenshots/final/` directory. The DOM checks complement visual review; they cannot prove SVG connector correctness or diagram semantics.
 
 To repeat against the existing server:
