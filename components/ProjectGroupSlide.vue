@@ -267,6 +267,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
   <div v-if="project" class="slide-shell light-slide deep-slide ecosystem-project-slide">
     <DeckLogo :section="`Group ${project.number}`"></DeckLogo>
     <nav class="ecosystem-nav" aria-label="Tools and ecosystem navigation">
+      <a href="./tools-ecosystem">All tools</a>
       <a v-if="previousGroup" :href="`./project-${previousGroup}`" :title="groups[previousGroup].title">← Previous</a>
       <a v-if="nextGroup" :href="`./project-${nextGroup}`" :title="groups[nextGroup].title">Next →</a>
     </nav>

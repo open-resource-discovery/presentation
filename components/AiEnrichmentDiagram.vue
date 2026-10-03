@@ -9,7 +9,7 @@
     </section>
 
     <section class="lane definition-lane">
-      <div class="lane-label"><span>02</span><strong>Definition-level enrichment</strong><small>Alongside OpenAPI, OData, A2A, MCP…</small></div>
+      <div class="lane-label"><span>02</span><strong>Definition-level enrichment</strong><small>ORD Overlays · beta · OpenAPI, OData, A2A, MCP…</small></div>
       <div class="definition-stack">
         <div><small>Base definition</small><code>openapi-v3</code></div>
         <b>+</b>

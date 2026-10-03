@@ -6,7 +6,7 @@
         <tr class="mandatory"><th>Package <small>required</small></th><td>Publishing ownership, shared metadata, catalog presentation</td><td>Every resource → exactly 1</td><td><code>partOfPackage</code></td></tr>
         <tr><th>Product</th><td>Software portfolio or service offering</td><td>Package / resource → 0..n</td><td><code>partOfProducts</code></td></tr>
         <tr><th>Consumption Bundle</th><td>APIs and Events accessible with the same credentials and auth mechanism</td><td>API / Event → 0..n</td><td><code>partOfConsumptionBundles</code></td></tr>
-        <tr><th>Entity Type</th><td>Shared business object or domain semantics</td><td>Related resources → 0..n</td><td><code>relatedEntityTypes</code></td></tr>
+        <tr><th>Entity Type</th><td>Shared business object or domain semantics</td><td>API / Event → 0..n</td><td><code>exposedEntityTypes</code></td></tr>
         <tr><th>Group</th><td>Custom, governed taxonomy defined by a Group Type</td><td>Resource → 0..n</td><td><code>partOfGroups</code></td></tr>
       </tbody>
     </table>

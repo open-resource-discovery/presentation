@@ -27,7 +27,10 @@ const steps = [
       perspective: 'system-version',
       describedSystemVersion: { version: '1.1.1' },
       apiResources: [
-        { ordId: 'sap.xref:apiResource:astronomy:v1', title: 'Astronomy API', version: '1.0.3', visibility: 'public', releaseStatus: 'active' },
+        {
+          ordId: 'sap.xref:apiResource:astronomy:v1', title: 'Astronomy API', version: '1.0.3', visibility: 'public', releaseStatus: 'active',
+          resourceDefinitions: [{ type: 'openapi-v3', mediaType: 'application/json', url: '/astronomy/v1/openapi/oas3.json', accessStrategies: [{ type: 'open' }] }],
+        },
         { ordId: 'sap.xref:apiResource:crm:v1', title: 'CRM API', version: '1.0.0', visibility: 'internal', releaseStatus: 'beta' },
       ],
       eventResources: [{ ordId: 'sap.xref:eventResource:odm-finance-costobject:v0', title: 'ODM Finance Cost Center Events' }],
@@ -63,9 +66,8 @@ const steps = [
 ]
 
 const active = ref(0)
-const status = ref<'loading' | 'live' | 'snapshot' | 'embedded'>('snapshot')
+const status = ref<'loading' | 'live' | 'snapshot'>('snapshot')
 const response = ref('')
-const frameKey = ref(0)
 let pendingRequest: AbortController | undefined
 const current = computed(() => steps[active.value])
 const liveUrl = computed(() => `${origin}${current.value.path}`)
@@ -169,7 +171,10 @@ async function query() {
   const step = steps[index]
   status.value = 'loading'
   try {
-    const result = await fetch(`/ord-reference${step.path}`, { cache: 'no-store', signal: controller.signal })
+    const result = await fetch(`/ord-reference${step.path}`, {
+      cache: 'no-store',
+      signal: AbortSignal.any([controller.signal, AbortSignal.timeout(8000)]),
+    })
     if (!result.ok) throw new Error(`HTTP ${result.status}`)
     const data = await result.json()
     if (controller.signal.aborted) return
@@ -177,8 +182,8 @@ async function query() {
     status.value = 'live'
   } catch {
     if (controller.signal.aborted) return
-    status.value = 'embedded'
-    frameKey.value += 1
+    response.value = JSON.stringify(step.fallback, null, 2)
+    status.value = 'snapshot'
   }
 }
 
@@ -205,7 +210,7 @@ onMounted(() => {
         <strong>{{ step.label }}</strong>
         <small>{{ step.purpose }}</small>
       </button>
-      <p class="browser-note">Responses are simplified for this walkthrough. Open the full reference application for the complete picture.</p>
+      <p class="browser-note">Simplified excerpts, not complete implementation templates. The provider declares its own ORD version in the document.</p>
     </aside>
 
     <section class="response-panel">
@@ -215,10 +220,9 @@ onMounted(() => {
         <button @click="query">Query live</button>
       </header>
       <div v-if="status === 'loading'" class="loading"><i></i><span>Requesting live metadata…</span></div>
-      <iframe v-else-if="status === 'embedded'" :key="frameKey" :src="liveUrl" title="Live ORD reference response"></iframe>
       <pre v-else><code><span v-for="(line, index) in highlightedLines" :key="`${active}-${index}`" class="code-line"><span class="line-number">{{ index + 1 }}</span><span class="line-source" v-html="line || '&amp;nbsp;'"></span></span></code></pre>
       <footer>
-        <span :class="status"><i></i>{{ status === 'live' ? 'Live response' : status === 'embedded' ? 'Live embedded response' : 'Bundled fallback' }}</span>
+        <span :class="status"><i></i>{{ status === 'live' ? 'Live response' : status === 'loading' ? 'Loading…' : 'Bundled example · live unavailable' }}</span>
         <a :href="liveUrl" target="_blank">Open raw endpoint ↗</a>
       </footer>
     </section>
@@ -262,7 +266,6 @@ pre code { display: block; min-width: max-content; color: #d4d4d4; font-family: 
 .line-source :deep(.json-null) { color: #c586c0; }
 .line-source :deep(.json-link) { color: #ce9178; text-decoration: underline; text-decoration-color: rgba(206, 145, 120, 0.45); text-underline-offset: 2px; }
 .line-source :deep(.json-link:hover) { color: #f2c1a9; text-decoration-color: currentColor; }
-iframe { width: 100%; height: 100%; border: 0; background: #fff; }
 .loading { display: flex; align-items: center; justify-content: center; gap: 12px; color: #93a2ac; font-size: 14px; }
 .loading i { width: 16px; height: 16px; border: 2px solid #34414a; border-top-color: var(--ord-brand-2); border-radius: 50%; animation: spin .7s linear infinite; }
 .response-panel footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #29323a; background: #1c232a; padding: 0 14px; }

@@ -13,7 +13,7 @@
       <span class="role-kicker">Connect</span>
       <h3>Aggregator</h3>
       <p>Collects, validates, resolves, and serves metadata.</p>
-      <div class="role-items"><span>Effective views</span><span>Hosted definitions</span><span>Discovery API</span></div>
+      <div class="role-items"><span>Effective views</span><span>Hosted definitions</span><span>Discovery API · own contract</span></div>
     </section>
 
     <div class="flow-arrow"><span>Discovery API</span></div>
@@ -25,7 +25,7 @@
       <div class="role-items"><span>Catalogs</span><span>Developer tools</span><span>Automation &amp; AI</span></div>
     </section>
 
-    <div class="direct-path"><span>Direct provider consumption is also supported</span></div>
+    <div class="direct-path"><span>One system may play multiple roles · Direct provider consumption is supported</span></div>
   </figure>
 </template>
 

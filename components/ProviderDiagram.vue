@@ -56,7 +56,7 @@ const descriptionId = `${diagramId}-provider-desc`;
       <g class="tag provided-tag" transform="translate(200 44)">
         <rect width="260" height="62" rx="8" />
         <text x="130" y="25" text-anchor="middle">Capabilities</text>
-        <text class="protocol-examples" x="130" y="47" text-anchor="middle">Skills · Agent Plugins (proposed)</text>
+        <text class="protocol-examples" x="130" y="47" text-anchor="middle">Features · configuration</text>
       </g>
 
       <g class="tag provided-tag api-examples" transform="translate(520 44)">
@@ -74,7 +74,7 @@ const descriptionId = `${diagramId}-provider-desc`;
 
       <g class="tag provided-tag" transform="translate(24 287)">
         <rect width="168" height="62" rx="8" />
-        <text x="84" y="25" text-anchor="middle">Data Products</text>
+        <text x="84" y="25" text-anchor="middle">Data Products <tspan class="beta-label">beta</tspan></text>
         <text class="protocol-examples" x="84" y="47" text-anchor="middle">Delta Sharing · SQL</text>
       </g>
 
@@ -87,8 +87,8 @@ const descriptionId = `${diagramId}-provider-desc`;
 
       <g class="tag provided-tag" transform="translate(308 478)">
         <rect width="164" height="62" rx="8" />
-        <text x="82" y="25" text-anchor="middle">Agents</text>
-        <text class="protocol-examples" x="82" y="47" text-anchor="middle">A2A Agent Cards</text>
+        <text x="82" y="25" text-anchor="middle">Agents · beta</text>
+        <text class="protocol-examples" x="82" y="47" text-anchor="middle">Link API Resources</text>
       </g>
 
       <g class="tag required-tag" transform="translate(24 478)">
@@ -206,6 +206,7 @@ text {
 }
 
 .tag text.protocol-examples { fill: var(--ord-muted); font-size: 13px; font-weight: 520; }
+.tag .beta-label { font-size: 10px; fill: var(--ord-muted); }
 .tag text.dependency-reference { fill: var(--ord-muted); font-size: 12px; font-weight: 520; }
 .external-provider text { fill: var(--ord-hex-text); font-size: 16px; font-weight: 750; }
 .external-provider text.external-provider-role { fill: var(--ord-provider); font-size: 9px; }
