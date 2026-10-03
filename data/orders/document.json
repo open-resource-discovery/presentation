@@ -1,0 +1,66 @@
+{
+  "openResourceDiscovery": "1.16",
+  "perspective": "system-type",
+  "baseUrl": "https://orders.example.com",
+  "describedSystemType": { "systemNamespace": "foo.orders" },
+  "vendors": [
+    { "ordId": "foo:vendor:Example:", "title": "Example vendor" }
+  ],
+  "products": [
+    {
+      "ordId": "foo:product:Orders:",
+      "title": "Order management",
+      "shortDescription": "Manage customer orders.",
+      "vendor": "foo:vendor:Example:"
+    }
+  ],
+  "packages": [
+    {
+      "ordId": "foo.orders:package:Orders:v1",
+      "title": "Order interfaces",
+      "shortDescription": "Interfaces and domain context for orders.",
+      "description": "APIs and Entity Types exposed by the Order system.",
+      "version": "1.0.0",
+      "vendor": "foo:vendor:Example:",
+      "partOfProducts": ["foo:product:Orders:"]
+    }
+  ],
+  "apiResources": [
+    {
+      "ordId": "foo.orders:apiResource:Orders:v1",
+      "title": "Orders API",
+      "shortDescription": "Read customer orders.",
+      "description": "Retrieve orders before preparing a shipment.",
+      "version": "1.0.0",
+      "releaseStatus": "active",
+      "apiProtocol": "rest",
+      "visibility": "public",
+      "partOfPackage": "foo.orders:package:Orders:v1",
+      "entryPoints": ["https://orders.example.com/api/v1"],
+      "resourceDefinitions": [
+        {
+          "type": "openapi-v3",
+          "mediaType": "application/json",
+          "url": "/orders/openapi.json",
+          "accessStrategies": [{ "type": "open" }]
+        }
+      ],
+      "exposedEntityTypes": [
+        { "ordId": "foo.orders:entityType:Order:v1" }
+      ]
+    }
+  ],
+  "entityTypes": [
+    {
+      "ordId": "foo.orders:entityType:Order:v1",
+      "localId": "Order",
+      "level": "aggregate",
+      "title": "Order",
+      "description": "A customer's request to purchase goods, including its order lines.",
+      "version": "1.0.0",
+      "visibility": "public",
+      "partOfPackage": "foo.orders:package:Orders:v1",
+      "releaseStatus": "active"
+    }
+  ]
+}

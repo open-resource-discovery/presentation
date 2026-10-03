@@ -44,11 +44,11 @@
 .branch > span { color: #bd4c36; font-size: 11px; font-weight: 750; text-transform: uppercase; }
 .branch.no > span { color: #2869a8; }
 .branch > strong { color: var(--ord-text); font-size: 19px; }
-.branch p { color: var(--ord-muted); font-size: 14px; line-height: 1.4; }
+.branch p { color: var(--ord-muted); font-size: 16px; line-height: 1.4; }
 .layers { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; margin-top: auto; }
-.layers b { border: 1px solid var(--ord-border); border-radius: 5px; background: var(--ord-pill-bg); color: var(--ord-text); font-size: 12px; padding: 10px; text-align: center; }
-.layers i { color: var(--ord-faint); font-size: 10px; font-style: normal; text-align: center; }
+.layers b { border: 1px solid var(--ord-border); border-radius: 5px; background: var(--ord-pill-bg); color: var(--ord-text); font-size: 16px; padding: 10px; text-align: center; }
+.layers i { color: var(--ord-muted); font-size: 14px; font-style: normal; text-align: center; }
 .rules { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 16px; }
-.rules p { border-left: 3px solid var(--ord-brand-2); color: var(--ord-muted); font-size: 14px; line-height: 1.38; padding: 3px 10px; }
+.rules p { border-left: 3px solid var(--ord-brand-2); color: var(--ord-muted); font-size: 16px; line-height: 1.38; padding: 3px 10px; }
 .rules strong { color: var(--ord-text); }
 </style>

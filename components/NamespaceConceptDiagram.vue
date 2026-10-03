@@ -18,7 +18,10 @@
       <p><strong>Authority namespace</strong> = vendor + governing authority</p>
     </section>
 
-    <figcaption>Namespaces express ownership and collision-free identity. Use Groups, not namespace fragments, for flexible categorization.</figcaption>
+    <figcaption>
+      <span>Namespaces express ownership and collision-free identity. Groups support flexible categorization.</span>
+      <span>Products and Vendors use the vendor namespace alone: <code>foo:product:Orders:</code>. Replace <code>foo</code> with your registered vendor namespace.</span>
+    </figcaption>
   </figure>
 </template>
 
@@ -38,5 +41,6 @@
 .segment-labels { display: grid; grid-template-columns: .8fr 1fr 1.3fr; gap: 12px; color: var(--ord-muted); font-size: 12px; text-align: center; }
 .variant p { border-top: 1px solid var(--ord-sep); color: var(--ord-muted); font-size: 15px; padding-top: 16px; }
 .variant p strong { color: var(--ord-text); }
-figcaption { grid-column: 1 / -1; border-left: 4px solid var(--ord-brand-2); background: var(--ord-teal-soft); color: var(--ord-muted); font-size: 17px; line-height: 1.35; padding: 15px 18px; }
+figcaption { display: flex; flex-direction: column; gap: 8px; grid-column: 1 / -1; border-left: 4px solid var(--ord-brand-2); background: var(--ord-teal-soft); color: var(--ord-muted); font-size: 17px; line-height: 1.35; padding: 15px 18px; }
+figcaption code { background: var(--ord-pill-bg); color: var(--ord-brand); font-size: inherit; }
 </style>

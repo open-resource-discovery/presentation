@@ -7,10 +7,10 @@
           <h3>ORD ID</h3>
           <p>What ORD resource or taxonomy item is this?</p>
         </header>
-        <code>example.catalog:apiResource:Orders:v2</code>
+        <code>foo.orders:apiResource:<wbr>Orders:v1</code>
         <ul>
-          <li>Stable identity for information described by ORD</li>
-          <li>Uses a fixed ORD concept name</li>
+          <li>Stable identity within ORD</li>
+          <li>Uses a fixed ORD type name</li>
           <li>Major version marks an incompatible generation</li>
         </ul>
       </section>
@@ -21,7 +21,7 @@
           <h3>Correlation ID</h3>
           <p>Which external record is this the same as?</p>
         </header>
-        <code>example.crm:record:Customer/4711</code>
+        <code>foo.crm:record:Customer/4711</code>
         <ul>
           <li>Maps to a system-of-record identifier</li>
           <li>Stored in <code>correlationIds</code></li>
@@ -37,16 +37,16 @@
         </header>
         <code>ord:overlay:v1</code>
         <ul>
-          <li>Names a standard, procedure, or guideline</li>
-          <li>Used by extensible types, strategies, and policy levels</li>
-          <li>Major version marks incompatible specification changes</li>
+          <li>Names a standard or strategy</li>
+          <li>Used by extensible fields</li>
+          <li>Major version marks incompatible specifications</li>
         </ul>
       </section>
     </div>
 
     <figcaption>
-      <strong>If the target is already described by ORD, reference its ORD ID.</strong>
-      <span>Use a correlation ID only for an external identity or mapping.</span>
+      <strong>Reference ORD IDs for content described by ORD.</strong>
+      <span>Group Types use Concept IDs (<code>foo:process</code>); <code>ord:</code> identifies ORD-owned specifications.</span>
     </figcaption>
   </figure>
 </template>
@@ -114,15 +114,15 @@
 }
 
 .identifier-card > code {
-  display: flex;
+  display: block;
   min-height: 58px;
-  align-items: center;
-  overflow-wrap: anywhere;
+  align-content: center;
+  overflow-wrap: normal;
   border-radius: 6px;
   background: var(--ord-panel-soft);
   color: var(--ord-text);
   font-family: var(--ord-mono);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.35;
   padding: 11px 12px;
 }
@@ -139,7 +139,7 @@
 .identifier-card li {
   position: relative;
   color: var(--ord-muted);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.35;
   padding-left: 18px;
 }
@@ -160,18 +160,19 @@
 
 .identifier-card li code {
   color: var(--ord-text);
-  font-size: 12px;
+  font-size: inherit;
 }
 
 figcaption {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
   border-left: 4px solid var(--ord-brand-2);
   border-radius: 0 var(--ord-radius) var(--ord-radius) 0;
   background: var(--ord-teal-soft);
   color: var(--ord-muted);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.35;
   padding: 13px 17px;
 }
@@ -179,4 +180,5 @@ figcaption {
 figcaption strong {
   color: var(--ord-text);
 }
+figcaption code { background: var(--ord-pill-bg); color: var(--ord-brand); font-size: inherit; }
 </style>

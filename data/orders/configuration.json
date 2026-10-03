@@ -1,0 +1,12 @@
+{
+  "baseUrl": "https://orders.example.com",
+  "openResourceDiscoveryV1": {
+    "documents": [
+      {
+        "url": "/ord/v1/orders",
+        "perspective": "system-type",
+        "accessStrategies": [{ "type": "open" }]
+      }
+    ]
+  }
+}

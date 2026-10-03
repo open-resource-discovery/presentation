@@ -155,7 +155,7 @@ routeAlias: ord-by-example
 <div class="slide-shell light-slide example-slide">
 <DeckLogo section="ORD by example"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Follow one Orders API from discovery to its contract</h2>
+<h2>Discover the Orders API and follow its contract</h2>
 </header>
 <OrdExampleExplorer></OrdExampleExplorer>
 </div>
