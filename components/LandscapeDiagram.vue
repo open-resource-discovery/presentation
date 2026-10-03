@@ -58,7 +58,7 @@
 .resource { border: 1px solid var(--ord-border); border-radius: 6px; color: var(--ord-text); font-size: 15px; font-weight: 650; padding: 10px 12px; }
 .resource.api { border-color: rgba(88, 166, 255, 0.62); background: var(--ord-sky-soft); }
 .resource.event { border-color: var(--ord-teal-line); background: var(--ord-teal-soft); }
-.resource.entity { margin-top: auto; border-style: dashed; background: var(--ord-panel-soft); }
+.resource.entity { margin-top: auto; border-width: 2px; border-style: dashed; background: var(--ord-panel-soft); }
 .resource small { display: block; margin-top: 5px; color: var(--ord-muted); font-size: 12px; font-weight: 500; }
 
 .graph {

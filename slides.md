@@ -52,7 +52,7 @@ routeAlias: metadata-alignment
 <div class="slide-shell light-slide">
 <DeckLogo section="Alignment"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>One discovery contract replaces many custom adapters</h2>
+<h2>Shared provider metadata reduces custom adapters</h2>
 <p class="slide-subtitle">ORD aligns metadata description and discovery while preserving specialized resource-definition standards.</p>
 </header>
 <AlignmentDiagram></AlignmentDiagram>
@@ -334,7 +334,7 @@ routeAlias: deep-dives
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Overview"></DeckLogo>
-<DeepDiveNav back-to="introduction" back-label="Main presentation"></DeepDiveNav>
+<DeepDiveNav back-to="introduction" back-label="Main presentation" :show-index="false"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>ORD details, one concept at a time</h2>
 </header>
@@ -584,7 +584,7 @@ routeAlias: tools-ecosystem
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Overview"></DeckLogo>
-<DeepDiveNav back-to="introduction" back-label="Main presentation"></DeepDiveNav>
+<DeepDiveNav back-to="introduction" back-label="Main presentation" :show-index="false"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>From specification to working ecosystem</h2>
 <p class="slide-subtitle">Twenty public repositories are grouped here into nine tools, integrations, and reference experiences.</p>

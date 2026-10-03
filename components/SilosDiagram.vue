@@ -67,7 +67,7 @@
   top: -26px;
   left: 10%;
   width: 80%;
-  height: 22px;
+  height: 26px;
   border-right: 1px dashed var(--ord-border);
   border-bottom: 1px dashed var(--ord-border);
   border-left: 1px dashed var(--ord-border);
@@ -120,7 +120,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  border: 1px dashed rgba(247, 129, 102, 0.72);
+  border: 2px dashed rgba(247, 129, 102, 0.72);
   border-radius: var(--ord-radius);
   background: var(--ord-coral-soft);
   padding: 16px 18px;

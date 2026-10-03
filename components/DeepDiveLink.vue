@@ -24,7 +24,7 @@ withDefaults(
   right: 72px;
   z-index: 3;
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: 9px;
   border: 1px solid var(--ord-border);
   border-radius: 999px;

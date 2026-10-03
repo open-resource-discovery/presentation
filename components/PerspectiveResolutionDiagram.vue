@@ -13,7 +13,7 @@
       <section class="branch no">
         <span>No</span>
         <strong>Resolve the effective static view</strong>
-        <p>Known tenant version: select that exact version. Otherwise, select the greatest published stable SemVer.</p>
+        <p>Known tenant version: select that exact version. Otherwise, select the greatest published stable SemVer; if none is published, use system-type directly.</p>
         <div class="layers"><b>1 · system-version</b><i>if ID absent →</i><b>2 · system-type</b></div>
       </section>
     </div>
@@ -27,16 +27,19 @@
 </template>
 
 <style scoped>
-.resolution-diagram { display: grid; flex: 1; grid-template-columns: 1fr 1fr; grid-template-rows: auto 18px auto 1fr auto; column-gap: 18px; margin: 0; }
+.resolution-diagram { display: grid; flex: 1; grid-template-columns: 1fr 1fr; grid-template-rows: auto 18px auto auto auto; align-content: center; column-gap: 18px; margin: 0; }
 .request, .decision { display: flex; grid-column: 1 / -1; align-items: center; justify-content: space-between; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 14px 20px; }
+.request { flex-direction: column; align-items: flex-start; gap: 4px; }
 .request span { color: var(--ord-brand); font-size: 11px; font-weight: 750; text-transform: uppercase; }
 .request strong { color: var(--ord-text); font-size: 18px; }
-.down { grid-column: 1 / -1; color: var(--ord-brand); font-size: 20px; text-align: center; }
+.down { position: relative; grid-column: 1 / -1; height: 18px; font-size: 0; line-height: 0; }
+.down::before { position: absolute; top: -3px; bottom: 2px; left: 50%; width: 2px; margin-left: -1px; background: var(--ord-brand-2); content: ""; }
+.down::after { position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); border-top: 7px solid var(--ord-brand-2); border-right: 5px solid transparent; border-left: 5px solid transparent; content: ""; }
 .decision { justify-content: center; background: var(--ord-teal-soft); }
 .decision strong { color: var(--ord-text); font-size: 18px; }
-.decision code { color: var(--ord-brand); font-size: 15px; }
+.decision code { background: transparent; color: var(--ord-brand); font-family: inherit; font-size: inherit; padding: 0; }
 .branches { display: grid; grid-column: 1 / -1; grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 18px; }
-.branch { display: flex; min-height: 195px; flex-direction: column; gap: 10px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--ord-accent-coral); border-radius: var(--ord-radius); background: var(--ord-accent-coral-bg); padding: 20px; }
+.branch { display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--ord-accent-coral); border-radius: var(--ord-radius); background: var(--ord-accent-coral-bg); padding: 20px; }
 .branch.no { border-top-color: var(--ord-accent-sky);  background: var(--ord-accent-sky-bg); }
 .branch > span { color: #bd4c36; font-size: 11px; font-weight: 750; text-transform: uppercase; }
 .branch.no > span { color: #2869a8; }
