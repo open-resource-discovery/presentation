@@ -18,33 +18,33 @@ defineProps({
 
       <g class="provided">
         <path d="M300 145 L300 104" />
-        <circle cx="300" cy="104" r="13" />
+        <circle cx="300" cy="104" r="10" />
 
         <path d="M370 145 L446 104" />
-        <circle cx="446" cy="104" r="13" />
+        <circle cx="446" cy="104" r="10" />
 
         <path d="M239.4 197 L190 178" />
-        <circle cx="190" cy="178" r="13" />
+        <circle cx="190" cy="178" r="10" />
 
         <path d="M220 230 L190 246" />
-        <circle cx="190" cy="246" r="13" />
+        <circle cx="190" cy="246" r="10" />
 
         <path d="M370 315 L452 350" />
-        <circle cx="452" cy="350" r="13" />
+        <circle cx="452" cy="350" r="10" />
 
         <path d="M340 315 L365 350" />
-        <circle cx="365" cy="350" r="13" />
+        <circle cx="365" cy="350" r="10" />
 
         <path d="M420 230 L460 230" />
-        <circle cx="460" cy="230" r="13" />
+        <circle cx="460" cy="230" r="10" />
 
-        <path d="M126.4 350 H171" />
-        <circle cx="184" cy="350" r="13" />
+        <path d="M126.4 350 H174" />
+        <circle cx="184" cy="350" r="10" />
       </g>
 
       <g class="required">
-        <path d="M270 315 L206.5 350" />
-        <path class="socket" d="M184 326 C214 326 214 374 184 374" />
+        <path d="M270 315 L202 350" />
+        <path class="socket" d="M184 332 C208 332 208 368 184 368" />
       </g>
 
       <polygon class="hex" points="220,230 270,145 370,145 420,230 370,315 270,315" />
@@ -151,22 +151,22 @@ text {
 
 .provided path {
   stroke: var(--ord-provider);
-  stroke-width: 3.8;
+  stroke-width: 3;
 }
 
 .provided circle {
   fill: var(--ord-pill-bg);
   stroke: var(--ord-provider);
-  stroke-width: 4;
+  stroke-width: 3;
 }
 
 .required path {
   stroke: var(--ord-coral);
-  stroke-width: 3.8;
+  stroke-width: 3;
 }
 
 .required .socket {
-  stroke-width: 5;
+  stroke-width: 4;
 }
 
 .hex {
