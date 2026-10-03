@@ -291,6 +291,7 @@ routeAlias: closing
 
 <div class="slide-shell end-slide dark-slide">
 <DeckLogo></DeckLogo>
+<div class="end-layout">
 <section class="end-copy">
 <p class="eyebrow">Open standard</p>
 <h2>Explore, implement, and help shape ORD</h2>
@@ -301,6 +302,8 @@ routeAlias: closing
 <a href="https://github.com/open-resource-discovery" target="_blank"><span>Project on GitHub</span><small>github.com/open-resource-discovery</small></a>
 </div>
 </section>
+<ClosingQr></ClosingQr>
+</div>
 <DeepDiveLink to="tools-ecosystem" label="Tools &amp; Ecosystem" kicker="Explore"></DeepDiveLink>
 </div>
 
@@ -364,13 +367,28 @@ routeAlias: ord-identifiers
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Back to information model"></DeepDiveNav>
+<DeepDiveNav back-to="namespace-concept" back-label="Namespace concept" next-to="related-identifiers" next-label="Related IDs"></DeepDiveNav>
 <header class="slide-header wide-header">
 <p class="eyebrow">ORD identifiers</p>
-<h2>Four fragments create a stable identity</h2>
+<h2>Four fragments create a stable ORD identity</h2>
 <p class="slide-subtitle">An ORD ID identifies the governed resource at design time. Runtime uniqueness also needs the system-instance context.</p>
 </header>
 <OrdIdDiagram></OrdIdDiagram>
+</div>
+
+---
+routeAlias: related-identifiers
+---
+
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo></DeckLogo>
+<DeepDiveNav back-to="ord-identifiers" back-label="ORD ID construction"></DeepDiveNav>
+<header class="slide-header wide-header">
+<p class="eyebrow">Identifier families</p>
+<h2>Three identifiers, three jobs</h2>
+<p class="slide-subtitle">The namespace establishes who governs the identifier; its remaining fragments determine what kind of reference it represents.</p>
+</header>
+<IdentifierTypesDiagram></IdentifierTypesDiagram>
 </div>
 
 ---

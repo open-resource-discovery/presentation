@@ -239,19 +239,19 @@ const groups: Record<string, ProjectGroup> = {
   },
   registry: {
     number: '09',
-    title: 'Turn registry requests into governed changes',
-    summary: 'A configurable GitHub app automates repetitive registry work while preserving explicit approval gates.',
-    flow: ['Request', 'Validate', 'Review', 'Merge'],
+    title: 'Automate one part of registry governance',
+    summary: 'The bot handles a GitHub request workflow; it is a building block, not a complete ORD namespace registry.',
+    flow: ['Issue request', 'Validate', 'Review', 'Registry PR'],
     repositories: [
       {
         name: 'global-registry-bot',
         language: 'TypeScript',
-        role: 'Registry automation',
+        role: 'Workflow automation',
         description: 'Validates issue-form requests, creates registry YAML pull requests, routes approvals, and merges safe changes.',
         url: 'https://github.com/open-resource-discovery/global-registry-bot',
       },
     ],
-    highlights: ['Configuration-driven workflows', 'GitHub remains the system of record', 'Repository rules still govern merges'],
+    highlights: ['Bring your own registry schema and data', 'Define governance and ownership rules', 'Provide publication, lookup, and hosting'],
   },
 }
 

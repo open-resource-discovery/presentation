@@ -65,6 +65,8 @@ Operational repositories, community administration, redirects, templates, and th
 
 - [`global-registry-bot`](https://github.com/open-resource-discovery/global-registry-bot#readme) is a configurable Probot application that validates registry requests, creates YAML pull requests, routes approvals, and merges safe changes under repository rules.
 - GitHub remains its system of record, and it does not keep a separate database for request content.
+- The bot is a workflow building block rather than a complete ORD namespace registry.
+- A deployable registry also needs an owned registry schema and dataset, governance rules, publication and lookup interfaces, and hosting.
 
 ## Excluded repositories
 

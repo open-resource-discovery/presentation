@@ -2,7 +2,7 @@
   <div class="deep-dive-index">
     <a href="./namespace-concept"><span>01 · Identity</span><strong>Namespace concept</strong><small>Who governs an identifier?</small></a>
     <a href="./landscape-model"><span>02 · Context</span><strong>Landscape model</strong><small>Type, version, deployment, instance</small></a>
-    <a href="./ord-identifiers"><span>03 · Identity</span><strong>ORD ID construction</strong><small>Four stable identifier fragments</small></a>
+    <a href="./ord-identifiers"><span>03 · Identity</span><strong>ORD and related IDs</strong><small>Identity, correlation, and specifications</small></a>
     <a href="./versioning-lifecycle"><span>04 · Change</span><strong>Versioning &amp; lifecycle</strong><small>Compatible change, successors, tombstones</small></a>
     <a href="./perspective-resolution"><span>05 · Views</span><strong>Perspective resolution</strong><small>Static layers and runtime truth</small></a>
     <a href="./pull-sequence"><span>06 · Transport</span><strong>Pull sequence</strong><small>From a known system to definitions</small></a>

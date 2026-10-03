@@ -3,11 +3,15 @@ withDefaults(
   defineProps<{
     backTo?: string
     backLabel?: string
+    nextTo?: string
+    nextLabel?: string
     showIndex?: boolean
   }>(),
   {
     backTo: 'deep-dives',
     backLabel: 'Deep dives',
+    nextTo: undefined,
+    nextLabel: undefined,
     showIndex: true,
   },
 )
@@ -17,6 +21,7 @@ withDefaults(
   <nav class="deep-dive-nav" aria-label="Deep-dive navigation">
     <a v-if="showIndex" href="./deep-dives">All deep dives</a>
     <a v-if="backTo !== 'deep-dives'" :href="`./${backTo}`">← {{ backLabel }}</a>
+    <a v-if="nextTo" :href="`./${nextTo}`">{{ nextLabel }} →</a>
   </nav>
 </template>
 

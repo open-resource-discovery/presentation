@@ -18,7 +18,7 @@ const projects = [
   { number: '06', category: 'Agents', title: 'A2A development tools', repositories: 'Editor · VS Code · samples · demo', route: 'project-a2a' },
   { number: '07', category: 'Agents', title: 'MCP Server Card tools', repositories: 'UI playground · ORD demo', route: 'project-mcp' },
   { number: '08', category: 'AI metadata', title: 'Metadata compaction', repositories: 'metadata-compactor-golang', route: 'project-compaction' },
-  { number: '09', category: 'Governance', title: 'Registry automation', repositories: 'global-registry-bot', route: 'project-registry' },
+  { number: '09', category: 'Building block', title: 'Registry workflow helper', repositories: 'global-registry-bot', route: 'project-registry' },
 ]
 </script>
 
