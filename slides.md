@@ -89,52 +89,6 @@ routeAlias: self-description
 </div>
 
 ---
-routeAlias: pull-overview
----
-
-<div class="slide-shell light-slide">
-<DeckLogo section="Pull transport"></DeckLogo>
-<header class="slide-header wide-header">
-<h2>Discovery follows links from one known entry point</h2>
-<p class="slide-subtitle">An aggregator or direct consumer starts with a known system, reads its ORD configuration, then crawls the linked metadata.</p>
-</header>
-<DiscoveryFlowDiagram></DiscoveryFlowDiagram>
-<DeepDiveLink to="pull-sequence" label="Sequence diagram"></DeepDiveLink>
-</div>
-
----
-routeAlias: ord-by-example
----
-
-<div class="slide-shell light-slide example-slide">
-<DeckLogo section="ORD by example"></DeckLogo>
-<header class="slide-header wide-header">
-<h2>Follow the links through a real provider</h2>
-</header>
-<OrdExampleExplorer></OrdExampleExplorer>
-</div>
-
----
-routeAlias: information-model
----
-
-<div class="slide-shell split-slide light-slide">
-<DeckLogo section="Information model"></DeckLogo>
-<section class="text-column">
-<h2>Resources become connected metadata</h2>
-<ul class="statement-list compact-list">
-<li><strong>Resources:</strong> APIs, Events, Data Products <span class="beta-pill">beta</span>, Agents <span class="beta-pill">beta</span>, Capabilities, and Integration Dependencies.</li>
-<li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
-<li><strong>Relationships:</strong> connect resources to definitions, semantics, ownership, lifecycle, and dependencies.</li>
-</ul>
-</section>
-<section class="diagram-column">
-<DataModelDiagram></DataModelDiagram>
-</section>
-<DeepDiveLink to="namespace-concept" label="Namespaces and IDs"></DeepDiveLink>
-</div>
-
----
 routeAlias: ord-roles
 ---
 
@@ -145,75 +99,6 @@ routeAlias: ord-roles
 <p class="slide-subtitle">Providers publish a simple self-description, aggregators build a connected view, and consumers retrieve metadata through a discovery-oriented API.</p>
 </header>
 <RolesDiagram></RolesDiagram>
-</div>
-
----
-routeAlias: perspectives-overview
----
-
-<div class="slide-shell split-slide light-slide">
-<DeckLogo section="Perspectives"></DeckLogo>
-<section class="text-column">
-<h2>Describe what is offered and what is running</h2>
-<ul class="statement-list compact-list">
-<li><strong>Static:</strong> a system type or version describes the reusable baseline without tenant-specific context.</li>
-<li><strong>Dynamic:</strong> a system instance describes the complete runtime view, including configuration and extensions.</li>
-<li><strong>System-independent:</strong> shared taxonomy can be published once outside a system context.</li>
-</ul>
-</section>
-<section class="diagram-column">
-<PerspectivesDiagram></PerspectivesDiagram>
-</section>
-<DeepDiveLink to="perspective-resolution" label="Resolution rules"></DeepDiveLink>
-</div>
-
----
-routeAlias: connected-landscape
----
-
-<div class="slide-shell light-slide">
-<DeckLogo section="Connected landscape"></DeckLogo>
-<header class="slide-header wide-header">
-<h2>Aggregation turns self-descriptions into a bigger picture</h2>
-<p class="slide-subtitle">Shared identifiers, taxonomy, and dependency links make resources navigable across systems without creating a single mandatory system of record.</p>
-</header>
-<LandscapeDiagram></LandscapeDiagram>
-<DeepDiveLink to="landscape-model" label="Landscape model"></DeepDiveLink>
-</div>
-
----
-routeAlias: enables-section
-deckSection: What it enables
----
-
-<SectionSlide
-  number="03"
-  title="What it enables"
-  text="Reuse connected metadata across catalogs, developer tools, automation, and AI."
-></SectionSlide>
-
----
-routeAlias: ai-discovery
----
-
-<div class="slide-shell split-slide light-slide">
-<DeckLogo section="AI-ready discovery"></DeckLogo>
-<section class="text-column">
-<h2>Give AI consumers context, not another silo</h2>
-<ul class="statement-list compact-list">
-<li>Agents <span class="beta-pill">beta</span> can be cataloged with ownership, purpose, relationships, and lifecycle metadata.</li>
-<li>A2A interfaces and MCP servers can be represented through ORD API Resources; A2A resources link Agent Card definitions.</li>
-<li><code>aiHint</code> adds focused guidance for LLMs and agent orchestrators without mixing it into human-facing descriptions.</li>
-</ul>
-<a class="outlook-callout" href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank">
-<span>Outlook · proposed for 1.17</span>
-<strong>Agent Skills and Agent Plugins as discoverable Capability types</strong>
-</a>
-</section>
-<section class="diagram-column">
-<AiDiscoveryDiagram></AiDiscoveryDiagram>
-</section>
-<DeepDiveLink to="skills-preview" label="Skills preview"></DeepDiveLink>
 </div>
 
 ---
@@ -250,6 +135,98 @@ routeAlias: scope
 </div>
 
 ---
+routeAlias: pull-overview
+---
+
+<div class="slide-shell light-slide">
+<DeckLogo section="Pull transport"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>Discovery follows links from one known entry point</h2>
+<p class="slide-subtitle">An aggregator or direct consumer starts with a known system, reads its ORD configuration, then crawls the linked metadata.</p>
+</header>
+<DiscoveryFlowDiagram></DiscoveryFlowDiagram>
+<DeepDiveLink to="pull-sequence" label="Sequence diagram"></DeepDiveLink>
+</div>
+
+---
+routeAlias: ord-by-example
+---
+
+<div class="slide-shell light-slide example-slide">
+<DeckLogo section="ORD by example"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>Follow one Orders API from discovery to its contract</h2>
+</header>
+<OrdExampleExplorer></OrdExampleExplorer>
+</div>
+
+---
+routeAlias: information-model
+---
+
+<div class="slide-shell split-slide light-slide">
+<DeckLogo section="Information model"></DeckLogo>
+<section class="text-column">
+<h2>Resources become connected metadata</h2>
+<ul class="statement-list compact-list">
+<li><strong>Resources:</strong> APIs, Events, Data Products <span class="beta-pill">beta</span>, Agents <span class="beta-pill">beta</span>, Capabilities, and Integration Dependencies.</li>
+<li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
+<li><strong>Relationships:</strong> connect resources to definitions, semantics, ownership, lifecycle, and dependencies.</li>
+</ul>
+</section>
+<section class="diagram-column">
+<DataModelDiagram></DataModelDiagram>
+</section>
+<DeepDiveLink to="namespace-concept" label="Namespaces and IDs"></DeepDiveLink>
+</div>
+
+---
+routeAlias: perspectives-overview
+---
+
+<div class="slide-shell split-slide light-slide">
+<DeckLogo section="Perspectives"></DeckLogo>
+<section class="text-column">
+<h2>Describe what is offered and what is running</h2>
+<ul class="statement-list compact-list">
+<li><strong>Static:</strong> a system type or version describes the reusable baseline without tenant-specific context.</li>
+<li><strong>Dynamic:</strong> a system instance describes the complete runtime view, including configuration and extensions.</li>
+<li><strong>System-independent:</strong> shared taxonomy can be published once outside a system context.</li>
+</ul>
+<p class="feature-status-note">Perspectives are included in ORD 1.16.4 with beta status.</p>
+</section>
+<section class="diagram-column">
+<PerspectivesDiagram></PerspectivesDiagram>
+</section>
+<DeepDiveLink to="perspective-resolution" label="Resolution rules"></DeepDiveLink>
+</div>
+
+---
+routeAlias: connected-landscape
+---
+
+<div class="slide-shell light-slide">
+<DeckLogo section="Connected landscape"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>Link Fulfillment's dependency to the Orders contract</h2>
+<p class="slide-subtitle">An aggregator connects Provider descriptions by ORD ID: required interfaces, their contracts, and shared business semantics.</p>
+</header>
+<LandscapeDiagram></LandscapeDiagram>
+<DeepDiveLink to="landscape-model" label="Landscape model"></DeepDiveLink>
+</div>
+
+---
+routeAlias: enables-section
+deckSection: What it enables
+---
+
+<SectionSlide
+  number="03"
+  title="What it enables"
+  text="Reuse connected metadata across catalogs, developer tools, automation, and AI."
+></SectionSlide>
+
+---
 routeAlias: outcomes
 ---
 
@@ -262,8 +239,32 @@ routeAlias: outcomes
 <section class="outcome-card"><span>01</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="2"/><rect x="19" y="3" width="10" height="10" rx="2"/><rect x="3" y="19" width="10" height="10" rx="2"/><rect x="19" y="19" width="10" height="10" rx="2"/></svg><h3>Catalogs</h3><p>Build searchable inventories across resource types and providers.</p></section>
 <section class="outcome-card"><span>02</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="4" width="28" height="24" rx="3"/><path d="M2 10H30M11 15L7 19L11 23M21 15L25 19L21 23M18 14L14 24"/></svg><h3>Developer tooling</h3><p>Find contracts, documentation, and access context programmatically.</p></section>
 <section class="outcome-card"><span>03</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 10V15M7 22V15H25V22"/><rect x="11" y="2" width="10" height="8" rx="2"/><rect x="2" y="22" width="10" height="8" rx="2"/><rect x="20" y="22" width="10" height="8" rx="2"/></svg><h3>Landscape insight</h3><p>Understand the capabilities and dependencies of running systems.</p></section>
-<section class="outcome-card"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="20" rx="4"/><path d="M16 3V8M2 15V22M30 15V22M11 22H21"/><circle cx="11" cy="16" r="1.5"/><circle cx="21" cy="16" r="1.5"/></svg><h3>Automation and AI</h3><p>Ground tools and agents in governed, current, machine-readable metadata.</p></section>
+<section class="outcome-card"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="20" rx="4"/><path d="M16 3V8M2 15V22M30 15V22M11 22H21"/><circle cx="11" cy="16" r="1.5"/><circle cx="21" cy="16" r="1.5"/></svg><h3>Automation and AI</h3><p>Ground tools and agents in structured, discoverable metadata.</p></section>
 </div>
+</div>
+
+---
+routeAlias: ai-discovery
+---
+
+<div class="slide-shell split-slide light-slide">
+<DeckLogo section="AI-ready discovery"></DeckLogo>
+<section class="text-column">
+<h2>Give AI consumers context, not another silo</h2>
+<ul class="statement-list compact-list">
+<li>Agents <span class="beta-pill">beta</span> can be cataloged with ownership, purpose, relationships, and lifecycle metadata.</li>
+<li>A2A interfaces and MCP servers can be represented through ORD API Resources; A2A resources link Agent Card definitions.</li>
+<li><code>aiHint</code> adds focused guidance for LLMs and agent orchestrators without mixing it into human-facing descriptions.</li>
+</ul>
+<a class="outlook-callout" href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank">
+<span>Outlook · proposed for 1.17</span>
+<strong>Agent Skills and Agent Plugins as discoverable Capability types</strong>
+</a>
+</section>
+<section class="diagram-column">
+<AiDiscoveryDiagram></AiDiscoveryDiagram>
+</section>
+<DeepDiveLink to="skills-preview" label="Skills preview"></DeepDiveLink>
 </div>
 
 ---
@@ -273,26 +274,26 @@ routeAlias: adoption
 <div class="slide-shell light-slide">
 <DeckLogo section="Adoption"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Start with the role you play</h2>
+<h2>Start with one API and one useful consumer</h2>
 </header>
 <div class="adoption-grid">
 <section class="adoption-card provider-card">
 <span class="adoption-number">01</span>
 <h3>Provider</h3>
-<p>Expose the well-known configuration, one or more ORD documents, and linked definitions.</p>
+<p>Publish a Package and one API Resource. Link the existing OpenAPI definition and expose ORD configuration.</p>
 </section>
 <section class="adoption-card aggregator-card">
 <span class="adoption-number">02</span>
 <h3>Aggregator</h3>
-<p>Crawl, validate, preserve perspectives, host definitions, and offer an effective discovery view.</p>
+<p>Crawl and validate the metadata. Resolve the effective view and preserve metadata access boundaries.</p>
 </section>
 <section class="adoption-card consumer-card">
 <span class="adoption-number">03</span>
 <h3>Consumer</h3>
-<p>Prefer an aggregator's Discovery API, or crawl a provider directly when that fits the use case.</p>
+<p>Make the API discoverable in one catalog or developer tool, through an aggregator or directly from its Provider.</p>
 </section>
 </div>
-<p class="adoption-note">Adoption can be incremental: publish the resources you own, keep detailed contracts in their native formats, and add richer relations over time.</p>
+<div class="adoption-note"><strong>Pilot: describe → validate → discover.</strong><span>Keep the contract in its native format; add Entity Types and dependencies as the use case grows.</span><nav aria-label="Pilot tools"><a href="./project-reference">Explore a reference implementation →</a><a href="./project-publishing">Choose publishing tools →</a></nav></div>
 </div>
 
 ---
@@ -391,7 +392,7 @@ routeAlias: related-identifiers
 <DeckLogo section="Identifier families"></DeckLogo>
 <DeepDiveNav back-to="ord-identifiers" back-label="ORD IDs"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Three identifiers, three jobs</h2>
+<h2>Three common identifiers, three jobs</h2>
 <p class="slide-subtitle">The namespace establishes who governs the identifier; its remaining fragments determine what kind of reference it represents.</p>
 </header>
 <IdentifierTypesDiagram></IdentifierTypesDiagram>
