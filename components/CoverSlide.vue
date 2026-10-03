@@ -8,6 +8,9 @@
         <p class="lead">
           A shared protocol for publishing and discovering connected metadata about applications and services.
         </p>
+        <a class="cover-spec-link" href="https://open-resource-discovery.org/spec-v1/" target="_blank">
+          Read the ORD specification <span aria-hidden="true">↗</span>
+        </a>
         <div class="cover-topics"><span>APIs</span><span>Events</span><span>Data Products</span><span>Agents</span></div>
       </section>
     </div>

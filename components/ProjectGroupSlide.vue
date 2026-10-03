@@ -257,16 +257,20 @@ const groups: Record<string, ProjectGroup> = {
 
 const props = defineProps<{ group: string }>()
 const project = computed(() => groups[props.group])
+const groupOrder = ['specification', 'reference', 'publishing', 'overlays', 'ui', 'a2a', 'mcp', 'compaction', 'registry']
+const groupIndex = computed(() => groupOrder.indexOf(props.group))
+const previousGroup = computed(() => groupIndex.value > 0 ? groupOrder[groupIndex.value - 1] : undefined)
+const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < groupOrder.length - 1 ? groupOrder[groupIndex.value + 1] : undefined)
 </script>
 
 <template>
   <div v-if="project" class="slide-shell light-slide deep-slide ecosystem-project-slide">
-    <DeckLogo></DeckLogo>
+    <DeckLogo :section="`Tools &amp; Ecosystem · ${project.number}`" section-to="tools-ecosystem"></DeckLogo>
     <nav class="ecosystem-nav" aria-label="Tools and ecosystem navigation">
-      <a href="./tools-ecosystem">All tools &amp; ecosystem</a>
+      <a v-if="previousGroup" :href="`./project-${previousGroup}`" :title="groups[previousGroup].title">← Previous</a>
+      <a v-if="nextGroup" :href="`./project-${nextGroup}`" :title="groups[nextGroup].title">Next →</a>
     </nav>
     <header class="slide-header wide-header">
-      <p class="eyebrow">Tools &amp; Ecosystem · {{ project.number }}</p>
       <h2>{{ project.title }}</h2>
       <p class="slide-subtitle">{{ project.summary }}</p>
     </header>
