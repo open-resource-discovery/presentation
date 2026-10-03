@@ -9,24 +9,26 @@ const contextMarker = `${id}-context`
 <template>
   <figure class="ai-diagram" aria-label="Fulfillment Agent resource graph with released API dependencies and proposed Skill dependencies">
     <svg viewBox="0 0 1136 410" role="img" aria-label="An Agent depends directly on an Orders API and, in the Skill proposal, on an Order Lookup Skill that needs an MCP Server">
-      <desc>The Fulfillment Provider describes an Agent in beta. It declares an Integration Dependency referencing the Orders REST API on another Provider. The proposed skill path adds an Order Lookup Capability and its dependency on an Orders MCP Server API Resource. Both API Resources reference the Order Entity Type through exposedEntityTypes. Solid coral edges are released API dependencies. Dashed violet edges are proposed Skill dependencies from PR 102; they are not released in ORD 1.16.4.</desc>
+      <desc>The Fulfillment Provider describes an Agent in beta. It declares an Integration Dependency referencing the Orders REST API on another Provider. The proposed skill path references an Order Lookup Capability published by a separate Skill Library Provider, which depends on an Orders MCP Server API Resource. Both API Resources reference the Order Entity Type through exposedEntityTypes. Solid coral edges are released API dependencies. Dashed violet edges are proposed Skill dependencies from PR 102; they are not released in ORD 1.16.4.</desc>
       <defs>
         <marker :id="dependencyMarker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="dependency-head" d="M0 0L10 5L0 10Z" /></marker>
         <marker :id="proposalMarker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="proposal-head" d="M0 0L10 5L0 10Z" /></marker>
         <marker :id="contextMarker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="context-head" d="M0 0L10 5L0 10Z" /></marker>
       </defs>
 
-      <rect class="provider-frame" x="20" y="12" width="520" height="376" rx="8" />
+      <rect class="provider-frame" x="20" y="12" width="496" height="164" rx="8" />
+      <rect class="provider-frame" x="20" y="192" width="496" height="140" rx="8" />
       <rect class="provider-frame" x="654" y="12" width="462" height="376" rx="8" />
       <text class="provider-title" x="42" y="43">Fulfillment system · Provider</text>
+      <text class="provider-title" x="42" y="223">Skill library · Provider</text>
       <text class="provider-title" x="676" y="43">Order system · Provider</text>
 
       <path class="dependency-edge" d="M342 110H676" :marker-end="`url(#${dependencyMarker})`" />
-      <text class="dependency-label" x="509" y="91" text-anchor="middle">API dependency</text>
-      <path class="proposal-edge" d="M192 150V245H270" :marker-end="`url(#${proposalMarker})`" />
-      <text class="proposal-label" x="50" y="205">Skill dependency</text>
-      <path class="proposal-edge" d="M520 245H600V230H676" :marker-end="`url(#${proposalMarker})`" />
-      <text class="proposal-label" x="604" y="212" text-anchor="middle">API dependency</text>
+      <text class="dependency-label" x="585" y="80" text-anchor="middle"><tspan x="585">API</tspan><tspan x="585" dy="18">dependency</tspan></text>
+      <path class="proposal-edge" d="M42 110H8V280H256" :marker-end="`url(#${proposalMarker})`" />
+      <text class="proposal-label" x="42" y="263">Skill dependency</text>
+      <path class="proposal-edge" d="M506 280H600V230H676" :marker-end="`url(#${proposalMarker})`" />
+      <text class="proposal-label" x="585" y="201" text-anchor="middle"><tspan x="585">API</tspan><tspan x="585" dy="18">dependency</tspan></text>
       <path class="context-edge" d="M1086 110H1100V294H996V320" :marker-end="`url(#${contextMarker})`" />
       <path class="context-edge" d="M860 270V320" :marker-end="`url(#${contextMarker})`" />
 
@@ -36,13 +38,13 @@ const contextMarker = `${id}-context`
         <text class="name" x="16" y="52">Fulfillment Agent</text>
         <text class="detail" x="16" y="72">Plan a shipment</text>
       </g>
-      <g class="skill-node" transform="translate(270 205)">
+      <g class="skill-node" transform="translate(256 240)">
         <rect width="250" height="80" rx="8" />
         <text class="kind" x="16" y="25">Capability · proposed</text>
         <text class="skill-name" x="16" y="54">Order Lookup Skill</text>
       </g>
-      <text class="source-note" x="42" y="344">Dependencies reference resources by ORD ID.</text>
-      <text class="source-note" x="42" y="370">MCP subsets can select specific tools.</text>
+      <text class="source-note" x="42" y="352">Dependencies reference resources by ORD ID.</text>
+      <text class="source-note" x="42" y="378">MCP subsets can select specific tools.</text>
 
       <g class="api-node" transform="translate(676 70)">
         <rect width="410" height="80" rx="8" />

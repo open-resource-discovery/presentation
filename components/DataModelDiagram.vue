@@ -28,7 +28,7 @@
     <section class="model-column taxonomy">
       <header>
         <span>How it is understood</span>
-        <strong>Taxonomy</strong>
+        <strong>Taxonomy &amp; access</strong>
       </header>
       <div class="item">Vendor &amp; Product</div>
       <div class="item">Package</div>

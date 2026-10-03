@@ -9,7 +9,7 @@
     <div class="skill-flow">
       <section class="skill-card primary">
         <small>ORD Capability</small>
-        <strong>Dispute Summarization</strong>
+        <strong>Order Lookup</strong>
         <code>type: agent-skill</code>
         <span>identity · owner · lifecycle · visibility</span>
       </section>
