@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
+import { parseSync } from "@slidev/parser";
 
 const options = parseArgs(process.argv.slice(2));
 const port = Number(options.port ?? process.env.PORT ?? 3131);
-const slideCount = Number(options.slides ?? process.env.SLIDE_COUNT ?? 6);
+const source = await readFile("slides.md", "utf8");
+const inferredSlideCount = parseSync(source, "slides.md").slides.length;
+const slideCount = Number(options.slides ?? process.env.SLIDE_COUNT ?? inferredSlideCount);
 const outDir = String(options.out ?? "screenshots");
-const host = "127.0.0.1";
-const baseUrl = `http://${host}:${port}`;
+const baseUrls = [`http://127.0.0.1:${port}`, `http://[::1]:${port}`];
 const slidevBin = path.resolve("node_modules/.bin/slidev");
 
 await mkdir(outDir, { recursive: true });
@@ -28,7 +30,7 @@ server.stderr.on("data", (chunk) => {
 });
 
 try {
-  await waitForHttp(baseUrl, 45_000, server);
+  const baseUrl = await waitForHttp(baseUrls, 45_000, server);
 
   const browser = await chromium.launch();
   const page = await browser.newPage({
@@ -67,7 +69,7 @@ function parseArgs(args) {
   return parsed;
 }
 
-async function waitForHttp(url, timeoutMs, serverProcess) {
+async function waitForHttp(urls, timeoutMs, serverProcess) {
   const started = Date.now();
   let earlyExit = null;
   serverProcess.once("exit", (code, signal) => {
@@ -79,17 +81,19 @@ async function waitForHttp(url, timeoutMs, serverProcess) {
       throw new Error(`Slidev exited before startup: code ${earlyExit.code}, signal ${earlyExit.signal}`);
     }
 
-    try {
-      const response = await fetch(url);
-      if (response.ok) {
-        return;
+    for (const url of urls) {
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          return url;
+        }
+      } catch {
+        // The dev server is still starting or is bound to the other loopback address.
       }
-    } catch {
-      // The dev server is still starting.
     }
 
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
 
-  throw new Error(`Timed out waiting for ${url}`);
+  throw new Error(`Timed out waiting for ${urls.join(" or ")}`);
 }

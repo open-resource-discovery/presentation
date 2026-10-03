@@ -1,0 +1,50 @@
+<template>
+  <figure class="resolution-diagram" aria-label="ORD perspective resolution decision flow">
+    <section class="request"><span>Consumer request</span><strong>Resolve the effective view for a system instance</strong></section>
+    <div class="down">↓</div>
+    <section class="decision"><strong>Is a complete <code>system-instance</code> perspective published?</strong></section>
+
+    <div class="branches">
+      <section class="branch yes">
+        <span>Yes</span>
+        <strong>Use only the runtime perspective</strong>
+        <p>If an ORD ID is absent, it is unavailable on that instance. Do not fill it from static metadata.</p>
+      </section>
+      <section class="branch no">
+        <span>No</span>
+        <strong>Resolve the effective static view</strong>
+        <div class="layers"><b>1 · applicable system-version</b><i>then, per ORD ID</i><b>2 · system-type fallback</b></div>
+      </section>
+    </div>
+
+    <div class="rules">
+      <p><strong>Select one complete representation.</strong> Never merge properties across static layers.</p>
+      <p><strong>Exact means exact.</strong> A missing specifically requested system version is an error, not a reason to substitute another version.</p>
+      <p><strong>System-independent stays separate.</strong> Shared global content sits outside the fallback chain.</p>
+    </div>
+  </figure>
+</template>
+
+<style scoped>
+.resolution-diagram { display: grid; flex: 1; grid-template-columns: 1fr 1fr; grid-template-rows: auto 18px auto 1fr auto; column-gap: 18px; margin: 0; }
+.request, .decision { display: flex; grid-column: 1 / -1; align-items: center; justify-content: space-between; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 14px 20px; }
+.request span { color: var(--ord-brand); font-size: 11px; font-weight: 750; text-transform: uppercase; }
+.request strong { color: var(--ord-text); font-size: 18px; }
+.down { grid-column: 1 / -1; color: var(--ord-brand); font-size: 20px; text-align: center; }
+.decision { justify-content: center; background: var(--ord-teal-soft); }
+.decision strong { color: var(--ord-text); font-size: 18px; }
+.decision code { color: var(--ord-brand); font-size: 15px; }
+.branches { display: grid; grid-column: 1 / -1; grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 18px; }
+.branch { display: flex; min-height: 195px; flex-direction: column; gap: 10px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--ord-coral); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 20px; }
+.branch.no { border-top-color: var(--ord-sky); }
+.branch > span { color: #bd4c36; font-size: 11px; font-weight: 750; text-transform: uppercase; }
+.branch.no > span { color: #2869a8; }
+.branch > strong { color: var(--ord-text); font-size: 19px; }
+.branch p { color: var(--ord-muted); font-size: 14px; line-height: 1.4; }
+.layers { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; margin-top: auto; }
+.layers b { border: 1px solid var(--ord-border); border-radius: 5px; background: var(--ord-pill-bg); color: var(--ord-text); font-size: 12px; padding: 10px; text-align: center; }
+.layers i { color: var(--ord-faint); font-size: 10px; font-style: normal; text-align: center; }
+.rules { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 16px; }
+.rules p { border-left: 3px solid var(--ord-brand-2); color: var(--ord-muted); font-size: 12px; line-height: 1.38; padding: 3px 10px; }
+.rules strong { color: var(--ord-text); }
+</style>

@@ -86,7 +86,7 @@
 
 .mode header span {
   color: var(--ord-brand-3);
-  font-family: var(--ord-mono);
+  font-family: var(--ord-font);
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -188,7 +188,7 @@
   border-radius: 999px;
   background: var(--ord-teal-soft);
   color: var(--ord-brand-3);
-  font-family: var(--ord-mono);
+  font-family: var(--ord-font);
   font-size: 14px;
   font-weight: 700;
   padding: 10px 16px;

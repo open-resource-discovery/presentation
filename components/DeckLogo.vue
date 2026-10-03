@@ -8,22 +8,24 @@
 <style scoped>
 .deck-logo {
   position: absolute;
-  top: 28px;
-  left: 72px;
+  bottom: 18px;
+  left: 28px;
   z-index: 5;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: var(--ord-text);
-  font-size: 17px;
-  font-weight: 650;
-  letter-spacing: 0;
+  gap: 8px;
+  color: var(--ord-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  opacity: 0.68;
+  text-transform: uppercase;
 }
 
 .deck-logo img {
   display: block;
-  width: 34px;
-  height: 34px;
+  width: 22px;
+  height: 22px;
 }
 
 </style>
