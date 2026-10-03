@@ -265,7 +265,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 
 <template>
   <div v-if="project" class="slide-shell light-slide deep-slide ecosystem-project-slide">
-    <DeckLogo :section="`Tools &amp; Ecosystem · ${project.number}`" section-to="tools-ecosystem"></DeckLogo>
+    <DeckLogo :section="`Group ${project.number}`"></DeckLogo>
     <nav class="ecosystem-nav" aria-label="Tools and ecosystem navigation">
       <a v-if="previousGroup" :href="`./project-${previousGroup}`" :title="groups[previousGroup].title">← Previous</a>
       <a v-if="nextGroup" :href="`./project-${nextGroup}`" :title="groups[nextGroup].title">Next →</a>
@@ -333,6 +333,8 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
   top: 31px;
   right: 72px;
   z-index: 3;
+  display: flex;
+  gap: 8px;
 }
 
 .ecosystem-nav a {
@@ -388,6 +390,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 
 .repository-grid {
   display: grid;
+  align-self: center;
   width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
@@ -413,12 +416,13 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .repository-card {
   display: flex;
   min-width: 0;
+  min-height: 280px;
   flex-direction: column;
   gap: 9px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-brand-2);
+  border-top: 4px solid var(--ord-accent-teal);
   border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
+  background: var(--ord-accent-teal-bg);
   padding: 16px 18px 14px;
 }
 
@@ -427,6 +431,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 }
 
 .count-4 .repository-card {
+  min-height: 200px;
   gap: 6px;
   padding: 12px 16px 10px;
 }
@@ -465,6 +470,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 }
 
 .repository-card h3 a {
+  border: 0;
   text-decoration: none;
 }
 
@@ -474,13 +480,13 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 
 .repository-card p {
   color: var(--ord-muted);
-  font-size: 15px;
-  line-height: 1.35;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 .count-4 .repository-card p {
-  font-size: 13px;
-  line-height: 1.28;
+  font-size: 15px;
+  line-height: 1.35;
 }
 
 .repository-card footer {
@@ -491,6 +497,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 }
 
 .repository-card footer a {
+  border: 0;
   color: var(--ord-brand);
   font-size: 11px;
   font-weight: 700;
@@ -503,6 +510,8 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 
 .project-highlights {
   display: flex;
+  align-self: center;
+  min-height: 280px;
   width: 34%;
   flex-direction: column;
   justify-content: center;

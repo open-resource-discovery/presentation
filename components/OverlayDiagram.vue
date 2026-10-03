@@ -13,7 +13,7 @@
       <section class="artifact overlay">
         <span class="kind">ORD Overlay 0.1 · beta</span>
         <strong>ai-enrichment.overlay.json</strong>
-        <code><i>selector</i>: getConstellation<br><i>action</i>: merge<br><i>data</i>: richer guidance</code>
+        <code><i>action</i>: merge<br><i>selector</i>: {<br>&nbsp; <i>operation</i>: getConstellation<br>}<br><i>data</i>: { summary: … }</code>
         <small>Separately owned, versioned, and governed</small>
       </section>
 
@@ -44,7 +44,7 @@
 .artifact.result { border-color: var(--ord-brand); background: linear-gradient(145deg, var(--ord-card-bg), var(--ord-sky-soft)); }
 .kind { color: var(--ord-brand); font-size: 11px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
 .artifact strong { color: var(--ord-text); font-size: 19px; }
-.artifact code { display: block; flex: 1; border-radius: 6px; background: #141a21; color: #d4d4d4; font-family: var(--ord-mono); font-size: 12px; line-height: 1.55; padding: 15px; }
+.artifact code { display: block; flex: 1; border-radius: 6px; background: #141a21; color: #d4d4d4; font-family: var(--ord-mono); font-size: 12px; line-height: 1.55; padding: 15px; overflow-wrap: anywhere; }
 .artifact code i { color: #9cdcfe; font-style: normal; }
 .artifact small { color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
 .operator { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: var(--ord-muted); }

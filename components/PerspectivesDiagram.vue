@@ -65,13 +65,13 @@
   flex-direction: column;
   gap: 12px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-sky);
+  border-top: 4px solid var(--ord-accent-sky);
   border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
+  background: var(--ord-accent-sky-bg);
   padding: 22px;
 }
-.perspective.dynamic { border-top-color: var(--ord-coral); }
-.perspective h3 { font-size: 22px; }
+.perspective.dynamic { border-top-color: var(--ord-accent-coral); background: var(--ord-accent-coral-bg); }
+.perspective h3 { min-height: 54px; font-size: 22px; }
 .perspective p { color: var(--ord-muted); font-size: 17px; line-height: 1.35; }
 .tokens { display: flex; flex-direction: column; gap: 7px; margin-top: auto; }
 .tokens span {
@@ -82,6 +82,6 @@
   font-size: 14px;
   padding: 8px 10px;
 }
-.effective-view { border-color: var(--ord-teal-line); background: var(--ord-teal-soft); text-align: center; }
-.effective-view span { color: var(--ord-brand); }
+.effective-view { border-left: 5px solid var(--ord-aggregator); background: var(--ord-aggregator-soft); text-align: center; }
+.effective-view span { color: var(--ord-aggregator); }
 </style>

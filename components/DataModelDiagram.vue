@@ -18,7 +18,7 @@
       <div class="item-grid">
         <div class="item">APIs</div>
         <div class="item">Events</div>
-        <div class="item">Data Products</div>
+        <div class="item">Data Products <small>beta</small></div>
         <div class="item">Capabilities</div>
         <div class="item agent">Agents <small>beta</small></div>
         <div class="item wide">Integration Dependencies</div>
@@ -30,9 +30,10 @@
         <span>How it is understood</span>
         <strong>Taxonomy</strong>
       </header>
-      <div class="item">Package &amp; Product</div>
+      <div class="item">Vendor &amp; Product</div>
+      <div class="item">Package</div>
       <div class="item">Entity Type</div>
-      <div class="item">Group</div>
+      <div class="item">Group / Group Type</div>
       <div class="item">Consumption Bundle</div>
     </section>
 
@@ -60,19 +61,19 @@
   flex-direction: column;
   gap: 9px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-sky);
+  border-top: 4px solid var(--ord-accent-sky);
   border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
+  background: var(--ord-accent-sky-bg);
   padding: 18px 14px;
 }
 
 .model-column.resources {
-  border-top-color: var(--ord-brand-2);
-  background: var(--ord-teal-soft);
+  border-top-color: var(--ord-accent-teal);
+  background: var(--ord-accent-teal-bg);
 }
 
 .model-column.taxonomy {
-  border-top-color: #9b7cff;
+  border-top-color: var(--ord-accent-violet); background: var(--ord-accent-violet-bg);
 }
 
 .model-column header {
@@ -98,7 +99,7 @@
 
 .item-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 8px;
 }
 
@@ -110,7 +111,7 @@
   border-radius: 6px;
   background: var(--ord-pill-bg);
   color: var(--ord-text);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 650;
   line-height: 1.2;
   padding: 9px 10px;
@@ -125,9 +126,10 @@
   border-color: #9b7cff;
 }
 
-.item.agent small {
+.item small {
+  margin-left: 5px;
   color: #6f4ad6;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 750;
   text-transform: uppercase;
 }

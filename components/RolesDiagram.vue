@@ -7,7 +7,7 @@
       <div class="role-items"><span>Provider API</span><span>ORD documents</span><span>Definitions</span></div>
     </section>
 
-    <div class="flow-arrow"><span>crawl</span></div>
+    <div class="flow-arrow"><span>Metadata</span></div>
 
     <section class="role aggregator">
       <span class="role-kicker">Connect</span>
@@ -16,7 +16,7 @@
       <div class="role-items"><span>Effective views</span><span>Hosted definitions</span><span>Discovery API</span></div>
     </section>
 
-    <div class="flow-arrow"><span>query</span></div>
+    <div class="flow-arrow"><span>Discovery API</span></div>
 
     <section class="role consumer">
       <span class="role-kicker">Use</span>
@@ -52,9 +52,9 @@
   padding: 26px;
 }
 
-.provider { border-top: 4px solid var(--ord-sky); }
-.aggregator { border-top: 4px solid var(--ord-brand-2); background: var(--ord-teal-soft); }
-.consumer { border-top: 4px solid #75b95b; }
+.provider { border-top: 5px solid var(--ord-provider); background: var(--ord-provider-soft); }
+.aggregator { border-top: 5px solid var(--ord-aggregator); background: var(--ord-aggregator-soft); }
+.consumer { border-top: 5px solid var(--ord-consumer); background: var(--ord-consumer-soft); }
 
 .role-kicker {
   color: var(--ord-faint);
@@ -78,7 +78,7 @@
   padding: 9px 11px;
 }
 
-.flow-arrow { position: relative; height: 2px; background: var(--ord-brand-2); }
+.flow-arrow { position: relative; height: 2px; margin: 0 -12px; background: var(--ord-brand-2); }
 .flow-arrow::after {
   position: absolute;
   top: -5px;
@@ -90,11 +90,11 @@
 }
 .flow-arrow span {
   position: absolute;
-  top: -27px;
+  bottom: 12px;
   width: 100%;
   color: var(--ord-faint);
   font-family: var(--ord-font);
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -116,7 +116,7 @@
   background: var(--ord-bg);
   color: var(--ord-faint);
   font-family: var(--ord-font);
-  font-size: 12px;
+  font-size: 14px;
   padding: 0 12px;
 }
 </style>

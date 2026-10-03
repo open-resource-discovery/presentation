@@ -45,13 +45,14 @@
 .preview-banner code { font-size: .9em; }
 .preview-banner a { color: var(--ord-brand); font-size: 12px; font-weight: 700; text-decoration: none; }
 .skill-flow { display: grid; grid-template-columns: 1fr 105px 1fr 125px 1fr; align-items: center; }
-.skill-card { display: flex; min-height: 220px; flex-direction: column; justify-content: center; gap: 11px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 23px; }
+.skill-card { display: grid; min-height: 260px; grid-template-rows: 18px 52px 28px 1fr; align-content: start; gap: 11px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 23px; }
 .skill-card.primary { border: 2px solid var(--ord-brand-2); background: var(--ord-teal-soft); }
-.skill-card.runtime { border-color: var(--ord-sky); background: var(--ord-sky-soft); }
+.skill-card.runtime { border: 2px solid var(--ord-consumer); background: var(--ord-consumer-soft); }
+.skill-card.runtime small { color: var(--ord-consumer); }
 .skill-card small { color: var(--ord-brand); font-size: 11px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
 .skill-card strong { color: var(--ord-text); font-size: 22px; line-height: 1.12; }
 .skill-card code { width: fit-content; border-radius: 4px; background: var(--ord-panel); color: var(--ord-brand-3); font-size: 12px; padding: 5px 8px; }
-.skill-card span { color: var(--ord-muted); font-size: 13px; line-height: 1.4; }
+.skill-card span { grid-row: 4; color: var(--ord-muted); font-size: 13px; line-height: 1.4; }
 .connection { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--ord-faint); }
 .connection span { font-size: 10px; font-weight: 700; text-transform: uppercase; }
 .connection i { color: var(--ord-brand); font-size: 32px; font-style: normal; }

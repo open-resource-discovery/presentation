@@ -31,13 +31,13 @@
 <style scoped>
 .visibility-diagram { display: grid; flex: 1; min-height: 0; grid-template-columns: 1.1fr .9fr; gap: 18px; margin: 0; }
 .audiences { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding-bottom: 24px; }
-.audiences section { display: grid; grid-template-columns: 100px 150px 1fr; align-items: center; gap: 14px; min-height: 92px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); padding: 15px 18px; }
+.audiences section { display: grid; grid-template-columns: 85px 1fr; align-items: center; gap: 6px 14px; min-height: 105px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); padding: 15px 18px; }
 .audiences section.public { width: 100%; border-left: 5px solid var(--ord-brand-2); background: var(--ord-teal-soft); }
 .audiences section.internal { width: 88%; margin-left: 12%; border-left: 5px solid var(--ord-sky); background: var(--ord-sky-soft); }
 .audiences section.private { width: 76%; margin-left: 24%; border-left: 5px solid #9b7cff; background: rgba(155,124,255,.08); }
 .audiences section > span { color: var(--ord-brand); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .audiences strong { color: var(--ord-text); font-size: 18px; }
-.audiences small { color: var(--ord-muted); font-size: 12px; line-height: 1.35; }
+.audiences small { grid-column: 2; color: var(--ord-muted); font-size: 14px; line-height: 1.35; }
 .restriction { position: absolute; right: 0; bottom: 0; color: var(--ord-faint); font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
 .definition-rule { display: flex; flex-direction: column; justify-content: center; gap: 14px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 22px; }
 .definition-rule > div:not(.arrow):not(.examples) { display: flex; flex-direction: column; gap: 7px; }

@@ -13,7 +13,7 @@ defineProps({
       <title id="provider-title">ORD provider overview</title>
       <desc id="provider-desc">
         An application or service exposes ORD resources through provided interfaces and states integration dependencies
-        through a required interface socket.
+        through a required interface socket connected to a resource described by another ORD Provider.
       </desc>
 
       <g class="provided">
@@ -23,7 +23,7 @@ defineProps({
         <path d="M370 145 L446 104" />
         <circle cx="446" cy="104" r="13" />
 
-        <path d="M235 197 L190 178" />
+        <path d="M239.4 197 L190 178" />
         <circle cx="190" cy="178" r="13" />
 
         <path d="M220 230 L190 246" />
@@ -32,16 +32,23 @@ defineProps({
         <path d="M370 315 L452 350" />
         <circle cx="452" cy="350" r="13" />
 
+        <path d="M340 315 L365 350" />
+        <circle cx="365" cy="350" r="13" />
+
         <path d="M420 230 L460 230" />
         <circle cx="460" cy="230" r="13" />
+
+        <path d="M126.4 350 H171" />
+        <circle cx="184" cy="350" r="13" />
       </g>
 
       <g class="required">
-        <path d="M270 315 L184 350" />
-        <path class="socket" d="M184 326 C154 326 154 374 184 374" />
+        <path d="M270 315 L206.5 350" />
+        <path class="socket" d="M184 326 C214 326 214 374 184 374" />
       </g>
 
       <polygon class="hex" points="220,230 270,145 370,145 420,230 370,315 270,315" />
+      <text class="provider-role" x="320" y="189" text-anchor="middle">ORD Provider</text>
       <text class="hex-label" x="320" y="222" text-anchor="middle">
         <tspan x="320" dy="0">Application</tspan>
         <tspan x="320" dy="30">/ Service</tspan>
@@ -52,9 +59,10 @@ defineProps({
         <text x="78" y="27" text-anchor="middle">Capabilities</text>
       </g>
 
-      <g class="tag provided-tag" transform="translate(468 52)">
-        <rect width="112" height="42" rx="21" />
-        <text x="56" y="27" text-anchor="middle">APIs</text>
+      <g class="tag provided-tag api-examples" transform="translate(460 42)">
+        <rect width="170" height="60" rx="8" />
+        <text x="85" y="25" text-anchor="middle">APIs</text>
+        <text class="protocol-examples" x="85" y="46" text-anchor="middle">REST · MCP · A2A</text>
       </g>
 
       <g class="tag provided-tag" transform="translate(40 151)">
@@ -64,7 +72,8 @@ defineProps({
 
       <g class="tag provided-tag" transform="translate(28 225)">
         <rect width="148" height="42" rx="21" />
-        <text x="74" y="27" text-anchor="middle">Data Products</text>
+        <text x="74" y="23" text-anchor="middle">Data Products</text>
+        <text class="beta-label" x="74" y="36" text-anchor="middle">beta</text>
       </g>
 
       <g class="tag provided-tag" transform="translate(468 329)">
@@ -72,9 +81,22 @@ defineProps({
         <text x="59" y="27" text-anchor="middle">Events</text>
       </g>
 
+      <g class="tag provided-tag" transform="translate(310 386)">
+        <rect width="110" height="42" rx="8" />
+        <text x="55" y="23" text-anchor="middle">Agents</text>
+        <text class="beta-label" x="55" y="36" text-anchor="middle">beta</text>
+      </g>
+
       <g class="tag required-tag" transform="translate(30 386)">
-        <rect width="268" height="42" rx="21" />
-        <text x="134" y="27" text-anchor="middle">Integration Dependencies</text>
+        <rect width="268" height="54" rx="8" />
+        <text x="134" y="23" text-anchor="middle">Integration Dependencies</text>
+        <text class="dependency-reference" x="134" y="42" text-anchor="middle">References external APIs or Events</text>
+      </g>
+
+      <g class="external-provider">
+        <polygon class="hex" points="30,345 55,310 105,310 130,345 105,380 55,380" />
+        <text x="80" y="343" text-anchor="middle">Other app</text>
+        <text class="external-provider-role" x="80" y="364" text-anchor="middle">ORD Provider</text>
       </g>
 
       <g class="api-card" transform="translate(482 198)">
@@ -84,7 +106,7 @@ defineProps({
       </g>
 
       <g class="definition-note" transform="translate(450 143)">
-        <path d="M-20 -12 L-4 -2" />
+        <path d="M-15 -28 L-4 -2" />
         <text class="definition-title" x="0" y="0">Detailed definitions</text>
         <text class="definition-subtitle" x="0" y="23">for example OpenAPI</text>
       </g>
@@ -101,10 +123,7 @@ defineProps({
   overflow: hidden;
   border: 1px solid var(--ord-sep);
   border-radius: var(--ord-radius);
-  background:
-    radial-gradient(circle at 48% 48%, rgba(88, 166, 255, 0.08), transparent 35%),
-    linear-gradient(90deg, rgba(39, 224, 209, 0.08), transparent 32%),
-    var(--ord-diagram-bg);
+  background: var(--ord-diagram-bg);
 }
 
 .provider-diagram.compact {
@@ -131,13 +150,13 @@ text {
 }
 
 .provided path {
-  stroke: var(--ord-brand-2);
+  stroke: var(--ord-provider);
   stroke-width: 3.8;
 }
 
 .provided circle {
   fill: var(--ord-pill-bg);
-  stroke: var(--ord-brand-2);
+  stroke: var(--ord-provider);
   stroke-width: 4;
 }
 
@@ -151,8 +170,8 @@ text {
 }
 
 .hex {
-  fill: var(--ord-hex-fill);
-  stroke: var(--ord-sky);
+  fill: var(--ord-provider-soft);
+  stroke: var(--ord-provider);
   stroke-linejoin: round;
   stroke-width: 4.5;
 }
@@ -164,13 +183,16 @@ text {
   line-height: 1;
 }
 
+.provider-role { fill: var(--ord-provider); font-size: 12px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
+
 .tag rect {
   fill: var(--ord-pill-bg);
   stroke-width: 1.3;
 }
 
 .provided-tag rect {
-  stroke: var(--ord-teal-line);
+  stroke: var(--ord-provider);
+  stroke-opacity: .4;
 }
 
 .required-tag rect {
@@ -183,9 +205,16 @@ text {
   font-weight: 740;
 }
 
+.tag text.protocol-examples { fill: var(--ord-muted); font-size: 12px; font-weight: 600; }
+.tag text.beta-label { fill: var(--ord-provider); font-size: 9px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.tag text.dependency-reference { fill: var(--ord-muted); font-size: 12px; font-weight: 520; }
+.external-provider text { fill: var(--ord-hex-text); font-size: 16px; font-weight: 750; }
+.external-provider text.external-provider-role { fill: var(--ord-provider); font-size: 9px; }
+.external-provider .hex { stroke-width: 3; }
+
 .api-card rect {
-  fill: var(--ord-teal-soft);
-  stroke: var(--ord-teal-line);
+  fill: var(--ord-provider-soft);
+  stroke: var(--ord-provider);
   stroke-width: 1.3;
 }
 
@@ -203,12 +232,13 @@ text {
 }
 
 .definition-note path {
-  stroke: var(--ord-coral);
-  stroke-width: 2.8;
+  stroke: var(--ord-faint);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
 }
 
 .definition-title {
-  fill: var(--ord-coral);
+  fill: var(--ord-muted);
   font-size: 16px;
   font-weight: 760;
 }

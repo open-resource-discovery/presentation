@@ -1,25 +1,46 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useSlideContext } from '@slidev/client'
+
 withDefaults(
   defineProps<{
     section?: string
-    sectionTo?: string
   }>(),
   {
     section: 'Main presentation',
-    sectionTo: '1',
   },
 )
+
+const { $page, $nav } = useSlideContext()
+const chapter = computed(() => {
+  const divider = $nav.value.slides
+    .filter(slide => slide.no <= $page.value && slide.meta?.slide?.frontmatter.deckSection)
+    .at(-1)
+  if (!divider) return undefined
+  return {
+    label: String(divider.meta.slide.frontmatter.deckSection),
+    to: divider.meta.slide.frontmatter.routeAlias ?? String(divider.no),
+    no: divider.no,
+  }
+})
 </script>
 
 <template>
   <div class="deck-logo" role="banner">
-    <a class="deck-brand" href="./1" aria-label="Go to the first slide">
+    <a class="deck-brand" href="./introduction" aria-label="Go to the first slide">
       <img src="/img/ord-icon-color.svg" alt="" />
       <span>Open Resource Discovery</span>
     </a>
     <span class="deck-context-separator" aria-hidden="true"></span>
-    <a class="deck-context" :href="`./${sectionTo}`">{{ section }}</a>
+    <nav class="deck-breadcrumb" aria-label="Breadcrumb">
+      <template v-if="chapter && chapter.no !== $page">
+        <a class="deck-chapter" :href="`./${chapter.to}`" :aria-label="`Back to ${chapter.label} divider`">{{ chapter.label }}</a>
+        <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      </template>
+      <span class="deck-context" aria-current="page">{{ section }}</span>
+    </nav>
   </div>
+  <footer class="deck-footer" :aria-label="`Slide ${$page} of ${$nav.total}`">{{ $page }} <span aria-hidden="true">/</span> {{ $nav.total }}</footer>
 </template>
 
 <style scoped>
@@ -54,8 +75,22 @@ withDefaults(
 }
 
 .deck-context-separator,
+.deck-breadcrumb,
 .deck-context {
   display: none;
 }
+
+.deck-footer {
+  position: absolute !important;
+  right: 24px;
+  bottom: 16px;
+  z-index: 5;
+  color: var(--ord-faint);
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 20px;
+}
+.deck-footer span { margin: 0 4px; opacity: .55; }
 
 </style>

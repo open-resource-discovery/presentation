@@ -18,11 +18,11 @@
       <section class="breaking">
         <header><span>Incompatible change</span><strong>Create a successor identity</strong></header>
         <div class="version-row"><code>…:Order:v1</code><b>deprecated</b><i>→</i><code>…:Order:v2</code><b>active</b></div>
-        <p>Keep the previous resource, link its successor, mark it sunset when decommissioned, and add a tombstone.</p>
+        <p>Link the successor; deprecation is a separate decision. When decommissioned, remove or mark sunset and publish a tombstone.</p>
       </section>
     </div>
 
-    <figcaption><strong>Three separate signals:</strong> identity generation in the ORD ID, precise state in <code>version</code>, and maturity in <code>releaseStatus</code>.</figcaption>
+    <figcaption><strong>Three separate signals:</strong> identity in the ORD ID, API contract state in <code>version</code>, and maturity in <code>releaseStatus</code>. <span class="exception">Development and beta resources may break without a new major ID; tenant extensions update <code>lastUpdate</code>.</span></figcaption>
   </figure>
 </template>
 
@@ -38,8 +38,8 @@
 .status.deprecated { border-color: var(--ord-coral); background: var(--ord-coral-soft); }
 .status.sunset { background: #eceff1; color: #66727a; }
 .change-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.change-grid section { display: flex; min-height: 225px; flex-direction: column; gap: 19px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--ord-brand-2); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 22px; }
-.change-grid section.breaking { border-top-color: var(--ord-coral); }
+.change-grid section { display: flex; min-height: 225px; flex-direction: column; gap: 19px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--ord-accent-teal); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); padding: 22px; }
+.change-grid section.breaking { border-top-color: var(--ord-accent-coral);  background: var(--ord-accent-coral-bg); }
 .change-grid header { display: flex; flex-direction: column; gap: 6px; }
 .change-grid header span { color: var(--ord-brand); font-size: 11px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
 .breaking header span { color: #bd4c36; }
@@ -52,4 +52,5 @@
 figcaption { border-left: 4px solid var(--ord-brand-2); background: var(--ord-teal-soft); color: var(--ord-muted); font-size: 16px; line-height: 1.4; padding: 14px 18px; }
 figcaption strong { color: var(--ord-text); }
 figcaption code { color: var(--ord-brand); font-size: 13px; }
+.exception { display: block; margin-top: 5px; font-size: 14px; }
 </style>

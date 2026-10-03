@@ -4,26 +4,26 @@
       <header><small>Provider</small><strong>Order system</strong></header>
       <div class="resource api">Orders API</div>
       <div class="resource event">Order events</div>
-      <div class="resource entity">Order</div>
+      <div class="resource entity">Order Entity Type <small>shared ORD ID</small></div>
     </section>
 
     <section class="graph">
-      <span class="graph-label">Aggregated metadata view</span>
-      <div class="hub">ORD</div>
-      <div class="relation relation-a">shared Entity Type</div>
-      <div class="relation relation-b">integration dependency</div>
-      <div class="relation relation-c">product &amp; package</div>
+      <span class="graph-label">ORD aggregator</span>
+      <h3>Connected metadata view</h3>
+      <div class="relation"><strong>Shared semantics</strong><span>APIs and Events reference the same Entity Type</span></div>
+      <div class="relation"><strong>Integration dependencies</strong><span>Declare required resources across systems</span></div>
+      <div class="relation"><strong>Common taxonomy</strong><span>Navigate Products, Packages, and Groups</span></div>
     </section>
 
     <section class="system system-b">
       <header><small>Provider</small><strong>Fulfillment system</strong></header>
       <div class="resource api">Shipment API</div>
       <div class="resource event">Delivery events</div>
-      <div class="resource entity">Order</div>
+      <div class="resource entity">Order Entity Type <small>shared ORD ID</small></div>
     </section>
 
     <div class="consumer-strip">
-      <span>Catalog</span><span>Developer tool</span><span>Automation</span><span>AI consumer</span>
+      <strong>Discovery API →</strong><span>Catalog</span><span>Developer tool</span><span>Automation</span><span>AI consumer</span>
     </div>
   </figure>
 </template>
@@ -35,9 +35,10 @@
   flex: 1;
   grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1.3fr) minmax(0, 0.8fr);
   gap: 28px;
+  row-gap: 20px;
   align-items: center;
   margin: 0;
-  padding-bottom: 72px;
+  grid-template-rows: 1fr auto;
 }
 
 .system {
@@ -46,8 +47,9 @@
   flex-direction: column;
   gap: 10px;
   border: 1px solid var(--ord-sep);
+  border-top: 5px solid var(--ord-provider);
   border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
+  background: var(--ord-provider-soft);
   padding: 20px;
 }
 .system header { display: flex; flex-direction: column; gap: 5px; margin-bottom: 8px; }
@@ -57,59 +59,44 @@
 .resource.api { border-color: rgba(88, 166, 255, 0.62); background: var(--ord-sky-soft); }
 .resource.event { border-color: var(--ord-teal-line); background: var(--ord-teal-soft); }
 .resource.entity { margin-top: auto; border-style: dashed; background: var(--ord-panel-soft); }
+.resource small { display: block; margin-top: 5px; color: var(--ord-muted); font-size: 12px; font-weight: 500; }
 
 .graph {
   position: relative;
-  min-height: 340px;
-  border: 1px solid var(--ord-teal-line);
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--ord-teal-soft), transparent 67%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 2px solid var(--ord-aggregator);
+  border-radius: var(--ord-radius);
+  background: var(--ord-aggregator-soft);
+  padding: 20px;
 }
 .graph-label {
-  position: absolute;
-  top: 26px;
-  width: 100%;
-  color: var(--ord-brand);
+  color: var(--ord-aggregator);
   font-family: var(--ord-font);
   font-size: 12px;
   font-weight: 700;
-  text-align: center;
   text-transform: uppercase;
 }
-.hub {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  width: 102px;
-  height: 102px;
-  transform: translate(-50%, -50%);
-  place-items: center;
-  border: 2px solid var(--ord-brand-2);
-  border-radius: 50%;
-  background: var(--ord-pill-bg);
-  color: var(--ord-text);
-  font-size: 28px;
-  font-weight: 780;
-}
+.graph h3 { font-size: 23px; }
 .relation {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   border: 1px solid var(--ord-border);
-  border-radius: 999px;
+  border-radius: 6px;
   background: var(--ord-pill-bg);
   color: var(--ord-muted);
-  font-size: 13px;
-  font-weight: 650;
-  padding: 8px 11px;
+  font-size: 14px;
+  line-height: 1.35;
+  padding: 8px 12px;
 }
-.relation-a { top: 88px; left: 14px; }
-.relation-b { right: 5px; bottom: 92px; }
-.relation-c { bottom: 38px; left: 52px; }
+.relation strong { color: var(--ord-text); font-size: 15px; }
 
 .graph::before, .graph::after {
   position: absolute;
   top: 50%;
-  width: 82px;
+  width: 28px;
   height: 2px;
   background: var(--ord-brand-2);
   content: "";
@@ -118,15 +105,16 @@
 .graph::after { left: 100%; }
 
 .consumer-strip {
-  position: absolute;
-  right: 9%;
-  bottom: 0;
-  left: 9%;
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: auto repeat(4, 1fr);
   gap: 8px;
-  border-top: 1px solid var(--ord-sep);
-  padding-top: 16px;
+  border: 1px solid var(--ord-sep);
+  border-top: 5px solid var(--ord-consumer);
+  border-radius: var(--ord-radius);
+  background: var(--ord-consumer-soft);
+  padding: 16px;
 }
-.consumer-strip span { color: var(--ord-muted); font-family: var(--ord-font); font-size: 13px; font-weight: 700; text-align: center; }
+.consumer-strip strong { color: var(--ord-consumer); font-size: 14px; }
+.consumer-strip span { color: var(--ord-muted); font-family: var(--ord-font); font-size: 15px; font-weight: 700; text-align: center; }
 </style>

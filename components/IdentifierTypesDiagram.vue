@@ -75,14 +75,14 @@
   flex-direction: column;
   gap: 15px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-brand-2);
+  border-top: 4px solid var(--ord-accent-teal);
   border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
+  background: var(--ord-accent-teal-bg);
   padding: 20px 21px;
 }
 
-.correlation-id { border-top-color: var(--ord-sky); }
-.specification-id { border-top-color: #9b7cff; }
+.correlation-id { border-top-color: var(--ord-accent-sky);  background: var(--ord-accent-sky-bg); }
+.specification-id { border-top-color: var(--ord-accent-violet);  background: var(--ord-accent-violet-bg); }
 
 .identifier-card header {
   display: flex;

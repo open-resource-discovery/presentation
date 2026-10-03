@@ -13,7 +13,7 @@
       <div class="definition-stack">
         <div><small>Base definition</small><code>openapi-v3</code></div>
         <b>+</b>
-        <div class="overlay"><small>ORD Overlay</small><code>purpose: ord:ai-enrichment</code></div>
+        <div class="overlay"><small>Overlay definition entry</small><code>type: ord:overlay:v1<br>purpose: ord:ai-enrichment</code></div>
       </div>
       <div class="outcome"><b>Helps an AI consumer use</b><span>Add operation-level descriptions, semantics, and hints without editing the source.</span></div>
     </section>
@@ -25,8 +25,8 @@
 <style scoped>
 .enrichment-diagram { display: grid; flex: 1; min-height: 0; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0; }
 .lane { display: grid; min-width: 0; grid-template-rows: auto 1fr auto; gap: 15px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 20px; }
-.definition-lane { border-top: 4px solid #9b7cff; }
-.resource-lane { border-top: 4px solid var(--ord-brand-2); }
+.definition-lane { border-top: 4px solid var(--ord-accent-violet); background: var(--ord-accent-violet-bg); }
+.resource-lane { border-top: 4px solid var(--ord-accent-teal); background: var(--ord-accent-teal-bg); }
 .lane-label { display: grid; grid-template-columns: 32px 1fr; gap: 3px 10px; }
 .lane-label > span { grid-row: 1 / 3; color: var(--ord-brand); font-size: 12px; font-weight: 800; }
 .lane-label strong { color: var(--ord-text); font-size: 20px; }

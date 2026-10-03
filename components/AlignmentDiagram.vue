@@ -12,11 +12,9 @@
           <span>Provider</span>
           <span>Provider</span>
         </div>
-        <div class="line line-a"></div>
-        <div class="line line-b"></div>
-        <div class="line line-c"></div>
-        <div class="line line-d"></div>
-        <div class="line line-e"></div>
+        <svg class="connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 16.667H100 M0 50H100 M0 83.333H100 M0 16.667L100 50 M0 16.667L100 83.333 M0 50L100 16.667 M0 50L100 83.333 M0 83.333L100 16.667 M0 83.333L100 50" />
+        </svg>
         <div class="nodes consumers">
           <span>Consumer</span>
           <span>Consumer</span>
@@ -106,10 +104,10 @@
 .nodes {
   position: absolute;
   top: 0;
-  display: flex;
+  display: grid;
   height: 100%;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
 }
 
 .nodes.providers {
@@ -135,48 +133,31 @@
 
 .nodes.providers span,
 .stack:first-child span {
-  border: 1px solid rgba(88, 166, 255, 0.68);
-  background: var(--ord-sky-soft);
+  border: 2px solid var(--ord-provider);
+  background: var(--ord-provider-soft);
 }
 
 .nodes.consumers span,
 .stack:last-child span {
-  border: 1px solid rgba(180, 239, 152, 0.54);
-  background: var(--ord-lime-soft);
+  border: 2px solid var(--ord-consumer);
+  background: var(--ord-consumer-soft);
 }
 
-.line {
+.connections {
   position: absolute;
-  left: 104px;
-  width: calc(100% - 208px);
-  height: 1px;
-  transform-origin: left center;
-  background: rgba(152, 152, 159, 0.48);
+  top: 0;
+  left: 114px;
+  width: calc(100% - 228px);
+  height: 100%;
+  overflow: visible;
 }
 
-.line-a {
-  top: 10%;
-  transform: rotate(0deg);
-}
-
-.line-b {
-  top: 15%;
-  transform: rotate(24deg);
-}
-
-.line-c {
-  top: 50%;
-  transform: rotate(0deg);
-}
-
-.line-d {
-  top: 82%;
-  transform: rotate(-24deg);
-}
-
-.line-e {
-  top: 88%;
-  transform: rotate(0deg);
+.connections path {
+  fill: none;
+  stroke: var(--ord-faint);
+  stroke-opacity: 0.5;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
 }
 
 .standard-rail {
@@ -199,19 +180,44 @@
   position: absolute;
   inset: 138px 24px 24px;
   display: grid;
-  grid-template-columns: 116px 1fr 188px 1fr 116px;
-  gap: 12px;
+  grid-template-columns: 110px minmax(24px, 1fr) minmax(160px, 1.3fr) minmax(24px, 1fr) 110px;
+  gap: 8px;
   align-items: center;
 }
 
 .stack {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  height: 100%;
+  padding: 16px 0;
 }
+
+.stack span { position: relative; min-width: 0; height: 44px; }
+.stack:first-child::after, .stack:last-child::before {
+  position: absolute;
+  top: 38px;
+  bottom: 38px;
+  border-left: 2px solid var(--ord-brand-2);
+  content: "";
+}
+.stack:first-child::after { right: -8px; }
+.stack:last-child::before { left: -8px; }
+.stack:first-child span::after, .stack:last-child span::before {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 2px;
+  background: var(--ord-brand-2);
+  content: "";
+}
+.stack:first-child span::after { left: 100%; }
+.stack:last-child span::before { right: 100%; }
 
 .arrow {
   height: 2px;
+  margin: 0 -8px;
   background: linear-gradient(90deg, rgba(50, 188, 172, 0.24), var(--ord-brand-2));
 }
 
@@ -234,9 +240,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border: 1px solid var(--ord-teal-line);
+  border: 2px solid var(--ord-aggregator);
   border-radius: var(--ord-radius);
-  background: var(--ord-teal-soft);
+  background: var(--ord-aggregator-soft);
   padding: 14px;
   text-align: center;
 }
@@ -256,10 +262,10 @@
 .api-icon {
   width: 34px;
   height: 34px;
-  border: 3px solid var(--ord-brand-3);
+  border: 3px solid var(--ord-aggregator);
   border-radius: 50%;
   box-shadow:
-    18px 0 0 -8px var(--ord-brand-3),
-    9px 16px 0 -8px var(--ord-brand-3);
+    18px 0 0 -8px var(--ord-aggregator),
+    9px 16px 0 -8px var(--ord-aggregator);
 }
 </style>

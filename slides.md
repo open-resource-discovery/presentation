@@ -1,5 +1,6 @@
 ---
 theme: default
+routeAlias: introduction
 title: Open Resource Discovery
 info: |
   A public introduction to the Open Resource Discovery specification.
@@ -14,6 +15,9 @@ drawings:
 <CoverSlide></CoverSlide>
 
 ---
+routeAlias: why-section
+deckSection: Why
+---
 
 <SectionSlide
   number="01"
@@ -22,9 +26,11 @@ drawings:
 ></SectionSlide>
 
 ---
+routeAlias: metadata-silos
+---
 
 <div class="slide-shell split-slide light-slide challenge-slide">
-<DeckLogo></DeckLogo>
+<DeckLogo section="Metadata silos"></DeckLogo>
 <section class="text-column">
 <h2 class="combined-heading"><span>The challenge:</span> Resource metadata lives in silos</h2>
 <p class="lead small">Specialized standards describe individual resources well, but they do not provide a shared inventory of a system or landscape.</p>
@@ -40,6 +46,8 @@ drawings:
 </div>
 
 ---
+routeAlias: metadata-alignment
+---
 
 <div class="slide-shell light-slide">
 <DeckLogo section="Alignment"></DeckLogo>
@@ -50,6 +58,9 @@ drawings:
 <AlignmentDiagram></AlignmentDiagram>
 </div>
 
+---
+routeAlias: how-section
+deckSection: How
 ---
 
 <SectionSlide
@@ -78,6 +89,20 @@ routeAlias: self-description
 </div>
 
 ---
+routeAlias: pull-overview
+---
+
+<div class="slide-shell light-slide">
+<DeckLogo section="Pull transport"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>Discovery follows links from one known entry point</h2>
+<p class="slide-subtitle">An aggregator or direct consumer starts with a known system, reads its ORD configuration, then crawls the linked metadata.</p>
+</header>
+<DiscoveryFlowDiagram></DiscoveryFlowDiagram>
+<DeepDiveLink to="pull-sequence" label="Sequence diagram"></DeepDiveLink>
+</div>
+
+---
 routeAlias: ord-by-example
 ---
 
@@ -98,8 +123,8 @@ routeAlias: information-model
 <section class="text-column">
 <h2>Resources become connected metadata</h2>
 <ul class="statement-list compact-list">
-<li><strong>Resources:</strong> APIs, Events, Data Products, Agents <span class="beta-pill">beta</span>, Capabilities, and Integration Dependencies.</li>
-<li><strong>Taxonomy and access context:</strong> Products, Packages, Entity Types, Groups, and Consumption Bundles.</li>
+<li><strong>Resources:</strong> APIs, Events, Data Products <span class="beta-pill">beta</span>, Agents <span class="beta-pill">beta</span>, Capabilities, and Integration Dependencies.</li>
+<li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
 <li><strong>Relationships:</strong> connect resources to definitions, semantics, ownership, lifecycle, and dependencies.</li>
 </ul>
 </section>
@@ -110,6 +135,8 @@ routeAlias: information-model
 </div>
 
 ---
+routeAlias: ord-roles
+---
 
 <div class="slide-shell light-slide">
 <DeckLogo section="Architecture"></DeckLogo>
@@ -118,20 +145,6 @@ routeAlias: information-model
 <p class="slide-subtitle">Providers publish a simple self-description, aggregators build a connected view, and consumers retrieve metadata through a discovery-oriented API.</p>
 </header>
 <RolesDiagram></RolesDiagram>
-</div>
-
----
-routeAlias: pull-overview
----
-
-<div class="slide-shell light-slide">
-<DeckLogo section="Pull transport"></DeckLogo>
-<header class="slide-header wide-header">
-<h2>Discovery follows links from one known entry point</h2>
-<p class="slide-subtitle">An aggregator or direct consumer starts with a known system, reads its ORD configuration, then crawls the linked metadata.</p>
-</header>
-<DiscoveryFlowDiagram></DiscoveryFlowDiagram>
-<DeepDiveLink to="pull-sequence" label="Sequence diagram"></DeepDiveLink>
 </div>
 
 ---
@@ -169,6 +182,9 @@ routeAlias: connected-landscape
 </div>
 
 ---
+routeAlias: enables-section
+deckSection: What it enables
+---
 
 <SectionSlide
   number="03"
@@ -201,6 +217,8 @@ routeAlias: ai-discovery
 </div>
 
 ---
+routeAlias: scope
+---
 
 <div class="slide-shell light-slide">
 <DeckLogo section="Scope"></DeckLogo>
@@ -232,6 +250,8 @@ routeAlias: ai-discovery
 </div>
 
 ---
+routeAlias: outcomes
+---
 
 <div class="slide-shell light-slide">
 <DeckLogo section="Outcomes"></DeckLogo>
@@ -239,13 +259,15 @@ routeAlias: ai-discovery
 <h2>One foundation, many metadata-driven experiences</h2>
 </header>
 <div class="outcome-grid">
-<section class="outcome-card"><span>01</span><h3>Catalogs</h3><p>Build searchable inventories across resource types and providers.</p></section>
-<section class="outcome-card"><span>02</span><h3>Developer tooling</h3><p>Find contracts, documentation, and access context programmatically.</p></section>
-<section class="outcome-card"><span>03</span><h3>Landscape insight</h3><p>Understand the capabilities and dependencies of running systems.</p></section>
-<section class="outcome-card"><span>04</span><h3>Automation and AI</h3><p>Ground tools and agents in governed, current, machine-readable metadata.</p></section>
+<section class="outcome-card"><span>01</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="2"/><rect x="19" y="3" width="10" height="10" rx="2"/><rect x="3" y="19" width="10" height="10" rx="2"/><rect x="19" y="19" width="10" height="10" rx="2"/></svg><h3>Catalogs</h3><p>Build searchable inventories across resource types and providers.</p></section>
+<section class="outcome-card"><span>02</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="4" width="28" height="24" rx="3"/><path d="M2 10H30M11 15L7 19L11 23M21 15L25 19L21 23M18 14L14 24"/></svg><h3>Developer tooling</h3><p>Find contracts, documentation, and access context programmatically.</p></section>
+<section class="outcome-card"><span>03</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 10V15M7 22V15H25V22"/><rect x="11" y="2" width="10" height="8" rx="2"/><rect x="2" y="22" width="10" height="8" rx="2"/><rect x="20" y="22" width="10" height="8" rx="2"/></svg><h3>Landscape insight</h3><p>Understand the capabilities and dependencies of running systems.</p></section>
+<section class="outcome-card"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="20" rx="4"/><path d="M16 3V8M2 15V22M30 15V22M11 22H21"/><circle cx="11" cy="16" r="1.5"/><circle cx="21" cy="16" r="1.5"/></svg><h3>Automation and AI</h3><p>Ground tools and agents in governed, current, machine-readable metadata.</p></section>
 </div>
 </div>
 
+---
+routeAlias: adoption
 ---
 
 <div class="slide-shell light-slide">
@@ -286,7 +308,7 @@ routeAlias: closing
 <p class="lead small">Open Resource Discovery is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a> and governed by the <a href="https://neonephos.org/" target="_blank">NeoNephos Foundation</a> under <a href="https://linuxfoundation.eu/" target="_blank">Linux Foundation Europe</a>.</p>
 <div class="next-grid">
 <a href="https://open-resource-discovery.org/introduction" target="_blank"><span>5-minute primer</span><small>open-resource-discovery.org/introduction</small></a>
-<a href="https://open-resource-discovery.org/spec-v1/" target="_blank"><span>Specification 1.16</span><small>open-resource-discovery.org/spec-v1</small></a>
+<a href="https://open-resource-discovery.org/spec-v1/" target="_blank"><span>ORD specification</span><small>open-resource-discovery.org/spec-v1</small></a>
 <a href="https://github.com/open-resource-discovery" target="_blank"><span>Project on GitHub</span><small>github.com/open-resource-discovery</small></a>
 </div>
 </section>
@@ -297,6 +319,7 @@ routeAlias: closing
 
 ---
 routeAlias: deep-dive-section
+deckSection: Deep dives
 ---
 
 <SectionSlide
@@ -310,8 +333,8 @@ routeAlias: deep-dives
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Deep dives" section-to="deep-dives"></DeckLogo>
-<DeepDiveNav back-to="1" back-label="Main presentation"></DeepDiveNav>
+<DeckLogo section="Overview"></DeckLogo>
+<DeepDiveNav back-to="introduction" back-label="Main presentation"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>ORD details, one concept at a time</h2>
 </header>
@@ -323,7 +346,7 @@ routeAlias: namespace-concept
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Namespace concept" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="Namespace concept"></DeckLogo>
 <DeepDiveNav back-to="information-model" back-label="Information model"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Identity starts with clear ownership</h2>
@@ -337,7 +360,7 @@ routeAlias: landscape-model
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="System landscape model" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="System landscape model"></DeckLogo>
 <DeepDiveNav back-to="connected-landscape" back-label="Connected landscape"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>ORD adds detail to systems you already know</h2>
@@ -351,10 +374,10 @@ routeAlias: ord-identifiers
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="ORD identifiers" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="ORD identifiers"></DeckLogo>
 <DeepDiveNav back-to="namespace-concept" back-label="Namespace concept" next-to="related-identifiers" next-label="Related IDs"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Four fragments create a stable ORD identity</h2>
+<h2>ORD ID: How to construct the type-level ID</h2>
 <p class="slide-subtitle">An ORD ID identifies the governed resource at design time. Runtime uniqueness also needs the system-instance context.</p>
 </header>
 <OrdIdDiagram></OrdIdDiagram>
@@ -365,7 +388,7 @@ routeAlias: related-identifiers
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Identifier families" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="Identifier families"></DeckLogo>
 <DeepDiveNav back-to="ord-identifiers" back-label="ORD IDs"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Three identifiers, three jobs</h2>
@@ -379,8 +402,8 @@ routeAlias: versioning-lifecycle
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Versioning and lifecycle" section-to="deep-dives"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model"></DeepDiveNav>
+<DeckLogo section="Versioning and lifecycle"></DeckLogo>
+<DeepDiveNav back-to="information-model" back-label="Information model" next-to="api-lifecycle" next-label="API lifecycle example"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Identity, change, and maturity are separate signals</h2>
 </header>
@@ -388,11 +411,28 @@ routeAlias: versioning-lifecycle
 </div>
 
 ---
+routeAlias: api-lifecycle
+---
+
+<script setup>
+import ApiLifecycleDiagram from './components/ApiLifecycleDiagram.vue'
+</script>
+
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="API lifecycle example"></DeckLogo>
+<DeepDiveNav back-to="versioning-lifecycle" back-label="Versioning &amp; lifecycle"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>API lifecycle: evolve, replace, then retire</h2>
+</header>
+<ApiLifecycleDiagram></ApiLifecycleDiagram>
+</div>
+
+---
 routeAlias: perspective-resolution
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Perspective resolution" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="Perspective resolution"></DeckLogo>
 <DeepDiveNav back-to="perspectives-overview" back-label="Perspectives"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Resolve the most specific complete view</h2>
@@ -405,7 +445,7 @@ routeAlias: pull-sequence
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Pull transport sequence" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="Pull transport sequence"></DeckLogo>
 <DeepDiveNav back-to="pull-overview" back-label="Pull transport"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Discover, fetch, then follow definitions</h2>
@@ -419,7 +459,7 @@ routeAlias: ai-enrichment
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI-oriented metadata enrichment" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="AI-oriented metadata enrichment"></DeckLogo>
 <DeepDiveNav back-to="ai-discovery" back-label="AI-ready discovery"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Help AI choose a resource, then use it well</h2>
@@ -432,7 +472,7 @@ routeAlias: visibility
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Visibility and access" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="Visibility and access"></DeckLogo>
 <DeepDiveNav back-to="information-model" back-label="Information model"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Expose metadata only to its intended audience</h2>
@@ -445,7 +485,7 @@ routeAlias: ord-overlays
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="ORD Overlays · beta" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="ORD Overlays · beta"></DeckLogo>
 <DeepDiveNav back-to="ai-discovery" back-label="AI-ready discovery"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Enrich a definition without changing its source</h2>
@@ -458,7 +498,7 @@ routeAlias: skills-preview
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Preview · proposed for 1.17" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="Preview · proposed for 1.17"></DeckLogo>
 <DeepDiveNav back-to="ai-discovery" back-label="AI-ready discovery"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Make reusable agent skills discoverable</h2>
@@ -471,7 +511,7 @@ routeAlias: push-preview
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Preview · proposal" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="Preview · proposal"></DeckLogo>
 <DeepDiveNav back-to="pull-overview" back-label="Pull transport"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Stage, validate, then publish atomically</h2>
@@ -484,7 +524,7 @@ routeAlias: integration-dependencies
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Integration dependencies" section-to="deep-dives"></DeckLogo>
+<DeckLogo section="Integration dependencies"></DeckLogo>
 <DeepDiveNav back-to="information-model" back-label="Information model"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Describe what a system needs from others</h2>
@@ -493,7 +533,43 @@ routeAlias: integration-dependencies
 </div>
 
 ---
+routeAlias: ord-extensibility
+---
+
+<script setup>
+import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
+</script>
+
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Extensibility in ORD"></DeckLogo>
+<DeepDiveNav next-to="grouping-packaging" next-label="Grouping &amp; packaging"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Extend through the right ORD extension point</h2>
+<p class="slide-subtitle">Keep the shared discovery model; add domain-specific meaning where ORD provides an extension mechanism.</p>
+</header>
+<ExtensibilityDiagram></ExtensibilityDiagram>
+</div>
+
+---
+routeAlias: grouping-packaging
+---
+
+<script setup>
+import GroupingPackagingDiagram from './components/GroupingPackagingDiagram.vue'
+</script>
+
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Grouping &amp; packaging"></DeckLogo>
+<DeepDiveNav back-to="ord-extensibility" back-label="Extensibility"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Grouping &amp; packaging: choose by concern</h2>
+</header>
+<GroupingPackagingDiagram></GroupingPackagingDiagram>
+</div>
+
+---
 routeAlias: tools-ecosystem-section
+deckSection: Tools & Ecosystem
 ---
 
 <SectionSlide
@@ -507,8 +583,8 @@ routeAlias: tools-ecosystem
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Tools &amp; Ecosystem" section-to="tools-ecosystem"></DeckLogo>
-<DeepDiveNav back-to="1" back-label="Main presentation"></DeepDiveNav>
+<DeckLogo section="Overview"></DeckLogo>
+<DeepDiveNav back-to="introduction" back-label="Main presentation"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>From specification to working ecosystem</h2>
 <p class="slide-subtitle">Twenty public repositories are grouped here into nine tools, integrations, and reference experiences.</p>

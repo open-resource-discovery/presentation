@@ -8,7 +8,7 @@
       <section class="namespace"><span>01</span><h3>Namespace</h3><p>Identifies the owner governing the information.</p></section>
       <section class="concept"><span>02</span><h3>Concept name</h3><p>A fixed ORD type such as <code>apiResource</code> or <code>agent</code>.</p></section>
       <section class="resource"><span>03</span><h3>Resource name</h3><p>A stable, human-readable technical name within the namespace.</p></section>
-      <section class="major"><span>04</span><h3>Major version</h3><p>Creates a new identity generation for an incompatible change.</p></section>
+      <section class="major"><span>04</span><h3>Major version</h3><p>Marks incompatible generations. Product and Vendor IDs leave this fragment empty, keeping the final colon.</p></section>
     </div>
 
     <div class="identity-note">

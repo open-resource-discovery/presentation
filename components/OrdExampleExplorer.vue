@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 type Json = Record<string, any>
 
@@ -66,6 +66,7 @@ const active = ref(0)
 const status = ref<'loading' | 'live' | 'snapshot' | 'embedded'>('snapshot')
 const response = ref('')
 const frameKey = ref(0)
+let pendingRequest: AbortController | undefined
 const current = computed(() => steps[active.value])
 const liveUrl = computed(() => `${origin}${current.value.path}`)
 const highlightedLines = computed(() => response.value.split('\n').map(highlightJsonLine))
@@ -161,18 +162,27 @@ function summarize(data: Json, index: number): Json {
 }
 
 async function query() {
+  pendingRequest?.abort()
+  const controller = new AbortController()
+  pendingRequest = controller
+  const index = active.value
+  const step = steps[index]
   status.value = 'loading'
   try {
-    const result = await fetch(`/ord-reference${current.value.path}`, { cache: 'no-store' })
+    const result = await fetch(`/ord-reference${step.path}`, { cache: 'no-store', signal: controller.signal })
     if (!result.ok) throw new Error(`HTTP ${result.status}`)
     const data = await result.json()
-    response.value = JSON.stringify(summarize(data, active.value), null, 2)
+    if (controller.signal.aborted) return
+    response.value = JSON.stringify(summarize(data, index), null, 2)
     status.value = 'live'
   } catch {
+    if (controller.signal.aborted) return
     status.value = 'embedded'
     frameKey.value += 1
   }
 }
+
+onUnmounted(() => pendingRequest?.abort())
 
 function select(index: number) {
   active.value = index

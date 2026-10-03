@@ -13,12 +13,13 @@
       <section class="branch no">
         <span>No</span>
         <strong>Resolve the effective static view</strong>
-        <div class="layers"><b>1 · applicable system-version</b><i>then, per ORD ID</i><b>2 · system-type fallback</b></div>
+        <p>Known tenant version: select that exact version. Otherwise, select the greatest published stable SemVer.</p>
+        <div class="layers"><b>1 · system-version</b><i>if ID absent →</i><b>2 · system-type</b></div>
       </section>
     </div>
 
     <div class="rules">
-      <p><strong>Select one complete representation.</strong> Never merge properties across static layers.</p>
+      <p><strong>Complete representations.</strong> Never merge properties. A tombstone blocks fallback for that ORD ID.</p>
       <p><strong>Exact means exact.</strong> A missing specifically requested system version is an error, not a reason to substitute another version.</p>
       <p><strong>System-independent stays separate.</strong> Shared global content sits outside the fallback chain.</p>
     </div>
@@ -35,8 +36,8 @@
 .decision strong { color: var(--ord-text); font-size: 18px; }
 .decision code { color: var(--ord-brand); font-size: 15px; }
 .branches { display: grid; grid-column: 1 / -1; grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 18px; }
-.branch { display: flex; min-height: 195px; flex-direction: column; gap: 10px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--ord-coral); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 20px; }
-.branch.no { border-top-color: var(--ord-sky); }
+.branch { display: flex; min-height: 195px; flex-direction: column; gap: 10px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--ord-accent-coral); border-radius: var(--ord-radius); background: var(--ord-accent-coral-bg); padding: 20px; }
+.branch.no { border-top-color: var(--ord-accent-sky);  background: var(--ord-accent-sky-bg); }
 .branch > span { color: #bd4c36; font-size: 11px; font-weight: 750; text-transform: uppercase; }
 .branch.no > span { color: #2869a8; }
 .branch > strong { color: var(--ord-text); font-size: 19px; }
@@ -45,6 +46,6 @@
 .layers b { border: 1px solid var(--ord-border); border-radius: 5px; background: var(--ord-pill-bg); color: var(--ord-text); font-size: 12px; padding: 10px; text-align: center; }
 .layers i { color: var(--ord-faint); font-size: 10px; font-style: normal; text-align: center; }
 .rules { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 16px; }
-.rules p { border-left: 3px solid var(--ord-brand-2); color: var(--ord-muted); font-size: 12px; line-height: 1.38; padding: 3px 10px; }
+.rules p { border-left: 3px solid var(--ord-brand-2); color: var(--ord-muted); font-size: 14px; line-height: 1.38; padding: 3px 10px; }
 .rules strong { color: var(--ord-text); }
 </style>

@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "start": "npm run dev",
     "dev": "slidev",
     "build": "slidev build",
     "export": "slidev export --format pdf --output slides-export.pdf",

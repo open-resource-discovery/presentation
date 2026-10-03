@@ -50,20 +50,20 @@
 }
 
 .step {
-  display: flex;
+  display: grid;
   min-height: 232px;
-  flex-direction: column;
+  grid-template-rows: 22px 50px 1fr;
   gap: 13px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-sky);
+  border-top: 4px solid var(--ord-accent-sky);
   border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
+  background: var(--ord-accent-sky-bg);
   padding: 24px 22px;
 }
 
-.step.config { border-top-color: var(--ord-brand-2); background: var(--ord-teal-soft); }
-.step.document { border-top-color: #9b7cff; }
-.step.definitions { border-top-color: var(--ord-coral); }
+.step.config { border-top-color: var(--ord-accent-teal); background: var(--ord-accent-teal-bg); }
+.step.document { border-top-color: var(--ord-accent-violet); background: var(--ord-accent-violet-bg); }
+.step.definitions { border-top-color: var(--ord-accent-coral); background: var(--ord-accent-coral-bg); }
 
 .number {
   color: var(--ord-faint);
@@ -73,7 +73,7 @@
 }
 .step strong { color: var(--ord-text); font-size: 21px; line-height: 1.18; }
 .step small { color: var(--ord-muted); font-size: 16px; line-height: 1.35; }
-.step code { color: var(--ord-brand); font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; }
+.step code { align-self: start; background: var(--ord-pill-bg); color: var(--ord-brand); font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; padding: 4px 6px; border-radius: 4px; }
 
 .steps > i { position: relative; height: 2px; background: var(--ord-brand-2); }
 .steps > i::after {

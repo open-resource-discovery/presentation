@@ -12,6 +12,9 @@
     <a href="./skills-preview"><span>10 · Preview</span><strong>Skills in ORD</strong><small>Discoverable, reusable agent capabilities</small></a>
     <a href="./push-preview"><span>11 · Preview</span><strong>Push transport</strong><small>Transactional publication to an aggregator</small></a>
     <a href="./integration-dependencies"><span>12 · Relationships</span><strong>Integration dependencies</strong><small>Requirements, alternatives, and subsets</small></a>
+    <a href="./ord-extensibility"><span>13 · Extension points</span><strong>Extensibility in ORD</strong><small>Metadata, taxonomy, and custom definitions</small></a>
+    <a href="./grouping-packaging"><span>14 · Organization</span><strong>Grouping &amp; packaging</strong><small>Publishing, access, portfolio, and taxonomy</small></a>
+    <a href="./api-lifecycle"><span>15 · Change</span><strong>API lifecycle example</strong><small>Stable IDs, successor resources, retirement</small></a>
   </div>
 </template>
 
@@ -25,36 +28,26 @@
 }
 
 .deep-dive-index a {
-  display: flex;
-  min-height: 122px;
-  flex-direction: column;
-  gap: 6px;
+  display: grid;
+  min-height: 120px;
+  grid-template-rows: 16px 40px minmax(30px, 1fr);
+  gap: 4px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-brand-2);
   border-radius: var(--ord-radius);
   background: var(--ord-card-bg);
-  padding: 14px 16px;
+  padding: 12px 16px;
   text-decoration: none;
 }
 
-.deep-dive-index a:nth-child(2),
-.deep-dive-index a:nth-child(5) { border-top-color: var(--ord-sky); }
-.deep-dive-index a:nth-child(4),
-.deep-dive-index a:nth-child(6),
-.deep-dive-index a:nth-child(11) { border-top-color: var(--ord-coral); }
-.deep-dive-index a:nth-child(7),
-.deep-dive-index a:nth-child(9) { border-top-color: #9b7cff; }
-.deep-dive-index a:nth-child(8) { border-top-color: var(--ord-lime); }
-.deep-dive-index a:nth-child(10) { border-top-color: var(--ord-brand); }
-.deep-dive-index a:nth-child(12) { border-top-color: var(--ord-sky); }
-
 .deep-dive-index a:hover {
   border-color: var(--ord-brand-2);
-  transform: translateY(-2px);
+  background: var(--ord-accent-teal-bg);
 }
 
+.deep-dive-index a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 2px; }
+
 .deep-dive-index span {
-  color: var(--ord-brand);
+  color: var(--ord-faint);
   font-size: 11px;
   font-weight: 750;
   letter-spacing: 0.04em;
@@ -62,7 +55,8 @@
 }
 
 .deep-dive-index strong {
-  margin-top: auto;
+  margin-top: 0;
+  min-height: 40px;
   color: var(--ord-text);
   font-size: 17px;
   line-height: 1.15;

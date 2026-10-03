@@ -32,25 +32,25 @@ const projects = [
 }
 
 .ecosystem-index a {
-  display: flex;
-  min-height: 128px;
-  flex-direction: column;
+  display: grid;
+  min-height: 144px;
+  grid-template-rows: 18px 44px minmax(32px, 1fr);
   gap: 6px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-brand-2);
+  border-top: 4px solid var(--ord-accent-teal);
   border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
+  background: var(--ord-accent-teal-bg);
   padding: 15px 18px;
   text-decoration: none;
   transition: border-color 150ms ease, transform 150ms ease;
 }
 
 .ecosystem-index a:nth-child(2),
-.ecosystem-index a:nth-child(7) { border-top-color: var(--ord-sky); }
+.ecosystem-index a:nth-child(7) { border-top-color: var(--ord-accent-sky); background: var(--ord-accent-sky-bg); }
 .ecosystem-index a:nth-child(4),
-.ecosystem-index a:nth-child(8) { border-top-color: #9b7cff; }
-.ecosystem-index a:nth-child(6) { border-top-color: var(--ord-coral); }
-.ecosystem-index a:nth-child(9) { border-top-color: #75b95b; }
+.ecosystem-index a:nth-child(8) { border-top-color: var(--ord-accent-violet); background: var(--ord-accent-violet-bg); }
+.ecosystem-index a:nth-child(6) { border-top-color: var(--ord-accent-coral); background: var(--ord-accent-coral-bg); }
+.ecosystem-index a:nth-child(9) { border-top-color: var(--ord-accent-lime); background: var(--ord-accent-lime-bg); }
 
 .ecosystem-index a:hover {
   border-color: var(--ord-brand-2);
@@ -66,7 +66,8 @@ const projects = [
 }
 
 .ecosystem-index strong {
-  margin-top: auto;
+  min-height: 44px;
+  margin-top: 0;
   color: var(--ord-text);
   font-size: 19px;
   line-height: 1.15;
