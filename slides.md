@@ -80,6 +80,19 @@ routeAlias: self-description
 </div>
 
 ---
+routeAlias: ord-by-example
+---
+
+<div class="slide-shell light-slide example-slide">
+<DeckLogo></DeckLogo>
+<header class="slide-header wide-header">
+<p class="eyebrow">ORD by example</p>
+<h2>Follow the links through a real provider</h2>
+</header>
+<OrdExampleExplorer></OrdExampleExplorer>
+</div>
+
+---
 routeAlias: information-model
 ---
 
@@ -125,19 +138,6 @@ routeAlias: pull-overview
 </header>
 <DiscoveryFlowDiagram></DiscoveryFlowDiagram>
 <DeepDiveLink to="pull-sequence" label="Sequence diagram"></DeepDiveLink>
-</div>
-
----
-routeAlias: ord-by-example
----
-
-<div class="slide-shell light-slide example-slide">
-<DeckLogo></DeckLogo>
-<header class="slide-header wide-header">
-<p class="eyebrow">ORD by example</p>
-<h2>Follow the links through a real provider</h2>
-</header>
-<OrdExampleExplorer></OrdExampleExplorer>
 </div>
 
 ---
@@ -301,6 +301,7 @@ routeAlias: closing
 <a href="https://github.com/open-resource-discovery" target="_blank"><span>Project on GitHub</span><small>github.com/open-resource-discovery</small></a>
 </div>
 </section>
+<DeepDiveLink to="tools-ecosystem" label="Tools &amp; Ecosystem" kicker="Explore"></DeepDiveLink>
 </div>
 
 ---
@@ -498,3 +499,82 @@ routeAlias: integration-dependencies
 </header>
 <IntegrationDependencyDiagram></IntegrationDependencyDiagram>
 </div>
+
+---
+routeAlias: tools-ecosystem-section
+---
+
+<SectionSlide
+  number="05"
+  title="Tools &amp; Ecosystem"
+  text="Open-source building blocks for publishing, exploring, enriching, rendering, and governing ORD metadata."
+></SectionSlide>
+
+---
+routeAlias: tools-ecosystem
+---
+
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo></DeckLogo>
+<DeepDiveNav back-to="closing" back-label="Back to close" :show-index="false"></DeepDiveNav>
+<header class="slide-header wide-header">
+<p class="eyebrow">Choose a project</p>
+<h2>From specification to working ecosystem</h2>
+<p class="slide-subtitle">Twenty public repositories are grouped here into nine tools, integrations, and reference experiences.</p>
+</header>
+<ToolsEcosystemIndex></ToolsEcosystemIndex>
+</div>
+
+---
+routeAlias: project-specification
+---
+
+<ProjectGroupSlide group="specification"></ProjectGroupSlide>
+
+---
+routeAlias: project-reference
+---
+
+<ProjectGroupSlide group="reference"></ProjectGroupSlide>
+
+---
+routeAlias: project-publishing
+---
+
+<ProjectGroupSlide group="publishing"></ProjectGroupSlide>
+
+---
+routeAlias: project-overlays
+---
+
+<ProjectGroupSlide group="overlays"></ProjectGroupSlide>
+
+---
+routeAlias: project-ui
+---
+
+<ProjectGroupSlide group="ui"></ProjectGroupSlide>
+
+---
+routeAlias: project-a2a
+---
+
+<ProjectGroupSlide group="a2a"></ProjectGroupSlide>
+
+---
+routeAlias: project-mcp
+---
+
+<ProjectGroupSlide group="mcp"></ProjectGroupSlide>
+
+---
+routeAlias: project-compaction
+---
+
+<ProjectGroupSlide group="compaction"></ProjectGroupSlide>
+
+---
+routeAlias: project-registry
+---
+
+<ProjectGroupSlide group="registry"></ProjectGroupSlide>

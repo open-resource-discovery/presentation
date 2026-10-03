@@ -31,6 +31,7 @@ const steps = [
         { ordId: 'sap.xref:apiResource:crm:v1', title: 'CRM API', version: '1.0.0', visibility: 'internal', releaseStatus: 'beta' },
       ],
       eventResources: [{ ordId: 'sap.xref:eventResource:odm-finance-costobject:v0', title: 'ODM Finance Cost Center Events' }],
+      packages: [{ ordId: 'sap.xref:package:ord-reference-app-api:v1', title: 'ORD Reference App APIs' }],
       tombstones: [{ ordId: 'sap.xref:apiResource:astronomy:v0' }],
     },
   },
@@ -39,9 +40,24 @@ const steps = [
     path: '/astronomy/v1/openapi/oas3.json',
     purpose: 'Follow the resource link to its detailed OpenAPI contract.',
     fallback: {
-      openapi: '3.0.1',
-      info: { title: 'Astronomy API', version: '1.0.3' },
-      paths: ['/astronomy/v1/constellations', '/astronomy/v1/stars'],
+      openapi: '3.0.0',
+      info: {
+        title: 'Astronomy API',
+        description: 'This is just a sample API',
+        version: '1.0.3',
+      },
+      servers: [{ url: `${origin}/astronomy/v1` }],
+      paths: {
+        '/constellations': {
+          get: {
+            operationId: 'getConstellations',
+            summary: 'Returns a list of constellations.',
+            responses: {
+              200: { description: 'A JSON array of constellations' },
+            },
+          },
+        },
+      },
     },
   },
 ]
@@ -110,21 +126,37 @@ function summarize(data: Json, index: number): Json {
       perspective: data.perspective,
       describedSystemVersion: data.describedSystemVersion,
       products: data.products?.map(({ ordId, title }: Json) => ({ ordId, title })),
-      packages: data.packages?.map(({ ordId, title }: Json) => ({ ordId, title })),
       apiResources: data.apiResources?.map(({ ordId, title, version, visibility, releaseStatus, resourceDefinitions }: Json) => ({
         ordId, title, version, visibility, releaseStatus, resourceDefinitions,
       })),
       eventResources: data.eventResources?.map(({ ordId, title, version, visibility, releaseStatus }: Json) => ({
         ordId, title, version, visibility, releaseStatus,
       })),
+      packages: data.packages?.map(({ ordId, title }: Json) => ({ ordId, title })),
       tombstones: data.tombstones,
     }
   }
+  const getConstellations = data.paths?.['/constellations']?.get ?? {}
+  const okResponse = getConstellations.responses?.['200'] ?? {}
   return {
-    openapi: data.openapi,
-    info: data.info,
-    servers: data.servers,
-    paths: Object.keys(data.paths ?? {}),
+    openapi: data.openapi ?? '3.0.0',
+    info: {
+      title: data.info?.title ?? 'Astronomy API',
+      description: data.info?.description ?? 'This is just a sample API',
+      version: data.info?.version ?? '1.0.3',
+    },
+    servers: data.servers?.slice(0, 1) ?? [{ url: `${origin}/astronomy/v1` }],
+    paths: {
+      '/constellations': {
+        get: {
+          operationId: getConstellations.operationId ?? 'getConstellations',
+          summary: getConstellations.summary ?? 'Returns a list of constellations.',
+          responses: {
+            200: { description: okResponse.description ?? 'A JSON array of constellations' },
+          },
+        },
+      },
+    },
   }
 }
 
@@ -157,13 +189,13 @@ onMounted(() => {
 <template>
   <div class="example-explorer">
     <aside>
-      <p class="live-label"><i></i> Public reference application</p>
+      <a class="live-label" :href="origin" target="_blank" rel="noreferrer"><i></i> ORD Reference Application ↗</a>
       <button v-for="(step, index) in steps" :key="step.path" :class="{ active: active === index }" @click="select(index)">
         <span>0{{ index + 1 }}</span>
         <strong>{{ step.label }}</strong>
         <small>{{ step.purpose }}</small>
       </button>
-      <p class="browser-note">The public reference app may advertise an older ORD version. This demonstrates the discovery mechanics, not current schema coverage.</p>
+      <p class="browser-note">Responses are simplified for this walkthrough. Open the full reference application for the complete picture.</p>
     </aside>
 
     <section class="response-panel">
@@ -186,7 +218,8 @@ onMounted(() => {
 <style scoped>
 .example-explorer { display: grid; flex: 1; grid-template-columns: 290px 1fr; gap: 18px; min-height: 0; }
 aside { display: flex; flex-direction: column; gap: 10px; }
-.live-label { display: flex; align-items: center; gap: 8px; color: var(--ord-brand); font-size: 11px; font-weight: 750; text-transform: uppercase; }
+.live-label { display: flex; align-items: center; gap: 8px; color: var(--ord-brand); font-size: 11px; font-weight: 750; text-decoration: none; text-transform: uppercase; }
+.live-label:hover { text-decoration: underline; text-underline-offset: 3px; }
 .live-label i, footer span i { width: 7px; height: 7px; border-radius: 50%; background: var(--ord-brand-2); box-shadow: 0 0 0 4px var(--ord-teal-soft); }
 aside button { display: grid; grid-template-columns: 28px 1fr; gap: 5px 8px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); color: inherit; cursor: pointer; padding: 14px; text-align: left; }
 aside button.active { border-color: var(--ord-brand-2); background: var(--ord-teal-soft); }

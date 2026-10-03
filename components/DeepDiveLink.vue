@@ -1,13 +1,17 @@
 <script setup lang="ts">
-defineProps<{
-  to: string
-  label: string
-}>()
+withDefaults(
+  defineProps<{
+    to: string
+    label: string
+    kicker?: string
+  }>(),
+  { kicker: 'Deep dive' },
+)
 </script>
 
 <template>
   <a class="deep-dive-link" :href="`./${to}`">
-    <span>Deep dive</span>
+    <span>{{ kicker }}</span>
     <strong>{{ label }}</strong>
     <b aria-hidden="true">→</b>
   </a>
