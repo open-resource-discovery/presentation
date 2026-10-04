@@ -8,6 +8,7 @@ defineProps({
 
 <template>
   <div class="slide-shell section-slide dark-slide">
+    <CoverBackdrop></CoverBackdrop>
     <DeckLogo></DeckLogo>
     <section class="section-copy">
       <p class="section-number">{{ number }}</p>

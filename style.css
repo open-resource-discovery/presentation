@@ -166,6 +166,39 @@
   text-transform: none;
 }
 
+/* Dark slides (cover, dividers, closing): same logo positioning and type
+   as the white slides, but without the navbar bar. */
+.slide-shell.dark-slide .deck-logo {
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 54px;
+  align-items: center;
+  border-bottom: 0;
+  background: transparent;
+  color: var(--ord-text);
+  font-size: 15px;
+  letter-spacing: 0;
+  opacity: 1;
+  padding: 0 16px;
+  text-transform: none;
+}
+
+.slide-shell.dark-slide .deck-brand {
+  flex: none;
+  gap: 10px;
+  border: 0;
+  font-weight: 700;
+}
+
+.slide-shell.dark-slide .deck-logo img {
+  width: 22px;
+  height: 22px;
+}
+
 .slide-shell.light-slide .deck-brand {
   flex: none;
   gap: 10px;
@@ -338,9 +371,9 @@
 
 .section-number {
   color: var(--ord-brand-3);
-  font-size: 16px;
-  font-weight: 720;
-  letter-spacing: 0.08em;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
 }
 
 .section-copy h1 {
@@ -421,10 +454,12 @@
   background: rgba(50, 188, 172, 0.16);
 }
 
-/* Cover agenda: full-width chapter strip anchored at the bottom. */
+/* Cover agenda: full-width chapter strip anchored at the bottom.
+   The first chapter gets extra width so its label stays on one line. */
 .cover-agenda {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(5, auto);
+  justify-content: space-between;
   align-items: stretch;
   gap: 24px;
   padding-bottom: 6px;
@@ -458,6 +493,7 @@
 
 /* Cover background: masked landscape graph replaces the shared ambient curves. */
 .slide-shell.ord-cover::before { display: none; }
+.slide-shell.section-slide::before { display: none; }
 
 .cover-bg {
   position: absolute !important;
@@ -894,7 +930,7 @@
 .end-layout {
   display: grid;
   width: 100%;
-  grid-template-columns: minmax(0, 1fr) 220px;
+  grid-template-columns: minmax(0, 1fr) 260px;
   gap: 54px;
   align-items: center;
 }
@@ -938,19 +974,19 @@
 
 .closing-qr span {
   color: var(--ord-text);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
 }
 
 .closing-qr img {
-  width: 170px;
-  height: 170px;
+  width: 210px;
+  height: 210px;
   border-radius: 4px;
 }
 
 .closing-qr small {
   color: var(--ord-muted);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .next-grid {
