@@ -16,37 +16,37 @@ const dependencyMarker = `${diagramId}-dependency`
       </defs>
 
       <path class="dependency" d="M440 75H176V170" :marker-end="`url(#${dependencyMarker})`" />
-      <path class="dependency" d="M744 108H800V223H856" :marker-end="`url(#${dependencyMarker})`" />
+      <path class="dependency" d="M744 108H800V359H856" :marker-end="`url(#${dependencyMarker})`" />
       <path class="dependency" d="M744 75H856" :marker-end="`url(#${dependencyMarker})`" />
       <text class="dependency-label" x="308" y="61" text-anchor="middle">triggered by</text>
-      <text class="dependency-label" x="810" y="151">read order</text>
+      <text class="dependency-label" x="810" y="283">read order</text>
       <text class="dependency-label" x="800" y="40" text-anchor="middle"><tspan x="800">create</tspan><tspan x="800" dy="19">shipment</tspan></text>
 
       <path class="relation" d="M592 126V304" :marker-end="`url(#${relationMarker})`" />
       <path class="relation" d="M328 246L440 340" :marker-end="`url(#${relationMarker})`" />
-      <path class="relation" d="M856 246L744 340" :marker-end="`url(#${relationMarker})`" />
-      <path class="relation" d="M1160 75H1176V374H1160" :marker-end="`url(#${relationMarker})`" />
+      <path class="relation" d="M856 384H744" :marker-end="`url(#${relationMarker})`" />
+      <path class="relation" d="M1008 126V170" :marker-end="`url(#${relationMarker})`" />
       <text class="relation-label" x="606" y="236">works with</text>
 
-      <g class="resource-node" transform="translate(440 20)">
+      <g class="resource-node agent-node" transform="translate(440 20)">
         <rect width="304" height="106" rx="8" />
         <text class="kind" x="20" y="27">Agent</text>
         <text class="name" x="20" y="59">Fulfillment Agent</text>
         <text class="provider" x="20" y="86">Fulfillment · Provider</text>
       </g>
-      <g class="resource-node" transform="translate(24 170)">
+      <g class="resource-node event-node" transform="translate(24 170)">
         <rect width="304" height="106" rx="8" />
         <text class="kind" x="20" y="27">Event Resource</text>
         <text class="name" x="20" y="59">Order Created</text>
         <text class="provider" x="20" y="86">Orders · Provider</text>
       </g>
-      <g class="resource-node" transform="translate(856 170)">
+      <g class="resource-node api-node" transform="translate(856 306)">
         <rect width="304" height="106" rx="8" />
         <text class="kind" x="20" y="27">API Resource</text>
         <text class="name" x="20" y="59">Orders API</text>
         <text class="provider" x="20" y="86">Orders · Provider</text>
       </g>
-      <g class="resource-node" transform="translate(856 20)">
+      <g class="resource-node api-node" transform="translate(856 20)">
         <rect width="304" height="106" rx="8" />
         <text class="kind" x="20" y="27">API Resource</text>
         <text class="name" x="20" y="59">Shipment API</text>
@@ -58,21 +58,23 @@ const dependencyMarker = `${diagramId}-dependency`
         <text class="entity-name" x="152" y="63" text-anchor="middle">Order</text>
         <text class="detail" x="152" y="89" text-anchor="middle">Common business semantics</text>
       </g>
-      <g class="taxonomy-node" transform="translate(856 330)">
+      <g class="taxonomy-node" transform="translate(856 170)">
         <rect width="304" height="82" rx="8" />
         <text class="kind" x="152" y="28" text-anchor="middle">Entity Type</text>
         <text class="entity-name" x="152" y="61" text-anchor="middle">Shipment</text>
       </g>
     </svg>
-    <figcaption>Agent dependencies point to required resources; <a href="https://open-resource-discovery.org/spec-v1/concepts/grouping-and-bundling#entity-type" target="_blank" rel="noopener noreferrer">Entity Types</a> give domain context.</figcaption>
   </figure>
 </template>
 
 <style scoped>
-.landscape-diagram { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; gap: 8px; margin: 0; padding-bottom: 32px; }
+.landscape-diagram { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; margin: 0; }
 svg { display: block; width: 100%; min-height: 0; flex: 1; }
 text { fill: var(--ord-text); font-family: var(--ord-font); }
-.resource-node rect { fill: var(--ord-provider-soft); stroke: var(--ord-provider); stroke-width: 1.5; }
+.resource-node rect { stroke-width: 2; }
+.agent-node rect { fill: var(--ord-accent-coral-bg); stroke: var(--ord-accent-coral); }
+.event-node rect { fill: var(--ord-accent-teal-bg); stroke: var(--ord-accent-teal); }
+.api-node rect { fill: var(--ord-accent-sky-bg); stroke: var(--ord-accent-sky); }
 .taxonomy-node rect { fill: var(--ord-card-bg); stroke: var(--ord-border); stroke-width: 1.5; }
 .kind { fill: var(--ord-muted); font-size: 17px; font-weight: 650; }
 .name { font-size: 25px; font-weight: 750; }
@@ -86,5 +88,4 @@ text { fill: var(--ord-text); font-family: var(--ord-font); }
 .dependency { stroke: #c6503b; }
 .dependency-head { fill: #c6503b; }
 .dependency-label { fill: #ac4432; font-size: 17px; font-weight: 650; }
-figcaption { color: var(--ord-muted); font-size: 17px; text-align: center; }
 </style>

@@ -65,14 +65,14 @@ released 1.16.4 behavior.
 | Medium | `perspective-resolution`, `related-identifiers` | Enlarged branch rules, fallback-layer labels, identifier code, and explanatory copy. Shortened copy to keep cards separated from their captions. |
 | Medium | `self-description`, `metadata-alignment`, `perspectives-overview` | The generic Provider uses Application / Service for both hexagons. Provided port circles have an approximately 8px gap to their category cards. Alignment connectors use solid color and place Consumer arrowheads away from the branch rail. The responsibility card has no left stripe. |
 | Low | `self-description` | Removed the Agent subtitle and AsyncAPI line from the Events card, centered both ORD Provider API labels, and added Skills to the Capability examples. A quiet caption identifies the protocols and formats as nonexhaustive examples. AsyncAPI remains in the general explanation of detailed contracts. |
-| Medium | `connected-landscape` | A mouse check found Slidev's bottom toolbar intercepted the new Entity Type link. The figure now reserves 32px below its caption; pointer and sequential keyboard access pass. |
+| Medium | `connected-landscape` | Resource colors distinguish Agents (coral), Events (teal), and APIs (blue), with matching API colors and neutral Entity Types. Shipment now sits directly below Shipment API with a short vertical arrow. The Orders API's dependency and Entity Type edges have separate endpoints. The explanatory caption was removed at the user's request. |
 | Medium | Dark cover, dividers, and `closing` | The home link was under Slidev's toolbar. It now sits at the top with improved contrast. The closing license label and foundation names stay together. The cover and closing specification links now use `/spec-v1`, because `/spec-v1/` returns HTTP 404 on the public site. |
 | Low | Deep dives and ecosystem | Added **All topics** and **All tools** return links, retaining direct parent links. Hover does not move index cards; keyboard focus has a visible outline. |
 
 Provider blue (`#0087c9`), Aggregator purple (`#9326b7`), and Consumer green
 (`#4e9822`) remain consistent across role diagrams and adoption cards. Entity
 Types use neutral styling; proposed Skill edges use a separately labeled violet
-style. Imported Draw.io figures preserve upstream colors and geometry, rather
+style. Resource-category tints use the existing soft accent palette, matching the silos slide; the AI graph shares Agent and API colors. Imported Draw.io figures preserve upstream colors and geometry, rather
 than silently changing normative relationships.
 
 ## Editorial improvements
@@ -89,7 +89,7 @@ than silently changing normative relationships.
 - `connected-landscape`, titled **A connected resource graph**, shows an event-triggered fulfillment scenario with three declared dependencies across Providers and two Entity Types. The six nodes keep dependency and domain relationships visible without adding discovery or aggregation flows. Straight and elbow connectors use smaller arrowheads, with separate endpoints on the Order border. Its deep-dive link leads to taxonomy and grouping.
 - `ai-discovery` retains the Agent dependency example, with the legend and `aiHint` footer removed. Proposal status remains in the subtitle and Capability node.
 - Feature beta notices are collected on `information-model`: Data Products, Agents, Perspectives, and ORD Overlays. The lifecycle diagrams still show the actual `releaseStatus` value `beta` and its versioning exception.
-- Added three contextual public-specification links: Provider role, Perspectives, and Entity Type. They supplement the existing deep-dive references.
+- Contextual public-specification links cover the Provider role and Perspectives, alongside the existing deep-dive references. The connected-graph caption and its Entity Type link were removed to keep that slide concise.
 - Teaching copy avoids SAP-specific examples. Actual live-demo links retain the
   real host address.
 
@@ -102,6 +102,8 @@ than silently changing normative relationships.
 - The final `connected-landscape` and `self-description` edits were recaptured
   through their stable URLs at **1280×720** and visually reviewed after the
   fulfillment scenario and label cleanup.
+- The resource-category colors and simplified Shipment arrow were checked in
+  new `connected-landscape` and `ai-discovery` screenshots at **1280×720**.
 - Automated checks: **47 unique slugs**, correct counters, no invalid internal
   targets, no broken images, no slide-boundary overflow, no detected HTML text
   overlap, and no browser errors.
@@ -121,7 +123,8 @@ than silently changing normative relationships.
   stable hover geometry, sequential Tab access, and a visible 2px focus outline.
   Visible slide links were also checked against the actual pointer hit target.
   The five main category ports have equal rendered gaps of approximately 7.7px.
-  The new taxonomy deep-dive link reaches `grouping-packaging`.
+  The taxonomy deep-dive link reaches `grouping-packaging`. The connected-graph
+  caption link was subsequently removed; its checks describe the earlier pass.
 - Presentation `npm run build` and `git diff --check` pass. The build retains
   existing `@vueuse/core` annotation warnings.
 - Reference application `npm run check`, `npm test`, and `npm run build` pass;
@@ -132,6 +135,7 @@ Latest screenshots and machine-readable results are in the ignored
 `screenshots/cleanup-final/`, `screenshots/cleanup-navigation/`, and
 `screenshots/cleanup-interactions/` directories. The latest connected-resource
 graph is in `screenshots/connected-agent-graph/`.
+The resource-color and Shipment placement pass is in `screenshots/resource-type-colors/`.
 The earlier walkthrough checks remain recorded in the original review.
 The screenshots are a desktop Chromium review; PDF export, other browsers,
 mobile layouts, and projection conditions were not verified. Dense upstream

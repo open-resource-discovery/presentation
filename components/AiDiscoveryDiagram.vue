@@ -76,8 +76,8 @@ text { fill: var(--ord-text); font-family: var(--ord-font); font-size: 18px; }
 .provider-frame { fill: var(--ord-provider-soft); stroke: var(--ord-provider); stroke-width: 1.5; }
 .provider-title { fill: var(--ord-provider); font-size: 20px; font-weight: 750; }
 .agent-node rect, .api-node rect, .skill-node rect, .taxonomy-node rect { fill: var(--ord-pill-bg); stroke: var(--ord-border); stroke-width: 1.5; }
-.agent-node rect { stroke: var(--ord-brand-2); stroke-width: 2; fill: var(--ord-teal-soft); }
-.api-node rect { stroke: var(--ord-provider); }
+.agent-node rect { stroke: var(--ord-accent-coral); stroke-width: 2; fill: var(--ord-accent-coral-bg); }
+.api-node rect { stroke: var(--ord-accent-sky); stroke-width: 2; fill: var(--ord-accent-sky-bg); }
 .skill-node rect { stroke: #8061bd; stroke-width: 2; stroke-dasharray: 6 4; fill: var(--ord-accent-violet-bg); }
 .taxonomy-node rect { stroke: var(--ord-border); }
 .kind { fill: var(--ord-muted); font-size: 16px; font-weight: 650; }
