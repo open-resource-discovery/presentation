@@ -220,19 +220,21 @@ routeAlias: connected-landscape
 <div class="slide-shell light-slide">
 <DeckLogo section="Connected landscape"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Shared domain context connects resources</h2>
-<p class="slide-subtitle">A shared Entity Type lets an aggregator connect related APIs and Events across Providers.</p>
+<h2>A connected resource graph</h2>
+<p class="slide-subtitle">An order event triggers the Agent to read the order and create a shipment.</p>
 </header>
 <LandscapeDiagram></LandscapeDiagram>
 <DeepDiveLink to="grouping-packaging" label="Taxonomy and grouping"></DeepDiveLink>
 </div>
 
 <!--
-This is one selected relationship, rather than the complete ORD graph. The two APIs and the Event all expose the Order Entity Type. A Shipment API can expose order information alongside its shipment data.
+The Orders Provider publishes Order Created and the Orders API. An event handler triggers the Fulfillment Agent, which reads the order and uses the Shipping Provider's Shipment API to create a shipment. Runtime event handling and Agent logic implement that workflow.
 
-Their exposedEntityTypes references use the same ORD ID. An aggregator can follow that identity to bring related resources together across Provider descriptions. The Entity Type supplies business context; it is not an exposed interface or a runtime connection.
+The Agent declares dependencies on the external Event and both APIs. Each coral edge summarizes Agent.integrationDependencies → IntegrationDependency.aspects.eventResources or apiResources → the required resource. Arrow direction follows the metadata reference, from the Agent to what it needs; it does not indicate runtime data flow.
 
-The Agent graph later uses the same linking principle to express dependencies. This slide focuses only on shared domain context.
+The Agent uses relatedEntityTypes to identify Order as its domain context. The Event and Orders API use exposedEntityTypes to reference that same Order Entity Type by ORD ID. The Shipment API exposes the Shipment Entity Type. These selected links illustrate how different resource kinds, dependencies, and business semantics form one discoverable graph.
+
+The later Agent graph expands this scenario to reusable Skills and MCP APIs. ORD describes the contracts and dependencies; it does not configure subscriptions or execute the fulfillment workflow.
 -->
 
 ---

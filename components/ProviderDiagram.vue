@@ -13,6 +13,7 @@ const descriptionId = `${diagramId}-provider-desc`;
       <desc :id="descriptionId">
         An application or service exposes ORD resources through provided interfaces and states integration dependencies
         through a required interface socket connected to a resource described by another ORD Provider.
+        The protocols and formats shown are examples; ORD supports more.
       </desc>
 
       <g class="provided">
@@ -55,7 +56,7 @@ const descriptionId = `${diagramId}-provider-desc`;
       <g class="tag provided-tag" transform="translate(200 52)">
         <rect width="260" height="62" rx="8" />
         <text x="130" y="25" text-anchor="middle">Capabilities</text>
-        <text class="protocol-examples" x="130" y="47" text-anchor="middle">Features · configuration</text>
+        <text class="protocol-examples" x="130" y="47" text-anchor="middle">Features · configuration · Skills</text>
       </g>
 
       <g class="tag provided-tag api-examples" transform="translate(520 100)">
@@ -77,16 +78,14 @@ const descriptionId = `${diagramId}-provider-desc`;
       </g>
 
       <g class="tag provided-tag" transform="translate(520 380)">
-        <rect width="160" height="80" rx="8" />
+        <rect width="160" height="62" rx="8" />
         <text x="80" y="25" text-anchor="middle">Events</text>
         <text class="protocol-examples" x="80" y="47" text-anchor="middle">CloudEvents</text>
-        <text class="protocol-examples" x="80" y="65" text-anchor="middle">AsyncAPI definitions</text>
       </g>
 
       <g class="tag provided-tag" transform="translate(308 478)">
         <rect width="164" height="62" rx="8" />
-        <text x="82" y="25" text-anchor="middle">Agents</text>
-        <text class="protocol-examples" x="82" y="47" text-anchor="middle">Link to APIs</text>
+        <text x="82" y="37" text-anchor="middle">Agents</text>
       </g>
 
       <g class="tag required-tag" transform="translate(24 478)">
@@ -103,8 +102,8 @@ const descriptionId = `${diagramId}-provider-desc`;
 
       <g class="api-card" transform="translate(494 250)">
         <rect width="186" height="68" rx="8" />
-        <text class="api-title" x="12" y="27">ORD Provider API</text>
-        <text class="api-subtitle" x="12" y="49">Expose metadata</text>
+        <text class="api-title" x="93" y="27" text-anchor="middle">ORD Provider API</text>
+        <text class="api-subtitle" x="93" y="49" text-anchor="middle">Expose metadata</text>
       </g>
 
       <g class="definition-note" transform="translate(514 194)">
@@ -113,6 +112,7 @@ const descriptionId = `${diagramId}-provider-desc`;
         <text class="definition-subtitle" x="0" y="23">for example OpenAPI</text>
       </g>
     </svg>
+    <figcaption>Protocols and formats shown are examples; ORD supports more.</figcaption>
   </figure>
 </template>
 
@@ -120,7 +120,6 @@ const descriptionId = `${diagramId}-provider-desc`;
 .provider-diagram {
   position: relative;
   width: min(100%, 680px);
-  aspect-ratio: 700 / 570;
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--ord-sep);
@@ -131,7 +130,16 @@ const descriptionId = `${diagramId}-provider-desc`;
 svg {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+}
+
+figcaption {
+  margin: 0;
+  padding: 0 14px 12px;
+  color: var(--ord-muted);
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
 }
 
 text {
