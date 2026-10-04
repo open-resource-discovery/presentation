@@ -9,7 +9,7 @@ const contextMarker = `${id}-context`
 <template>
   <figure class="ai-diagram" aria-label="Fulfillment Agent resource graph with released API dependencies and proposed Skill dependencies">
     <svg viewBox="0 0 1136 410" role="img" aria-label="An Agent depends directly on an Orders API and, in the Skill proposal, on an Order Lookup Skill that needs an MCP Server">
-      <desc>The Fulfillment Provider describes an Agent in beta. It declares an Integration Dependency referencing the Orders REST API on another Provider. The proposed skill path references an Order Lookup Capability published by a separate Skill Library Provider, which depends on an Orders MCP Server API Resource. Both API Resources reference the Order Entity Type through exposedEntityTypes. Solid coral edges are released API dependencies. Dashed violet edges are proposed Skill dependencies from PR 102; they are not released in ORD 1.16.4.</desc>
+      <desc>The Fulfillment Provider describes an Agent. It declares an Integration Dependency referencing the Orders REST API on another Provider. The proposed skill path references an Order Lookup Capability published by a separate Skill Library Provider, which depends on an Orders MCP Server API Resource. Both API Resources reference the Order Entity Type through exposedEntityTypes. The Skill path is proposed in PR 102 and is not released in ORD 1.16.4.</desc>
       <defs>
         <marker :id="dependencyMarker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="dependency-head" d="M0 0L10 5L0 10Z" /></marker>
         <marker :id="proposalMarker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="proposal-head" d="M0 0L10 5L0 10Z" /></marker>
@@ -34,7 +34,7 @@ const contextMarker = `${id}-context`
 
       <g class="agent-node" transform="translate(42 70)">
         <rect width="300" height="80" rx="8" />
-        <text class="kind" x="16" y="24">Agent · beta</text>
+        <text class="kind" x="16" y="24">Agent</text>
         <text class="name" x="16" y="52">Fulfillment Agent</text>
         <text class="detail" x="16" y="72">Plan a shipment</text>
       </g>
@@ -66,8 +66,6 @@ const contextMarker = `${id}-context`
         <text class="detail" x="16" y="47">Shared business semantics</text>
       </g>
     </svg>
-    <figcaption><span class="released">Solid: released API dependencies</span><a class="proposed" href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank" rel="noreferrer">Dashed: Skill path proposed for 1.17 · PR #102 ↗</a></figcaption>
-    <p class="hint"><code>aiHint</code> adds usage guidance. Agents expose A2A through API Resources that link Agent Card definitions.</p>
   </figure>
 </template>
 
@@ -81,7 +79,7 @@ text { fill: var(--ord-text); font-family: var(--ord-font); font-size: 18px; }
 .agent-node rect { stroke: var(--ord-brand-2); stroke-width: 2; fill: var(--ord-teal-soft); }
 .api-node rect { stroke: var(--ord-provider); }
 .skill-node rect { stroke: #8061bd; stroke-width: 2; stroke-dasharray: 6 4; fill: var(--ord-accent-violet-bg); }
-.taxonomy-node rect { stroke: var(--ord-faint); stroke-dasharray: 5 4; }
+.taxonomy-node rect { stroke: var(--ord-border); }
 .kind { fill: var(--ord-muted); font-size: 16px; font-weight: 650; }
 .name { font-size: 23px; font-weight: 750; }
 .skill-name { font-size: 20px; font-weight: 750; }
@@ -99,9 +97,4 @@ text { fill: var(--ord-text); font-family: var(--ord-font); font-size: 18px; }
 .proposal-label { fill: #6b49bc; font-size: 16px; font-weight: 650; }
 .context-label { fill: var(--ord-muted); font-size: 17px; }
 .label-background { fill: var(--ord-provider-soft); }
-figcaption { display: flex; justify-content: center; gap: 32px; font-size: 16px; }
-.released { color: #ac4432; }
-.proposed { color: #6b49bc; }
-.hint { color: var(--ord-muted); font-size: 16px; text-align: center; }
-.hint code { font-size: inherit; }
 </style>

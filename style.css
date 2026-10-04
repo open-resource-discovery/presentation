@@ -674,22 +674,6 @@
   color: var(--ord-text);
 }
 
-.beta-pill {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid rgba(247, 129, 102, 0.62);
-  border-radius: 999px;
-  background: var(--ord-coral-soft);
-  color: #bd4c36;
-  font-family: var(--ord-font);
-  font-size: 11px;
-  font-weight: 750;
-  line-height: 1;
-  padding: 4px 7px;
-  text-transform: uppercase;
-  vertical-align: 0.2em;
-}
-
 .boundary-callout {
   display: flex;
   flex-direction: column;
@@ -901,6 +885,7 @@
 .end-copy .lead a {
   border: 0;
   color: var(--ord-text);
+  white-space: nowrap;
   text-decoration: underline;
   text-decoration-color: rgba(50, 188, 172, 0.55);
   text-underline-offset: 3px;

@@ -46,17 +46,17 @@ const chapter = computed(() => {
 <style scoped>
 .deck-logo {
   position: absolute;
-  bottom: 18px;
+  top: 18px;
   left: 28px;
   z-index: 5;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: var(--ord-muted);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
-  opacity: 0.68;
+  opacity: 1;
   text-transform: uppercase;
 }
 
@@ -65,6 +65,7 @@ const chapter = computed(() => {
   align-items: center;
   gap: 8px;
   color: inherit;
+  font-weight: 650;
   text-decoration: none;
 }
 

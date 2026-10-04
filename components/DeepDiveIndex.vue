@@ -8,7 +8,7 @@
     <a href="./pull-sequence"><span>06 · Transport</span><strong>Pull sequence</strong><small>From a known system to definitions</small></a>
     <a href="./ai-enrichment"><span>07 · AI metadata</span><strong>AI enrichment</strong><small>Resource hints and definition overlays</small></a>
     <a href="./visibility"><span>08 · Access</span><strong>Visibility</strong><small>Public, internal, and private metadata</small></a>
-    <a href="./ord-overlays"><span>09 · Beta</span><strong>ORD Overlays</strong><small>Enrich definitions without modifying source</small></a>
+    <a href="./ord-overlays"><span>09 · Definitions</span><strong>ORD Overlays</strong><small>Enrich definitions without modifying source</small></a>
     <a href="./skills-preview"><span>10 · Preview</span><strong>Skills in ORD</strong><small>Discoverable, reusable agent capabilities</small></a>
     <a href="./push-preview"><span>11 · Preview</span><strong>Push transport</strong><small>Transactional publication to an aggregator</small></a>
     <a href="./integration-dependencies"><span>12 · Relationships</span><strong>Integration dependencies</strong><small>Requirements, alternatives, and subsets</small></a>

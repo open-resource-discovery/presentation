@@ -170,16 +170,27 @@ routeAlias: information-model
 <section class="text-column">
 <h2>Resources become connected metadata</h2>
 <ul class="statement-list compact-list">
-<li><strong>Resources:</strong> APIs, Events, Data Products <span class="beta-pill">beta</span>, Agents <span class="beta-pill">beta</span>, Capabilities, and Integration Dependencies.</li>
+<li><strong>Resources:</strong> APIs, Events, Data Products, Agents, Capabilities, and Integration Dependencies.</li>
 <li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
 <li><strong>Relationships:</strong> connect resources to definitions, semantics, ownership, lifecycle, and dependencies.</li>
 </ul>
+<p class="feature-status-note">Beta in ORD 1.16.4: Data Products, Agents, Perspectives, and ORD Overlays.</p>
 </section>
 <section class="diagram-column">
 <DataModelDiagram></DataModelDiagram>
 </section>
 <DeepDiveLink to="namespace-concept" label="Namespaces and IDs"></DeepDiveLink>
 </div>
+
+<!--
+Resources describe what a system exposes or requires. Taxonomy and access context make those descriptions easier to understand, group, and consume.
+
+Capabilities also provide an extensibility mechanism. A Provider can publish custom capabilities and define custom capability types, then link a machine-readable capability definition when more detail is needed. Skills and agent plugins are examples of what a capability could describe.
+
+The capability type is identified by a Specification ID, or by customType when type is custom. The generic Capability concept is released in ORD 1.16.4. Standardizing Skill types and their dependency semantics is a separate proposal, PR #102; the examples here do not imply standardized type IDs.
+
+Beta status is collected here so it does not distract from the diagrams that follow. Data Products, Agents, Perspectives, and ORD Overlays retain their specified beta status.
+-->
 
 ---
 routeAlias: perspectives-overview
@@ -209,12 +220,20 @@ routeAlias: connected-landscape
 <div class="slide-shell light-slide">
 <DeckLogo section="Connected landscape"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Connect Fulfillment to the Orders contract</h2>
-<p class="slide-subtitle">An aggregator connects Provider descriptions by ORD ID: required interfaces, their contracts, and shared business semantics.</p>
+<h2>Shared domain context connects resources</h2>
+<p class="slide-subtitle">A shared Entity Type lets an aggregator connect related APIs and Events across Providers.</p>
 </header>
 <LandscapeDiagram></LandscapeDiagram>
-<DeepDiveLink to="landscape-model" label="Landscape model"></DeepDiveLink>
+<DeepDiveLink to="grouping-packaging" label="Taxonomy and grouping"></DeepDiveLink>
 </div>
+
+<!--
+This is one selected relationship, rather than the complete ORD graph. The two APIs and the Event all expose the Order Entity Type. A Shipment API can expose order information alongside its shipment data.
+
+Their exposedEntityTypes references use the same ORD ID. An aggregator can follow that identity to bring related resources together across Provider descriptions. The Entity Type supplies business context; it is not an exposed interface or a runtime connection.
+
+The Agent graph later uses the same linking principle to express dependencies. This slide focuses only on shared domain context.
+-->
 
 ---
 routeAlias: enables-section
@@ -297,10 +316,10 @@ routeAlias: closing
 <section class="end-copy">
 <p class="eyebrow">Open standard</p>
 <h2>Explore, implement, and help shape ORD</h2>
-<p class="lead small">Open Resource Discovery is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a> and governed by the <a href="https://neonephos.org/" target="_blank">NeoNephos Foundation</a> under <a href="https://linuxfoundation.eu/" target="_blank">Linux Foundation Europe</a>.</p>
+<p class="lead small">ORD is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a> and governed by the <a href="https://neonephos.org/" target="_blank">NeoNephos Foundation</a> under <a href="https://linuxfoundation.eu/" target="_blank">Linux Foundation Europe</a>.</p>
 <div class="next-grid">
 <a href="https://open-resource-discovery.org/introduction" target="_blank"><span>5-minute primer</span><small>open-resource-discovery.org/introduction</small></a>
-<a href="https://open-resource-discovery.org/spec-v1/" target="_blank"><span>ORD specification</span><small>open-resource-discovery.org/spec-v1</small></a>
+<a href="https://open-resource-discovery.org/spec-v1" target="_blank" rel="noopener noreferrer"><span>ORD specification</span><small>open-resource-discovery.org/spec-v1</small></a>
 <a href="https://github.com/open-resource-discovery" target="_blank"><span>Project on GitHub</span><small>github.com/open-resource-discovery</small></a>
 </div>
 </section>
@@ -477,7 +496,7 @@ routeAlias: ord-overlays
 ---
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="ORD Overlays · beta"></DeckLogo>
+<DeckLogo section="ORD Overlays"></DeckLogo>
 <DeepDiveNav back-to="ai-discovery" back-label="AI-ready discovery"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Enrich a definition without changing its source</h2>

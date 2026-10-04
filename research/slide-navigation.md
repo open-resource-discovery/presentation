@@ -56,4 +56,4 @@ The navbar breadcrumb links to the nearest preceding divider marked with `deckSe
 
 Numeric URLs still resolve through Slidev, but presentation links use slugs. The inspection script also uses slugs and records them in `inspection.json`.
 
-The former `self-description-examples` comparison URL redirects to `self-description`, which now contains the selected diagram with examples.
+The former `self-description-examples` comparison URL redirects to `self-description`, which now contains the generic Provider diagram.

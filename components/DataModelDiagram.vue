@@ -18,9 +18,9 @@
       <div class="item-grid">
         <div class="item">APIs</div>
         <div class="item">Events</div>
-        <div class="item">Data Products <small>beta</small></div>
-        <div class="item">Capabilities</div>
-        <div class="item agent">Agents <small>beta</small></div>
+        <div class="item">Data Products</div>
+        <div class="item capability">Capabilities<span>(skills, agent plugins)</span></div>
+        <div class="item">Agents</div>
         <div class="item wide">Integration Dependencies</div>
       </div>
     </section>
@@ -121,18 +121,8 @@
   grid-column: 1 / -1;
 }
 
-.item.agent {
-  gap: 5px;
-  border-color: #9b7cff;
-}
-
-.item small {
-  margin-left: 5px;
-  color: #6f4ad6;
-  font-size: 9px;
-  font-weight: 750;
-  text-transform: uppercase;
-}
+.item.capability { flex-direction: column; align-items: flex-start; gap: 5px; }
+.item.capability span { color: var(--ord-muted); font-size: 13px; font-weight: 500; }
 
 figcaption {
   display: flex;

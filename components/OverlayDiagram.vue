@@ -11,7 +11,7 @@
       <div class="operator"><b>+</b><span>apply</span></div>
 
       <section class="artifact overlay">
-        <span class="kind">ORD Overlay 0.1 · beta</span>
+        <span class="kind">ORD Overlay 0.1</span>
         <strong>orders.overlay.json</strong>
         <code><i>action</i>: merge<br><i>selector</i>: {<br>&nbsp; <i>operation</i>: listOrders<br>}<br><i>data</i>: { summary: … }</code>
         <small>Separately owned, versioned, and governed</small>
