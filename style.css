@@ -396,13 +396,6 @@
   text-transform: uppercase;
 }
 
-.cover-agenda {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 10px;
-}
-
 .slidev-layout .cover-spec-link {
   display: inline-flex;
   width: fit-content;
@@ -428,26 +421,58 @@
   background: rgba(50, 188, 172, 0.16);
 }
 
+/* Cover agenda: full-width chapter strip anchored at the bottom. */
+.cover-agenda {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+  padding-bottom: 6px;
+}
+
 .slidev-layout .cover-agenda a {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 12px;
   border: 0;
-  border-top: 1px solid var(--ord-border);
+  border-top: 2px solid var(--ord-border);
   color: var(--ord-text);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 650;
-  padding: 12px 0 4px;
+  line-height: 1.25;
+  padding: 14px 0;
   text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease;
 }
 
 .cover-agenda small {
-  color: var(--ord-muted);
-  font-size: 11px;
+  flex: none;
+  color: var(--ord-brand-3);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .slidev-layout .cover-agenda a:hover { border-top-color: var(--ord-brand-3); color: var(--ord-brand-3); }
 .slidev-layout .cover-agenda a:focus-visible { outline: 2px solid var(--ord-brand-3); outline-offset: 5px; }
+
+/* Cover background: masked landscape graph replaces the shared ambient curves. */
+.slide-shell.ord-cover::before { display: none; }
+
+.cover-bg {
+  position: absolute !important;
+  inset: 0;
+  z-index: 0 !important;
+  pointer-events: none;
+}
+
+.cover-bg svg { display: block; width: 100%; height: 100%; }
+.cover-dot-grid { opacity: 0.07; }
+.cover-graph line { stroke: #78a7a3; stroke-width: 1; opacity: 0.22; }
+.cover-graph line.near { stroke: #4fb3a7; opacity: 0.38; }
+.cover-graph circle { fill: #1d1f22; stroke: #4fb3a7; stroke-width: 1.25; opacity: 0.5; }
+.cover-graph circle.halo { fill: none; stroke: #4fb3a7; stroke-width: 1; opacity: 0.18; }
+.cover-graph circle.hub { fill: rgba(50, 188, 172, 0.3); stroke: var(--ord-brand-2); opacity: 0.75; }
 
 .eyebrow {
   color: var(--ord-brand-3);

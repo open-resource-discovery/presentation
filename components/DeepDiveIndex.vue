@@ -2,42 +2,42 @@
 const categories = [
   {
     title: 'Identity & context',
-    description: 'Locate, identify, and organize',
+    description: 'Locate, identify, organize',
     topics: [
-      { to: 'landscape-model', title: 'Landscape model', description: 'Systems, tenants, and resources' },
+      { to: 'landscape-model', title: 'Landscape model', description: 'Systems, tenants, resources' },
       { to: 'namespace-concept', title: 'Namespaces', description: 'Ownership and governance' },
-      { to: 'ord-identifiers', title: 'ORD and related IDs', description: 'Identity and external references' },
-      { to: 'grouping-packaging', title: 'Grouping & packaging', description: 'Publishing, access, and taxonomy' },
+      { to: 'ord-identifiers', title: 'ORD IDs & related IDs', description: 'How IDs work · 2 slides' },
+      { to: 'grouping-packaging', title: 'Grouping & packaging', description: 'Packages, bundles, taxonomy' },
     ],
   },
   {
     title: 'Change & views',
-    description: 'Track change and resolve context',
+    description: 'Change, views, enrichment',
     topics: [
-      { to: 'versioning-lifecycle', title: 'Versioning & lifecycle', description: 'Compatible change and maturity' },
-      { to: 'api-lifecycle', title: 'API lifecycle example', description: 'Successors, migration, retirement' },
-      { to: 'perspective-resolution', title: 'Perspectives', description: 'Static baselines and tenant views' },
+      { to: 'versioning-lifecycle', title: 'Versioning & lifecycle', description: 'Compatible change, maturity' },
+      { to: 'api-lifecycle', title: 'API lifecycle example', description: 'Successors, retirement' },
+      { to: 'perspective-resolution', title: 'Perspectives', description: 'Baselines and tenant views' },
       { to: 'ord-overlays', title: 'ORD Overlays', description: 'Enrich an existing definition' },
     ],
   },
   {
     title: 'Discovery & access',
-    description: 'Publish, retrieve, and connect',
+    description: 'Publish, retrieve, connect',
     topics: [
-      { to: 'pull-sequence', title: 'Pull sequence', description: 'Configuration to resource definitions' },
-      { to: 'push-preview', title: 'Push proposal', description: 'Stage, validate, publish atomically' },
-      { to: 'visibility', title: 'Visibility', description: 'Public, internal, and private metadata' },
+      { to: 'visibility', title: 'Visibility', description: 'Public, internal, private' },
+      { to: 'pull-sequence', title: 'Pull sequence', description: 'From config to definitions' },
+      { to: 'push-preview', title: 'Push proposal', description: 'Stage, validate, publish' },
       { to: 'integration-dependencies', title: 'Integration dependencies', description: 'Requirements and alternatives' },
     ],
   },
   {
     title: 'AI & extensibility',
-    description: 'Describe behavior and add meaning',
+    description: 'Behavior and meaning',
     topics: [
-      { to: 'ai-discovery', title: 'AI & Agents', description: 'Interaction APIs and dependencies' },
-      { to: 'skills-preview', title: 'Skills & Plugins proposal', description: 'Reusable, discoverable behavior' },
+      { to: 'ai-discovery', title: 'AI & Agents', description: 'Interaction APIs, dependencies' },
+      { to: 'skills-preview', title: 'Skills & Plugins', description: 'Shared, reusable behavior' },
       { to: 'ai-enrichment', title: 'AI enrichment', description: 'Hints and definition guidance' },
-      { to: 'ord-extensibility', title: 'Extensibility', description: 'Custom types, metadata, definitions' },
+      { to: 'ord-extensibility', title: 'Extensibility', description: 'Labels, groups, custom types' },
     ],
   },
 ]
@@ -60,18 +60,18 @@ const categories = [
 </template>
 
 <style scoped>
-.deep-dive-index { display: grid; flex: 1; min-height: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-content: center; }
-.topic-category { --category-accent: var(--ord-accent-sky); --category-bg: var(--ord-accent-sky-bg); display: grid; min-height: 476px; grid-template-rows: 94px repeat(4, minmax(0, 1fr)); border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); overflow: hidden; }
+.deep-dive-index { display: grid; flex: 1; min-height: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-content: center; align-items: start; }
+.topic-category { --category-accent: var(--ord-accent-sky); --category-bg: var(--ord-accent-sky-bg); display: flex; min-height: 0; flex-direction: column; gap: 10px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--category-accent); border-radius: var(--ord-radius); background: var(--category-bg); padding: 0 12px 12px; }
 .topic-category:nth-child(2) { --category-accent: var(--ord-accent-teal); --category-bg: var(--ord-accent-teal-bg); }
 .topic-category:nth-child(3) { --category-accent: var(--ord-accent-coral); --category-bg: var(--ord-accent-coral-bg); }
 .topic-category:nth-child(4) { --category-accent: var(--ord-accent-violet); --category-bg: var(--ord-accent-violet-bg); }
-header { min-height: 94px; display: flex; flex-direction: column; gap: 8px; border-top: 4px solid var(--category-accent); background: var(--category-bg); padding: 17px 16px; }
-h3 { color: var(--ord-text); font-size: 19px; font-weight: 750; line-height: 1.2; }
-header p { color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
-.topic-category a { position: relative; display: flex; min-height: 0; flex-direction: column; justify-content: center; gap: 7px; border: 0; border-top: 1px solid var(--ord-sep); color: var(--ord-text); padding: 13px 28px 13px 16px; text-decoration: none; }
-.topic-category a:hover { background: var(--category-bg); }
-.topic-category a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: -4px; background: var(--category-bg); }
-strong { font-size: 17px; font-weight: 650; line-height: 1.2; }
-small { color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
+header { display: flex; min-height: 62px; flex-direction: column; justify-content: center; gap: 3px; padding: 10px 2px 4px; }
+h3 { color: var(--ord-text); font-size: 19px; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; white-space: nowrap; }
+header p { color: var(--ord-muted); font-size: 12.5px; font-weight: 600; line-height: 1.35; white-space: nowrap; }
+.topic-category a { position: relative; display: flex; min-height: 88px; flex-direction: column; justify-content: center; gap: 4px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; color: var(--ord-text); padding: 10px 28px 10px 14px; text-decoration: none; }
+.topic-category a:hover { border-color: var(--category-accent); background: #fff; box-shadow: 0 2px 10px rgba(10, 15, 18, 0.08); }
+.topic-category a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 2px; background: #fff; }
+strong { font-size: 16px; font-weight: 650; line-height: 1.2; }
+small { color: var(--ord-muted); font-size: 12.5px; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .topic-category a span { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--ord-brand); font-size: 16px; }
 </style>
