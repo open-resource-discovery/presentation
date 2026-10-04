@@ -6,7 +6,7 @@ sibling `ord-public`, whose `package.json` declares **1.16.4** (specification co
 were read. The specification repository was left unchanged. A follow-up on **2026-10-04**
 refined the generic Provider diagram, alignment connectors, shared-domain graph,
 Capability examples, speaker notes, feature-status presentation, grouped indexes,
-identifier examples, and curved dark-slide backgrounds. Concurrent cover, divider,
+identifier examples, and dark-slide backgrounds. Concurrent cover, divider,
 and deep-dive improvements were preserved and the latest state was inspected again.
 
 ## Overall assessment and story
@@ -75,7 +75,7 @@ released 1.16.4 behavior.
 | Low | Deep dives and ecosystem | Added **All topics** and **All tools** return links, retaining direct parent links. Hover does not move index cards; keyboard focus has a visible outline. |
 | Medium | `ord-identifiers`, `related-identifiers` | Retained the boxed construction pattern, then added `foo.orders:apiResource:Orders:v1` below it as colored text with grey separators. No dark panel or extra fragment boxes. The Correlation ID example is `foo.crm:customer:4711`. |
 | Medium | `tools-ecosystem` | Nine links are grouped by purpose: **Publish & govern**, **Explore & enrich**, and **AI & Agents**. Soft category containers and white link cards follow the Deep dives overview. All nine links and return routes work; hover geometry stays stable and Tab reaches each card. |
-| Low | Dark cover, graph dividers, and `closing` | Replaced straight background connections with gentle cubic curves, preserving node positions, contrast, and the Tools divider's orbit variant. The transparent dark header no longer intercepts the closing Tools link; its logo retains pointer access. |
+| Low | Dark cover, graph dividers, and `closing` | Restored the original straight background connections at the user's request, preserving node positions, contrast, and the Tools divider's orbit variant. The transparent dark header no longer intercepts the closing Tools link; its logo retains pointer access. |
 
 Provider blue (`#0087c9`), Aggregator purple (`#9326b7`), and Consumer green
 (`#4e9822`) remain consistent across role diagrams and adoption cards. Entity
@@ -111,7 +111,8 @@ than silently changing normative relationships.
   reviewed all screenshots. On 2026-10-04, all **47 stable URLs** were captured
   again after the latest concurrent edits, and every screenshot was visually
   reviewed at full size. This includes the seven dark slides with their latest
-  layouts and curved graph connections.
+  layouts. The restored straight backgrounds were subsequently recaptured and
+  visually inspected at the same size.
 - The final `connected-landscape` and `self-description` edits were recaptured
   through their stable URLs at **1280×720** and visually reviewed after the
   fulfillment scenario and label cleanup.
@@ -167,7 +168,7 @@ than silently changing normative relationships.
 Latest screenshots and machine-readable results are in the ignored
 `screenshots/latest-state-final/` and `screenshots/deep-dive-interactions/`
 directories. Focused checks are in `screenshots/tools-grouped-index/`,
-`screenshots/ord-id-pattern-and-example/`, `screenshots/curved-backdrops/`,
+`screenshots/ord-id-pattern-and-example/`, `screenshots/restored-backdrops/`,
 and `screenshots/closing-pointer-fix/`.
 The earlier walkthrough checks remain recorded in the original review.
 The screenshots are a desktop Chromium review; PDF export, other browsers,
