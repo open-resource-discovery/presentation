@@ -30,7 +30,8 @@ ZIP definitions, and plugin subsets also belong to PR #102. API-to-Entity-Type
 links in the main graph supply domain context without implying that an Entity Type
 is a callable interface.
 
-All 47 stable slugs were preserved. Their current order is recorded in
+All 47 source slugs were preserved; the registry slide is now hidden, leaving
+46 active slides. Their current order is recorded in
 [slide-navigation.md](./slide-navigation.md).
 
 ## Specification corrections
@@ -186,3 +187,52 @@ npm run inspect -- --url=http://localhost:3030 --out=screenshots/cleanup-final
 
 This requires the Playwright browser and its runtime libraries. `--url` reuses
 the supplied server; without it, the script starts and stops its own server.
+
+## Ecosystem follow-up, 2026-10-04
+
+The section now has eight active tool slides covering nineteen repositories.
+`project-registry` is hidden until a registry schema and specification are
+available; its source remains in the deck. The overview and previous/next links
+exclude it, and the active slide count is **46**. Numbered “Group” breadcrumbs
+have been replaced with descriptive topic names.
+
+The overview describes tasks. Detail slides use larger demonstrations and
+compact tool-selection cards: schema generation, an actual Explorer catalog,
+publishing files, an overlay's before/after effect, format-aware rendering,
+Agent Card inspection, static MCP tool discovery, and metadata compaction.
+Explorer, Metadata Renderer, A2A, and MCP views are real screenshots. Explorer
+uses the user-supplied original with a wider CSS viewport and full-image link;
+the other playgrounds render the included generic example input. Screenshot
+provenance and licensing are in [public/img/tools/README.md](../public/img/tools/README.md).
+
+Compaction is framed as reducing large files to use less LLM context and keeping
+the essentials or the metadata a publisher wants to share. CSN is the worked
+example and currently supported format; the broader scope and planned format
+support are explicit. A2A protocol skills are distinguished from ORD Skill
+Capabilities in speaker notes. MCP Server Cards are explicitly identified as
+an open proposal. Native examples were checked against the tool READMEs and
+ORD 1.16.4 source schemas; grounding is recorded in
+[ord-open-source-projects.md](./ord-open-source-projects.md).
+
+Verification for this pass:
+
+- Visually reviewed the overview and all eight detail slides by stable slug at
+  **1280×720**, reusing `http://localhost:3030`. Final automated checks report
+  no slide overflow, text overlap, or browser errors.
+- Followed all eight overview links and their return routes; verified nineteen
+  separately linked repositories, visible keyboard focus, and stable hover
+  geometry. Rechecked the final Explorer layout separately, including all
+  twelve links and the full-image link. Its source/demo links were moved clear
+  of the presentation controls.
+- The MCP example passes the public playground's current card validation.
+  No example agent task or MCP tool was invoked. Provider server and Go
+  compactor commands were checked against their READMEs, not executed.
+- `npm run build` and `git diff --check` pass. Existing dependency annotation
+  warnings remain. PDF export, other browsers, and projection conditions were
+  not checked in this pass.
+
+Final captures are in ignored `screenshots/ecosystem-final/`; interaction checks
+are in `screenshots/ecosystem-interactions/` and
+`screenshots/ecosystem-explorer-real/`. The resumed environment required temporary
+browser libraries and an installed Chromium executable for inspection; no
+system packages or project dependencies were changed.

@@ -1,0 +1,30 @@
+{
+  "name": "Order Assistant",
+  "description": "Answers order questions and helps plan fulfillment.",
+  "version": "1.0.0",
+  "url": "https://agents.example.com/orders",
+  "protocolVersion": "0.3.0",
+  "capabilities": {
+    "streaming": true
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "order-lookup",
+      "name": "Order Lookup",
+      "description": "Find an order and explain its current status.",
+      "tags": [
+        "orders",
+        "fulfillment"
+      ],
+      "examples": [
+        "Where is order 4711?"
+      ]
+    }
+  ]
+}

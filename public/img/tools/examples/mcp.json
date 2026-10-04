@@ -1,0 +1,50 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/model-context-protocol/refs/heads/main/schema/2025-03-26/schema.json",
+  "name": "foo/orders",
+  "version": "1.0.0",
+  "description": "Look up orders and prepare shipments.",
+  "supportedProtocolVersions": [
+    "2025-03-26"
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://tools.example.com/orders/mcp"
+    }
+  ],
+  "capabilities": {
+    "tools": {}
+  },
+  "tools": [
+    {
+      "name": "get_order",
+      "description": "Read an order by its identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "orderId"
+        ]
+      }
+    },
+    {
+      "name": "create_shipment",
+      "description": "Create a shipment for an order.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "orderId"
+        ]
+      }
+    }
+  ]
+}

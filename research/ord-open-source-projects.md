@@ -1,6 +1,6 @@
 # ORD open-source projects
 
-Research snapshot: 2026-10-03.
+Research snapshot: 2026-10-04. Tool READMEs rechecked against public `main` branches.
 
 ## Scope
 
@@ -59,9 +59,15 @@ Operational repositories, community administration, redirects, templates, and th
 ### 8. Metadata compaction
 
 - [`metadata-compactor-golang`](https://github.com/open-resource-discovery/metadata-compactor-golang#readme) is a Go library and CLI for rules-based, AI-friendly metadata compaction.
+- Its purpose is to reduce large metadata files to use less LLM context, retaining
+  the essentials or the metadata a publisher wants to share. Its scope is broader
+  than preserving a domain model or processing CSN alone.
 - The project currently supports CSN JSON and is designed to add further formats.
 
-### 9. Registry automation
+### Deferred: Registry automation
+
+This group is hidden from the deck until a registry schema and specification
+are available for building a registry. Its source slide remains in `slides.md`.
 
 - [`global-registry-bot`](https://github.com/open-resource-discovery/global-registry-bot#readme) is a configurable Probot application that validates registry requests, creates YAML pull requests, routes approvals, and merges safe changes under repository rules.
 - GitHub remains its system of record, and it does not keep a separate database for request content.
@@ -78,6 +84,36 @@ Operational repositories, community administration, redirects, templates, and th
 
 ## Presentation implication
 
-The public ecosystem is clearest as nine project slides rather than twenty repository slides.
-Each repository should still have a separately linked card so viewers can reach its source directly.
+The active section has eight project slides covering nineteen repositories.
+Each slide explains a task through a concrete example and has a compact set of
+separately linked tool cards. The overview uses task descriptions rather than
+repository names alone.
 The section should follow the conceptual deep dives because it answers the practical question of what someone can run, reuse, or contribute to.
+
+## Example grounding
+
+- Specification generation: `ord-public/package.json` (`generate`),
+  `spec-toolkit.config.json`, and `spec/v1/Document.schema.yaml`. The displayed
+  YAML is an excerpt; `1.16` is the document protocol version, while the verified
+  package release is **1.16.4**.
+- Publishing: Provider server README, **Local Directory Structure**, **CLI
+  Configuration Options**, and **Usage**. The metadata root separates ORD
+  documents from native definitions. The illustrated launch command is from
+  the documented CLI syntax; it was not executed in this presentation pass.
+- Overlays: `ord-public/spec/v1/OrdOverlay.schema.yaml`, **Overlay Patch** and
+  **Overlay Selector By Operation**. `selector.operation` matches an OpenAPI
+  `operationId`; `merge` adds the example description. The original file remains
+  unchanged. The diagram shows an illustrative patch excerpt and its effect,
+  not a complete overlay document.
+- UI and AI tools: actual playground screenshots with example input, recorded
+  in [the asset provenance](../public/img/tools/README.md). A2A Agent Card
+  `skills` are protocol metadata, distinct from ORD Skill Capabilities.
+- Explorer: actual built-in sample catalog screenshot supplied by the user,
+  displayed in a wider viewport with a link to the unchanged original image.
+- MCP Server Cards: [SEP-2127](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127)
+  is open and unmerged as of 2026-10-04; the slide explicitly calls it a proposal.
+- Compaction: Metadata Compactor README, **Rules** and **How CSN Compaction
+  Works**. `csn.preserve: []` removes annotations/private properties; the depicted
+  entity and built-in ID type remain. No measured size or token reduction is
+  claimed. The illustration and CLI syntax were reviewed against the README;
+  the Go compactor was not built or executed.

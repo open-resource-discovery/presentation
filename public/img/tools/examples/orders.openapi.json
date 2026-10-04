@@ -1,0 +1,24 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Orders API",
+    "version": "1.0.0",
+    "description": "Read orders and their fulfillment status."
+  },
+  "servers": [{ "url": "https://api.example.com/orders/v1" }],
+  "paths": {
+    "/orders/{orderId}": {
+      "get": {
+        "operationId": "getOrder",
+        "summary": "Read an order",
+        "parameters": [{
+          "name": "orderId",
+          "in": "path",
+          "required": true,
+          "schema": { "type": "string" }
+        }],
+        "responses": { "200": { "description": "Order details" } }
+      }
+    }
+  }
+}

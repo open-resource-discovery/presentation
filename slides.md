@@ -587,40 +587,72 @@ routeAlias: project-specification
 ---
 <ProjectGroupSlide group="specification"></ProjectGroupSlide>
 
+<!--
+This is the toolchain for maintaining the ORD specification. One YAML source model generates schemas, reference docs, and TypeScript models. The snippet is an excerpt of the Document schema, not a complete schema. Document version 1.16 corresponds to the verified specification package release 1.16.4.
+-->
+
 ---
 routeAlias: project-reference
 ---
 <ProjectGroupSlide group="reference"></ProjectGroupSlide>
+
+<!--
+Walk through the task: connect to a Provider, choose a perspective, find a resource, then inspect its ORD relationships and native contract. The slide uses the user-supplied screenshot of the actual Explorer's built-in sample catalog. Resource categories, metadata filters, descriptions, protocols, release status, and ORD IDs are visible. The CSS viewport focuses on the catalog; the Full screenshot link opens the original image. Sample IDs remain as the real tool displays them. The Beta filter is resource release status, not a feature maturity badge. The Explorer and reference Provider links let the audience try discovery; their sample datasets are not necessarily identical.
+-->
 
 ---
 routeAlias: project-publishing
 ---
 <ProjectGroupSlide group="publishing"></ProjectGroupSlide>
 
+<!--
+The folder is a generic example following the Provider server README: documents belong under documents/, while native definitions live elsewhere under the metadata root. The command serves that folder. Spring Boot is an alternative for adding the same discovery flow directly to a Java application; ord-maven supplies the Java models and annotations.
+-->
+
 ---
 routeAlias: project-overlays
 ---
 <ProjectGroupSlide group="overlays"></ProjectGroupSlide>
+
+<!--
+The operation already exists in OpenAPI with operationId getOrder. The overlay selector matches it and merges a description into the consumer view. The shown YAML is a patch excerpt. Use the browser editor for authoring and the TypeScript or Go tools for applying it; the source definition stays unchanged.
+-->
 
 ---
 routeAlias: project-ui
 ---
 <ProjectGroupSlide group="ui"></ProjectGroupSlide>
 
+<!--
+The definition prop contains the input file as a string. MetadataRenderer detects its format and selects the specialized renderer. The screenshot is real Scalar output from the public Metadata Renderer playground with the included generic Orders OpenAPI input. A complete React setup also imports the package styles once. ui-components provides the common UI foundations.
+-->
+
 ---
 routeAlias: project-a2a
 ---
 <ProjectGroupSlide group="a2a"></ProjectGroupSlide>
+
+<!--
+The screenshots show an example Agent Card and its skill list in the real A2A Editor. These are detail crops; no task was sent to the example endpoint. The Skills field belongs to A2A protocol metadata and is distinct from ORD Skill Capabilities. ORD discovers and relates resources; A2A handles agent interaction. The other tools cover VS Code, test servers, and the combined discovery/delegation demo.
+-->
 
 ---
 routeAlias: project-mcp
 ---
 <ProjectGroupSlide group="mcp"></ProjectGroupSlide>
 
+<!--
+Server Cards are the open MCP SEP-2127 proposal, not a released MCP standard. The screenshots show a card accepted by the current playground validator. Tool definitions in the card enable inspection and selection before connecting. The card does not grant runtime access, and calls still use MCP. The demo compares manual setup, ORD discovery, and static-card tool selection. No example tool was invoked.
+-->
+
 ---
 routeAlias: project-compaction
 ---
 <ProjectGroupSlide group="compaction"></ProjectGroupSlide>
+
+<!--
+The compactor reduces large metadata files so they use less context in an LLM. Rules let the publisher trim to the essentials or choose what metadata to share. Its scope is broader than CSN; CSN JSON is the currently supported format and more formats are planned. The worked example compares CSN excerpts: an empty csn.preserve allowlist removes the UI annotation while keeping Orders and its ID element. This is one explicit reduction rule, not a universal claim that annotations are unneeded. Rules also control custom types and associations. No size or token savings were measured.
+-->
 
 ---
 routeAlias: project-registry
