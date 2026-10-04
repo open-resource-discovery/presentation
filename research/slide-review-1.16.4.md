@@ -5,25 +5,30 @@ sibling `ord-public`, whose `package.json` declares **1.16.4** (specification co
 `ce0dea1478c56238f0aff75f7665c301e74f0577`). Applicable `AGENTS.md` instructions
 were read. The specification repository was left unchanged. A follow-up on **2026-10-04**
 refined the generic Provider diagram, alignment connectors, shared-domain graph,
-Capability examples, speaker notes, and feature-status presentation.
+Capability examples, speaker notes, feature-status presentation, grouped indexes,
+identifier examples, and curved dark-slide backgrounds. Concurrent cover, divider,
+and deep-dive improvements were preserved and the latest state was inspected again.
 
 ## Overall assessment and story
 
-The main presentation now tells a complete story in 18 slides: fragmented
+The main presentation now tells a complete story in 17 slides: fragmented
 metadata → alignment → self-description and roles → scope → pull discovery → a
 concrete Orders API → information model and perspectives → connected metadata →
-benefits and the Agent graph → a small adoption pilot → closing. Deep dives and
+benefits → a small adoption pilot → closing. Deep dives and
 the ecosystem appendix support that story, with explicit return links.
 
 The material changes were bringing discovery before the abstract model, carrying
 one vendor-neutral Orders example through the walkthrough and connected graphs,
 and giving adoption a concrete first task. The connected resource graph shows
 event-triggered fulfillment, with Order and Shipment supplying domain context.
-The AI discovery graph uses five nodes: Fulfillment Agent, Order Lookup Skill, Orders REST API, Orders MCP Server,
-and Order Entity Type. The reusable Skill is published by a separate Skill
-Library Provider; dependency edges cross Provider boundaries. Solid and dashed edges distinguish released API
-dependencies from the proposed Skill path. API-to-Entity-Type links provide
-domain context without implying that an Entity Type is a callable interface.
+The AI & Agents graph is now a detail slide with seven concept nodes. It distinguishes
+an Agent's interaction API from its Integration Dependencies, whose aspects reference
+external APIs, Events, and Capabilities. Generic Capability references are released
+in 1.16.4. The dashed Capability-to-dependency edge marks the proposed
+`Capability.integrationDependencies` property; standardized Skill/Plugin types,
+ZIP definitions, and plugin subsets also belong to PR #102. API-to-Entity-Type
+links in the main graph supply domain context without implying that an Entity Type
+is a callable interface.
 
 All 47 stable slugs were preserved. Their current order is recorded in
 [slide-navigation.md](./slide-navigation.md).
@@ -37,7 +42,7 @@ application PR. Paths and sections refer to the authoritative sibling repository
 | --- | --- | --- | --- |
 | High | `self-description` | Entity Types previously looked like exposed interfaces. Their association is now a neutral line without a port, with a solid neutral card labeled business semantics. The Provider retains its blue hexagon, provided circles, and required socket connected to another Provider. | `docs/spec-v1/concepts/grouping-and-bundling.md`, **Entity Type**; `static/img/ord-provider-overview.svg` |
 | High | `namespace-concept`, `ord-by-example`, reference application | A Product must use a vendor namespace, not the application's system namespace. Examples now use `foo:product:Orders:` and `foo:vendor:Example:`; resources use `foo.orders`. The placeholder is explicitly replaceable. [Reference application PR #27](https://github.com/open-resource-discovery/reference-application/pull/27) corrects the published Product and adds its Vendor. | `docs/spec-v1/index.md`, **Vendor Namespace**, **ORD ID Construction**; `spec/v1/Document.schema.yaml`, **Product**, **Vendor** |
-| High | `ai-discovery`, `skills-preview` | The information model carries Agent beta status. The Agent graph distinguishes supported API dependencies from proposed Skill dependencies. MCP Servers are API Resources linking MCP Server Card definitions. Agents expose A2A through API Resources linking Agent Cards. Proposed Skill edges remain dashed and explicitly unreleased in 1.16.4. | `docs/spec-v1/concepts/ai-agents-and-protocols.md`, **Exposing Capabilities (Interaction)** and **Consuming Capabilities (Dependencies)**; `spec/v1/Document.schema.yaml`, **Agent**, **ApiResourceDefinition**, **IntegrationDependency**, **IntegrationAspect**; [Skills PR #102](https://github.com/open-resource-discovery/specification/pull/102) |
+| High | `ai-discovery`, `skills-preview` | The information model carries Agent beta status. Agents link interaction APIs through `exposedApiResources` and declare requirements through Integration Dependencies. Their aspects already reference APIs, Events, and generic Capabilities in 1.16.4. PR #102 adds standardized Skill/Plugin types, ZIP definitions, `Capability.integrationDependencies`, and plugin subsets using `skillName`. The dashed arrow specifically marks the proposed Capability property. MCP Servers and A2A interaction APIs remain separate API Resources linking their native definitions. | `docs/spec-v1/concepts/ai-agents-and-protocols.md`, **Exposing Capabilities (Interaction)** and **Consuming Capabilities (Dependencies)**; `spec/v1/Document.schema.yaml`, **Agent**, **ApiResourceDefinition**, **IntegrationDependency**, **IntegrationAspect**, **CapabilityIntegrationAspect**; [Skills PR #102](https://github.com/open-resource-discovery/specification/pull/102), commit `18fc27e67548f91c13f21ad0b283bb0725d47400` |
 | Medium | `ord-roles`, `adoption` | Roles are nonexclusive; direct consumers may also read Providers. An Aggregator's Discovery API has its own contract. The slides no longer imply ORD standardizes that contract. | `docs/spec-v1/index.md`, **ORD Roles**, **ORD Discovery API** |
 | Medium | `connected-landscape` | The Fulfillment Agent requires Order Created and Orders API from the Orders Provider, and Shipment API from the Shipping Provider. The coral edges summarize intermediate Integration Dependencies; each arrow points from the Agent to a required external resource. The Agent, Event, and Orders API reference Order; Shipment API references Shipment. APIs and Events use `exposedEntityTypes`; the Agent uses `relatedEntityTypes`. Entity Types have neutral cards without ports. Speaker notes distinguish metadata references from runtime event handling and workflow execution. | `docs/spec-v1/concepts/grouping-and-bundling.md`, **Entity Type**; `spec/v1/Document.schema.yaml`, **ApiResource.exposedEntityTypes**, **EventResource.exposedEntityTypes**, **Agent.relatedEntityTypes**, **Agent.integrationDependencies**, **IntegrationDependency.description**, **IntegrationAspect.eventResources**, **IntegrationAspect.apiResources** |
 | Medium | `information-model`, `grouping-packaging` | The overview includes taxonomy **and access** context. Consumption Bundles express technical access; API/Event relationships to Entity Types use `exposedEntityTypes`. | `docs/spec-v1/concepts/grouping-and-bundling.md`, **Consumption Bundle**, **Entity Type**, **Groups**; `spec/v1/Document.schema.yaml`, **ApiResource**, **EventResource**, **ExposedEntityType** |
@@ -46,7 +51,7 @@ application PR. Paths and sections refer to the authoritative sibling repository
 | Medium | `ord-by-example` | The default walkthrough is a short, bundled ORD 1.16 example. Complete downloaded fixtures satisfy required fields and resolve their references. The optional live provider declares its own version; its responses are separate from the teaching example. | `spec/v1/Configuration.schema.yaml`; `spec/v1/Document.schema.yaml`, **Ord Document**, **Package**, **ApiResource**, **EntityType**, **Product**, **Vendor** |
 | Medium | `versioning-lifecycle`, `api-lifecycle` | A breaking contract creates a successor resource; the old contract is retained during migration. Development/beta exceptions and tenant-extension `lastUpdate` behavior remain explicit. | `docs/spec-v1/concepts/versioning-and-lifecycle.md`, **Versioning**, **Lifecycle**, **Sunset and Tombstones**; `spec/v1/Document.schema.yaml`, **version**, **releaseStatus**, **successors**, **Tombstone** |
 | Medium | `self-description`, `ord-extensibility`, `ai-enrichment`, `ord-overlays` | Capability examples include features/configuration and illustrative custom Skills. `aiHint` belongs to supported resources; fine-grained definition enrichment uses beta ORD Overlays. `ord:overlay:v1` and `ord:ai-enrichment` retain their specification-owned namespace. | `spec/v1/Document.schema.yaml`, **Capability**, **CapabilityDefinition**, **aiHint**, **ApiResourceDefinition**; `spec/v1/OrdOverlay.schema.yaml`, **OverlaySelector**, **OverlayPatch** |
-| Low | `information-model`, `self-description` | Capabilities show skills and agent plugins as illustrative types. Information-model speaker notes explain custom capabilities, Specification ID / `customType` typing, and custom definitions. They distinguish generic extensibility from the proposed standardized Skill type and dependency semantics. | `spec/v1/Document.schema.yaml`, **Capability**, **Capability.type**, **Capability.customType**, **CapabilityDefinition** |
+| Low | `information-model`, `self-description` | Capabilities show skills and agent plugins as illustrative types. Information-model speaker notes explain custom capabilities, Specification ID / `customType` typing, and custom definitions. They distinguish generic extensibility and released Capability references from proposed standardized types and the Capability's own dependencies. | `spec/v1/Document.schema.yaml`, **Capability**, **Capability.type**, **Capability.customType**, **CapabilityDefinition**, **CapabilityIntegrationAspect** |
 | Low | `related-identifiers` | The title describes three common identifier families rather than an exhaustive list. Concept IDs are called out for Group Types. ORD IDs wrap at a fragment boundary. | `docs/spec-v1/index.md`, **ORD ID**, **Correlation ID**, **Specification ID**, **Concept ID**; `spec/v1/Document.schema.yaml`, **GroupType** |
 
 Transactional push remains a proposal on `push-preview`, grounded in
@@ -60,7 +65,7 @@ released 1.16.4 behavior.
 | High | `ord-by-example` | The long live response required scrolling and small text. The default excerpts now use 18px code, fit without horizontal or vertical scrolling, and link Configuration → document → definition. Full JSON downloads include omitted fields. |
 | Medium | `ord-by-example` | An interaction check found Slidev's bottom controls could intercept the return button. The sidebar now reserves space above those controls; pointer and keyboard checks pass. |
 | Medium | `ord-roles` | Removed the detached bracket below the Aggregator. A readable caption explains arrow direction, role overlap, and direct Provider access. |
-| Medium | `connected-landscape`, `ai-discovery` | Replaced generic overviews with concrete labeled relationships and checked rendered endpoints, arrow directions, containment, and label padding. The latest inline SVG checks cover 81 card labels without containment violations or detected text overlap. |
+| Medium | `connected-landscape`, `ai-discovery` | The main graph shows a concrete workflow; the AI detail diagram explains the full relationship model. Checked rendered endpoints, arrow directions, containment, and label padding. The latest inline SVG checks cover 88 card labels across the deck without containment violations or detected text overlap. |
 | Medium | `ai-enrichment`, `ord-overlays` | Small code and cramped side-by-side definition entries were difficult to read. Code is now 16–18px, definition entries stack vertically where needed, and the overlay example uses Orders. |
 | Medium | `perspective-resolution`, `related-identifiers` | Enlarged branch rules, fallback-layer labels, identifier code, and explanatory copy. Shortened copy to keep cards separated from their captions. |
 | Medium | `self-description`, `metadata-alignment`, `perspectives-overview` | The generic Provider uses Application / Service for both hexagons. Provided port circles have an approximately 8px gap to their category cards. Alignment connectors use solid color and place Consumer arrowheads away from the branch rail. The responsibility card has no left stripe. |
@@ -68,26 +73,32 @@ released 1.16.4 behavior.
 | Medium | `connected-landscape` | Resource colors distinguish Agents (coral), Events (teal), and APIs (blue), with matching API colors and neutral Entity Types. Shipment now sits directly below Shipment API with a short vertical arrow. The Orders API's dependency and Entity Type edges have separate endpoints. The explanatory caption was removed at the user's request. |
 | Medium | Dark cover, dividers, and `closing` | The home link was under Slidev's toolbar. It now sits at the top with improved contrast. The closing license label and foundation names stay together. The cover and closing specification links now use `/spec-v1`, because `/spec-v1/` returns HTTP 404 on the public site. |
 | Low | Deep dives and ecosystem | Added **All topics** and **All tools** return links, retaining direct parent links. Hover does not move index cards; keyboard focus has a visible outline. |
+| Medium | `ord-identifiers`, `related-identifiers` | Retained the boxed construction pattern, then added `foo.orders:apiResource:Orders:v1` below it as colored text with grey separators. No dark panel or extra fragment boxes. The Correlation ID example is `foo.crm:customer:4711`. |
+| Medium | `tools-ecosystem` | Nine links are grouped by purpose: **Publish & govern**, **Explore & enrich**, and **AI & Agents**. Soft category containers and white link cards follow the Deep dives overview. All nine links and return routes work; hover geometry stays stable and Tab reaches each card. |
+| Low | Dark cover, graph dividers, and `closing` | Replaced straight background connections with gentle cubic curves, preserving node positions, contrast, and the Tools divider's orbit variant. The transparent dark header no longer intercepts the closing Tools link; its logo retains pointer access. |
 
 Provider blue (`#0087c9`), Aggregator purple (`#9326b7`), and Consumer green
 (`#4e9822`) remain consistent across role diagrams and adoption cards. Entity
-Types use neutral styling; proposed Skill edges use a separately labeled violet
-style. Resource-category tints use the existing soft accent palette, matching the silos slide; the AI graph shares Agent and API colors. Imported Draw.io figures preserve upstream colors and geometry, rather
+Types use neutral styling; the proposed Capability dependency uses a separately labeled violet
+style. Resource-category tints use the existing soft accent palette, matching the silos slide; the AI graph shares Agent, Event, and API colors. Imported Draw.io figures preserve upstream colors and geometry, rather
 than silently changing normative relationships.
 
 ## Editorial improvements
 
 - The Orders walkthrough comes immediately after the pull overview, before the
   information model. It explains what the abstract metadata connects.
-- Connected landscape and AI discovery demonstrate the same domain. The Skill
-  appendix uses the Order Lookup example too.
+- Connected landscape carries the fulfillment example. The AI & Agents detail
+  slide explains interaction, requirements, and the Skill/Plugin proposal; the Skill
+  appendix makes portable behavior concrete with Order Lookup.
 - Adoption starts with one Package, one API Resource, its existing OpenAPI
   definition, and one useful consumer. Publishing and reference implementation
   links make the next step concrete.
 - Benefits describe declared metadata and discoverability, with no promise of
   live telemetry or automated runtime integration.
 - `connected-landscape`, titled **A connected resource graph**, shows an event-triggered fulfillment scenario with three declared dependencies across Providers and two Entity Types. The six nodes keep dependency and domain relationships visible without adding discovery or aggregation flows. Straight and elbow connectors use smaller arrowheads, with separate endpoints on the Order border. Its deep-dive link leads to taxonomy and grouping.
-- `ai-discovery` retains the Agent dependency example, with the legend and `aiHint` footer removed. Proposal status remains in the subtitle and Capability node.
+- `ai-discovery` sits in **AI & extensibility**, with the legend and `aiHint` footer removed. Proposal status remains in the subtitle and Capability nodes. The main Outcomes slide links to this detail slide.
+- Deep dives use four topic columns; Tools & Ecosystem uses three purpose columns.
+  Detail slides link to the applicable public specification section or proposal.
 - Feature beta notices are collected on `information-model`: Data Products, Agents, Perspectives, and ORD Overlays. The lifecycle diagrams still show the actual `releaseStatus` value `beta` and its versioning exception.
 - Contextual public-specification links cover the Provider role and Perspectives, alongside the existing deep-dive references. The connected-graph caption and its Entity Type link were removed to keep that slide concise.
 - Teaching copy avoids SAP-specific examples. Actual live-demo links retain the
@@ -98,7 +109,9 @@ than silently changing normative relationships.
 - The original 2026-10-03 review inspected every slide through its stable URL on
   the reused server at `http://localhost:3030`, at **1280×720**, and visually
   reviewed all screenshots. On 2026-10-04, all **47 stable URLs** were captured
-  again, and all changed slides were visually inspected at full size, including the seven dark slides after the home-link correction.
+  again after the latest concurrent edits, and every screenshot was visually
+  reviewed at full size. This includes the seven dark slides with their latest
+  layouts and curved graph connections.
 - The final `connected-landscape` and `self-description` edits were recaptured
   through their stable URLs at **1280×720** and visually reviewed after the
   fulfillment scenario and label cleanup.
@@ -106,7 +119,9 @@ than silently changing normative relationships.
   new `connected-landscape` and `ai-discovery` screenshots at **1280×720**.
 - Automated checks: **47 unique slugs**, correct counters, no invalid internal
   targets, no broken images, no slide-boundary overflow, no detected HTML text
-  overlap, and no browser errors.
+  or SVG label overlap, no clipped card labels, no blocked pointer targets, and
+  no browser errors in the final capture. Decorative background nodes extend
+  beyond the SVG viewport intentionally and are clipped by it.
 - Inspected actual diagram connectors, arrowheads, endpoints, containment, and
   legends, including the reused system-landscape and integration-dependency
   Draw.io SVGs. DOM checks alone were not used as evidence of diagram correctness.
@@ -125,6 +140,24 @@ than silently changing normative relationships.
   The five main category ports have equal rendered gaps of approximately 7.7px.
   The taxonomy deep-dive link reaches `grouping-packaging`. The connected-graph
   caption link was subsequently removed; its checks describe the earlier pass.
+- Checked all **17 detail-slide source links** for pointer access, sequential
+  Tab focus, visible outlines, and stable hover geometry. The 15 public ORD
+  links return HTTP 200 and their fragments exist. The two GitHub proposal
+  sources were verified through the API, including the Skills page and heading
+  at commit `18fc27e67548f91c13f21ad0b283bb0725d47400`; GitHub's HTML endpoint
+  rate-limited the earlier request.
+- Followed all **16 deep-dive topic links**, their return links, and all **seven
+  main-presentation deep-dive links**. Verified all nine Tools links and return
+  routes, stable hover positions, and sequential keyboard access to all cards.
+- Sampled the actual rendered paths in both resource graphs: all endpoints meet
+  the intended card borders and no path crosses a relationship label. Agent,
+  Event, and API colors match across the two diagrams. The metadata-alignment
+  diagram's middle branches and main arrows share the same center at
+  **524.0625px**, with a measured **0px** offset on both sides.
+- Clicked the closing Tools link and logo after the transparent-header fix.
+  Repeated navigation in one headless Chromium page exhausted its development
+  request queue; the remaining route pairs passed using fresh pages. Uninterrupted
+  navigation through the entire deck was not established in that browser session.
 - Presentation `npm run build` and `git diff --check` pass. The build retains
   existing `@vueuse/core` annotation warnings.
 - Reference application `npm run check`, `npm test`, and `npm run build` pass;
@@ -132,10 +165,10 @@ than silently changing normative relationships.
   have HTTP regression coverage for Product/Vendor identity and references.
 
 Latest screenshots and machine-readable results are in the ignored
-`screenshots/cleanup-final/`, `screenshots/cleanup-navigation/`, and
-`screenshots/cleanup-interactions/` directories. The latest connected-resource
-graph is in `screenshots/connected-agent-graph/`.
-The resource-color and Shipment placement pass is in `screenshots/resource-type-colors/`.
+`screenshots/latest-state-final/` and `screenshots/deep-dive-interactions/`
+directories. Focused checks are in `screenshots/tools-grouped-index/`,
+`screenshots/ord-id-pattern-and-example/`, `screenshots/curved-backdrops/`,
+and `screenshots/closing-pointer-fix/`.
 The earlier walkthrough checks remain recorded in the original review.
 The screenshots are a desktop Chromium review; PDF export, other browsers,
 mobile layouts, and projection conditions were not verified. Dense upstream
