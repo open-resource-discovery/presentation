@@ -5,7 +5,7 @@ withDefaults(defineProps<{ variant?: 'graph' | 'orbit' }>(), { variant: 'graph' 
 
 /* Landscape graph background: a hub about one third from the top, with nearest-neighbour edges.
    Shared by the cover and the divider slides so dark slides share one background. */
-const graphHub: [number, number] = [1180, 200]
+const graphHub: [number, number] = [1110, 170]
 const graphNodes: [number, number][] = [
   graphHub,
   [1050, 110], [1280, 70], [1340, 240], [1240, 350], [1070, 310], [990, 200],
@@ -31,7 +31,7 @@ const graphEdges = (() => {
 const graphNear = new Set(graphEdges.filter(([a, b]) => a === 0 || b === 0).flat())
 
 /* Orbit variant: discovery rings around an aggregation point, one third from the top. */
-const orbitCenter: [number, number] = [1185, 240]
+const orbitCenter: [number, number] = [1110, 170]
 const orbitRings = [96, 190, 300, 420, 550]
 const orbitNodes = [
   [0, 30], [0, 200], [1, 120], [1, 250], [1, 340], [2, 165], [2, 215], [2, 300], [3, 140], [3, 192], [3, 268], [4, 172], [4, 228],
@@ -49,7 +49,7 @@ const uid = `cover-${useId()}`
   <div class="cover-bg" aria-hidden="true">
     <svg viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <radialGradient :id="`${uid}-fade-g`" cx="0.92" cy="0.28" r="0.7">
+        <radialGradient :id="`${uid}-fade-g`" cx="0.867" cy="0.236" r="0.7">
           <stop offset="0" stop-color="#fff" />
           <stop offset="0.3" stop-color="#fff" stop-opacity="0.55" />
           <stop offset="0.65" stop-color="#fff" stop-opacity="0.12" />

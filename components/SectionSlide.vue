@@ -16,5 +16,6 @@ defineProps({
       <h1>{{ title }}</h1>
       <p>{{ text }}</p>
     </section>
+    <CoverAgenda :active="number" />
   </div>
 </template>

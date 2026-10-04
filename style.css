@@ -489,6 +489,13 @@
 }
 
 .slidev-layout .cover-agenda a:hover { border-top-color: var(--ord-brand-3); color: var(--ord-brand-3); }
+.slidev-layout .cover-agenda a.active { border-top-color: var(--ord-brand-3); color: var(--ord-brand-3); }
+
+/* Divider slides pin the same agenda strip to the bottom. */
+.section-slide .section-copy {
+  flex: 1;
+  justify-content: center;
+}
 .slidev-layout .cover-agenda a:focus-visible { outline: 2px solid var(--ord-brand-3); outline-offset: 5px; }
 
 /* Cover background: masked landscape graph replaces the shared ambient curves. */

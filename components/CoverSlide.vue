@@ -14,12 +14,6 @@
         </a>
       </section>
     </div>
-    <nav class="cover-agenda" aria-label="Presentation agenda">
-      <a href="./why-section"><small>01</small><span>Connect fragmented metadata</span></a>
-      <a href="./how-section"><small>02</small><span>How it works</span></a>
-      <a href="./enables-section"><small>03</small><span>What it enables</span></a>
-      <a href="./deep-dive-section"><small>04</small><span>Deep dives</span></a>
-      <a href="./tools-ecosystem-section"><small>05</small><span>Tools &amp; ecosystem</span></a>
-    </nav>
+    <CoverAgenda />
   </div>
 </template>
