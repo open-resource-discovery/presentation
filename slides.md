@@ -565,6 +565,7 @@ deckSection: Tools & Ecosystem
   number="05"
   title="Tools &amp; Ecosystem"
   text="Open-source building blocks for publishing, exploring, enriching, rendering, and governing ORD metadata."
+  backdrop="orbit"
 ></SectionSlide>
 
 ---

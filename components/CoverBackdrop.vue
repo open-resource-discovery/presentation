@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useId } from 'vue'
 
+withDefaults(defineProps<{ variant?: 'graph' | 'orbit' }>(), { variant: 'graph' })
+
 /* Landscape graph background: a hub about one third from the top, with nearest-neighbour edges.
    Shared by the cover and the divider slides so dark slides share one background. */
 const graphHub: [number, number] = [1180, 200]
@@ -27,6 +29,17 @@ const graphEdges = (() => {
   return edges
 })()
 const graphNear = new Set(graphEdges.filter(([a, b]) => a === 0 || b === 0).flat())
+
+/* Orbit variant: discovery rings around an aggregation point, one third from the top. */
+const orbitCenter: [number, number] = [1185, 240]
+const orbitRings = [96, 190, 300, 420, 550]
+const orbitNodes = [
+  [0, 30], [0, 200], [1, 120], [1, 250], [1, 340], [2, 165], [2, 215], [2, 300], [3, 140], [3, 192], [3, 268], [4, 172], [4, 228],
+].map(([ring, deg]) => {
+  const r = orbitRings[ring]
+  const a = (deg * Math.PI) / 180
+  return { x: orbitCenter[0] + r * Math.cos(a), y: orbitCenter[1] + r * Math.sin(a), spoke: ring <= 2 }
+})
 
 // SVG ids must be unique per instance; Slidev keeps neighbouring slides in the DOM.
 const uid = `cover-${useId()}`
@@ -57,10 +70,16 @@ const uid = `cover-${useId()}`
         </pattern>
       </defs>
       <rect class="cover-dot-grid" width="1280" height="720" :fill="`url(#${uid}-dots)`" :mask="`url(#${uid}-dots-m)`" />
-      <g class="cover-graph" :mask="`url(#${uid}-fade)`">
+      <g v-if="variant === 'graph'" class="cover-graph" :mask="`url(#${uid}-fade)`">
         <line v-for="([a, b], i) in graphEdges" :key="i" :x1="graphNodes[a][0]" :y1="graphNodes[a][1]" :x2="graphNodes[b][0]" :y2="graphNodes[b][1]" :class="{ near: a === 0 || b === 0 }" />
         <circle :cx="graphHub[0]" :cy="graphHub[1]" r="26" class="halo" />
         <circle v-for="(n, i) in graphNodes" :key="`n${i}`" :cx="n[0]" :cy="n[1]" :r="i === 0 ? 8 : graphNear.has(i) ? 4.5 : 3.5" :class="{ hub: i === 0 }" />
+      </g>
+      <g v-else class="cover-orbit" :mask="`url(#${uid}-fade)`">
+        <circle v-for="r in orbitRings" :key="r" :cx="orbitCenter[0]" :cy="orbitCenter[1]" :r="r" class="ring" />
+        <line v-for="(n, i) in orbitNodes.filter(n => n.spoke)" :key="`s${i}`" :x1="orbitCenter[0]" :y1="orbitCenter[1]" :x2="n.x" :y2="n.y" class="spoke" />
+        <circle v-for="(n, i) in orbitNodes" :key="`n${i}`" :cx="n.x" :cy="n.y" r="4" class="node" />
+        <circle :cx="orbitCenter[0]" :cy="orbitCenter[1]" r="8" class="hub" />
       </g>
     </svg>
   </div>
