@@ -30,6 +30,17 @@ const graphEdges = (() => {
 })()
 const graphNear = new Set(graphEdges.filter(([a, b]) => a === 0 || b === 0).flat())
 
+// Bow each connection gently, retaining the shared nodes and focal point.
+const graphEdgePath = (a: number, b: number) => {
+  const [x1, y1] = graphNodes[a]
+  const [x2, y2] = graphNodes[b]
+  const dx = x2 - x1, dy = y2 - y1
+  const length = Math.hypot(dx, dy)
+  const bend = Math.min(length * 0.35, 100) * ((a + b) % 2 ? 1 : -1)
+  const offsetX = -dy / length * bend, offsetY = dx / length * bend
+  return `M ${x1} ${y1} C ${x1 + dx / 3 + offsetX} ${y1 + dy / 3 + offsetY}, ${x2 - dx / 3 + offsetX} ${y2 - dy / 3 + offsetY}, ${x2} ${y2}`
+}
+
 /* Orbit variant: discovery rings around an aggregation point, one third from the top. */
 const orbitCenter: [number, number] = [1110, 170]
 const orbitRings = [96, 190, 300, 420, 550]
@@ -71,7 +82,7 @@ const uid = `cover-${useId()}`
       </defs>
       <rect class="cover-dot-grid" width="1280" height="720" :fill="`url(#${uid}-dots)`" :mask="`url(#${uid}-dots-m)`" />
       <g v-if="variant === 'graph'" class="cover-graph" :mask="`url(#${uid}-fade)`">
-        <line v-for="([a, b], i) in graphEdges" :key="i" :x1="graphNodes[a][0]" :y1="graphNodes[a][1]" :x2="graphNodes[b][0]" :y2="graphNodes[b][1]" :class="{ near: a === 0 || b === 0 }" />
+        <path v-for="([a, b], i) in graphEdges" :key="i" :d="graphEdgePath(a, b)" :class="{ near: a === 0 || b === 0 }" />
         <circle :cx="graphHub[0]" :cy="graphHub[1]" r="26" class="halo" />
         <circle v-for="(n, i) in graphNodes" :key="`n${i}`" :cx="n[0]" :cy="n[1]" :r="i === 0 ? 8 : graphNear.has(i) ? 4.5 : 3.5" :class="{ hub: i === 0 }" />
       </g>

@@ -167,6 +167,7 @@
 /* Dark slides (cover, dividers, closing): same logo positioning and type
    as the white slides, but without the navbar bar. */
 .slide-shell.dark-slide .deck-logo {
+  pointer-events: none;
   top: 0;
   right: 0;
   bottom: auto;
@@ -186,6 +187,7 @@
 }
 
 .slide-shell.dark-slide .deck-brand {
+  pointer-events: auto;
   flex: none;
   gap: 10px;
   border: 0;
@@ -489,8 +491,8 @@
 
 .cover-bg svg { display: block; width: 100%; height: 100%; }
 .cover-dot-grid { opacity: 0.07; }
-.cover-graph line { stroke: #78a7a3; stroke-width: 1; opacity: 0.22; }
-.cover-graph line.near { stroke: #4fb3a7; opacity: 0.38; }
+.cover-graph path { fill: none; stroke: #78a7a3; stroke-width: 1; opacity: 0.22; }
+.cover-graph path.near { stroke: #4fb3a7; opacity: 0.38; }
 .cover-graph circle { fill: #1d1f22; stroke: #4fb3a7; stroke-width: 1.25; opacity: 0.5; }
 .cover-graph circle.halo { fill: none; stroke: #4fb3a7; stroke-width: 1; opacity: 0.18; }
 .cover-graph circle.hub { fill: rgba(50, 188, 172, 0.3); stroke: var(--ord-brand-2); opacity: 0.75; }
