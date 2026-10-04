@@ -285,6 +285,7 @@ routeAlias: adoption
 routeAlias: closing
 ---
 <div class="slide-shell end-slide dark-slide">
+<CoverBackdrop></CoverBackdrop>
 <DeckLogo></DeckLogo>
 <div class="end-layout">
 <section class="end-copy">

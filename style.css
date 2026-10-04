@@ -1,6 +1,5 @@
 :root {
   --ord-bg: #1b1b1f;
-  --ord-ambient-opacity: 0.18;
   --ord-bg-alt: #161618;
   --ord-panel: #141a21;
   --ord-panel-soft: #202127;
@@ -119,7 +118,6 @@
 
 .slide-shell.light-slide {
   --ord-bg: #ffffff;
-  --ord-ambient-opacity: 0.05;
   --ord-bg-alt: #f9fbfc;
   --ord-panel: #ffffff;
   --ord-panel-soft: #f2f5f7;
@@ -323,7 +321,6 @@
 }
 
 .slide-shell.dark-slide {
-  --ord-ambient-opacity: 0.16;
   background:
     radial-gradient(circle at 78% 25%, rgba(255, 255, 255, 0.035), transparent 40%),
     linear-gradient(145deg, #1b1c1f 0%, #1e2023 58%, #181a1d 100%);
@@ -334,23 +331,6 @@
   inset: 0;
   width: 100%;
   height: 100%;
-}
-
-.slide-shell.dark-slide::before {
-  background-image: url("data:image/svg+xml,%3Csvg width='1280' height='720' viewBox='0 0 1280 720' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%2378A7A3' stroke-width='1.15'%3E%3Cpath d='M-90 620 C150 420 300 720 520 545 C655 438 706 350 835 335 C986 317 1115 518 1370 390'/%3E%3Cpath d='M720 -90 C690 94 762 207 835 335 C910 468 876 616 932 810'/%3E%3Cpath d='M835 335 C934 249 1028 220 1120 245 C1202 268 1260 184 1370 92'/%3E%3C/g%3E%3Cg fill='%2332BCAC'%3E%3Ccircle cx='520' cy='545' r='3.5'/%3E%3Ccircle cx='835' cy='335' r='4.5'/%3E%3Ccircle cx='1120' cy='245' r='3.5'/%3E%3Ccircle cx='932' cy='720' r='3.5'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.slide-shell::before {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='1280' height='720' viewBox='0 0 1280 720' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%2332BCAC' stroke-width='1.25' opacity='0.8'%3E%3Cpath d='M-72 66 C22 128 32 224 92 300 C144 366 67 451 22 544 C-12 615 45 681 135 724'/%3E%3Cpath d='M36 -40 C98 61 98 146 42 220 C-19 302 21 363 105 412'/%3E%3Cpath d='M-44 640 C22 591 81 610 132 682 C145 701 160 715 178 728'/%3E%3Cpath d='M1352 66 C1258 128 1248 224 1188 300 C1136 366 1213 451 1258 544 C1292 615 1235 681 1145 724'/%3E%3Cpath d='M1244 -40 C1182 61 1182 146 1238 220 C1299 302 1259 363 1175 412'/%3E%3Cpath d='M1324 640 C1258 591 1199 610 1148 682 C1135 701 1120 715 1102 728'/%3E%3C/g%3E%3C/svg%3E");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  content: "";
-  opacity: var(--ord-ambient-opacity);
-  pointer-events: none;
 }
 
 .slide-shell > * {
@@ -498,9 +478,7 @@
 }
 .slidev-layout .cover-agenda a:focus-visible { outline: 2px solid var(--ord-brand-3); outline-offset: 5px; }
 
-/* Cover background: masked landscape graph replaces the shared ambient curves. */
-.slide-shell.ord-cover::before { display: none; }
-.slide-shell.section-slide::before { display: none; }
+/* Cover background: masked landscape graph. */
 
 .cover-bg {
   position: absolute !important;
@@ -937,6 +915,7 @@
 .end-slide {
   justify-content: center;
 }
+
 
 .end-layout {
   display: grid;
