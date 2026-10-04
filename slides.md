@@ -77,11 +77,12 @@ routeAlias: self-description
 <DeckLogo section="What is ORD?"></DeckLogo>
 <section class="text-column">
 <h2>A protocol for self-description</h2>
-<p class="lead small">Open Resource Discovery enables applications and services to describe their exposed resources and capabilities in a standardized, machine-readable way.</p>
+<p class="lead small">Applications and services publish a standard, machine-readable description of their resources and capabilities.</p>
 <div class="boundary-callout">
 <strong>ORD adds the shared context.</strong>
-<span>Detailed contracts remain in formats such as OpenAPI, AsyncAPI, OData CSDL, A2A Agent Cards, or other definitions.</span>
+<span>Detailed contracts stay in OpenAPI, AsyncAPI, OData CSDL, A2A Agent Cards, and other formats.</span>
 </div>
+<a class="spec-link" href="https://open-resource-discovery.org/spec-v1#ord-provider" target="_blank" rel="noopener noreferrer">Provider specification ↗</a>
 </section>
 <section class="diagram-column">
 <ProviderDiagram></ProviderDiagram>
@@ -193,7 +194,7 @@ routeAlias: perspectives-overview
 <li><strong>Dynamic:</strong> a system instance describes the complete runtime view, including configuration and extensions.</li>
 <li><strong>System-independent:</strong> shared taxonomy can be published once outside a system context.</li>
 </ul>
-<p class="feature-status-note">Perspectives are included in ORD 1.16.4 with beta status.</p>
+<a class="spec-link" href="https://open-resource-discovery.org/spec-v1/concepts/perspectives" target="_blank" rel="noopener noreferrer">Perspectives specification ↗</a>
 </section>
 <section class="diagram-column">
 <PerspectivesDiagram></PerspectivesDiagram>

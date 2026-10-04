@@ -28,17 +28,17 @@ const descriptionId = `${diagramId}-provider-desc`;
         <path d="M400 370 L502 420" />
         <circle cx="502" cy="420" r="10" />
 
-        <path d="M350 370 L390 442" />
-        <circle cx="390" cy="442" r="10" />
+        <path d="M350 370 L390 460" />
+        <circle cx="390" cy="460" r="10" />
 
         <path d="M450 285 H474" />
         <circle cx="474" cy="285" r="10" />
 
-        <path d="M131.3 420 H190" />
+        <path d="M152 420 H190" />
         <circle cx="200" cy="420" r="10" />
       </g>
 
-      <path class="taxonomy-association" d="M281.2 232 H192" />
+      <path class="taxonomy-association" d="M281.2 232 H200" />
 
       <g class="required">
         <path d="M300 370 L218 420" />
@@ -52,32 +52,31 @@ const descriptionId = `${diagramId}-provider-desc`;
         <tspan x="350" dy="30">/ Service</tspan>
       </text>
 
-      <g class="tag provided-tag" transform="translate(200 44)">
+      <g class="tag provided-tag" transform="translate(200 52)">
         <rect width="260" height="62" rx="8" />
         <text x="130" y="25" text-anchor="middle">Capabilities</text>
         <text class="protocol-examples" x="130" y="47" text-anchor="middle">Features · configuration</text>
       </g>
 
-      <g class="tag provided-tag api-examples" transform="translate(520 44)">
+      <g class="tag provided-tag api-examples" transform="translate(520 100)">
         <rect width="160" height="62" rx="8" />
         <text x="80" y="25" text-anchor="middle">APIs</text>
         <text class="protocol-examples" x="80" y="47" text-anchor="middle">REST · MCP · A2A</text>
       </g>
 
-      <g class="tag taxonomy-tag" transform="translate(24 185)">
-        <rect width="168" height="78" rx="8" />
+      <g class="tag taxonomy-tag" transform="translate(32 201)">
+        <rect width="168" height="62" rx="8" />
         <text x="84" y="25" text-anchor="middle">Entity Types</text>
-        <text class="protocol-examples" x="84" y="45" text-anchor="middle">Order domain model</text>
-        <text class="protocol-examples" x="84" y="65" text-anchor="middle">Internal taxonomy</text>
+        <text class="protocol-examples" x="84" y="47" text-anchor="middle">Business semantics</text>
       </g>
 
-      <g class="tag provided-tag" transform="translate(24 287)">
+      <g class="tag provided-tag" transform="translate(32 293)">
         <rect width="168" height="62" rx="8" />
         <text x="84" y="25" text-anchor="middle">Data Products</text>
         <text class="protocol-examples" x="84" y="47" text-anchor="middle">Delta Sharing · SQL</text>
       </g>
 
-      <g class="tag provided-tag" transform="translate(520 385)">
+      <g class="tag provided-tag" transform="translate(520 380)">
         <rect width="160" height="80" rx="8" />
         <text x="80" y="25" text-anchor="middle">Events</text>
         <text class="protocol-examples" x="80" y="47" text-anchor="middle">CloudEvents</text>
@@ -87,7 +86,7 @@ const descriptionId = `${diagramId}-provider-desc`;
       <g class="tag provided-tag" transform="translate(308 478)">
         <rect width="164" height="62" rx="8" />
         <text x="82" y="25" text-anchor="middle">Agents</text>
-        <text class="protocol-examples" x="82" y="47" text-anchor="middle">Link API Resources</text>
+        <text class="protocol-examples" x="82" y="47" text-anchor="middle">Link to APIs</text>
       </g>
 
       <g class="tag required-tag" transform="translate(24 478)">
@@ -97,9 +96,9 @@ const descriptionId = `${diagramId}-provider-desc`;
       </g>
 
       <g class="external-provider">
-        <polygon class="hex" points="32,419 57,384 107,384 132,419 107,454 57,454" />
-        <text x="82" y="417" text-anchor="middle">Orders</text>
-        <text class="external-provider-role" x="82" y="438" text-anchor="middle">Provider</text>
+        <polygon class="hex" points="24,420 56,375 120,375 152,420 120,465 56,465" />
+        <text x="88" y="413" text-anchor="middle">Application</text>
+        <text x="88" y="434" text-anchor="middle">/ Service</text>
       </g>
 
       <g class="api-card" transform="translate(494 250)">
@@ -108,12 +107,11 @@ const descriptionId = `${diagramId}-provider-desc`;
         <text class="api-subtitle" x="12" y="49">Expose metadata</text>
       </g>
 
-      <g class="definition-note" transform="translate(514 172)">
-        <path d="M-16 -25 L-4 -3" />
+      <g class="definition-note" transform="translate(514 194)">
+        <path d="M-12 -47 L-4 -18" />
         <text class="definition-title" x="0" y="0">Detailed definitions</text>
         <text class="definition-subtitle" x="0" y="23">for example OpenAPI</text>
       </g>
-      <text class="feature-status" x="350" y="560" text-anchor="middle">Data Products and Agents · beta</text>
     </svg>
   </figure>
 </template>
@@ -206,12 +204,10 @@ text {
 }
 
 .tag text.protocol-examples { fill: var(--ord-muted); font-size: 15px; font-weight: 520; }
-.taxonomy-tag rect { stroke: var(--ord-faint); stroke-dasharray: 4 3; }
-.taxonomy-association { fill: none; stroke: var(--ord-faint); stroke-width: 2; stroke-dasharray: 5 4; }
-.feature-status { fill: var(--ord-muted); font-size: 15px; }
+.taxonomy-tag rect { stroke: var(--ord-border); }
+.taxonomy-association { fill: none; stroke: var(--ord-faint); stroke-width: 2; }
 .tag text.dependency-reference { fill: var(--ord-muted); font-size: 15px; font-weight: 520; }
-.external-provider text { fill: var(--ord-hex-text); font-size: 16px; font-weight: 750; }
-.external-provider text.external-provider-role { fill: var(--ord-provider); font-size: 11px; }
+.external-provider text { fill: var(--ord-hex-text); font-size: 15px; font-weight: 750; }
 .external-provider .hex { stroke-width: 3; }
 
 .api-card rect {

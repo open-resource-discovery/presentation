@@ -864,6 +864,8 @@
 .adoption-note nav { display: flex; gap: 28px; margin-top: 3px; }
 .adoption-note a { color: var(--ord-brand); font-size: 16px; }
 .feature-status-note { margin-top: 18px !important; color: var(--ord-muted); font-size: 16px; line-height: 1.4; }
+.slidev-layout .spec-link { align-self: flex-start; color: var(--ord-brand-3); font-size: 16px; font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
+.slidev-layout .spec-link:hover { color: var(--ord-text); }
 
 .statement-list li::before {
   position: absolute;

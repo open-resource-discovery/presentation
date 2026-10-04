@@ -26,10 +26,10 @@
     <section class="mode aligned">
       <header>
         <span>With ORD alignment</span>
-        <strong>Aligned standard plus metadata aggregator</strong>
+        <strong>Shared metadata through an aggregator</strong>
       </header>
 
-      <div class="standard-rail">metadata description + discovery</div>
+      <div class="standard-rail">Common description and discovery</div>
       <div class="flow">
         <div class="stack">
           <span>Provider</span>
@@ -37,7 +37,7 @@
           <span>Provider</span>
         </div>
 
-        <div class="arrow"></div>
+        <div class="arrow" aria-hidden="true"></div>
 
         <div class="aggregator">
           <span class="api-icon"></span>
@@ -45,7 +45,7 @@
           <small>reads metadata and serves consumers</small>
         </div>
 
-        <div class="arrow"></div>
+        <div class="arrow distribute" aria-hidden="true"></div>
 
         <div class="stack">
           <span>Consumer</span>
@@ -203,7 +203,7 @@
   content: "";
 }
 .stack:first-child::after { right: -8px; }
-.stack:last-child::before { left: -8px; }
+.stack:last-child::before { left: -24px; }
 .stack:first-child span::after, .stack:last-child span::before {
   position: absolute;
   top: 50%;
@@ -213,13 +213,26 @@
   content: "";
 }
 .stack:first-child span::after { left: 100%; }
-.stack:last-child span::before { right: 100%; }
+.stack:last-child span::before { right: 100%; width: 24px; }
+.stack:last-child span::after {
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid var(--ord-brand-2);
+  content: "";
+}
 
 .arrow {
   height: 2px;
-  margin: 0 -8px;
-  background: linear-gradient(90deg, rgba(50, 188, 172, 0.24), var(--ord-brand-2));
+  margin: 0 -8px 0 0;
+  background: var(--ord-brand-2);
 }
+
+.arrow.distribute { margin: 0 16px 0 -8px; }
+.arrow.distribute::after { display: none; }
 
 .arrow::after {
   display: block;

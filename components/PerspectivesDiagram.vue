@@ -11,7 +11,7 @@
         <span class="kind">Static</span>
         <h3>System type / version</h3>
         <p>Reusable design-time baseline.</p>
-        <div class="tokens"><span>offered APIs</span><span>versions</span><span>contracts</span></div>
+        <div class="tokens"><span>offered APIs</span><span>versions</span><span>design-time contracts</span></div>
       </section>
       <section class="perspective dynamic">
         <span class="kind">Dynamic</span>
@@ -82,6 +82,6 @@
   font-size: 14px;
   padding: 8px 10px;
 }
-.effective-view { border-left: 5px solid var(--ord-aggregator); background: var(--ord-aggregator-soft); text-align: center; }
+.effective-view { background: var(--ord-aggregator-soft); text-align: center; }
 .effective-view span { color: var(--ord-aggregator); }
 </style>
