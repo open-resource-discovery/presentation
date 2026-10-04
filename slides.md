@@ -577,7 +577,7 @@ routeAlias: tools-ecosystem
 <DeepDiveNav back-to="introduction" back-label="Main presentation" :show-index="false"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>From specification to working ecosystem</h2>
-<p class="slide-subtitle">Twenty public repositories are grouped here into nine tools, integrations, and reference experiences.</p>
+<p class="slide-subtitle">Eight toolsets help you publish ORD, explore metadata, and build integrations.</p>
 </header>
 <ToolsEcosystemIndex></ToolsEcosystemIndex>
 </div>
@@ -624,5 +624,7 @@ routeAlias: project-compaction
 
 ---
 routeAlias: project-registry
+hide: true
 ---
+<!-- Deferred until a registry schema and specification are available. -->
 <ProjectGroupSlide group="registry"></ProjectGroupSlide>

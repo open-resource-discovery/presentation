@@ -52,8 +52,9 @@ The navbar breadcrumb links to the nearest preceding divider marked with `deckSe
 | 44 | [project-a2a](http://localhost:3030/project-a2a) |
 | 45 | [project-mcp](http://localhost:3030/project-mcp) |
 | 46 | [project-compaction](http://localhost:3030/project-compaction) |
-| 47 | [project-registry](http://localhost:3030/project-registry) |
 
 Numeric URLs still resolve through Slidev, but presentation links use slugs. The inspection script also uses slugs and records them in `inspection.json`.
+
+The `project-registry` source slide is hidden until a registry schema and specification are available. It is excluded from the overview, previous/next navigation, slide count, and inspection run.
 
 The former `self-description-examples` comparison URL redirects to `self-description`, which now contains the generic Provider diagram.

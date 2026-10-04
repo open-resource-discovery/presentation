@@ -6,7 +6,6 @@ const categories = [
     projects: [
       { title: 'Specification toolchain', repositories: 'specification · spec-toolkit', route: 'project-specification' },
       { title: 'Provider & Java tooling', repositories: 'provider-server · Spring Boot · Maven', route: 'project-publishing' },
-      { title: 'Registry workflow helper', repositories: 'global-registry-bot', route: 'project-registry' },
     ],
   },
   {

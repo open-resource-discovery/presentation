@@ -12,7 +12,7 @@ type Repository = {
 }
 
 type ProjectGroup = {
-  number: string
+  label: string
   title: string
   summary: string
   flow: string[]
@@ -22,7 +22,7 @@ type ProjectGroup = {
 
 const groups: Record<string, ProjectGroup> = {
   specification: {
-    number: '01',
+    label: 'Specification toolchain',
     title: 'Build the standard from schemas',
     summary: 'The canonical specification and the generator behind its documentation form one release toolchain.',
     flow: ['Model', 'Generate', 'Publish', 'Consume'],
@@ -48,7 +48,7 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   reference: {
-    number: '02',
+    label: 'Reference & Explorer',
     title: 'Learn ORD against a running system',
     summary: 'A reference provider and a browser-based consumer make both sides of the pull protocol tangible.',
     flow: ['Expose', 'Discover', 'Browse', 'Inspect'],
@@ -74,7 +74,7 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   publishing: {
-    number: '03',
+    label: 'Publishing',
     title: 'Publish ORD from files or Java',
     summary: 'Use a ready-made server for static metadata or integrate ORD directly into a Spring Boot application.',
     flow: ['Describe', 'Expose endpoints', 'Fetch'],
@@ -103,7 +103,7 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   overlays: {
-    number: '04',
+    label: 'Overlay tools',
     title: 'Author, validate, and apply ORD Overlays',
     summary: 'The Overlay toolchain spans interactive authoring, TypeScript automation, and Go-based processing.',
     flow: ['Author', 'Validate or convert', 'Apply', 'Render'],
@@ -134,7 +134,7 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   ui: {
-    number: '05',
+    label: 'UI foundations',
     title: 'Render metadata consistently',
     summary: 'Shared, themeable React foundations keep ORD tools visually coherent while supporting specialized metadata formats.',
     flow: ['Design tokens', 'UI components', 'Format renderers', 'Product UI'],
@@ -160,7 +160,7 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   a2a: {
-    number: '06',
+    label: 'A2A tools',
     title: 'Build, test, and discover A2A agents',
     summary: 'A connected toolkit covers Agent Card authoring, IDE workflows, protocol testing, and ORD-based discovery.',
     flow: ['Describe', 'Edit & test', 'Publish with ORD', 'Call with A2A'],
@@ -198,7 +198,7 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   mcp: {
-    number: '07',
+    label: 'MCP tools',
     title: 'Discover MCP tools before connecting',
     summary: 'MCP Server Cards and ORD turn server and tool discovery into inspectable metadata.',
     flow: ['Discover server', 'Inspect card', 'Select tools', 'Connect'],
@@ -222,7 +222,7 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   compaction: {
-    number: '08',
+    label: 'Metadata compaction',
     title: 'Make large definitions practical for AI',
     summary: 'Rules-based compaction keeps the metadata an AI consumer needs while removing avoidable payload.',
     flow: ['Source definition', 'Apply rules', 'Compact', 'Expose'],
@@ -238,7 +238,7 @@ const groups: Record<string, ProjectGroup> = {
     highlights: ['Rules control retained metadata', 'Library and command-line tool', 'CSN JSON supported today'],
   },
   registry: {
-    number: '09',
+    label: 'Registry workflow',
     title: 'Automate one part of registry governance',
     summary: 'The bot handles a GitHub request workflow; it is a building block, not a complete ORD namespace registry.',
     flow: ['Issue request', 'Validate', 'Review', 'Registry PR'],
@@ -257,7 +257,7 @@ const groups: Record<string, ProjectGroup> = {
 
 const props = defineProps<{ group: string }>()
 const project = computed(() => groups[props.group])
-const groupOrder = ['specification', 'reference', 'publishing', 'overlays', 'ui', 'a2a', 'mcp', 'compaction', 'registry']
+const groupOrder = ['specification', 'reference', 'publishing', 'overlays', 'ui', 'a2a', 'mcp', 'compaction']
 const groupIndex = computed(() => groupOrder.indexOf(props.group))
 const previousGroup = computed(() => groupIndex.value > 0 ? groupOrder[groupIndex.value - 1] : undefined)
 const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < groupOrder.length - 1 ? groupOrder[groupIndex.value + 1] : undefined)
@@ -265,7 +265,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 
 <template>
   <div v-if="project" class="slide-shell light-slide deep-slide ecosystem-project-slide">
-    <DeckLogo :section="`Group ${project.number}`"></DeckLogo>
+    <DeckLogo :section="project.label"></DeckLogo>
     <nav class="ecosystem-nav" aria-label="Tools and ecosystem navigation">
       <a href="./tools-ecosystem">All tools</a>
       <a v-if="previousGroup" :href="`./project-${previousGroup}`" :title="groups[previousGroup].title">← Previous</a>

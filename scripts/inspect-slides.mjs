@@ -8,7 +8,7 @@ import { parseSync } from "@slidev/parser";
 const options = parseArgs(process.argv.slice(2));
 const port = Number(options.port ?? process.env.PORT ?? 3131);
 const source = await readFile("slides.md", "utf8");
-const slides = parseSync(source, "slides.md").slides;
+const slides = parseSync(source, "slides.md").slides.filter(slide => !slide.frontmatter.hide && !slide.frontmatter.disabled);
 const inferredSlideCount = slides.length;
 const slideCount = Number(options.slides ?? process.env.SLIDE_COUNT ?? inferredSlideCount);
 const outDir = String(options.out ?? "screenshots");
