@@ -21,7 +21,7 @@
           <h3>Correlation ID</h3>
           <p>Which external record is this the same as?</p>
         </header>
-        <code>foo.crm:record:Customer/4711</code>
+        <code>foo.crm:customer:4711</code>
         <ul>
           <li>Maps to a system-of-record identifier</li>
           <li>Stored in <code>correlationIds</code></li>

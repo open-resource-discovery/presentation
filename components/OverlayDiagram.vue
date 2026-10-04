@@ -31,7 +31,6 @@
       <span><b>Target</b> ORD ID + definition type or URL</span>
       <span><b>Select</b> operation, entity, property, root, or JSONPath</span>
       <span><b>Patch</b> merge, update, or remove</span>
-      <a href="https://open-resource-discovery.org/spec-v1/interfaces/OrdOverlay" target="_blank" rel="noreferrer">ORD Overlay specification ↗</a>
     </figcaption>
   </figure>
 </template>
@@ -53,5 +52,4 @@
 figcaption { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: center; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 13px 16px; }
 figcaption span { color: var(--ord-muted); font-size: 16px; }
 figcaption b { color: var(--ord-text); }
-figcaption a { grid-column: 1 / -1; justify-self: end; color: var(--ord-brand); font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 </style>

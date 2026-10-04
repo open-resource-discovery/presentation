@@ -31,8 +31,8 @@
     </div>
 
     <div class="dependency-row">
-      <span>Skill dependencies use the existing Integration Dependency graph</span>
-      <b>APIs</b><b>MCP tools</b><b>Agents</b><b>Other skills</b>
+      <span>Agents and Capabilities declare requirements through Integration Dependencies</span>
+      <b>APIs / MCP</b><b>Events</b><b>Skills</b><b>Plugins</b>
     </div>
   </figure>
 </template>

@@ -87,6 +87,7 @@ routeAlias: self-description
 <section class="diagram-column">
 <ProviderDiagram></ProviderDiagram>
 </section>
+<DeepDiveLink to="integration-dependencies" label="Dependencies"></DeepDiveLink>
 </div>
 
 ---
@@ -100,6 +101,7 @@ routeAlias: ord-roles
 <p class="slide-subtitle">Providers publish a simple self-description, aggregators build a connected view, and consumers retrieve metadata through a discovery-oriented API.</p>
 </header>
 <RolesDiagram></RolesDiagram>
+<DeepDiveLink to="landscape-model" label="Landscape model"></DeepDiveLink>
 </div>
 
 ---
@@ -263,20 +265,7 @@ routeAlias: outcomes
 <section class="outcome-card"><span>03</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 10V15M7 22V15H25V22"/><rect x="11" y="2" width="10" height="8" rx="2"/><rect x="2" y="22" width="10" height="8" rx="2"/><rect x="20" y="22" width="10" height="8" rx="2"/></svg><h3>Landscape insight</h3><p>Understand capabilities and declared dependencies across systems.</p></section>
 <section class="outcome-card"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="20" rx="4"/><path d="M16 3V8M2 15V22M30 15V22M11 22H21"/><circle cx="11" cy="16" r="1.5"/><circle cx="21" cy="16" r="1.5"/></svg><h3>Automation and AI</h3><p>Ground tools and agents in structured, discoverable metadata.</p></section>
 </div>
-</div>
-
----
-routeAlias: ai-discovery
----
-
-<div class="slide-shell light-slide">
-<DeckLogo section="AI-ready discovery"></DeckLogo>
-<header class="slide-header wide-header">
-<h2>Follow an Agent's resource graph</h2>
-<p class="slide-subtitle">An Agent can require APIs directly. The Skill proposal adds a reusable capability that declares its own API dependencies.</p>
-</header>
-<AiDiscoveryDiagram></AiDiscoveryDiagram>
-<DeepDiveLink to="skills-preview" label="Skills preview"></DeepDiveLink>
+<DeepDiveLink to="ai-discovery" label="AI &amp; Agents"></DeepDiveLink>
 </div>
 
 ---
@@ -349,7 +338,7 @@ routeAlias: deep-dives
 <DeckLogo section="Overview"></DeckLogo>
 <DeepDiveNav back-to="introduction" back-label="Main presentation" :show-index="false"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>ORD details, one concept at a time</h2>
+<h2>Explore ORD by topic</h2>
 </header>
 <DeepDiveIndex></DeepDiveIndex>
 </div>
@@ -360,7 +349,7 @@ routeAlias: namespace-concept
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Namespace concept"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model"></DeepDiveNav>
+<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-v1#namespaces"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Identity starts with clear ownership</h2>
 <p class="slide-subtitle">System namespaces describe system-owned information; authority namespaces identify shared contracts, definitions, or taxonomy.</p>
@@ -374,7 +363,7 @@ routeAlias: landscape-model
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="System landscape model"></DeckLogo>
-<DeepDiveNav back-to="connected-landscape" back-label="Connected landscape"></DeepDiveNav>
+<DeepDiveNav back-to="connected-landscape" back-label="Resource graph" spec-href="https://open-resource-discovery.org/spec-v1/concepts/system-landscape-model"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>ORD adds detail to systems you already know</h2>
 <p class="slide-subtitle">Service discovery identifies system instances; ORD describes their resources and connects them to static system and portfolio context.</p>
@@ -388,7 +377,7 @@ routeAlias: ord-identifiers
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="ORD identifiers"></DeckLogo>
-<DeepDiveNav back-to="namespace-concept" back-label="Namespace concept" next-to="related-identifiers" next-label="Related IDs"></DeepDiveNav>
+<DeepDiveNav back-to="namespace-concept" back-label="Namespace concept" next-to="related-identifiers" next-label="Related IDs" spec-href="https://open-resource-discovery.org/spec-v1#ord-id-construction"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>ORD ID: How to construct the type-level ID</h2>
 <p class="slide-subtitle">An ORD ID identifies the governed resource at design time. Runtime uniqueness also needs the system-instance context.</p>
@@ -402,7 +391,7 @@ routeAlias: related-identifiers
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Identifier families"></DeckLogo>
-<DeepDiveNav back-to="ord-identifiers" back-label="ORD IDs"></DeepDiveNav>
+<DeepDiveNav back-to="ord-identifiers" back-label="ORD IDs" spec-href="https://open-resource-discovery.org/spec-v1#id-concepts"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Three common identifiers, three jobs</h2>
 <p class="slide-subtitle">The namespace establishes who governs the identifier; its remaining fragments determine what kind of reference it represents.</p>
@@ -416,7 +405,7 @@ routeAlias: versioning-lifecycle
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Versioning and lifecycle"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model" next-to="api-lifecycle" next-label="API lifecycle example"></DeepDiveNav>
+<DeepDiveNav back-to="information-model" back-label="Information model" next-to="api-lifecycle" next-label="API lifecycle example" spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Identity, change, and maturity are separate signals</h2>
 </header>
@@ -433,7 +422,7 @@ import ApiLifecycleDiagram from './components/ApiLifecycleDiagram.vue'
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="API lifecycle example"></DeckLogo>
-<DeepDiveNav back-to="versioning-lifecycle" back-label="Versioning &amp; lifecycle"></DeepDiveNav>
+<DeepDiveNav back-to="versioning-lifecycle" back-label="Versioning &amp; lifecycle" spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle#lifecycle"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>API lifecycle: evolve, replace, then retire</h2>
 </header>
@@ -446,7 +435,7 @@ routeAlias: perspective-resolution
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Perspective resolution"></DeckLogo>
-<DeepDiveNav back-to="perspectives-overview" back-label="Perspectives"></DeepDiveNav>
+<DeepDiveNav back-to="perspectives-overview" back-label="Perspectives" spec-href="https://open-resource-discovery.org/spec-v1/concepts/perspectives#effective-system-instance-resolution"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Resolve the most specific complete view</h2>
 </header>
@@ -459,7 +448,7 @@ routeAlias: pull-sequence
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Pull transport sequence"></DeckLogo>
-<DeepDiveNav back-to="pull-overview" back-label="Pull transport"></DeepDiveNav>
+<DeepDiveNav back-to="pull-overview" back-label="Pull transport" spec-href="https://open-resource-discovery.org/spec-v1#pull-transport-sequence-diagram"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Discover, fetch, then follow definitions</h2>
 <p class="slide-subtitle">Service discovery supplies known system instances; ORD begins at the provider's well-known configuration.</p>
@@ -468,12 +457,36 @@ routeAlias: pull-sequence
 </div>
 
 ---
+routeAlias: ai-discovery
+---
+
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="AI &amp; Agents"></DeckLogo>
+<DeepDiveNav back-to="connected-landscape" back-label="Resource graph" next-to="skills-preview" next-label="Skills &amp; Plugins" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>AI &amp; Agents: interaction and dependencies</h2>
+<p class="slide-subtitle">Including Skills and Plugins as proposed in <a href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank" rel="noopener noreferrer">PR #102</a> for 1.17.</p>
+</header>
+<AiDiscoveryDiagram></AiDiscoveryDiagram>
+</div>
+
+<!--
+An Agent is a conceptual resource describing autonomous task execution. It can exist without an exposed API. When it exposes an interaction contract, exposedApiResources references a separate API Resource; A2A with an Agent Card is one example, not a required protocol.
+
+Agent.integrationDependencies references Integration Dependency resources. Their aspects already support apiResources, eventResources, and generic capabilities in ORD 1.16.4. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
+
+PR #102 at commit 18fc27e67548f91c13f21ad0b283bb0725d47400 proposes agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. The dashed Capability-to-dependency arrow marks the proposed property. Capability references themselves are already released. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
+
+API subsets can select MCP tools by operationId using the tool name from the MCP Server Card. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
+-->
+
+---
 routeAlias: ai-enrichment
 ---
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="AI-oriented metadata enrichment"></DeckLogo>
-<DeepDiveNav back-to="ai-discovery" back-label="AI-ready discovery"></DeepDiveNav>
+<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Help AI choose a resource, then use it well</h2>
 </header>
@@ -486,7 +499,7 @@ routeAlias: visibility
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Visibility and access"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model"></DeepDiveNav>
+<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#api-resource_visibility"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Expose metadata only to its intended audience</h2>
 </header>
@@ -499,7 +512,7 @@ routeAlias: ord-overlays
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="ORD Overlays"></DeckLogo>
-<DeepDiveNav back-to="ai-discovery" back-label="AI-ready discovery"></DeepDiveNav>
+<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://open-resource-discovery.org/spec-v1/interfaces/OrdOverlay"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Enrich a definition without changing its source</h2>
 </header>
@@ -512,7 +525,7 @@ routeAlias: skills-preview
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Preview · proposed for 1.17"></DeckLogo>
-<DeepDiveNav back-to="ai-discovery" back-label="AI-ready discovery"></DeepDiveNav>
+<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://github.com/open-resource-discovery/specification/blob/18fc27e67548f91c13f21ad0b283bb0725d47400/docs/spec-v1/concepts/ai-agents-and-protocols.md#agent-skills-as-capabilities" spec-label="Skills proposal"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Make reusable agent skills discoverable</h2>
 </header>
@@ -525,9 +538,9 @@ routeAlias: push-preview
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Preview · proposal"></DeckLogo>
-<DeepDiveNav back-to="pull-overview" back-label="Pull transport"></DeepDiveNav>
+<DeepDiveNav back-to="pull-overview" back-label="Pull transport" spec-href="https://github.com/open-resource-discovery/specification/pull/187" spec-label="Push proposal"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Stage, validate, then publish atomically</h2>
+<h2>Preview: ORD Push Transport Mode</h2>
 </header>
 <PushPreviewDiagram></PushPreviewDiagram>
 </div>
@@ -538,7 +551,7 @@ routeAlias: integration-dependencies
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Integration dependencies"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model"></DeepDiveNav>
+<DeepDiveNav back-to="self-description" back-label="Self-description" spec-href="https://open-resource-discovery.org/spec-v1/concepts/integration-dependency#concept"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Describe what a system needs from others</h2>
 </header>
@@ -555,7 +568,7 @@ import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Extensibility in ORD"></DeckLogo>
-<DeepDiveNav next-to="grouping-packaging" next-label="Grouping &amp; packaging"></DeepDiveNav>
+<DeepDiveNav next-to="grouping-packaging" next-label="Grouping &amp; packaging" spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#capability"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Extend through the right ORD extension point</h2>
 <p class="slide-subtitle">Keep the shared discovery model; add domain-specific meaning where ORD provides an extension mechanism.</p>
@@ -573,7 +586,7 @@ import GroupingPackagingDiagram from './components/GroupingPackagingDiagram.vue'
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Grouping &amp; packaging"></DeckLogo>
-<DeepDiveNav back-to="ord-extensibility" back-label="Extensibility"></DeepDiveNav>
+<DeepDiveNav back-to="connected-landscape" back-label="Resource graph" next-to="ord-extensibility" next-label="Extensibility" spec-href="https://open-resource-discovery.org/spec-v1/concepts/grouping-and-bundling#choosing-the-right-concept"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Grouping &amp; packaging: choose by concern</h2>
 </header>

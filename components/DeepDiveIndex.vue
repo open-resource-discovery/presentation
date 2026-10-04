@@ -1,70 +1,77 @@
+<script setup>
+const categories = [
+  {
+    title: 'Identity & context',
+    description: 'Locate, identify, and organize',
+    topics: [
+      { to: 'landscape-model', title: 'Landscape model', description: 'Systems, tenants, and resources' },
+      { to: 'namespace-concept', title: 'Namespaces', description: 'Ownership and governance' },
+      { to: 'ord-identifiers', title: 'ORD and related IDs', description: 'Identity and external references' },
+      { to: 'grouping-packaging', title: 'Grouping & packaging', description: 'Publishing, access, and taxonomy' },
+    ],
+  },
+  {
+    title: 'Change & views',
+    description: 'Track change and resolve context',
+    topics: [
+      { to: 'versioning-lifecycle', title: 'Versioning & lifecycle', description: 'Compatible change and maturity' },
+      { to: 'api-lifecycle', title: 'API lifecycle example', description: 'Successors, migration, retirement' },
+      { to: 'perspective-resolution', title: 'Perspectives', description: 'Static baselines and tenant views' },
+      { to: 'ord-overlays', title: 'ORD Overlays', description: 'Enrich an existing definition' },
+    ],
+  },
+  {
+    title: 'Discovery & access',
+    description: 'Publish, retrieve, and connect',
+    topics: [
+      { to: 'pull-sequence', title: 'Pull sequence', description: 'Configuration to resource definitions' },
+      { to: 'push-preview', title: 'Push proposal', description: 'Stage, validate, publish atomically' },
+      { to: 'visibility', title: 'Visibility', description: 'Public, internal, and private metadata' },
+      { to: 'integration-dependencies', title: 'Integration dependencies', description: 'Requirements and alternatives' },
+    ],
+  },
+  {
+    title: 'AI & extensibility',
+    description: 'Describe behavior and add meaning',
+    topics: [
+      { to: 'ai-discovery', title: 'AI & Agents', description: 'Interaction APIs and dependencies' },
+      { to: 'skills-preview', title: 'Skills & Plugins proposal', description: 'Reusable, discoverable behavior' },
+      { to: 'ai-enrichment', title: 'AI enrichment', description: 'Hints and definition guidance' },
+      { to: 'ord-extensibility', title: 'Extensibility', description: 'Custom types, metadata, definitions' },
+    ],
+  },
+]
+</script>
+
 <template>
-  <div class="deep-dive-index">
-    <a href="./namespace-concept"><span>01 · Identity</span><strong>Namespace concept</strong><small>Who governs an identifier?</small></a>
-    <a href="./landscape-model"><span>02 · Context</span><strong>Landscape model</strong><small>Type, version, deployment, instance</small></a>
-    <a href="./ord-identifiers"><span>03 · Identity</span><strong>ORD and related IDs</strong><small>Identity, correlation, and specifications</small></a>
-    <a href="./versioning-lifecycle"><span>04 · Change</span><strong>Versioning &amp; lifecycle</strong><small>Compatible change, successors, tombstones</small></a>
-    <a href="./perspective-resolution"><span>05 · Views</span><strong>Perspective resolution</strong><small>Static layers and runtime truth</small></a>
-    <a href="./pull-sequence"><span>06 · Transport</span><strong>Pull sequence</strong><small>From a known system to definitions</small></a>
-    <a href="./ai-enrichment"><span>07 · AI metadata</span><strong>AI enrichment</strong><small>Resource hints and definition overlays</small></a>
-    <a href="./visibility"><span>08 · Access</span><strong>Visibility</strong><small>Public, internal, and private metadata</small></a>
-    <a href="./ord-overlays"><span>09 · Definitions</span><strong>ORD Overlays</strong><small>Enrich definitions without modifying source</small></a>
-    <a href="./skills-preview"><span>10 · Preview</span><strong>Skills in ORD</strong><small>Discoverable, reusable agent capabilities</small></a>
-    <a href="./push-preview"><span>11 · Preview</span><strong>Push transport</strong><small>Transactional publication to an aggregator</small></a>
-    <a href="./integration-dependencies"><span>12 · Relationships</span><strong>Integration dependencies</strong><small>Requirements, alternatives, and subsets</small></a>
-    <a href="./ord-extensibility"><span>13 · Extension points</span><strong>Extensibility in ORD</strong><small>Metadata, taxonomy, and custom definitions</small></a>
-    <a href="./grouping-packaging"><span>14 · Organization</span><strong>Grouping &amp; packaging</strong><small>Publishing, access, portfolio, and taxonomy</small></a>
-    <a href="./api-lifecycle"><span>15 · Change</span><strong>API lifecycle example</strong><small>Stable IDs, successor resources, retirement</small></a>
-  </div>
+  <nav class="deep-dive-index" aria-label="Deep dives by topic">
+    <section v-for="category in categories" :key="category.title" class="topic-category" :aria-label="category.title">
+      <header>
+        <h3>{{ category.title }}</h3>
+        <p>{{ category.description }}</p>
+      </header>
+      <a v-for="topic in category.topics" :key="topic.to" :href="'./' + topic.to">
+        <strong>{{ topic.title }}</strong>
+        <small>{{ topic.description }}</small>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+  </nav>
 </template>
 
 <style scoped>
-.deep-dive-index {
-  display: grid;
-  flex: 1;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  align-content: center;
-}
-
-.deep-dive-index a {
-  display: grid;
-  min-height: 120px;
-  grid-template-rows: 16px 40px minmax(30px, 1fr);
-  gap: 4px;
-  border: 1px solid var(--ord-sep);
-  border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
-  padding: 12px 16px;
-  text-decoration: none;
-}
-
-.deep-dive-index a:hover {
-  border-color: var(--ord-brand-2);
-  background: var(--ord-accent-teal-bg);
-}
-
-.deep-dive-index a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 2px; }
-
-.deep-dive-index span {
-  color: var(--ord-faint);
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.deep-dive-index strong {
-  margin-top: 0;
-  min-height: 40px;
-  color: var(--ord-text);
-  font-size: 17px;
-  line-height: 1.15;
-}
-
-.deep-dive-index small {
-  color: var(--ord-muted);
-  font-size: 12px;
-  line-height: 1.25;
-}
+.deep-dive-index { display: grid; flex: 1; min-height: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-content: center; }
+.topic-category { --category-accent: var(--ord-accent-sky); --category-bg: var(--ord-accent-sky-bg); display: grid; min-height: 476px; grid-template-rows: 94px repeat(4, minmax(0, 1fr)); border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); overflow: hidden; }
+.topic-category:nth-child(2) { --category-accent: var(--ord-accent-teal); --category-bg: var(--ord-accent-teal-bg); }
+.topic-category:nth-child(3) { --category-accent: var(--ord-accent-coral); --category-bg: var(--ord-accent-coral-bg); }
+.topic-category:nth-child(4) { --category-accent: var(--ord-accent-violet); --category-bg: var(--ord-accent-violet-bg); }
+header { min-height: 94px; display: flex; flex-direction: column; gap: 8px; border-top: 4px solid var(--category-accent); background: var(--category-bg); padding: 17px 16px; }
+h3 { color: var(--ord-text); font-size: 19px; font-weight: 750; line-height: 1.2; }
+header p { color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
+.topic-category a { position: relative; display: flex; min-height: 0; flex-direction: column; justify-content: center; gap: 7px; border: 0; border-top: 1px solid var(--ord-sep); color: var(--ord-text); padding: 13px 28px 13px 16px; text-decoration: none; }
+.topic-category a:hover { background: var(--category-bg); }
+.topic-category a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: -4px; background: var(--category-bg); }
+strong { font-size: 17px; font-weight: 650; line-height: 1.2; }
+small { color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
+.topic-category a span { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--ord-brand); font-size: 16px; }
 </style>

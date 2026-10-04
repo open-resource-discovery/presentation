@@ -207,6 +207,7 @@
 .stack:first-child span::after, .stack:last-child span::before {
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   width: 8px;
   height: 2px;
   background: var(--ord-brand-2);

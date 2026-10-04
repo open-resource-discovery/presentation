@@ -6,6 +6,8 @@ withDefaults(
     nextTo?: string
     nextLabel?: string
     showIndex?: boolean
+    specHref?: string
+    specLabel?: string
   }>(),
   {
     backTo: 'deep-dives',
@@ -13,6 +15,8 @@ withDefaults(
     nextTo: undefined,
     nextLabel: undefined,
     showIndex: true,
+    specHref: undefined,
+    specLabel: 'ORD specification',
   },
 )
 </script>
@@ -23,6 +27,7 @@ withDefaults(
     <a v-if="backTo !== 'deep-dives'" class="previous-link" :href="`./${backTo}`">← {{ backLabel }}</a>
     <a v-if="nextTo" class="next-link" :href="`./${nextTo}`">{{ nextLabel }} →</a>
   </nav>
+  <a v-if="specHref" class="deep-dive-source" :href="specHref" target="_blank" rel="noopener noreferrer">{{ specLabel }} ↗</a>
 </template>
 
 <style scoped>
@@ -50,4 +55,25 @@ withDefaults(
   border-color: var(--ord-brand-2);
   color: var(--ord-text);
 }
+
+.deep-dive-nav a:focus-visible,
+.deep-dive-source:focus-visible {
+  outline: 2px solid var(--ord-brand);
+  outline-offset: 4px;
+}
+
+.deep-dive-source {
+  position: absolute;
+  right: 110px;
+  bottom: 20px;
+  z-index: 7;
+  color: var(--ord-brand);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.deep-dive-source:hover { color: var(--ord-text); }
 </style>

@@ -20,7 +20,7 @@
       <p>Describe a supported feature or configuration as a Capability. Link a custom definition for richer machine-readable detail.</p>
       <div class="example">ORD Capability <b>→</b> Custom definition<br><span>identity, lifecycle, visibility <b>→</b> domain schema</span></div>
     </section>
-    <figcaption><span>Namespace custom semantics and document their meaning. Prefer standard ORD fields when they already fit.</span><a href="https://open-resource-discovery.org/spec-v1/interfaces/Document#capability" target="_blank" rel="noopener noreferrer">Specification ↗</a></figcaption>
+    <figcaption>Namespace custom semantics and document their meaning. Prefer standard ORD fields when they already fit.</figcaption>
   </figure>
 </template>
 
@@ -35,6 +35,5 @@ p code { color: var(--ord-brand); font-size: 13px; }
 code.example { border: 1px solid var(--ord-sep); border-radius: 5px; background: var(--ord-pill-bg); color: var(--ord-brand); font-size: 13px; padding: 12px; white-space: normal; overflow-wrap: anywhere; }
 .example span { color: var(--ord-muted); font-size: 12px; }
 .example b { padding: 0 5px; color: var(--ord-brand); }
-figcaption { display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--ord-muted); font-size: 13px; line-height: 1.4; }
-figcaption a { flex-shrink: 0; border: 0; color: var(--ord-brand); }
+figcaption { color: var(--ord-muted); font-size: 13px; line-height: 1.4; }
 </style>

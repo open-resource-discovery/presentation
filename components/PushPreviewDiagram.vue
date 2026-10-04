@@ -22,7 +22,6 @@
       <span><b>Default</b> merge + unit-level acceptance</span>
       <span><b>Optional</b> strict all-or-nothing validation</span>
       <span><b>Scoped replace</b> omission removes within one authorized boundary</span>
-      <a href="https://github.com/open-resource-discovery/specification/pull/187" target="_blank" rel="noreferrer">Proposal PR #187 ↗</a>
     </figcaption>
   </figure>
 </template>
@@ -44,8 +43,7 @@ marker path { fill: var(--ord-brand); }
 .staging text { fill: var(--ord-brand); font-size: 10px; font-weight: 750; text-transform: uppercase; }
 .validation rect { fill: var(--ord-aggregator-soft); stroke: var(--ord-aggregator); }
 .validation text { fill: var(--ord-muted); font-size: 11px; text-anchor: middle; }
-figcaption { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 12px; align-items: center; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 12px 16px; }
+figcaption { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: center; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 12px 16px; }
 figcaption span { color: var(--ord-muted); font-size: 11px; line-height: 1.3; }
 figcaption b { color: var(--ord-text); }
-figcaption a { color: var(--ord-brand); font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 </style>

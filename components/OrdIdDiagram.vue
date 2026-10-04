@@ -1,7 +1,12 @@
 <template>
   <figure class="ord-id-diagram" aria-label="Construction and meaning of an ORD ID">
-    <div class="id-example" aria-label="namespace colon concept name colon resource name colon major version">
-      <span class="namespace">namespace</span><i>:</i><span class="concept">conceptName</span><i>:</i><span class="resource">resourceName</span><i>:</i><span class="major">v&lt;major&gt;</span>
+    <div class="id-example" aria-label="ORD ID example: foo.orders:apiResource:Orders:v1">
+      <span class="namespace">foo.orders</span><i>:</i><span class="concept">apiResource</span><i>:</i><span class="resource">Orders</span><i>:</i><span class="major">v1</span>
+    </div>
+
+    <div class="id-pattern">
+      <span>Pattern</span>
+      <span>namespace:conceptName:resourceName:v&lt;major&gt;</span>
     </div>
 
     <div class="fragment-grid">
@@ -30,6 +35,8 @@
 .id-example .concept, .fragment-grid .concept { background: var(--ord-teal-soft); color: var(--ord-brand); }
 .id-example .resource, .fragment-grid .resource { background: rgba(155,124,255,.12); color: #6f4ad6; }
 .id-example .major, .fragment-grid .major { background: var(--ord-coral-soft); color: #bd4c36; }
+.id-pattern { display: flex; align-items: center; justify-content: center; gap: 18px; color: var(--ord-muted); font-size: 16px; }
+.id-pattern span:last-child { font-family: var(--ord-mono); font-size: 17px; }
 .fragment-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
 .fragment-grid section { display: flex; min-height: 150px; flex-direction: column; gap: 8px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); padding: 18px; }
 .fragment-grid section > span { font-size: 11px; font-weight: 750; }
