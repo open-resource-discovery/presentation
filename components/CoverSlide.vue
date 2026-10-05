@@ -14,6 +14,15 @@
         </a>
       </section>
     </div>
+    <div class="cover-governance" aria-label="Governance">
+      <a href="https://apeirora.eu" target="_blank" rel="noopener noreferrer" aria-label="ApeiroRA">
+        <img src="/img/apeirora.svg" alt="ApeiroRA" />
+      </a>
+      <span class="cover-governance-sep" aria-hidden="true"></span>
+      <a href="https://neonephos.org" target="_blank" rel="noopener noreferrer" aria-label="NeoNephos Foundation">
+        <img src="/img/ord-footer-neonephos.svg" alt="NeoNephos Foundation" />
+      </a>
+    </div>
     <CoverAgenda />
   </div>
 </template>

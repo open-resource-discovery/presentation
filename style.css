@@ -436,6 +436,36 @@
   background: rgba(50, 188, 172, 0.16);
 }
 
+/* Governance lockup on the cover: ApeiroRA + NeoNephos, right-aligned above the
+   agenda strip. Kept subtle so it reads as provenance, not as a headline. */
+.cover-governance {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  opacity: 0.82;
+}
+
+.cover-governance a {
+  display: inline-flex;
+  border: 0;
+  text-decoration: none;
+}
+
+.cover-governance img {
+  display: block;
+  width: auto;
+}
+
+.cover-governance a:first-child img { height: 26px; }
+.cover-governance a:last-child img { height: 22px; }
+
+.cover-governance-sep {
+  width: 1px;
+  height: 24px;
+  background: var(--ord-border);
+}
+
 /* Cover agenda: full-width chapter strip anchored at the bottom.
    The first chapter gets extra width so its label stays on one line. */
 .cover-agenda {
@@ -916,6 +946,17 @@
 
 .end-slide {
   justify-content: center;
+}
+
+/* The closing slide carries the governance band at the bottom, so let the main
+   content take the space it needs and pin the notice as a footer. */
+.end-slide .end-layout {
+  flex: 1;
+  align-content: center;
+}
+
+.end-slide .governance-notice {
+  flex: none;
 }
 
 

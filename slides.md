@@ -300,6 +300,7 @@ routeAlias: closing
 </section>
 <ClosingQr></ClosingQr>
 </div>
+<GovernanceNotice></GovernanceNotice>
 <DeepDiveLink to="tools-ecosystem" label="Tools &amp; Ecosystem" kicker="Explore"></DeepDiveLink>
 </div>
 
