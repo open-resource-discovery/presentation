@@ -34,4 +34,6 @@ npm run export   # slides-export.pdf
 
 ## License
 
-Open source under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0), governed by the [NeoNephos Foundation](https://neonephos.org/) under [Linux Foundation Europe](https://linuxfoundation.eu/).
+Licensed under the [Apache License 2.0](./LICENSE), governed by the [NeoNephos Foundation](https://neonephos.org/) under [Linux Foundation Europe](https://linuxfoundation.eu/).
+
+Copyright 2026 SAP SE or an SAP affiliate company and presentation contributors. This repository follows the [REUSE](https://reuse.software/) specification; see [`REUSE.toml`](./REUSE.toml) for per-file copyright and license information.
