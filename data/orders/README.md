@@ -17,6 +17,7 @@ The Configuration and ORD document are validated against the source schemas in
   server is `https://orders.example.com/api/v1`. These URLs are illustrative.
   The slide's document and definition links advance the bundled walkthrough.
 
-The optional live reference application is a separate example. It declares its
-own ORD version and is requested only after selecting **Try live demo**. A failed
-or timed-out request returns to the Orders teaching example.
+The optional live reference application is a separate example.
+It declares its own ORD version and is requested only after selecting **Try live demo**.
+Its root page embeds ORD Explorer for public system-version metadata and demo-authenticated system-instance metadata.
+A failed or timed-out request returns to the Orders teaching example.
