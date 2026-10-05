@@ -604,7 +604,7 @@ The CSS viewport focuses on the catalog; the Full screenshot link opens the orig
 Sample IDs remain as the real tool displays them.
 The Beta filter is resource release status, not a feature maturity badge.
 The standalone Explorer link opens its built-in sample catalog.
-The live reference Provider embeds the same Explorer components and displays its own public system-version metadata.
+The live reference Provider embeds the same Explorer components and switches between public system-version metadata and demo-authenticated system-instance metadata.
 -->
 
 ---

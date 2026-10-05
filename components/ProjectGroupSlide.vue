@@ -51,7 +51,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'reference-application',
         role: 'Runnable provider',
-        description: 'A running Provider whose embedded Explorer shows its public ORD metadata and native definitions.',
+        description: 'A running Provider whose embedded Explorer shows public or demo-authenticated tenant metadata.',
         url: 'https://github.com/open-resource-discovery/reference-application',
         liveUrl: 'https://ord-reference-application.cfapps.sap.hana.ondemand.com/',
         liveLabel: 'Explore live metadata',
