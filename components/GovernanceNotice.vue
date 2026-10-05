@@ -1,43 +1,50 @@
 <template>
   <section class="governance-notice" aria-label="Governance and funding">
     <div class="governance-logos">
-      <img src="/img/ord-footer-bmwe.png" alt="Funded by the European Union – NextGenerationEU, and the German Federal Ministry for Economic Affairs" />
-      <a href="https://neonephos.org" target="_blank" rel="noopener noreferrer" aria-label="NeoNephos Foundation">
-        <img src="/img/ord-footer-neonephos-light.svg" alt="NeoNephos Foundation" />
-      </a>
+      <img
+        class="governance-funding"
+        src="/img/ord-footer-bmwe.png"
+        alt="Funded by the European Union – NextGenerationEU, and the German Federal Ministry for Economic Affairs and Energy"
+      />
       <a href="https://apeirora.eu" target="_blank" rel="noopener noreferrer" aria-label="ApeiroRA">
-        <img src="/img/apeirora.svg" alt="ApeiroRA" />
+        <img class="governance-brand" src="/img/apeirora.svg" alt="ApeiroRA" />
+      </a>
+      <a href="https://neonephos.org" target="_blank" rel="noopener noreferrer" aria-label="NeoNephos Foundation">
+        <img class="governance-brand" src="/img/ord-footer-neonephos.svg" alt="NeoNephos Foundation" />
       </a>
     </div>
-    <div class="governance-text">
-      <p>
-        Open Resource Discovery is part of <a href="https://apeirora.eu" target="_blank" rel="noopener noreferrer">ApeiroRA</a>
-        and a project of the <a href="https://neonephos.org" target="_blank" rel="noopener noreferrer">NeoNephos Foundation</a>.
-        For applicable policies including privacy policy, terms of use and trademark usage guidelines,
-        please see <a href="https://linuxfoundation.eu" target="_blank" rel="noopener noreferrer">linuxfoundation.eu</a>.
-        Linux is a registered trademark of Linus Torvalds. Copyright © Linux Foundation Europe.
-      </p>
-      <p>
-        Funded by the European Union – NextGenerationEU. The views and opinions expressed are solely those of
-        the author(s) and do not necessarily reflect the views of the European Union or the European Commission.
-        Neither the European Union nor the European Commission can be held responsible for them.
-      </p>
-    </div>
+    <p class="governance-text">
+      Open Resource Discovery is part of
+      <a href="https://apeirora.eu" target="_blank" rel="noopener noreferrer">ApeiroRA</a>.
+      Funded by the European Union – NextGenerationEU; the views expressed are those of the author(s)
+      and do not necessarily reflect those of the European Union or the European Commission.
+      Copyright © Linux Foundation Europe. For applicable policies see
+      <a href="https://linuxfoundation.eu" target="_blank" rel="noopener noreferrer">linuxfoundation.eu</a>.
+      Linux is a registered trademark of Linus Torvalds.
+    </p>
   </section>
 </template>
 
 <style scoped>
 .governance-notice {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  align-items: center;
+  gap: 28px;
+  border-top: 1px solid var(--ord-border);
+  padding-top: 18px;
 }
 
 .governance-logos {
   display: flex;
   align-items: center;
-  gap: 26px;
-  opacity: 0.9;
+  gap: 24px;
+  flex: none;
+}
+
+.governance-logos a {
+  display: inline-flex;
+  border: 0;
+  text-decoration: none;
 }
 
 .governance-logos img {
@@ -45,20 +52,21 @@
   width: auto;
 }
 
-.governance-logos > :nth-child(1) img { height: 40px; }
-.governance-logos > :nth-child(2) img { height: 24px; }
-.governance-logos > :nth-child(3) img { height: 24px; }
+.governance-funding {
+  height: 54px;
+  border-radius: 3px;
+}
 
-.governance-text p {
+.governance-brand {
+  height: 22px;
+  opacity: 0.9;
+}
+
+.governance-text {
   margin: 0;
-  max-width: 1180px;
   color: var(--ord-faint);
   font-size: 11px;
   line-height: 1.5;
-}
-
-.governance-text p + p {
-  margin-top: 6px;
 }
 
 .governance-text a {

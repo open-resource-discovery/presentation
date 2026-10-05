@@ -446,6 +446,12 @@
   opacity: 0.82;
 }
 
+.cover-governance a {
+  display: inline-flex;
+  border: 0;
+  text-decoration: none;
+}
+
 .cover-governance img {
   display: block;
   width: auto;
@@ -940,6 +946,17 @@
 
 .end-slide {
   justify-content: center;
+}
+
+/* The closing slide carries the governance band at the bottom, so let the main
+   content take the space it needs and pin the notice as a footer. */
+.end-slide .end-layout {
+  flex: 1;
+  align-content: center;
+}
+
+.end-slide .governance-notice {
+  flex: none;
 }
 
 

@@ -20,7 +20,7 @@
       </a>
       <span class="cover-governance-sep" aria-hidden="true"></span>
       <a href="https://neonephos.org" target="_blank" rel="noopener noreferrer" aria-label="NeoNephos Foundation">
-        <img src="/img/ord-footer-neonephos-light.svg" alt="NeoNephos Foundation" />
+        <img src="/img/ord-footer-neonephos.svg" alt="NeoNephos Foundation" />
       </a>
     </div>
     <CoverAgenda />
