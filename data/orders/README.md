@@ -18,5 +18,6 @@ The Configuration and ORD document are validated against the source schemas in
   The slide's document and definition links advance the bundled walkthrough.
 
 The optional live reference application is a separate example. It declares its
-own ORD version and is requested only after selecting **Try live demo**. A failed
-or timed-out request returns to the Orders teaching example.
+own ORD version and is requested only after selecting **Try live demo**. Its root
+page embeds ORD Explorer for the public system-version metadata. A failed or
+timed-out request returns to the Orders teaching example.

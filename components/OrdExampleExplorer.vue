@@ -167,7 +167,7 @@ onUnmounted(() => pendingRequest?.abort())
       </button>
       <p class="browser-note"><code>foo</code> is a placeholder vendor. Use your own namespace; <code>foo.orders</code> identifies a system.</p>
       <button v-if="mode === 'live'" class="mode-link" @click="showExample">Return to Orders example</button>
-      <a v-else class="mode-link" :href="origin" target="_blank" rel="noreferrer">Live reference application ↗</a>
+      <a v-else class="mode-link" :href="origin" target="_blank" rel="noreferrer">Explore live reference metadata ↗</a>
     </aside>
     <section class="response-panel">
       <header>

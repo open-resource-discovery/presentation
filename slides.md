@@ -597,7 +597,14 @@ routeAlias: project-reference
 <ProjectGroupSlide group="reference"></ProjectGroupSlide>
 
 <!--
-Walk through the task: connect to a Provider, choose a perspective, find a resource, then inspect its ORD relationships and native contract. The slide uses the user-supplied screenshot of the actual Explorer's built-in sample catalog. Resource categories, metadata filters, descriptions, protocols, release status, and ORD IDs are visible. The CSS viewport focuses on the catalog; the Full screenshot link opens the original image. Sample IDs remain as the real tool displays them. The Beta filter is resource release status, not a feature maturity badge. The Explorer and reference Provider links let the audience try discovery; their sample datasets are not necessarily identical.
+Walk through the task: connect to a Provider, choose a perspective, find a resource, then inspect its ORD relationships and native contract.
+The slide uses the user-supplied screenshot of the actual Explorer's built-in sample catalog.
+Resource categories, metadata filters, descriptions, protocols, release status, and ORD IDs are visible.
+The CSS viewport focuses on the catalog; the Full screenshot link opens the original image.
+Sample IDs remain as the real tool displays them.
+The Beta filter is resource release status, not a feature maturity badge.
+The standalone Explorer link opens its built-in sample catalog.
+The live reference Provider embeds the same Explorer components and displays its own public system-version metadata.
 -->
 
 ---
