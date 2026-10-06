@@ -7,7 +7,7 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const args = process.argv.slice(2);
 const check = args.includes("--check");
 const override = args.find((arg) => arg.startsWith("--spec-root="));
-const specRoot = path.resolve(root, override?.slice("--spec-root=".length) ?? "../ord-spec");
+const specRoot = path.resolve(root, override?.slice("--spec-root=".length) ?? "../ord-public");
 const name = "unified-metadata.json";
 const source = path.join(specRoot, "diagrams", name);
 const destination = path.join(root, "data/diagrams", name);

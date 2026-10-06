@@ -411,7 +411,13 @@
   text-transform: uppercase;
 }
 
-.slidev-layout .cover-spec-link {
+.cover-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.slidev-layout .cover-link {
   display: inline-flex;
   width: fit-content;
   align-items: center;
@@ -426,14 +432,16 @@
   text-decoration: none;
 }
 
-.cover-spec-link span {
-  color: var(--ord-brand-3);
-  font-size: 18px;
+.slidev-layout .cover-link-secondary {
+  border-color: var(--ord-sep);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ord-muted);
 }
 
-.slidev-layout .cover-spec-link:hover {
+.slidev-layout .cover-link:hover {
   border-color: var(--ord-brand-2);
   background: rgba(50, 188, 172, 0.16);
+  color: var(--ord-text);
 }
 
 /* Keep the cover logos in the corner with equal horizontal and vertical inset. */
@@ -443,8 +451,9 @@
 
 .ord-cover .cover-governance {
   position: absolute;
-  left: 28px;
+  left: 50%;
   bottom: 28px;
+  transform: translateX(-50%);
 }
 
 /* The bookend logos occupy the toolbar's default corner. Keep the hover
@@ -668,19 +677,6 @@
   color: var(--ord-muted);
   font-size: 22px;
   line-height: 1.35;
-}
-
-.roadmap-slide .point-card {
-  justify-content: center;
-  gap: 8px;
-}
-
-.roadmap-slide .point-card h3 {
-  font-size: 27px;
-}
-
-.roadmap-slide .point-card p {
-  font-size: 18px;
 }
 
 .split-slide {
