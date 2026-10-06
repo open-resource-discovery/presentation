@@ -254,6 +254,77 @@ routeAlias: outcomes
 </div>
 
 ---
+routeAlias: sap-case-study
+---
+<div class="slide-shell light-slide sap-case-slide">
+<DeckLogo section="SAP case study"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>SAP: shared metadata, connected views</h2>
+<p class="slide-subtitle">Applications describe what they offer and what is running, through the same protocol.</p>
+</header>
+<SapArchitectureDiagram></SapArchitectureDiagram>
+</div>
+
+<!--
+Case study adapted from ../ord-public/docs/introduction.mdx#ord-architecture-at-sap
+and static/img/ord-sap-architecture-overview.svg (specification 1.16.4).
+https://open-resource-discovery.org/introduction#ord-architecture-at-sap
+
+The same applications and services publish static system-type / version metadata
+and dynamic system-instance metadata. UMS (Unified Metadata Service) receives
+both perspectives, plus other landscape metadata such as BTP destinations and
+registries. SAP Business Accelerator Hub receives the static catalog only.
+Knowledge Graph combines metadata from UMS and other metadata sources, and
+feeds the consumer tools alongside the aggregators.
+The shared-provider model, UMS naming, and Knowledge Graph connections follow
+the presentation author's updates to the older source diagram.
+
+Consumers are selected examples, not an exhaustive inventory. Joule and
+Joule Studio are included per the presentation author's update to the older diagram;
+the Business Application Studio consumer label is replaced with Joule Studio.
+This does not assert that SAP Build or Business Application Studio as a whole
+was renamed. Current Joule Studio naming and authoring scope are described at:
+https://www.sap.com/products/artificial-intelligence/joule-studio.html
+https://news.sap.com/2026/05/new-joule-studio-enterprise-scale-agentic-development/
+
+Arrows show delivery of metadata from Providers to Aggregators to Consumers.
+The shared consumer connector represents access to the individual aggregators,
+not a combined API or a claim that every consumer uses every source.
+The original overview also shows discovery requests in the opposite direction
+and runtime integrations between applications. Neither is drawn here; no arrow
+implies that ORD executes business processes or transports business data.
+-->
+
+---
+routeAlias: sap-landscape-examples
+---
+<div class="slide-shell light-slide sap-case-slide">
+<DeckLogo section="SAP case study · UI examples"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>SAP: the two views in practice</h2>
+<p class="slide-subtitle">Business Accelerator Hub for product discovery; BTP System Landscape for running systems.</p>
+</header>
+<SapLandscapeExamples></SapLandscapeExamples>
+</div>
+
+<!--
+The annotated screenshots are copied unchanged from the ORD introduction:
+../ord-public/static/img/business-accelerator-hub-example1.png
+../ord-public/static/img/btp-cockpit-ucl-example.png
+https://open-resource-discovery.org/introduction#ord-by-examples
+
+The Business Accelerator Hub screenshot shows product documentation and how
+APIs, Events, and Packages appear in a static catalog. The BTP System Landscape
+screenshot shows actual system instances and system types, with detail views
+for APIs, Events, and Consumption Bundles. It illustrates the customer landscape
+aggregated by UMS, per the presentation author's updated service naming.
+
+Use the screenshot links to inspect the original images at full size. The
+existing annotations and redactions are retained; these are illustrative
+screenshots from the introduction rather than captures of today's product UI.
+-->
+
+---
 routeAlias: adoption
 ---
 <div class="slide-shell light-slide">
