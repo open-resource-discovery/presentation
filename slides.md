@@ -15,6 +15,23 @@ drawings:
 <CoverSlide></CoverSlide>
 
 ---
+routeAlias: storyline
+---
+<div class="slide-shell light-slide roadmap-slide">
+<DeckLogo section="Storyline"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>Four questions guide the story</h2>
+<p class="slide-subtitle">The main narrative stays focused; deep dives and tools follow as optional material.</p>
+</header>
+<div class="point-grid">
+<section class="point-card"><span class="point-marker">01</span><h3>Why ORD?</h3><p>What problem does shared metadata discovery solve?</p></section>
+<section class="point-card"><span class="point-marker">02</span><h3>How does it work?</h3><p>How do providers, aggregators, and consumers connect?</p></section>
+<section class="point-card"><span class="point-marker">03</span><h3>What does it enable?</h3><p>Which experiences can reuse the connected metadata?</p></section>
+<section class="point-card"><span class="point-marker">04</span><h3>How does SAP apply it?</h3><p>How do static reference and dynamic customer views work together?</p></section>
+</div>
+</div>
+
+---
 routeAlias: why-section
 deckSection: Why
 ---
@@ -388,7 +405,7 @@ routeAlias: closing
 <h2>Explore, implement, and help shape ORD</h2>
 <p class="lead small">ORD is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache 2.0</a> and governed by the <a href="https://neonephos.org/" target="_blank" rel="noopener noreferrer">NeoNephos Foundation</a> under <a href="https://linuxfoundation.eu/" target="_blank" rel="noopener noreferrer">Linux Foundation Europe</a>.</p>
 <div class="next-grid">
-<a href="https://open-resource-discovery.org/introduction" target="_blank" rel="noopener noreferrer"><span>5-minute primer</span><small>open-resource-discovery.org/introduction</small></a>
+<a href="https://open-resource-discovery.org/introduction" target="_blank" rel="noopener noreferrer"><span>ORD introduction</span><small>open-resource-discovery.org/introduction</small></a>
 <a href="https://open-resource-discovery.org/spec-v1" target="_blank" rel="noopener noreferrer"><span>ORD specification</span><small>open-resource-discovery.org/spec-v1</small></a>
 <a href="https://github.com/open-resource-discovery" target="_blank" rel="noopener noreferrer"><span>Project on GitHub</span><small>github.com/open-resource-discovery</small></a>
 </div>
