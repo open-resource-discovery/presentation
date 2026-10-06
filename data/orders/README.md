@@ -3,7 +3,7 @@
 These fictional endpoints describe one Orders API and its Order Entity Type. The
 walkthrough uses short excerpts; **Full JSON** downloads the complete fixtures.
 The Configuration and ORD document are validated against the source schemas in
-`ord-public/spec/v1/` at release **1.16.4**. The document's version field is
+`ord-spec/spec/v1/` at release **1.16.4**. The document's version field is
 `"1.16"`, as required by the schema.
 
 - Replace the placeholder vendor namespace `foo` with your registered namespace.

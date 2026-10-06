@@ -25,7 +25,7 @@ const categories = [
     description: 'Publish, retrieve, connect',
     topics: [
       { to: 'visibility', title: 'Visibility', description: 'Public, internal, private' },
-      { to: 'pull-sequence', title: 'Pull sequence', description: 'From config to definitions' },
+      { to: 'pull-sequence', title: 'Pull & Discovery API', description: 'Crawl, resolve, serve · 2 slides' },
       { to: 'push-preview', title: 'Push proposal', description: 'Stage, validate, publish' },
       { to: 'integration-dependencies', title: 'Integration dependencies', description: 'Requirements and alternatives' },
     ],
