@@ -1,7 +1,11 @@
+<script setup lang="ts">
+import { assetUrl } from '../utils/asset-url'
+</script>
+
 <template>
   <figure class="landscape-model" aria-label="Authoritative ORD system landscape model, including namespaces and cardinalities">
     <!-- Unmodified diagram from ord-public/static/img/system-landscape/system.drawio.svg (1.16.4). -->
-    <img src="/img/spec/system-landscape.drawio.svg" alt="System instances belong to deployments and system types; types connect to products, vendors, and namespaces. ORD resources are provided by instances and can declare a minimum system version." />
+    <img :src="assetUrl('img/spec/system-landscape.drawio.svg')" alt="System instances belong to deployments and system types; types connect to products, vendors, and namespaces. ORD resources are provided by instances and can declare a minimum system version." />
     <figcaption><span><b>Static context</b> · types, versions, products, namespaces</span><span><b>Dynamic context</b> · deployments and instances</span><a href="https://open-resource-discovery.org/spec-v1/concepts/system-landscape-model" target="_blank" rel="noopener noreferrer">Specification diagram ↗</a></figcaption>
   </figure>
 </template>

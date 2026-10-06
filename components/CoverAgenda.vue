@@ -12,12 +12,12 @@ const items = [
 
 <template>
   <nav class="cover-agenda" aria-label="Presentation agenda">
-    <a
+    <RouterLink
       v-for="item in items"
       :key="item.to"
-      :href="`./${item.to}`"
+      :to="`/${item.to}`"
       :class="{ active: item.no === active }"
       :aria-current="item.no === active ? 'page' : undefined"
-    ><small>{{ item.no }}</small><span>{{ item.label }}</span></a>
+    ><small>{{ item.no }}</small><span>{{ item.label }}</span></RouterLink>
   </nav>
 </template>

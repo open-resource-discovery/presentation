@@ -1,7 +1,11 @@
+<script setup lang="ts">
+import { assetUrl } from '../utils/asset-url'
+</script>
+
 <template>
   <figure class="dependency-diagram" aria-label="Authoritative ORD integration dependency model with alternative and callback resource references">
     <!-- Unmodified diagram from ord-public/static/img/integration-dependency.drawio.svg (1.16.4). -->
-    <img src="/img/spec/integration-dependency.drawio.svg" alt="System A declares three integration aspects. Aspect 1 references alternative APIs on B; aspect 2 references B's events; aspect 3 references A's own callback API, called by B." />
+    <img :src="assetUrl('img/spec/integration-dependency.drawio.svg')" alt="System A declares three integration aspects. Aspect 1 references alternative APIs on B; aspect 2 references B's events; aspect 3 references A's own callback API, called by B." />
     <aside>
       <div class="line-legend"><span><i class="reference"></i>ORD reference</span><span><i></i>Runtime call</span></div>
       <section><small>Across aspects</small><strong>AND</strong><p>Each mandatory aspect must be satisfied. An aspect can also be marked optional.</p></section>

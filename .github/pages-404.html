@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to the ORD presentation</title>
+    <script>
+      const base = '/presentation/'
+      const duplicateBase = 'presentation/'
+      let route = window.location.pathname.startsWith(base)
+        ? window.location.pathname.slice(base.length)
+        : ''
+
+      if (route.startsWith(duplicateBase))
+        route = route.slice(duplicateBase.length)
+
+      route = route.replace(/\/+$/, '')
+
+      window.location.replace(`${base}#/${route || 'introduction'}`)
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to the <a href="/presentation/">ORD presentation</a>.</p>
+  </body>
+</html>

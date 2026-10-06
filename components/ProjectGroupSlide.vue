@@ -238,9 +238,9 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
   <div v-if="project" class="slide-shell light-slide deep-slide ecosystem-project-slide">
     <DeckLogo :section="project.label"></DeckLogo>
     <nav class="ecosystem-nav" aria-label="Tools and ecosystem navigation">
-      <a href="./tools-ecosystem">All tools</a>
-      <a v-if="previousGroup" :href="`./project-${previousGroup}`" :title="groups[previousGroup].title">← Previous</a>
-      <a v-if="nextGroup" :href="`./project-${nextGroup}`" :title="groups[nextGroup].title">Next →</a>
+      <RouterLink to="/tools-ecosystem">All tools</RouterLink>
+      <RouterLink v-if="previousGroup" :to="`/project-${previousGroup}`" :title="groups[previousGroup].title">← Previous</RouterLink>
+      <RouterLink v-if="nextGroup" :to="`/project-${nextGroup}`" :title="groups[nextGroup].title">Next →</RouterLink>
     </nav>
     <header class="slide-header wide-header">
       <h2>{{ project.title }}</h2>
@@ -260,7 +260,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
             <a v-if="repository.liveUrl" :href="repository.liveUrl" target="_blank" rel="noopener noreferrer">{{ repository.liveLabel }} ↗</a>
           </footer>
         </article>
-        <a v-if="project.concept" class="concept-link" :href="`./${project.concept.route}`">{{ project.concept.label }} →</a>
+        <RouterLink v-if="project.concept" class="concept-link" :to="`/${project.concept.route}`">{{ project.concept.label }} →</RouterLink>
       </aside>
     </div>
   </div>

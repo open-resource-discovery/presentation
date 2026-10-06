@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useSlideContext } from '@slidev/client'
+import { assetUrl } from '../utils/asset-url'
 
 withDefaults(
   defineProps<{
@@ -27,14 +28,14 @@ const chapter = computed(() => {
 
 <template>
   <div class="deck-logo" role="banner">
-    <a class="deck-brand" href="./introduction" aria-label="Go to the first slide">
-      <img src="/img/ord-icon-color.svg" alt="" />
+    <RouterLink class="deck-brand" to="/introduction" aria-label="Go to the first slide">
+      <img :src="assetUrl('img/ord-icon-color.svg')" alt="" />
       <span>Open Resource Discovery</span>
-    </a>
+    </RouterLink>
     <span class="deck-context-separator" aria-hidden="true"></span>
     <nav class="deck-breadcrumb" aria-label="Breadcrumb">
       <template v-if="chapter && chapter.no !== $page">
-        <a class="deck-chapter" :href="`./${chapter.to}`" :aria-label="`Back to ${chapter.label} divider`">{{ chapter.label }}</a>
+        <RouterLink class="deck-chapter" :to="`/${chapter.to}`" :aria-label="`Back to ${chapter.label} divider`">{{ chapter.label }}</RouterLink>
         <span class="breadcrumb-separator" aria-hidden="true">›</span>
       </template>
       <span class="deck-context" aria-current="page">{{ section }}</span>

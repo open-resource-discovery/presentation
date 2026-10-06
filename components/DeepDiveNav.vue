@@ -23,9 +23,9 @@ withDefaults(
 
 <template>
   <nav class="deep-dive-nav" aria-label="Presentation navigation">
-    <a v-if="showIndex" href="./deep-dives">All topics</a>
-    <a v-if="backTo !== 'deep-dives'" class="previous-link" :href="`./${backTo}`">← {{ backLabel }}</a>
-    <a v-if="nextTo" class="next-link" :href="`./${nextTo}`">{{ nextLabel }} →</a>
+    <RouterLink v-if="showIndex" to="/deep-dives">All topics</RouterLink>
+    <RouterLink v-if="backTo !== 'deep-dives'" class="previous-link" :to="`/${backTo}`">← {{ backLabel }}</RouterLink>
+    <RouterLink v-if="nextTo" class="next-link" :to="`/${nextTo}`">{{ nextLabel }} →</RouterLink>
   </nav>
   <a v-if="specHref" class="deep-dive-source" :href="specHref" target="_blank" rel="noopener noreferrer">{{ specLabel }} ↗</a>
 </template>

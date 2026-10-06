@@ -1,15 +1,19 @@
+<script setup lang="ts">
+import { assetUrl } from '../utils/asset-url'
+</script>
+
 <template>
   <nav class="governance-logos" aria-label="Project and governance organizations">
     <a href="https://linuxfoundation.eu/" target="_blank" rel="noopener noreferrer" aria-label="Linux Foundation Europe">
-      <img class="governance-linux-foundation" src="/img/linux-foundation-europe-white.svg" alt="Linux Foundation Europe" />
+      <img class="governance-linux-foundation" :src="assetUrl('img/linux-foundation-europe-white.svg')" alt="Linux Foundation Europe" />
     </a>
     <span class="governance-separator" aria-hidden="true"></span>
     <a href="https://neonephos.org" target="_blank" rel="noopener noreferrer" aria-label="NeoNephos Foundation">
-      <img class="governance-neonephos" src="/img/ord-footer-neonephos.svg" alt="NeoNephos Foundation" />
+      <img class="governance-neonephos" :src="assetUrl('img/ord-footer-neonephos.svg')" alt="NeoNephos Foundation" />
     </a>
     <span class="governance-separator" aria-hidden="true"></span>
     <a href="https://apeirora.eu" target="_blank" rel="noopener noreferrer" aria-label="ApeiroRA">
-      <img class="governance-apeirora" src="/img/apeirora.svg" alt="ApeiroRA" />
+      <img class="governance-apeirora" :src="assetUrl('img/apeirora.svg')" alt="ApeiroRA" />
     </a>
   </nav>
 </template>

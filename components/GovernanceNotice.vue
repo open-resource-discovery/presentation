@@ -1,10 +1,14 @@
+<script setup lang="ts">
+import { assetUrl } from '../utils/asset-url'
+</script>
+
 <template>
   <section class="governance-notice" aria-label="Governance and funding">
     <GovernanceLogos />
     <div class="governance-disclosure">
       <img
         class="governance-funding"
-        src="/img/ord-footer-bmwe.png"
+        :src="assetUrl('img/ord-footer-bmwe.png')"
         alt="Funded by the European Union – NextGenerationEU, and the German Federal Ministry for Economic Affairs and Energy"
       />
       <p class="governance-text">
