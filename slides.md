@@ -55,6 +55,26 @@ routeAlias: metadata-alignment
 </div>
 
 ---
+routeAlias: unified-metadata-view
+---
+<div class="slide-shell light-slide">
+<DeckLogo section="One connected view"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>One connected view. One Discovery API.</h2>
+<p class="slide-subtitle">An ORD aggregator links resources across existing inventories and catalogs, then makes the graph available to every consumer through one API.</p>
+</header>
+<UnifiedMetadataDiagram></UnifiedMetadataDiagram>
+</div>
+
+<!--
+Successor to metadata-silos and metadata-alignment. Existing inventories and
+specialized formats remain in place; an ORD aggregator connects their resource
+descriptions and relationships in one graph, served to consumers through its
+Discovery API. This is an architecture illustration, not a claim that ORD
+replaces detailed resource-definition standards.
+-->
+
+---
 routeAlias: how-section
 deckSection: How
 ---
