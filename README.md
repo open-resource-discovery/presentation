@@ -2,7 +2,7 @@
 
 A public introduction to the [Open Resource Discovery (ORD)](https://open-resource-discovery.org/) specification, built as a [Slidev](https://sli.dev/) deck.
 
-Read the [ORD Introduction](https://open-resource-discovery.org/introduction) alongside the deck for the full talk track and links to the specification.
+Read the [ORD Introduction](https://open-resource-discovery.org/introduction) for the complete primer and links to the specification.
 
 ## View the deck
 
