@@ -1,5 +1,35 @@
+<script setup lang="ts">
+const nodes = [
+  { id: 'system', label: 'Systems', detail: '& services', x: 21, y: 12, width: 118 },
+  { id: 'data', label: 'Data', x: 78, y: 14, width: 88 },
+  { id: 'api', label: 'APIs', x: 13, y: 47, width: 88 },
+  { id: 'entity', label: 'Entity Types', detail: 'shared semantics', x: 51, y: 47, width: 142 },
+  { id: 'agent', label: 'Agents', x: 88, y: 53, width: 88 },
+  { id: 'event', label: 'Events', x: 23, y: 84, width: 96 },
+  { id: 'taxonomy', label: 'Taxonomy', detail: 'groups · products', x: 72, y: 84, width: 138 },
+]
+
+const links = [
+  ['system', 'api', 'system'],
+  ['system', 'data', 'system'],
+  ['system', 'agent', 'system'],
+  ['entity', 'api', 'semantic'],
+  ['entity', 'event', 'semantic'],
+  ['entity', 'data', 'semantic'],
+  ['entity', 'agent', 'semantic'],
+  ['taxonomy', 'api', 'context'],
+  ['taxonomy', 'event', 'context'],
+  ['taxonomy', 'data', 'context'],
+  ['taxonomy', 'agent', 'context'],
+].map(([from, to, kind]) => ({
+  from: nodes.find(node => node.id === from)!,
+  to: nodes.find(node => node.id === to)!,
+  kind,
+}))
+</script>
+
 <template>
-  <figure class="unified-metadata-diagram" aria-label="Existing system, API, event, data, and agent metadata feeds one ORD aggregator. The aggregator links the resources in one graph and serves consumers through one Discovery API.">
+  <figure class="unified-metadata-diagram" aria-label="Existing system, API, event, data, and agent metadata feeds one ORD aggregator. The aggregator links resources with Entity Types and Taxonomy in one graph and serves consumers through one Discovery API.">
     <div class="unified-lanes">
       <section class="source-lane" aria-label="Existing metadata sources">
         <header class="lane-heading">
@@ -23,18 +53,12 @@
           <h3>Connected metadata graph</h3>
         </header>
         <div class="graph-stage">
-          <svg class="graph-links" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M150 78 50 130 M80 150H120 M180 150H220 M250 170 170 225" />
+          <svg class="graph-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line v-for="link in links" :key="`${link.from.id}-${link.to.id}`" :x1="link.from.x" :y1="link.from.y" :x2="link.to.x" :y2="link.to.y" :class="`${link.kind}-link`" />
           </svg>
-          <div class="graph-nodes">
-            <div class="graph-node system-node"><strong>Systems</strong><span>&amp; services</span></div>
-            <div class="graph-node api-node"><strong>APIs</strong></div>
-            <div class="graph-node event-node"><strong>Events</strong></div>
-            <div class="graph-node data-node"><strong>Data</strong></div>
-            <div class="graph-node agent-node"><strong>Agents</strong></div>
-          </div>
+          <div v-for="node in nodes" :key="node.id" class="graph-node" :class="`${node.id}-node`" :style="{ left: `${node.x}%`, top: `${node.y}%`, width: `${node.width}px` }"><strong>{{ node.label }}</strong><span v-if="node.detail">{{ node.detail }}</span></div>
         </div>
-        <p class="graph-caption">Shared identities · relationships · definitions</p>
+        <p class="graph-caption">Resources · shared semantics · taxonomy</p>
       </section>
 
       <div class="discovery-flow" aria-hidden="true"><span></span></div>
@@ -133,9 +157,10 @@
 
 .source-item strong { color: var(--ord-text); font-size: 15px; line-height: 1.15; }
 .source-item span { color: var(--ord-muted); font-size: 11px; line-height: 1.2; }
-.source-item.apis { border-left-color: var(--ord-accent-violet); }
+.source-item.systems { border-left-color: var(--ord-accent-lime); }
+.source-item.apis { border-left-color: var(--ord-accent-sky); }
 .source-item.events { border-left-color: var(--ord-accent-teal); }
-.source-item.data { border-left-color: var(--ord-accent-lime); }
+.source-item.data { border-left-color: var(--ord-accent-violet); }
 .source-item.agents { border-left-color: var(--ord-accent-coral); }
 
 .metadata-flow,
@@ -185,40 +210,36 @@
 }
 
 .graph-links { position: absolute; inset: 0; width: 100%; height: 100%; }
-.graph-links path { fill: none; stroke: var(--ord-brand); stroke-width: 2; stroke-linecap: round; opacity: .72; }
-
-.graph-nodes {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-  align-items: center;
-  justify-items: center;
-}
+.graph-links line { stroke-width: 1.8; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.graph-links .system-link { stroke: var(--ord-muted); opacity: .42; }
+.graph-links .semantic-link { stroke: var(--ord-brand); opacity: .65; }
+.graph-links .context-link { stroke: var(--ord-accent-violet); opacity: .55; }
 
 .graph-node {
+  position: absolute;
   z-index: 1;
   display: flex;
-  width: min(100%, 126px);
-  min-height: 48px;
+  min-height: 46px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--ord-sep);
-  border-radius: 7px;
+  border-radius: 999px;
   background: var(--ord-panel);
   padding: 6px 8px;
   text-align: center;
+  transform: translate(-50%, -50%);
 }
 
 .graph-node strong { color: var(--ord-text); font-size: 15px; line-height: 1.15; }
 .graph-node span { color: var(--ord-muted); font-size: 11px; line-height: 1.15; }
-.system-node { grid-area: 1 / 2; border-color: var(--ord-accent-violet); }
-.api-node { grid-area: 2 / 1; border-color: var(--ord-accent-sky); }
-.event-node { grid-area: 2 / 2; border-color: var(--ord-accent-teal); }
-.data-node { grid-area: 2 / 3; border-color: var(--ord-accent-lime); }
-.agent-node { grid-area: 3 / 2; border-color: var(--ord-accent-coral); }
+.system-node { border-color: var(--ord-accent-lime); }
+.api-node { border-color: var(--ord-accent-sky); }
+.event-node { border-color: var(--ord-accent-teal); }
+.data-node { border-color: var(--ord-accent-violet); }
+.agent-node { border-color: var(--ord-accent-coral); }
+.entity-node { border: 2px solid var(--ord-brand); background: var(--ord-accent-teal-bg); }
+.taxonomy-node { border: 2px solid var(--ord-accent-violet); background: var(--ord-panel); }
 
 .graph-caption {
   color: var(--ord-muted);
