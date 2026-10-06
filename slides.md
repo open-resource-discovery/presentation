@@ -1,7 +1,8 @@
 ---
 theme: default
 routeAlias: introduction
-title: Open Resource Discovery
+title: Open Resource Discovery (ORD) Presentation
+titleTemplate: '%s'
 info: |
   A public introduction to the Open Resource Discovery specification.
 colorSchema: dark
