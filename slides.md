@@ -9,7 +9,6 @@ colorSchema: dark
 canvasWidth: 1280
 aspectRatio: 16/9
 transition: fade
-routerMode: hash
 drawings:
   enabled: false
 ---

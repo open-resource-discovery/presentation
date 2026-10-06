@@ -11,12 +11,13 @@
         ? window.location.pathname.slice(base.length)
         : ''
 
-      if (route.startsWith(duplicateBase))
-        route = route.slice(duplicateBase.length)
-
-      route = route.replace(/\/+$/, '')
-
-      window.location.replace(`${base}#/${route || 'introduction'}`)
+      if (route.startsWith(duplicateBase)) {
+        route = route.slice(duplicateBase.length).replace(/\/+$/, '')
+        window.location.replace(`${base}${route}`)
+      }
+      else {
+        window.location.replace(base)
+      }
     </script>
   </head>
   <body>
