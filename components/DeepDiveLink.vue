@@ -10,11 +10,11 @@ withDefaults(
 </script>
 
 <template>
-  <a class="deep-dive-link" :href="`./${to}`">
+  <RouterLink class="deep-dive-link" :to="`/${to}`">
     <span>{{ kicker }}</span>
     <strong>{{ label }}</strong>
     <b aria-hidden="true">→</b>
-  </a>
+  </RouterLink>
 </template>
 
 <style scoped>

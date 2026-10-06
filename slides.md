@@ -8,6 +8,7 @@ colorSchema: dark
 canvasWidth: 1280
 aspectRatio: 16/9
 transition: fade
+routerMode: hash
 drawings:
   enabled: false
 ---
@@ -372,7 +373,7 @@ routeAlias: adoption
 <p>Make the API discoverable in one catalog or developer tool, through an aggregator or directly from its Provider.</p>
 </section>
 </div>
-<div class="adoption-note"><strong>Pilot: describe → validate → discover.</strong><span>Keep the contract in its native format; add Entity Types and dependencies as the use case grows.</span><nav aria-label="Pilot tools"><a href="./project-reference">Explore a reference implementation →</a><a href="./project-publishing">Choose publishing tools →</a></nav></div>
+<div class="adoption-note"><strong>Pilot: describe → validate → discover.</strong><span>Keep the contract in its native format; add Entity Types and dependencies as the use case grows.</span><nav aria-label="Pilot tools"><RouterLink to="/project-reference">Explore a reference implementation →</RouterLink><RouterLink to="/project-publishing">Choose publishing tools →</RouterLink></nav></div>
 </div>
 
 ---

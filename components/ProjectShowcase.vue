@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { assetUrl } from '../utils/asset-url'
+
 defineProps<{ group: string }>()
 
 const schema = 'openResourceDiscovery:\n  type: string\n  examples: ["1.16"]'
@@ -9,12 +11,12 @@ const render = '<MetadataRenderer content={definition} />'
 const csnBefore = '"Orders": {\n  "kind": "entity",\n  "@foo.ui.color": "blue",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
 const csnAfter = '"Orders": {\n  "kind": "entity",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
 const screens = {
-  explorer: '/img/tools/explorer.png',
-  ui: '/img/tools/metadata-renderer.png',
-  a2aHeader: '/img/tools/a2a-header.png',
-  a2aSkills: '/img/tools/a2a-skills.png',
-  mcpHeader: '/img/tools/mcp-header.png',
-  mcpTools: '/img/tools/mcp-tools.png',
+  explorer: assetUrl('img/tools/explorer.png'),
+  ui: assetUrl('img/tools/metadata-renderer.png'),
+  a2aHeader: assetUrl('img/tools/a2a-header.png'),
+  a2aSkills: assetUrl('img/tools/a2a-skills.png'),
+  mcpHeader: assetUrl('img/tools/mcp-header.png'),
+  mcpTools: assetUrl('img/tools/mcp-tools.png'),
 }
 </script>
 

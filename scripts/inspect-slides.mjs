@@ -8,7 +8,9 @@ import { parseSync } from "@slidev/parser";
 const options = parseArgs(process.argv.slice(2));
 const port = Number(options.port ?? process.env.PORT ?? 3131);
 const source = await readFile("slides.md", "utf8");
-const slides = parseSync(source, "slides.md").slides.filter(slide => !slide.frontmatter.hide && !slide.frontmatter.disabled);
+const parsed = parseSync(source, "slides.md");
+const slides = parsed.slides.filter(slide => !slide.frontmatter.hide && !slide.frontmatter.disabled);
+const usesHashRouter = parsed.slides[0]?.frontmatter.routerMode === "hash";
 const inferredSlideCount = slides.length;
 const slideCount = Number(options.slides ?? process.env.SLIDE_COUNT ?? inferredSlideCount);
 const outDir = String(options.out ?? "screenshots");
@@ -55,7 +57,8 @@ try {
         errors.push({ slide: index, message: message.text() });
     });
     const slug = slides[index - 1].frontmatter.routeAlias ?? String(index);
-    await page.goto(`${baseUrl}/${slug}`, { waitUntil: "domcontentloaded" });
+    const slideUrl = usesHashRouter ? `${baseUrl}/#/${slug}` : `${baseUrl}/${slug}`;
+    await page.goto(slideUrl, { waitUntil: "domcontentloaded" });
     await page.locator(`.slidev-page-${index} .slide-shell`).waitFor();
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(800);
@@ -96,7 +99,10 @@ try {
             overlaps.push([first.text, second.text]);
         }
       }
-      return { slide, title: root.querySelector("h1, h2")?.textContent.trim(), overflow, overlaps };
+      const brokenImages = [...root.querySelectorAll("img")]
+        .filter(image => image.complete && image.naturalWidth === 0)
+        .map(image => image.currentSrc || image.src);
+      return { slide, title: root.querySelector("h1, h2")?.textContent.trim(), overflow, overlaps, brokenImages };
     }, index));
     report.at(-1).slug = slug;
     await page.screenshot({

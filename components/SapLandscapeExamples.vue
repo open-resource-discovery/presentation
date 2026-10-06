@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { assetUrl } from '../utils/asset-url'
+
 const examples = [
   {
     kind: 'reference',
     label: 'Reference landscape · static',
     title: 'SAP Business Accelerator Hub',
     description: 'APIs, Events, Packages, and product documentation.',
-    image: '/img/sap/business-accelerator-hub.png',
+    image: assetUrl('img/sap/business-accelerator-hub.png'),
     alt: 'Annotated SAP Business Accelerator Hub screenshot showing an SAP S/4HANA Cloud product catalog with API Resources, Events, Packages, and other ORD concepts',
   },
   {
@@ -13,7 +15,7 @@ const examples = [
     label: 'Customer landscape · actual',
     title: 'BTP System Landscape',
     description: 'System instances, APIs, Events, and Consumption Bundles.',
-    image: '/img/sap/btp-system-landscape.png',
+    image: assetUrl('img/sap/btp-system-landscape.png'),
     alt: 'Annotated BTP System Landscape screenshot showing system instances and system types, with a detail view for API Resources, Events, and Consumption Bundles',
   },
 ]
