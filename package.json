@@ -15,7 +15,9 @@
     "build": "slidev build",
     "build:pages": "slidev build --base /presentation/ --out dist && node scripts/install-pages-fallback.mjs",
     "export": "slidev export --format pdf --output slides-export.pdf",
-    "inspect": "node scripts/inspect-slides.mjs"
+    "inspect": "node scripts/inspect-slides.mjs",
+    "sync:diagrams": "node scripts/sync-diagrams.mjs",
+    "check:diagrams": "node scripts/sync-diagrams.mjs --check"
   },
   "devDependencies": {
     "@slidev/cli": "^52.16.0",

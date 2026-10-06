@@ -1,27 +1,8 @@
 <script setup lang="ts">
-const nodes = [
-  { id: 'system', label: 'Systems', detail: '& services', x: 21, y: 12, width: 118 },
-  { id: 'data', label: 'Data', x: 78, y: 14, width: 88 },
-  { id: 'api', label: 'APIs', x: 13, y: 47, width: 88 },
-  { id: 'entity', label: 'Entity Types', detail: 'shared semantics', x: 51, y: 47, width: 142 },
-  { id: 'agent', label: 'Agents', x: 88, y: 53, width: 88 },
-  { id: 'event', label: 'Events', x: 23, y: 84, width: 96 },
-  { id: 'taxonomy', label: 'Taxonomy', detail: 'groups · products', x: 72, y: 84, width: 138 },
-]
+import graph from '../data/diagrams/unified-metadata.json'
 
-const links = [
-  ['system', 'api', 'system'],
-  ['system', 'data', 'system'],
-  ['system', 'agent', 'system'],
-  ['entity', 'api', 'semantic'],
-  ['entity', 'event', 'semantic'],
-  ['entity', 'data', 'semantic'],
-  ['entity', 'agent', 'semantic'],
-  ['taxonomy', 'api', 'context'],
-  ['taxonomy', 'event', 'context'],
-  ['taxonomy', 'data', 'context'],
-  ['taxonomy', 'agent', 'context'],
-].map(([from, to, kind]) => ({
+const nodes = graph.nodes
+const links = graph.links.map(({ from, to, kind }) => ({
   from: nodes.find(node => node.id === from)!,
   to: nodes.find(node => node.id === to)!,
   kind,

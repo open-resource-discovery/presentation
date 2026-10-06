@@ -57,7 +57,7 @@ const consumers = ['Joule', 'Joule Studio', 'SAP BTP', 'SAP Business Data Cloud'
         <ul><li v-for="consumer in consumers" :key="consumer" :aria-label="consumer === '…' ? 'Other consumers' : undefined">{{ consumer }}</li></ul>
       </section>
     </div>
-    <figcaption><strong>UMS combines both perspectives; BAH takes the static catalog.</strong><span>Arrows show metadata delivery. Knowledge Graph also integrates other metadata sources.</span></figcaption>
+    <figcaption><strong>UMS combines both perspectives; BAH takes the static catalog.</strong><span>Arrows show metadata delivery, not runtime or business-data flow. Knowledge Graph also integrates other metadata sources.</span></figcaption>
   </figure>
 </template>
 

@@ -62,17 +62,6 @@
   gap: 8px;
 }
 
-.silo-grid::before {
-  position: absolute;
-  top: -26px;
-  left: 10%;
-  width: 80%;
-  height: 26px;
-  border-right: 1px dashed var(--ord-border);
-  border-bottom: 1px dashed var(--ord-border);
-  border-left: 1px dashed var(--ord-border);
-  content: "";
-}
 
 .silo {
   display: flex;

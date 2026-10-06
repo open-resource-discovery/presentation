@@ -670,6 +670,19 @@
   line-height: 1.35;
 }
 
+.roadmap-slide .point-card {
+  justify-content: center;
+  gap: 8px;
+}
+
+.roadmap-slide .point-card h3 {
+  font-size: 27px;
+}
+
+.roadmap-slide .point-card p {
+  font-size: 18px;
+}
+
 .split-slide {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(500px, 1.12fr);

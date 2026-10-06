@@ -15,6 +15,24 @@ drawings:
 <CoverSlide></CoverSlide>
 
 ---
+routeAlias: storyline
+---
+<div class="slide-shell light-slide roadmap-slide">
+<DeckLogo section="Storyline"></DeckLogo>
+<header class="slide-header wide-header">
+<h2>Four questions guide the story</h2>
+<p class="slide-subtitle">The main narrative stays focused; deep dives and tools follow as optional material.</p>
+</header>
+<div class="point-grid">
+<section class="point-card"><span class="point-marker">01</span><h3>Why ORD?</h3><p>What problem does shared metadata discovery solve?</p></section>
+<section class="point-card"><span class="point-marker">02</span><h3>How does it work?</h3><p>How do providers, aggregators, and consumers connect?</p></section>
+<section class="point-card"><span class="point-marker">03</span><h3>What does it enable?</h3><p>Which experiences can reuse the connected metadata?</p></section>
+<section class="point-card"><span class="point-marker">04</span><h3>How does SAP apply it?</h3><p>How do static reference and dynamic customer views work together?</p></section>
+</div>
+<a class="spec-link" href="https://open-resource-discovery.org/introduction" target="_blank" rel="noopener noreferrer">Read the ORD introduction for the full talk track ↗</a>
+</div>
+
+---
 routeAlias: why-section
 deckSection: Why
 ---
@@ -118,7 +136,7 @@ routeAlias: ord-roles
 <p class="slide-subtitle">Providers publish a simple self-description, aggregators build a connected view, and consumers retrieve metadata through a discovery-oriented API.</p>
 </header>
 <RolesDiagram></RolesDiagram>
-<DeepDiveLink to="landscape-model" label="Landscape model"></DeepDiveLink>
+<DeepDiveLink to="aggregator-discovery" label="Discovery API"></DeepDiveLink>
 </div>
 
 ---
@@ -290,7 +308,7 @@ routeAlias: sap-case-study
 </div>
 
 <!--
-Case study adapted from ../ord-public/docs/introduction.mdx#ord-architecture-at-sap
+Case study adapted from ../ord-spec/docs/introduction.mdx#ord-architecture-at-sap
 and static/img/ord-sap-architecture-overview.svg (specification 1.16.4).
 https://open-resource-discovery.org/introduction#ord-architecture-at-sap
 
@@ -333,8 +351,8 @@ routeAlias: sap-landscape-examples
 
 <!--
 The annotated screenshots are copied unchanged from the ORD introduction:
-../ord-public/static/img/business-accelerator-hub-example1.png
-../ord-public/static/img/btp-cockpit-ucl-example.png
+../ord-spec/static/img/business-accelerator-hub-example1.png
+../ord-spec/static/img/btp-cockpit-ucl-example.png
 https://open-resource-discovery.org/introduction#ord-by-examples
 
 The Business Accelerator Hub screenshot shows product documentation and how
@@ -388,7 +406,7 @@ routeAlias: closing
 <h2>Explore, implement, and help shape ORD</h2>
 <p class="lead small">ORD is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache 2.0</a> and governed by the <a href="https://neonephos.org/" target="_blank" rel="noopener noreferrer">NeoNephos Foundation</a> under <a href="https://linuxfoundation.eu/" target="_blank" rel="noopener noreferrer">Linux Foundation Europe</a>.</p>
 <div class="next-grid">
-<a href="https://open-resource-discovery.org/introduction" target="_blank" rel="noopener noreferrer"><span>5-minute primer</span><small>open-resource-discovery.org/introduction</small></a>
+<a href="https://open-resource-discovery.org/introduction" target="_blank" rel="noopener noreferrer"><span>ORD introduction · talk track</span><small>open-resource-discovery.org/introduction</small></a>
 <a href="https://open-resource-discovery.org/spec-v1" target="_blank" rel="noopener noreferrer"><span>ORD specification</span><small>open-resource-discovery.org/spec-v1</small></a>
 <a href="https://github.com/open-resource-discovery" target="_blank" rel="noopener noreferrer"><span>Project on GitHub</span><small>github.com/open-resource-discovery</small></a>
 </div>
@@ -558,12 +576,30 @@ routeAlias: pull-sequence
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Pull transport sequence"></DeckLogo>
-<DeepDiveNav back-to="pull-overview" back-label="Pull transport" spec-href="https://open-resource-discovery.org/spec-v1#pull-transport-sequence-diagram"></DeepDiveNav>
+<DeepDiveNav back-to="pull-overview" back-label="Pull transport" next-to="aggregator-discovery" next-label="Discovery API" spec-href="https://open-resource-discovery.org/spec-v1#pull-transport-sequence-diagram"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Discover, fetch, then follow definitions</h2>
 <p class="slide-subtitle">Service discovery supplies known system instances; ORD begins at the provider's well-known configuration.</p>
 </header>
 <PullSequenceDiagram></PullSequenceDiagram>
+</div>
+
+---
+routeAlias: aggregator-discovery
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Aggregation &amp; Discovery API"></DeckLogo>
+<DeepDiveNav back-to="ord-roles" back-label="Roles" spec-href="https://open-resource-discovery.org/spec-v1#ord-discovery-api"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Turn provider metadata into a useful discovery view</h2>
+<p class="slide-subtitle">Keep provider publishing simple; let the aggregator do the work for consumers.</p>
+</header>
+<div class="adoption-grid">
+<section class="adoption-card provider-card"><span class="adoption-number">01 · Collect</span><h3>Crawl and validate</h3><p>Fetch ORD documents and linked definitions. Validate identities, references, and consistency across providers.</p></section>
+<section class="adoption-card aggregator-card"><span class="adoption-number">02 · Resolve</span><h3>Connect the view</h3><p>Resolve the effective perspective and relationships. Preserve visibility and metadata access boundaries.</p></section>
+<section class="adoption-card consumer-card"><span class="adoption-number">03 · Serve</span><h3>Support discovery</h3><p>Offer a consumer API that can support search, filtering, pagination, and expansion over the connected metadata.</p></section>
+</div>
+<div class="adoption-note"><strong>Each aggregator defines its Discovery API contract.</strong><span>ORD standardizes provider interfaces and aggregation responsibilities; a common Discovery API contract is not yet standardized.</span></div>
 </div>
 
 ---
