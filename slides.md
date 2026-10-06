@@ -49,8 +49,8 @@ routeAlias: metadata-alignment
 <div class="slide-shell light-slide">
 <DeckLogo section="Alignment"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Shared provider metadata reduces custom adapters</h2>
-<p class="slide-subtitle">ORD aligns metadata description and discovery while preserving specialized resource-definition standards.</p>
+<h2>One metadata interface, fewer custom adapters</h2>
+<p class="slide-subtitle">ORD gives providers and consumers a common way to describe and discover metadata, while resource definitions stay in their specialized standards.</p>
 </header>
 <AlignmentDiagram></AlignmentDiagram>
 </div>

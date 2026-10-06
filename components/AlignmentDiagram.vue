@@ -2,8 +2,8 @@
   <figure class="alignment-diagram" aria-label="Metadata integration with and without ORD alignment">
     <section class="mode unmanaged">
       <header>
-        <span>Without alignment</span>
-        <strong>Point-to-point metadata integration</strong>
+        <span>Without a shared interface</span>
+        <strong>Every connection needs its own adapter</strong>
       </header>
 
       <div class="network">
@@ -13,7 +13,15 @@
           <span>Provider</span>
         </div>
         <svg class="connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 16.667H100 M0 50H100 M0 83.333H100 M0 16.667L100 50 M0 16.667L100 83.333 M0 50L100 16.667 M0 50L100 83.333 M0 83.333L100 16.667 M0 83.333L100 50" />
+          <path d="M0 16.667 C32 5,68 5,100 16.667" />
+          <path d="M0 16.667 C30 14,70 48,100 50" />
+          <path d="M0 16.667 C26 28,74 76,100 83.333" />
+          <path d="M0 50 C30 46,70 18,100 16.667" />
+          <path d="M0 50 C34 62,66 38,100 50" />
+          <path d="M0 50 C30 54,70 82,100 83.333" />
+          <path d="M0 83.333 C26 72,74 24,100 16.667" />
+          <path d="M0 83.333 C30 78,70 52,100 50" />
+          <path d="M0 83.333 C32 95,68 95,100 83.333" />
         </svg>
         <div class="nodes consumers">
           <span>Consumer</span>
@@ -25,11 +33,11 @@
 
     <section class="mode aligned">
       <header>
-        <span>With ORD alignment</span>
-        <strong>Shared metadata through an aggregator</strong>
+        <span>With one ORD interface</span>
+        <strong>Aligned metadata, aggregated for discovery</strong>
       </header>
 
-      <div class="standard-rail">Common description and discovery</div>
+      <div class="standard-rail">One shared port for metadata exchange</div>
       <div class="flow">
         <div class="stack">
           <span>Provider</span>
@@ -37,12 +45,16 @@
           <span>Provider</span>
         </div>
 
-        <div class="arrow" aria-hidden="true"></div>
+        <div class="arrow shared-port" aria-hidden="true">
+          <span class="usb-c-port flow-port"><i></i></span>
+        </div>
 
         <div class="aggregator">
-          <span class="api-icon"></span>
+          <span class="hub-icon" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </span>
           <strong>ORD aggregator</strong>
-          <small>reads metadata and serves consumers</small>
+          <small>collects aligned metadata<br />and serves one Discovery API</small>
         </div>
 
         <div class="arrow distribute" aria-hidden="true"></div>
@@ -154,17 +166,30 @@
 
 .connections path {
   fill: none;
-  stroke: var(--ord-faint);
-  stroke-opacity: 0.5;
-  stroke-width: 1;
+  stroke-opacity: 0.82;
+  stroke-width: 2;
   vector-effect: non-scaling-stroke;
 }
+
+.connections path:nth-child(1) { stroke: #008fd3; }
+.connections path:nth-child(2) { stroke: #e76f51; }
+.connections path:nth-child(3) { stroke: #7957d5; }
+.connections path:nth-child(4) { stroke: #d39218; }
+.connections path:nth-child(5) { stroke: #2a9d8f; }
+.connections path:nth-child(6) { stroke: #ca4d72; }
+.connections path:nth-child(7) { stroke: #5578b8; }
+.connections path:nth-child(8) { stroke: #8b6f47; }
+.connections path:nth-child(9) { stroke: #536b78; }
 
 .standard-rail {
   position: absolute;
   top: 88px;
   left: 20px;
   right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   border: 1px solid rgba(50, 188, 172, 0.42);
   border-radius: 999px;
   background: var(--ord-teal-soft);
@@ -174,6 +199,25 @@
   font-weight: 700;
   padding: 10px 16px;
   text-align: center;
+}
+
+.usb-c-port {
+  display: inline-flex;
+  width: 30px;
+  height: 14px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+
+.usb-c-port i {
+  width: 15px;
+  height: 3px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.7;
 }
 
 .flow {
@@ -227,6 +271,7 @@
 }
 
 .arrow {
+  position: relative;
   height: 2px;
   margin: 0 -8px 0 0;
   background: var(--ord-brand-2);
@@ -234,6 +279,19 @@
 
 .arrow.distribute { margin: 0 16px 0 -8px; }
 .arrow.distribute::after { display: none; }
+
+.flow-port {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 28px;
+  height: 13px;
+  transform: translate(-50%, -50%);
+  background: var(--ord-card-bg);
+  box-shadow: 0 0 0 5px var(--ord-card-bg);
+  color: var(--ord-brand-3);
+}
 
 .arrow::after {
   display: block;
@@ -273,13 +331,51 @@
   line-height: 1.25;
 }
 
-.api-icon {
-  width: 34px;
-  height: 34px;
-  border: 3px solid var(--ord-aggregator);
+.hub-icon {
+  position: relative;
+  display: grid;
+  width: 78px;
+  height: 42px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  align-items: end;
+  border: 2px solid var(--ord-aggregator);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 0 8px 8px;
+  box-shadow: 0 3px 0 rgba(133, 49, 174, 0.16);
+}
+
+.hub-icon::before {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  box-shadow:
-    18px 0 0 -8px var(--ord-aggregator),
-    9px 16px 0 -8px var(--ord-aggregator);
+  background: var(--ord-brand-2);
+  box-shadow: 0 0 0 3px rgba(50, 188, 172, 0.16);
+  content: "";
+}
+
+.hub-icon i {
+  position: relative;
+  display: block;
+  height: 9px;
+  border: 2px solid var(--ord-aggregator);
+  border-radius: 999px;
+  background: var(--ord-aggregator-soft);
+}
+
+.hub-icon i::after {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  left: 3px;
+  height: 1px;
+  border-radius: 999px;
+  background: var(--ord-aggregator);
+  content: "";
+  opacity: 0.7;
 }
 </style>
