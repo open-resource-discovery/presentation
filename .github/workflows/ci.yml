@@ -8,10 +8,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out presentation
+        uses: actions/checkout@v4
+      - name: Check out ORD specification
+        uses: actions/checkout@v4
+        with:
+          repository: open-resource-discovery/specification
+          path: ord-public
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
-      - run: npm ci
-      - run: npm run build
+      - name: Install dependencies
+        run: npm ci
+      - name: Check shared diagram data
+        run: npm run check:diagrams -- --spec-root=ord-public
+      - name: Build GitHub Pages artifact
+        run: npm run build:pages
