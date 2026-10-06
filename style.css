@@ -622,6 +622,8 @@
 
 .sap-case-slide { gap: 22px; }
 .slidev-layout .sap-case-slide .slide-subtitle { font-size: 21px; }
+.slidev-layout .unified-metadata-slide .slide-header h2 { font-size: 40px; line-height: 1.2 !important; }
+.slidev-layout .unified-metadata-slide .slide-subtitle { font-size: 21px; }
 
 .point-grid {
   display: grid;

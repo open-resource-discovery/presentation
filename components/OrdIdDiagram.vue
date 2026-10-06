@@ -21,7 +21,7 @@
       <b>+</b>
       <div><span>Runtime context</span><strong>System instance</strong></div>
       <b>=</b>
-      <p>A unique resource occurrence at runtime</p>
+      <p>A unique resource instance at runtime</p>
     </div>
   </figure>
 </template>
