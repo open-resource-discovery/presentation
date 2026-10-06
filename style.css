@@ -436,34 +436,22 @@
   background: rgba(50, 188, 172, 0.16);
 }
 
-/* Governance lockup on the cover: ApeiroRA + NeoNephos, right-aligned above the
-   agenda strip. Kept subtle so it reads as provenance, not as a headline. */
-.cover-governance {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 22px;
-  opacity: 0.82;
+/* Keep the cover logos in the corner with equal horizontal and vertical inset. */
+.slide-shell.ord-cover {
+  padding-bottom: 104px;
 }
 
-.cover-governance a {
-  display: inline-flex;
-  border: 0;
-  text-decoration: none;
+.ord-cover .cover-governance {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
 }
 
-.cover-governance img {
-  display: block;
-  width: auto;
-}
-
-.cover-governance a:first-child img { height: 26px; }
-.cover-governance a:last-child img { height: 22px; }
-
-.cover-governance-sep {
-  width: 1px;
-  height: 24px;
-  background: var(--ord-border);
+/* The bookend logos occupy the toolbar's default corner. Keep the hover
+   controls available on the right so they cannot intercept the logo links. */
+#slide-container:has(.ord-cover, .end-slide) > div:has(> nav) {
+  left: auto;
+  right: 0;
 }
 
 /* Cover agenda: full-width chapter strip anchored at the bottom.
@@ -631,6 +619,9 @@
   font-size: 24px;
   line-height: 1.35;
 }
+
+.sap-case-slide { gap: 22px; }
+.slidev-layout .sap-case-slide .slide-subtitle { font-size: 21px; }
 
 .point-grid {
   display: grid;
@@ -946,6 +937,7 @@
 
 .end-slide {
   justify-content: center;
+  padding-bottom: 128px;
 }
 
 /* The closing slide carries the governance band at the bottom, so let the main
@@ -955,8 +947,12 @@
   align-content: center;
 }
 
-.end-slide .governance-notice {
-  flex: none;
+.slide-shell.end-slide .governance-notice {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  left: 28px;
+  align-items: flex-end;
 }
 
 
