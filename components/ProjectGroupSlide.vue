@@ -15,6 +15,7 @@ type ProjectGroup = {
   label: string
   title: string
   summary: string
+  summaryLink?: { label: string; url: string }
   concept?: { label: string; route: string }
   repositories: Repository[]
 }
@@ -23,7 +24,11 @@ const groups: Record<string, ProjectGroup> = {
   specification: {
     label: 'Schema toolchain',
     title: 'Generate a specification from one source schema',
-    summary: 'Spec Toolkit produces published contracts, reference documentation, and developer types in one repeatable build.',
+    summary: 'produces published contracts, reference documentation, and developer types in one repeatable build.',
+    summaryLink: {
+      label: 'Spec Toolkit',
+      url: 'https://github.com/open-resource-discovery/spec-toolkit',
+    },
     repositories: [
       {
         name: 'spec-toolkit',
@@ -243,7 +248,10 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
     </nav>
     <header class="slide-header wide-header">
       <h2>{{ project.title }}</h2>
-      <p class="slide-subtitle">{{ project.summary }}</p>
+      <p class="slide-subtitle">
+        <template v-if="project.summaryLink"><a :href="project.summaryLink.url" target="_blank" rel="noopener noreferrer">{{ project.summaryLink.label }}</a> {{ project.summary }}</template>
+        <template v-else>{{ project.summary }}</template>
+      </p>
     </header>
 
     <div class="project-content" :class="{ 'reference-content': group === 'reference' }">
@@ -270,6 +278,9 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .ecosystem-project-slide .slide-header { gap: 5px; }
 .ecosystem-project-slide .slide-header h2 { max-width: 1120px; font-size: 38px; }
 .ecosystem-project-slide .slide-subtitle { max-width: 1130px; font-size: 17px; line-height: 1.35; }
+.ecosystem-project-slide .slide-subtitle a { color: var(--ord-brand); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.ecosystem-project-slide .slide-subtitle a:hover { color: var(--ord-text); }
+.ecosystem-project-slide .slide-subtitle a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
 .ecosystem-nav { position: absolute; display: flex; gap: 18px; }
 .ecosystem-nav a { color: var(--ord-muted); font-weight: 650; text-decoration: none; }
 .ecosystem-nav a:hover { color: var(--ord-brand); }
