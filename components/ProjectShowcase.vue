@@ -104,7 +104,7 @@ const screens = {
 
     <template v-else-if="group === 'a2a'">
       <span class="example-label">Read an Agent Card before sending a task</span>
-      <figure class="tool-screen detail-crops"><img :src="screens.a2aHeader" alt="A2A Editor displaying the Order Assistant Agent Card"><img :src="screens.a2aSkills" alt="Order Lookup skill in the Agent Card"><figcaption>A2A Editor playground · card and skill details · example data</figcaption></figure>
+      <figure class="tool-screen detail-crops"><img :src="screens.a2aHeader" alt="A2A Editor displaying the Order Assistant Agent Card"><img :src="screens.a2aSkills" alt="Order Lookup skill in the Agent Card"><figcaption>A2A Editor playground · Agent Card and skill details · example data</figcaption></figure>
       <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">→</i><span>Inspect Agent Card</span><i aria-hidden="true">→</i><span>Interact with A2A</span></div>
     </template>
 

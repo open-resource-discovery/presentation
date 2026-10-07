@@ -43,7 +43,11 @@ const groups: Record<string, ProjectGroup> = {
   reference: {
     label: 'Reference & Explorer',
     title: 'Explore metadata from a running Provider',
-    summary: 'Connect the Explorer to a Provider, find a resource, then inspect its native definition.',
+    summary: 'connects to an ORD Provider so you can discover which resources it offers and how to use them.',
+    summaryLink: {
+      label: 'ORD Explorer',
+      url: 'https://github.com/open-resource-discovery/explorer',
+    },
     repositories: [
       {
         name: 'reference-application',
@@ -65,8 +69,12 @@ const groups: Record<string, ProjectGroup> = {
   },
   publishing: {
     label: 'Static publishing',
-    title: 'Serve static ORD metadata with provider-server',
-    summary: 'Point one reusable server at ORD files and expose the complete discovery flow over HTTP.',
+    title: 'Publish ORD metadata from files',
+    summary: 'exposes ORD Documents and referenced resource definitions from a local directory or GitHub through the ORD Provider API.',
+    summaryLink: {
+      label: 'provider-server',
+      url: 'https://github.com/open-resource-discovery/provider-server',
+    },
     repositories: [
       {
         name: 'provider-server',
@@ -78,8 +86,12 @@ const groups: Record<string, ProjectGroup> = {
   },
   'framework-publishing': {
     label: 'Framework integration',
-    title: 'Build ORD publishing into the framework',
-    summary: 'A Spring Boot starter turns publishing into application configuration instead of custom endpoint code.',
+    title: 'Add ORD publishing to a Spring Boot application',
+    summary: 'adds ORD discovery and document endpoints to your application using annotations, static documents, or both.',
+    summaryLink: {
+      label: 'Spring Boot Starter for ORD',
+      url: 'https://github.com/open-resource-discovery/spring-boot-starter-ord',
+    },
     repositories: [
       {
         name: 'spring-boot-starter-ord',
@@ -98,7 +110,11 @@ const groups: Record<string, ProjectGroup> = {
   overlays: {
     label: 'Overlay tools',
     title: 'Add guidance to an existing API definition',
-    summary: 'An ORD Overlay patches a consumer’s view while keeping the original definition unchanged.',
+    summary: 'patches a consumer’s view while keeping the original definition unchanged.',
+    summaryLink: {
+      label: 'An ORD Overlay',
+      url: 'https://open-resource-discovery.org/spec-v1/interfaces/OrdOverlay',
+    },
     concept: { label: 'How ORD Overlays work', route: 'ord-overlays' },
     repositories: [
       {
@@ -125,13 +141,17 @@ const groups: Record<string, ProjectGroup> = {
   },
   ui: {
     label: 'UI foundations',
-    title: 'Embed metadata views in your application',
-    summary: 'Pass a definition to one React component; it selects the renderer for that format.',
+    title: 'Render metadata consistently in React',
+    summary: 'auto-detects OpenAPI, AsyncAPI, CSN, A2A, MCP Server Cards, and ORD Overlays and selects the appropriate React renderer.',
+    summaryLink: {
+      label: 'Metadata Renderer',
+      url: 'https://github.com/open-resource-discovery/metadata-renderer',
+    },
     repositories: [
       {
         name: 'ui-components',
         role: 'Design system',
-        description: 'Reuse the themed controls and styles behind the tool UIs.',
+        description: 'Build with the accessible, themeable React components shared across ORD tools.',
         url: 'https://github.com/open-resource-discovery/ui-components',
         liveUrl: 'https://open-resource-discovery.github.io/ui-components/',
         liveLabel: 'Browse Storybook',
@@ -139,7 +159,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'metadata-renderer',
         role: 'Format-aware rendering',
-        description: 'Choose a format renderer automatically through one React API.',
+        description: 'Render OpenAPI, AsyncAPI, CSN, A2A, MCP Server Cards, and ORD Overlays through one React API.',
         url: 'https://github.com/open-resource-discovery/metadata-renderer',
         liveUrl: 'https://open-resource-discovery.github.io/metadata-renderer/playground',
         liveLabel: 'Open playground',
@@ -149,13 +169,17 @@ const groups: Record<string, ProjectGroup> = {
   a2a: {
     label: 'A2A tools',
     title: 'Inspect Agent Cards, then test A2A interaction',
-    summary: 'Read what an agent offers, validate its card, and try the protocol against a test server.',
+    summary: 'describe what agents offer; inspect and validate them before trying the A2A protocol against a test server.',
+    summaryLink: {
+      label: 'Agent Cards',
+      url: 'https://agent2agent.info/docs/concepts/agentcard/',
+    },
     concept: { label: 'ORD relationships for AI & Agents', route: 'ai-discovery' },
     repositories: [
       {
         name: 'a2a-editor',
         role: 'Editor & playground',
-        description: 'Inspect and edit cards; try Chat, Raw HTTP, and Validation views.',
+        description: 'Inspect and edit Agent Cards; try Chat, Raw HTTP, and Validation views.',
         url: 'https://github.com/open-resource-discovery/a2a-editor',
         liveUrl: 'https://open-resource-discovery.github.io/a2a-editor/playground',
         liveLabel: 'Open playground',
@@ -163,7 +187,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'a2a-editor-vscode',
         role: 'IDE extension',
-        description: 'Use the card editor and protocol testing inside VS Code.',
+        description: 'Use the Agent Card editor and protocol testing inside VS Code.',
         url: 'https://github.com/open-resource-discovery/a2a-editor-vscode',
       },
       {

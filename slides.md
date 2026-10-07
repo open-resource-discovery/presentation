@@ -782,7 +782,7 @@ routeAlias: project-reference
 <ProjectGroupSlide group="reference"></ProjectGroupSlide>
 
 <!--
-Walk through the task: connect to a Provider, choose a perspective, find a resource, then inspect its ORD relationships and native contract.
+Walk through the task: connect to a Provider, choose a perspective, discover which resources it offers, then inspect their descriptions, relationships, and referenced definitions.
 The slide uses the user-supplied screenshot of the actual Explorer's built-in sample catalog.
 Resource categories, metadata filters, descriptions, protocols, release status, and ORD IDs are visible.
 The CSS viewport focuses on the catalog; the Full screenshot link opens the original image.
