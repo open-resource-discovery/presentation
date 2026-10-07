@@ -248,8 +248,8 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 
     <div class="project-content" :class="{ 'reference-content': group === 'reference' }">
       <ProjectShowcase :group="group" />
-      <aside class="repository-rail" :class="`count-${project.repositories.length}`" aria-label="Choose a tool">
-        <span class="rail-label">{{ project.repositories.length === 1 ? 'Tool' : 'Choose a tool' }}</span>
+      <aside class="repository-rail" :class="`count-${project.repositories.length}`" aria-label="What we offer">
+        <span class="rail-label">What we offer</span>
         <article v-for="repository in project.repositories" :key="repository.name" class="repository-card">
           <span class="repository-role">{{ repository.role }}</span>
           <h3><a :href="repository.url" target="_blank" rel="noopener noreferrer">{{ repository.name }}</a></h3>
