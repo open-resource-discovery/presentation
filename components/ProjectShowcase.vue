@@ -14,8 +14,7 @@ const csnAfter = '"Orders": {\n  "kind": "entity",\n  "elements": {\n    "ID": {
 const screens = {
   explorer: assetUrl('img/tools/explorer.png'),
   ui: assetUrl('img/tools/metadata-renderer-endpoint.png'),
-  a2aHeader: assetUrl('img/tools/a2a-header.png'),
-  a2aSkills: assetUrl('img/tools/a2a-skills.png'),
+  a2a: assetUrl('img/tools/a2a-agent-card-skill.png'),
   mcpHeader: assetUrl('img/tools/mcp-header.png'),
   mcpTools: assetUrl('img/tools/mcp-tools.png'),
 }
@@ -100,9 +99,11 @@ const screens = {
     </template>
 
     <template v-else-if="group === 'a2a'">
-      <span class="example-label">Read an Agent Card before sending a task</span>
-      <figure class="tool-screen detail-crops"><img :src="screens.a2aHeader" alt="A2A Editor displaying the Order Assistant Agent Card"><img :src="screens.a2aSkills" alt="Order Lookup skill in the Agent Card"><figcaption>A2A Editor playground · Agent Card and skill details · example data</figcaption></figure>
-      <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">→</i><span>Inspect Agent Card</span><i aria-hidden="true">→</i><span>Interact with A2A</span></div>
+      <div class="a2a-overview">
+        <span class="example-label">Read an Agent Card before sending a task</span>
+        <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">↓</i><span>Inspect Agent Card</span><i aria-hidden="true">↓</i><span>Interact with A2A</span></div>
+      </div>
+      <figure class="tool-screen a2a-preview"><img :src="screens.a2a" alt="A2A Editor displaying an expanded Solar System Weather skill with its description, tags, and example prompts"></figure>
     </template>
 
     <template v-else-if="group === 'mcp'">
@@ -191,15 +192,18 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .tool-screen { flex-shrink: 0; margin: 0; overflow: hidden; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; }
 .tool-screen img { display: block; width: 100%; }
 .showcase-ui .tool-screen img { width: 100%; height: auto; }
-.showcase-a2a .detail-crops, .showcase-mcp .detail-crops { position: relative; }
-.showcase-a2a .detail-crops { height: 252px; }
+.showcase-a2a { display: grid; grid-template-columns: 340px minmax(0, 1fr); align-items: center; gap: 18px; }
+.a2a-overview { display: flex; flex-direction: column; gap: 14px; }
+.showcase-a2a .protocol-flow { flex-direction: column; gap: 8px; }
+.showcase-a2a .protocol-flow span { width: 100%; flex: none; }
+.showcase-a2a .a2a-preview img { width: 100%; height: auto; }
+.showcase-mcp .detail-crops { position: relative; }
 .showcase-mcp .detail-crops { height: 229px; }
-.showcase-a2a .detail-crops img, .showcase-mcp .detail-crops img { position: absolute; width: 72%; }
-.showcase-a2a .detail-crops img:first-of-type, .showcase-mcp .detail-crops img:first-of-type { top: 0; left: 0; }
-.showcase-a2a .detail-crops img:nth-of-type(2), .showcase-mcp .detail-crops img:nth-of-type(2) { right: 0; width: 62%; border: 1px solid var(--ord-sep); border-radius: 8px; box-shadow: 0 8px 20px rgba(21, 36, 44, .12); }
-.showcase-a2a .detail-crops img:nth-of-type(2) { top: 68px; }
+.showcase-mcp .detail-crops img { position: absolute; width: 72%; }
+.showcase-mcp .detail-crops img:first-of-type { top: 0; left: 0; }
+.showcase-mcp .detail-crops img:nth-of-type(2) { right: 0; width: 62%; border: 1px solid var(--ord-sep); border-radius: 8px; box-shadow: 0 8px 20px rgba(21, 36, 44, .12); }
 .showcase-mcp .detail-crops img:nth-of-type(2) { top: 56px; }
-.showcase-a2a .detail-crops figcaption, .showcase-mcp .detail-crops figcaption { position: absolute; right: 0; bottom: 0; left: 0; }
+.showcase-mcp .detail-crops figcaption { position: absolute; right: 0; bottom: 0; left: 0; }
 .tool-screen figcaption { padding: 8px 12px; color: var(--ord-muted); background: var(--ord-card-bg); font-size: 11px; line-height: 1.3; }
 .explorer-viewport { height: 370px; overflow: hidden; }
 .explorer-viewport img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
@@ -222,5 +226,5 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .rule p { font-size: 15px; }
 .showcase-compaction .command pre { font-size: 13px; }
 .showcase-compaction { gap: 8px; }
-.showcase-a2a, .showcase-mcp { gap: 12px; }
+.showcase-mcp { gap: 12px; }
 </style>

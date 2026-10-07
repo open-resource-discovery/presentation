@@ -1,6 +1,6 @@
 # Tool screenshots
 
-Captured from the official public playgrounds on 2026-10-04, with the Metadata Renderer capture refreshed on 2026-10-07, plus the Explorer capture supplied by the user on 2026-10-04.
+Captured from the official public playgrounds on 2026-10-04, with the Metadata Renderer and A2A Editor captures refreshed on 2026-10-07, plus the Explorer capture supplied by the user on 2026-10-04.
 These are actual rendered views with example input entered through each playground's Monaco editor model or selected from its built-in examples.
 UI labels were not replaced or fabricated.
 The slides display selected sections so the text remains readable at 1280×720.
@@ -9,12 +9,13 @@ The slides display selected sections so the text remains readable at 1280×720.
 | --- | --- | --- |
 | `explorer.png` | [ORD Explorer](https://open-resource-discovery.github.io/explorer/) | Built-in Sample ORD System; original user-supplied capture |
 | `metadata-renderer-endpoint.png` | [Metadata Renderer](https://open-resource-discovery.github.io/metadata-renderer/playground/) | Built-in Petstore OpenAPI · GET /pets endpoint |
-| `a2a-header.png`, `a2a-skills.png` | [A2A Editor](https://open-resource-discovery.github.io/a2a-editor/playground/) | [Agent Card](./examples/agent.json) |
+| `a2a-agent-card-skill.png` | [A2A Editor](https://open-resource-discovery.github.io/a2a-editor/playground/) | Built-in Solar System Explorer Agent Card · expanded skill |
 | `mcp-header.png`, `mcp-tools.png` | [MCP Server Card UI](https://open-resource-discovery.github.io/mcp-server-card-ui/playground/) | [Server Card](./examples/mcp.json) |
 
-The A2A and MCP figures use two separate screenshot crops: the card header and
-the skill/tool list. Connection settings and unrelated sections between them
-are excluded. The captions identify these as detail views with example data.
+The A2A figure focuses on an expanded skill in the built-in Solar System Explorer Agent Card.
+The MCP figure uses two separate screenshot crops: the card header and the tool list.
+Connection settings and unrelated sections are excluded.
+The MCP caption identifies it as a detail view with example data.
 The generic example endpoints are illustrative; no example agent task or MCP
 tool was invoked. The MCP example passed the playground's card validation on
 the capture date; it is a prototype, not an accepted-extension conformance example.
