@@ -417,6 +417,7 @@ routeAlias: deep-dives
 <DeepDiveNav back-to="introduction" back-label="Main presentation" :show-index="false"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Explore ORD by topic</h2>
+<p class="slide-subtitle">Choose a topic, or follow the four paths from left to right.</p>
 </header>
 <DeepDiveIndex></DeepDiveIndex>
 </div>
@@ -490,6 +491,90 @@ import GroupingPackagingDiagram from './components/GroupingPackagingDiagram.vue'
 </div>
 
 ---
+routeAlias: perspective-resolution
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Perspective resolution"></DeckLogo>
+<DeepDiveNav back-to="perspectives-overview" back-label="Perspectives" spec-href="https://open-resource-discovery.org/spec-v1/concepts/perspectives#effective-system-instance-resolution"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Resolve the most specific complete view</h2>
+</header>
+<PerspectiveResolutionDiagram></PerspectiveResolutionDiagram>
+</div>
+
+---
+routeAlias: integration-dependencies
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Integration dependencies"></DeckLogo>
+<DeepDiveNav back-to="self-description" back-label="Self-description" spec-href="https://open-resource-discovery.org/spec-v1/concepts/integration-dependency#concept"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Describe what a system needs from others</h2>
+</header>
+<IntegrationDependencyDiagram></IntegrationDependencyDiagram>
+</div>
+
+---
+routeAlias: data-products
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Data Products"></DeckLogo>
+<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-v1/concepts/data-product"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Data Products: ownership, lineage, and access</h2>
+<p class="slide-subtitle">ORD describes a governed data set and connects it to its input lineage, output ports, and business meaning.</p>
+</header>
+<DataProductDiagram></DataProductDiagram>
+</div>
+
+<!--
+A Data Product is a data set exposed for consumption through APIs or Events.
+The Data Product resource owns the descriptive metadata; inputPorts reference
+Integration Dependencies for lineage, outputPorts reference API or Event
+Resources, and entityTypes connect the data set to business semantics.
+ORD describes discovery metadata and relationships, not the data transport.
+The Data Product concept contains beta properties in ORD 1.16.4.
+
+Sources: ../ord-public/docs/spec-v1/concepts/data-product.md and
+../ord-public/spec/v1/Document.schema.yaml#DataProduct.
+-->
+
+---
+routeAlias: ai-discovery
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="AI &amp; Agents"></DeckLogo>
+<DeepDiveNav back-to="connected-landscape" back-label="Resource graph" next-to="skills-preview" next-label="Skills &amp; Plugins" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>AI &amp; Agents: interaction and dependencies</h2>
+<p class="slide-subtitle">Including Skills and Plugins as proposed in <a href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank" rel="noopener noreferrer">PR #102</a> for 1.17.</p>
+</header>
+<AiDiscoveryDiagram></AiDiscoveryDiagram>
+</div>
+
+<!--
+An Agent is a conceptual resource describing autonomous task execution. It can exist without an exposed API. When it exposes an interaction contract, exposedApiResources references a separate API Resource; A2A with an Agent Card is one example, not a required protocol.
+
+Agent.integrationDependencies references Integration Dependency resources. Their aspects already support apiResources, eventResources, and generic capabilities in ORD 1.16.4. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
+
+PR #102 at commit 18fc27e67548f91c13f21ad0b283bb0725d47400 proposes agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. The dashed Capability-to-dependency arrow marks the proposed property. Capability references themselves are already released. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
+
+API subsets can select MCP tools by operationId using the tool name from the MCP Server Card. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
+-->
+
+---
+routeAlias: skills-preview
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Preview · proposed for 1.17"></DeckLogo>
+<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://github.com/open-resource-discovery/specification/blob/18fc27e67548f91c13f21ad0b283bb0725d47400/docs/spec-v1/concepts/ai-agents-and-protocols.md#agent-skills-as-capabilities" spec-label="Skills proposal"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Make reusable agent skills discoverable</h2>
+</header>
+<SkillsPreviewDiagram></SkillsPreviewDiagram>
+</div>
+
+---
 routeAlias: versioning-lifecycle
 ---
 <div class="slide-shell light-slide deep-slide">
@@ -518,18 +603,6 @@ import ApiLifecycleDiagram from './components/ApiLifecycleDiagram.vue'
 </div>
 
 ---
-routeAlias: perspective-resolution
----
-<div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Perspective resolution"></DeckLogo>
-<DeepDiveNav back-to="perspectives-overview" back-label="Perspectives" spec-href="https://open-resource-discovery.org/spec-v1/concepts/perspectives#effective-system-instance-resolution"></DeepDiveNav>
-<header class="slide-header wide-header">
-<h2>Resolve the most specific complete view</h2>
-</header>
-<PerspectiveResolutionDiagram></PerspectiveResolutionDiagram>
-</div>
-
----
 routeAlias: ord-overlays
 ---
 <div class="slide-shell light-slide deep-slide">
@@ -539,6 +612,35 @@ routeAlias: ord-overlays
 <h2>Enrich a definition without changing its source</h2>
 </header>
 <OverlayDiagram></OverlayDiagram>
+</div>
+
+---
+routeAlias: ai-enrichment
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="AI-oriented metadata enrichment"></DeckLogo>
+<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Help AI choose a resource, then use it well</h2>
+</header>
+<AiEnrichmentDiagram></AiEnrichmentDiagram>
+</div>
+
+---
+routeAlias: ord-extensibility
+---
+<script setup>
+import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
+</script>
+
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Extensibility in ORD"></DeckLogo>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#capability"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Extend through the right ORD extension point</h2>
+<p class="slide-subtitle">Keep the shared discovery model; add domain-specific meaning where ORD provides an extension mechanism.</p>
+</header>
+<ExtensibilityDiagram></ExtensibilityDiagram>
 </div>
 
 ---
@@ -552,6 +654,38 @@ routeAlias: visibility
 </header>
 <VisibilityDiagram></VisibilityDiagram>
 </div>
+
+---
+routeAlias: policy-validation
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Policy levels &amp; validation"></DeckLogo>
+<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-extensions/policy-levels/"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>Make metadata governance evolvable</h2>
+<p class="slide-subtitle">Keep a stable validity gate, then let providers declare and shift-left validate the policies their resources meet.</p>
+</header>
+<PolicyValidationDiagram></PolicyValidationDiagram>
+</div>
+
+<!--
+Policy levels are Specification IDs and can be defined by any organization.
+The example is intentionally vendor-neutral. Multiple independently owned policy
+concerns can apply to the same published resources and evolve on separate version
+tracks. Document-level policyLevels can be overridden at Package or resource level.
+Providers can compare the same content against current and next policy versions
+before changing their declared target. Aggregators still validate retrieved ORD
+documents and add checks that require a connected landscape.
+
+Presenter context: the API Metadata Validator demonstrates this model through a
+CLI/library, layered versioned rulesets, and configurable failure severity. It is
+currently internal and planned for future open sourcing; do not present it as a
+publicly available tool yet.
+
+Sources: ../ord-public/docs/spec-extensions/policy-levels/index.mdx,
+../ord-public/spec/v1/Document.schema.yaml#policyLevels, and
+../ord-public/docs/spec-v1/index.md#validation-rules.
+-->
 
 ---
 routeAlias: pull-sequence
@@ -594,82 +728,6 @@ routeAlias: push-preview
 <h2>Preview: ORD Push Transport Mode</h2>
 </header>
 <PushPreviewDiagram></PushPreviewDiagram>
-</div>
-
----
-routeAlias: integration-dependencies
----
-<div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Integration dependencies"></DeckLogo>
-<DeepDiveNav back-to="self-description" back-label="Self-description" spec-href="https://open-resource-discovery.org/spec-v1/concepts/integration-dependency#concept"></DeepDiveNav>
-<header class="slide-header wide-header">
-<h2>Describe what a system needs from others</h2>
-</header>
-<IntegrationDependencyDiagram></IntegrationDependencyDiagram>
-</div>
-
----
-routeAlias: ai-discovery
----
-<div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI &amp; Agents"></DeckLogo>
-<DeepDiveNav back-to="connected-landscape" back-label="Resource graph" next-to="skills-preview" next-label="Skills &amp; Plugins" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
-<header class="slide-header wide-header">
-<h2>AI &amp; Agents: interaction and dependencies</h2>
-<p class="slide-subtitle">Including Skills and Plugins as proposed in <a href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank" rel="noopener noreferrer">PR #102</a> for 1.17.</p>
-</header>
-<AiDiscoveryDiagram></AiDiscoveryDiagram>
-</div>
-
-<!--
-An Agent is a conceptual resource describing autonomous task execution. It can exist without an exposed API. When it exposes an interaction contract, exposedApiResources references a separate API Resource; A2A with an Agent Card is one example, not a required protocol.
-
-Agent.integrationDependencies references Integration Dependency resources. Their aspects already support apiResources, eventResources, and generic capabilities in ORD 1.16.4. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
-
-PR #102 at commit 18fc27e67548f91c13f21ad0b283bb0725d47400 proposes agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. The dashed Capability-to-dependency arrow marks the proposed property. Capability references themselves are already released. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
-
-API subsets can select MCP tools by operationId using the tool name from the MCP Server Card. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
--->
-
----
-routeAlias: skills-preview
----
-<div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Preview · proposed for 1.17"></DeckLogo>
-<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://github.com/open-resource-discovery/specification/blob/18fc27e67548f91c13f21ad0b283bb0725d47400/docs/spec-v1/concepts/ai-agents-and-protocols.md#agent-skills-as-capabilities" spec-label="Skills proposal"></DeepDiveNav>
-<header class="slide-header wide-header">
-<h2>Make reusable agent skills discoverable</h2>
-</header>
-<SkillsPreviewDiagram></SkillsPreviewDiagram>
-</div>
-
----
-routeAlias: ai-enrichment
----
-<div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI-oriented metadata enrichment"></DeckLogo>
-<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
-<header class="slide-header wide-header">
-<h2>Help AI choose a resource, then use it well</h2>
-</header>
-<AiEnrichmentDiagram></AiEnrichmentDiagram>
-</div>
-
----
-routeAlias: ord-extensibility
----
-<script setup>
-import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
-</script>
-
-<div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Extensibility in ORD"></DeckLogo>
-<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#capability"></DeepDiveNav>
-<header class="slide-header wide-header">
-<h2>Extend through the right ORD extension point</h2>
-<p class="slide-subtitle">Keep the shared discovery model; add domain-specific meaning where ORD provides an extension mechanism.</p>
-</header>
-<ExtensibilityDiagram></ExtensibilityDiagram>
 </div>
 
 ---

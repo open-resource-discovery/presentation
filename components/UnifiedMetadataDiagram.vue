@@ -239,7 +239,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
   align-items: center;
   justify-content: center;
   gap: 5px;
-  margin: 14px 0 10px;
+  margin: 14px 0 18px;
   border: 1px solid color-mix(in srgb, var(--ord-aggregator) 38%, var(--ord-sep));
   border-radius: 7px;
   background: var(--ord-aggregator-soft);
@@ -260,6 +260,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
 .api-endpoint small { color: var(--ord-muted); font-size: 11px; }
 
 .consumer-list {
+  --consumer-connector: color-mix(in srgb, var(--ord-muted) 42%, transparent);
   position: relative;
   display: flex;
   flex: 1;
@@ -272,11 +273,23 @@ const links = graph.links.map(({ from, to, kind }) => ({
 
 .consumer-list::before {
   position: absolute;
-  top: 16px;
-  bottom: 16px;
+  top: -8px;
+  bottom: 19px;
   left: 3px;
   width: 2px;
-  background: var(--ord-consumer);
+  background: var(--consumer-connector);
+  content: "";
+}
+
+.consumer-list::after {
+  position: absolute;
+  top: -18px;
+  left: 3px;
+  box-sizing: border-box;
+  width: calc(50% - 3px);
+  height: 10px;
+  border-right: 2px solid var(--consumer-connector);
+  border-bottom: 2px solid var(--consumer-connector);
   content: "";
 }
 
@@ -300,7 +313,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
   left: -12px;
   width: 12px;
   height: 2px;
-  background: var(--ord-consumer);
+  background: var(--consumer-connector);
   content: "";
 }
 
