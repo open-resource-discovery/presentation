@@ -567,11 +567,24 @@ routeAlias: skills-preview
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Preview · proposed for 1.17"></DeckLogo>
-<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://github.com/open-resource-discovery/specification/blob/18fc27e67548f91c13f21ad0b283bb0725d47400/docs/spec-v1/concepts/ai-agents-and-protocols.md#agent-skills-as-capabilities" spec-label="Skills proposal"></DeepDiveNav>
+<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" next-to="metadata-skills-boundary" next-label="Metadata boundary" spec-href="https://github.com/open-resource-discovery/specification/blob/18fc27e67548f91c13f21ad0b283bb0725d47400/docs/spec-v1/concepts/ai-agents-and-protocols.md#agent-skills-as-capabilities" spec-label="Skills proposal"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Make reusable agent skills discoverable</h2>
 </header>
 <SkillsPreviewDiagram></SkillsPreviewDiagram>
+</div>
+
+---
+routeAlias: metadata-skills-boundary
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="Skills and API metadata"></DeckLogo>
+<DeepDiveNav back-to="skills-preview" back-label="Skills &amp; Plugins" next-to="ai-enrichment" next-label="AI enrichment" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
+<header class="slide-header wide-header">
+<h2>API knowledge belongs in metadata. Skills orchestrate it.</h2>
+<p class="slide-subtitle">Keep shared, tenant-aware API meaning in governed metadata; let skills describe how an agent applies it in a workflow.</p>
+</header>
+<MetadataSkillsBoundaryDiagram></MetadataSkillsBoundaryDiagram>
 </div>
 
 ---
@@ -619,7 +632,7 @@ routeAlias: ai-enrichment
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="AI-oriented metadata enrichment"></DeckLogo>
-<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
+<DeepDiveNav back-to="metadata-skills-boundary" back-label="Metadata boundary" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>Help AI choose a resource, then use it well</h2>
 </header>
