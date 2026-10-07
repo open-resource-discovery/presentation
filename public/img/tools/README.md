@@ -8,7 +8,7 @@ The slides display selected sections so the text remains readable at 1280×720.
 | Assets | Source playground | Input |
 | --- | --- | --- |
 | `explorer.png` | [ORD Explorer](https://open-resource-discovery.github.io/explorer/) | Built-in Sample ORD System; original user-supplied capture |
-| `metadata-renderer.png` | [Metadata Renderer](https://open-resource-discovery.github.io/metadata-renderer/playground/) | Built-in Petstore OpenAPI |
+| `metadata-renderer-endpoint.png` | [Metadata Renderer](https://open-resource-discovery.github.io/metadata-renderer/playground/) | Built-in Petstore OpenAPI · GET /pets endpoint |
 | `a2a-header.png`, `a2a-skills.png` | [A2A Editor](https://open-resource-discovery.github.io/a2a-editor/playground/) | [Agent Card](./examples/agent.json) |
 | `mcp-header.png`, `mcp-tools.png` | [MCP Server Card UI](https://open-resource-discovery.github.io/mcp-server-card-ui/playground/) | [Server Card](./examples/mcp.json) |
 

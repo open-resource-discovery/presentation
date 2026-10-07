@@ -13,7 +13,7 @@ const csnBefore = '"Orders": {\n  "kind": "entity",\n  "@foo.ui.color": "blue",\
 const csnAfter = '"Orders": {\n  "kind": "entity",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
 const screens = {
   explorer: assetUrl('img/tools/explorer.png'),
-  ui: assetUrl('img/tools/metadata-renderer.png'),
+  ui: assetUrl('img/tools/metadata-renderer-endpoint.png'),
   a2aHeader: assetUrl('img/tools/a2a-header.png'),
   a2aSkills: assetUrl('img/tools/a2a-skills.png'),
   mcpHeader: assetUrl('img/tools/mcp-header.png'),
@@ -96,7 +96,7 @@ const screens = {
         <i aria-hidden="true">↓</i>
         <div class="renderer-product"><strong>Metadata Renderer</strong><span>Detect format and render</span></div>
       </div>
-      <figure class="tool-screen renderer-preview"><img :src="screens.ui" alt="Metadata Renderer displaying the GET pets endpoint from its built-in Petstore OpenAPI example"><figcaption>Public playground · built-in Petstore OpenAPI · GET /pets</figcaption></figure>
+      <figure class="tool-screen renderer-preview"><img :src="screens.ui" alt="Metadata Renderer displaying the GET pets endpoint from its built-in Petstore OpenAPI example"></figure>
     </template>
 
     <template v-else-if="group === 'a2a'">
@@ -180,7 +180,7 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .overlay-example .step-arrow { grid-column: 1 / -1; font-size: 16px; padding: 7px 0; }
 .overlay-example .enriched { grid-column: 1 / -1; }
 .enriched { background: var(--ord-accent-teal-bg); }
-.showcase-ui { display: grid; grid-template-columns: 390px minmax(0, 1fr); align-items: center; gap: 18px; }
+.showcase-ui { display: grid; grid-template-columns: 340px minmax(0, 1fr); align-items: center; gap: 18px; }
 .renderer-overview { display: flex; flex-direction: column; gap: 14px; }
 .format-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
 .format-list span { color: var(--ord-text); border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-accent-sky-bg); padding: 9px 11px; font-size: 14px; font-weight: 650; }
