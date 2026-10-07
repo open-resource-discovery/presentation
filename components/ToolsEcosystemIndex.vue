@@ -36,11 +36,11 @@ const categories = [
         <h3>{{ category.title }}</h3>
         <p>{{ category.description }}</p>
       </header>
-      <a v-for="project in category.projects" :key="project.route" :href="'./' + project.route">
+      <RouterLink v-for="project in category.projects" :key="project.route" :to="`/${project.route}`">
         <strong>{{ project.title }}</strong>
         <small>{{ project.repositories }}</small>
         <span aria-hidden="true">→</span>
-      </a>
+      </RouterLink>
     </section>
   </nav>
 </template>
