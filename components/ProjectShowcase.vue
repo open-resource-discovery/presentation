@@ -39,15 +39,13 @@ const screens = {
             <pre>{{ toolkitConfig }}</pre>
           </article>
         </div>
-        <div class="generation-step"><code>spec-toolkit -c spec-toolkit.config.yaml</code><span aria-hidden="true">↓</span></div>
+        <div class="generation-step"><code>spec-toolkit -c spec-toolkit.config.yaml</code><span class="generation-action">Generate &amp; validate <i aria-hidden="true">↓</i></span></div>
         <div class="outputs">
-          <article class="artifact"><span>Publish</span><h3>JSON Schema</h3><p>Distribute a portable validation contract.</p></article>
-          <article class="artifact"><span>Explain</span><h3>Markdown docs</h3><p>Generate a field-level reference.</p></article>
-          <article class="artifact"><span>Develop</span><h3>TypeScript types</h3><p>Use the same contract in code.</p></article>
+          <article class="artifact"><span>Publish</span><h3>JSON Schema</h3><p>Publish a machine-readable JSON Schema.</p></article>
+          <article class="artifact"><span>Explain</span><h3>Markdown docs</h3><p>Generate human-readable documentation.</p></article>
+          <article class="artifact"><span>Develop</span><h3>TypeScript types</h3><p>Use the same contract in code; plugins can add further output formats.</p></article>
         </div>
       </div>
-      <p class="takeaway">Configured examples are validated during generation; plugins can add further output formats.</p>
-      <p class="reference-example">Reference example: the <a href="https://github.com/open-resource-discovery/specification/blob/main/spec-toolkit.config.json" target="_blank" rel="noopener noreferrer">ORD specification</a> uses Spec Toolkit for its generated artifacts.</p>
     </template>
 
     <template v-else-if="group === 'reference'">
@@ -138,6 +136,8 @@ const screens = {
 pre, code { color: #334554; font-family: var(--ord-mono); font-size: 16px; line-height: 1.55; }
 pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .generation { display: flex; flex-direction: column; gap: 12px; }
+.showcase-specification { gap: 6px; }
+.showcase-specification .generation { gap: 8px; }
 .generation-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .generation-inputs .artifact { padding: 14px 16px; }
 .generation-inputs h3 { font-size: 17px; }
@@ -146,18 +146,17 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .toolkit-config { background: var(--ord-card-bg); }
 .generation-step { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--ord-brand); font-size: 17px; }
 .generation-step code { color: var(--ord-brand); font-size: 14px; font-weight: 700; }
-.generation-step span { font-size: 22px; }
+.generation-action { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 700; }
+.generation-action i { font-size: 22px; font-style: normal; }
 .outputs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .outputs .artifact { background: var(--ord-accent-teal-bg); padding: 15px 12px; }
 .outputs h3 { font-size: 17px; }
 .outputs p { font-size: 15px; }
 .takeaway { color: var(--ord-muted); font-size: 16px; line-height: 1.4; margin: 0; }
-.reference-example { margin: -6px 0 0; color: var(--ord-brand); font-size: 14px; font-weight: 650; line-height: 1.35; }
-.reference-example a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.reference-example a:hover { color: var(--ord-text); }
-.reference-example a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
 .step-arrow { display: block; color: var(--ord-brand); font-size: 18px; font-weight: 650; text-align: center; line-height: 1; }
 .publish-example { display: flex; flex-direction: column; gap: 8px; }
+.showcase-publishing .publish-example { display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); align-items: stretch; }
+.showcase-publishing .publish-example .step-arrow { align-self: center; transform: rotate(-90deg); }
 .publish-example pre { line-height: 1.5; }
 .endpoint { background: var(--ord-accent-sky-bg); }
 .endpoint h3 { font-size: 17px; font-family: var(--ord-mono); }
@@ -174,6 +173,7 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .spring-config { background: var(--ord-accent-sky-bg); }
 .spring-config pre { font-size: 15px; }
 .overlay-example { display: grid; grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1.3fr); gap: 10px; align-items: center; }
+.showcase-overlays { gap: 6px; }
 .overlay-plus { color: var(--ord-brand); font-size: 26px; text-align: center; }
 .overlay-patch { background: var(--ord-accent-violet-bg); }
 .overlay-example pre { font-size: 15px; }
@@ -187,6 +187,9 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .tool-screen { margin: 0; overflow: hidden; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; }
 .tool-screen img { display: block; width: 100%; }
 .detail-crops img + img { border-top: 1px solid var(--ord-sep); }
+.showcase-a2a .detail-crops, .showcase-mcp .detail-crops { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.showcase-a2a .detail-crops img + img, .showcase-mcp .detail-crops img + img { border-top: 0; border-left: 1px solid var(--ord-sep); }
+.showcase-a2a .detail-crops figcaption, .showcase-mcp .detail-crops figcaption { grid-column: 1 / -1; }
 .tool-screen figcaption { padding: 8px 12px; color: var(--ord-muted); background: var(--ord-card-bg); font-size: 11px; line-height: 1.3; }
 .explorer-viewport { height: 402px; overflow: hidden; }
 .explorer-viewport img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
@@ -199,11 +202,13 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .protocol-flow i { color: var(--ord-brand); font-style: normal; }
 .compaction-example { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .compaction-example .artifact { padding: 16px 14px; }
+.showcase-compaction .compaction-example .artifact { padding-block: 12px; }
 .compaction-example pre { font-size: 14px; }
 .rule { display: grid; grid-template-columns: 180px 1fr; gap: 5px 12px; align-items: start; }
 .rule > span { grid-column: 1 / -1; }
 .rule code { font-size: 16px; background: transparent; padding: 0; }
 .rule p { font-size: 15px; }
 .showcase-compaction .command pre { font-size: 13px; }
+.showcase-compaction { gap: 8px; }
 .showcase-a2a, .showcase-mcp { gap: 12px; }
 </style>

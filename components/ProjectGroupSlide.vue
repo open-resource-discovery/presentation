@@ -9,6 +9,8 @@ type Repository = {
   url: string
   liveUrl?: string
   liveLabel?: string
+  exampleUrl?: string
+  exampleLabel?: string
 }
 
 type ProjectGroup = {
@@ -24,7 +26,7 @@ const groups: Record<string, ProjectGroup> = {
   specification: {
     label: 'Schema toolchain',
     title: 'Generate a specification from one source schema',
-    summary: 'produces published contracts, reference documentation, and developer types in one repeatable build.',
+    summary: 'supports a schema-first workflow for JSON or YAML files: author specifications and contracts in JSON Schema, then generate distributable schemas, documentation, and developer types.',
     summaryLink: {
       label: 'Spec Toolkit',
       url: 'https://github.com/open-resource-discovery/spec-toolkit',
@@ -37,6 +39,8 @@ const groups: Record<string, ProjectGroup> = {
         url: 'https://github.com/open-resource-discovery/spec-toolkit',
         liveUrl: 'https://open-resource-discovery.github.io/spec-toolkit/',
         liveLabel: 'Toolkit documentation',
+        exampleUrl: 'https://github.com/open-resource-discovery/specification/blob/main/spec-toolkit.config.json',
+        exampleLabel: 'ORD example',
       },
     ],
   },
@@ -286,7 +290,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
       </p>
     </header>
 
-    <div class="project-content" :class="{ 'reference-content': group === 'reference' }">
+    <div class="project-content">
       <ProjectShowcase :group="group" />
       <aside class="repository-rail" :class="`count-${project.repositories.length}`" aria-label="What we offer">
         <span class="rail-label">What we offer</span>
@@ -297,6 +301,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
           <footer>
             <a :href="repository.url" target="_blank" rel="noopener noreferrer">Source ↗</a>
             <a v-if="repository.liveUrl" :href="repository.liveUrl" target="_blank" rel="noopener noreferrer">{{ repository.liveLabel }} ↗</a>
+            <a v-if="repository.exampleUrl" :href="repository.exampleUrl" target="_blank" rel="noopener noreferrer">{{ repository.exampleLabel }} ↗</a>
           </footer>
         </article>
         <RouterLink v-if="project.concept" class="concept-link" :to="`/${project.concept.route}`">{{ project.concept.label }} →</RouterLink>
@@ -317,29 +322,28 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .ecosystem-nav a { color: var(--ord-muted); font-weight: 650; text-decoration: none; }
 .ecosystem-nav a:hover { color: var(--ord-brand); }
 .ecosystem-nav a:focus-visible, .repository-card a:focus-visible, .concept-link:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
-.project-content { display: grid; flex: 1; min-height: 0; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 20px; align-items: center; }
-.repository-rail { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.project-content { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; }
+.project-content :deep(.showcase) { flex: 1; min-height: 0; justify-content: center; }
+.project-content :deep(.showcase-ui) { width: 100%; max-width: 720px; align-self: center; }
+.project-content :deep(.showcase-a2a), .project-content :deep(.showcase-mcp) { width: 100%; max-width: 960px; align-self: center; }
+.repository-rail { display: grid; gap: 12px; min-width: 0; }
+.repository-rail.count-1 { grid-template-columns: 1fr; }
+.repository-rail.count-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.repository-rail.count-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.repository-rail.count-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .rail-label { color: var(--ord-muted); font-size: 12px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
-.repository-card { display: flex; flex-direction: column; gap: 5px; min-width: 0; border: 1px solid var(--ord-sep); border-top: 3px solid var(--ord-accent-teal); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); padding: 12px 15px; }
+.rail-label, .repository-card p { display: none; }
+.repository-card { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; border: 1px solid var(--ord-sep); border-top: 3px solid var(--ord-accent-teal); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); padding: 10px 15px; }
 .repository-role { color: var(--ord-brand); font-size: 10px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
 .repository-card h3 { font-size: 18px; font-weight: 750; line-height: 1.2; }
 .repository-card h3, .repository-card p, .repository-card footer { margin: 0; }
+.repository-card .repository-role, .repository-card h3 { grid-column: 1; }
 .repository-card h3 a { color: var(--ord-text); border: 0; text-decoration: none; }
 .repository-card h3 a:hover { color: var(--ord-brand); }
 .repository-card p { color: var(--ord-muted); font-size: 14px; line-height: 1.35; }
-.repository-card footer { display: flex; flex-wrap: wrap; gap: 5px 14px; padding-top: 3px; }
+.repository-card footer { display: flex; grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; gap: 5px; padding: 0; }
 .repository-card footer a { border: 0; color: var(--ord-brand); font-size: 11px; font-weight: 700; text-decoration: none; }
 .repository-card footer a:hover { text-decoration: underline; }
-.count-4 { gap: 8px; }
-.count-4 .repository-card { gap: 4px; padding: 9px 15px; }
-.count-4 .repository-card p { font-size: 13px; line-height: 1.3; }
-.concept-link { align-self: flex-start; color: var(--ord-brand); font-size: 13px; font-weight: 700; text-decoration: none; }
+.concept-link { grid-column: 1 / -1; justify-self: start; color: var(--ord-brand); font-size: 13px; font-weight: 700; text-decoration: none; }
 .concept-link:hover { text-decoration: underline; }
-.reference-content { display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; }
-.reference-content .repository-rail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.reference-content .rail-label, .reference-content .repository-card p { display: none; }
-.reference-content .repository-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 12px 15px; }
-.reference-content .repository-role { grid-column: 1; }
-.reference-content .repository-card h3 { grid-column: 1; }
-.reference-content .repository-card footer { grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; padding: 0; }
 </style>
