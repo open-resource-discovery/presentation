@@ -825,7 +825,7 @@ routeAlias: project-ui
 <ProjectGroupSlide group="ui"></ProjectGroupSlide>
 
 <!--
-The definition prop contains the input file as a string. MetadataRenderer detects its format and selects the specialized renderer. The screenshot is real Scalar output from the public Metadata Renderer playground with the included generic Orders OpenAPI input. A complete React setup also imports the package styles once. ui-components provides the common UI foundations.
+Metadata Renderer accepts a definition, detects its format, and selects the specialized view. The screenshot is real Scalar output from the public Metadata Renderer playground with the included generic Orders OpenAPI input.
 -->
 
 ---

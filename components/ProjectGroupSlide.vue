@@ -15,6 +15,8 @@ type Repository = {
 
 type ProjectGroup = {
   label: string
+  name: string
+  projectUrl: string
   title: string
   summary: string
   summaryLink?: { label: string; url: string }
@@ -25,12 +27,10 @@ type ProjectGroup = {
 const groups: Record<string, ProjectGroup> = {
   specification: {
     label: 'Schema toolchain',
+    name: 'Spec Toolkit',
+    projectUrl: 'https://github.com/open-resource-discovery/spec-toolkit',
     title: 'Generate a specification from one source schema',
-    summary: 'supports a schema-first workflow for JSON or YAML files: author specifications and contracts in JSON Schema, then generate distributable schemas, documentation, and developer types.',
-    summaryLink: {
-      label: 'Spec Toolkit',
-      url: 'https://github.com/open-resource-discovery/spec-toolkit',
-    },
+    summary: 'Use a schema-first workflow for JSON or YAML files: author specifications and contracts in JSON Schema, then generate distributable schemas, documentation, and developer types.',
     repositories: [
       {
         name: 'spec-toolkit',
@@ -46,12 +46,10 @@ const groups: Record<string, ProjectGroup> = {
   },
   reference: {
     label: 'Reference & Explorer',
+    name: 'ORD Explorer',
+    projectUrl: 'https://github.com/open-resource-discovery/explorer',
     title: 'Explore metadata from a running Provider',
-    summary: 'connects to an ORD Provider so you can discover which resources it offers and how to use them.',
-    summaryLink: {
-      label: 'ORD Explorer',
-      url: 'https://github.com/open-resource-discovery/explorer',
-    },
+    summary: 'Connect it to an ORD Provider to discover which resources it offers and how to use them.',
     repositories: [
       {
         name: 'reference-application',
@@ -73,12 +71,10 @@ const groups: Record<string, ProjectGroup> = {
   },
   publishing: {
     label: 'Static publishing',
+    name: 'Provider Server',
+    projectUrl: 'https://github.com/open-resource-discovery/provider-server',
     title: 'Publish ORD metadata from files',
-    summary: 'exposes ORD Documents and referenced resource definitions from a local directory or GitHub through the ORD Provider API.',
-    summaryLink: {
-      label: 'provider-server',
-      url: 'https://github.com/open-resource-discovery/provider-server',
-    },
+    summary: 'Expose ORD Documents and referenced resource definitions from a local directory or GitHub through the ORD Provider API.',
     repositories: [
       {
         name: 'provider-server',
@@ -90,12 +86,10 @@ const groups: Record<string, ProjectGroup> = {
   },
   'framework-publishing': {
     label: 'Framework integration',
+    name: 'Spring Boot Starter for ORD',
+    projectUrl: 'https://github.com/open-resource-discovery/spring-boot-starter-ord',
     title: 'Add ORD publishing to a Spring Boot application',
-    summary: 'adds ORD discovery and document endpoints to your application using annotations, static documents, or both.',
-    summaryLink: {
-      label: 'Spring Boot Starter for ORD',
-      url: 'https://github.com/open-resource-discovery/spring-boot-starter-ord',
-    },
+    summary: 'Add ORD discovery and document endpoints to your application using annotations, static documents, or both.',
     repositories: [
       {
         name: 'spring-boot-starter-ord',
@@ -113,6 +107,8 @@ const groups: Record<string, ProjectGroup> = {
   },
   overlays: {
     label: 'Overlay tools',
+    name: 'Overlay Tools',
+    projectUrl: 'https://github.com/open-resource-discovery/overlay-tools',
     title: 'Add guidance to an existing API definition',
     summary: 'patches a consumer’s view while keeping the original definition unchanged.',
     summaryLink: {
@@ -124,7 +120,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'overlay-editor',
         role: 'View & edit',
-        description: 'View and edit overlays in a browser or React application.',
+        description: 'View and edit overlays in a browser or embed the editor in another application.',
         url: 'https://github.com/open-resource-discovery/overlay-editor',
         liveUrl: 'https://open-resource-discovery.github.io/overlay-editor/',
         liveLabel: 'Open playground',
@@ -145,25 +141,15 @@ const groups: Record<string, ProjectGroup> = {
   },
   ui: {
     label: 'UI foundations',
-    title: 'Render metadata consistently in React',
-    summary: 'auto-detects OpenAPI, AsyncAPI, CSN, A2A, MCP Server Cards, and ORD Overlays and selects the appropriate React renderer.',
-    summaryLink: {
-      label: 'Metadata Renderer',
-      url: 'https://github.com/open-resource-discovery/metadata-renderer',
-    },
+    name: 'Metadata Renderer',
+    projectUrl: 'https://github.com/open-resource-discovery/metadata-renderer',
+    title: 'Render metadata consistently',
+    summary: 'Auto-detect OpenAPI, AsyncAPI, CSN, A2A, MCP Server Cards, and ORD Overlays and select the appropriate interactive view.',
     repositories: [
-      {
-        name: 'ui-components',
-        role: 'Design system',
-        description: 'Reuse accessible, themeable React controls across ORD tools.',
-        url: 'https://github.com/open-resource-discovery/ui-components',
-        liveUrl: 'https://open-resource-discovery.github.io/ui-components/',
-        liveLabel: 'Browse Storybook',
-      },
       {
         name: 'metadata-renderer',
         role: 'Format-aware rendering',
-        description: 'Render supported formats through one React component.',
+        description: 'Render supported metadata formats through one consistent interface.',
         url: 'https://github.com/open-resource-discovery/metadata-renderer',
         liveUrl: 'https://open-resource-discovery.github.io/metadata-renderer/playground',
         liveLabel: 'Open playground',
@@ -172,6 +158,8 @@ const groups: Record<string, ProjectGroup> = {
   },
   a2a: {
     label: 'A2A tools',
+    name: 'A2A Editor',
+    projectUrl: 'https://github.com/open-resource-discovery/a2a-editor',
     title: 'Inspect Agent Cards, then test A2A interaction',
     summary: 'describe what agents offer; inspect and validate them before trying the A2A protocol against a test server.',
     summaryLink: {
@@ -210,6 +198,8 @@ const groups: Record<string, ProjectGroup> = {
   },
   mcp: {
     label: 'MCP tools',
+    name: 'MCP Server Card UI',
+    projectUrl: 'https://github.com/open-resource-discovery/mcp-server-card-ui',
     title: 'Discover MCP servers before connecting',
     summary: 'describes a remote server’s identity, transport endpoints, and supported protocol versions before you connect.',
     summaryLink: {
@@ -236,12 +226,10 @@ const groups: Record<string, ProjectGroup> = {
   },
   compaction: {
     label: 'Metadata compaction',
+    name: 'Metadata Compactor',
+    projectUrl: 'https://github.com/open-resource-discovery/metadata-compactor-golang',
     title: 'Make metadata context-efficient for LLMs',
-    summary: 'applies configurable rules to keep only the CSN metadata needed for a task.',
-    summaryLink: {
-      label: 'Metadata Compactor',
-      url: 'https://github.com/open-resource-discovery/metadata-compactor-golang',
-    },
+    summary: 'Apply configurable rules to keep only the CSN metadata needed for a task.',
     repositories: [
       {
         name: 'metadata-compactor-golang',
@@ -253,6 +241,8 @@ const groups: Record<string, ProjectGroup> = {
   },
   registry: {
     label: 'Registry workflow',
+    name: 'Global Registry Bot',
+    projectUrl: 'https://github.com/open-resource-discovery/global-registry-bot',
     title: 'Automate one part of registry governance',
     summary: 'The bot handles a GitHub request workflow; it is a building block, not a complete ORD namespace registry.',
     repositories: [
@@ -279,10 +269,11 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
     <DeckLogo :section="project.label"></DeckLogo>
     <nav class="ecosystem-nav" aria-label="Tools and ecosystem navigation">
       <RouterLink to="/tools-ecosystem">All tools</RouterLink>
-      <RouterLink v-if="previousGroup" :to="`/project-${previousGroup}`" :title="groups[previousGroup].title">← Previous</RouterLink>
-      <RouterLink v-if="nextGroup" :to="`/project-${nextGroup}`" :title="groups[nextGroup].title">Next →</RouterLink>
+      <RouterLink v-if="previousGroup" :to="`/project-${previousGroup}`" :title="groups[previousGroup].name">← Previous</RouterLink>
+      <RouterLink v-if="nextGroup" :to="`/project-${nextGroup}`" :title="groups[nextGroup].name">Next →</RouterLink>
     </nav>
     <header class="slide-header wide-header">
+      <h1><a :href="project.projectUrl" target="_blank" rel="noopener noreferrer">{{ project.name }}</a></h1>
       <h2>{{ project.title }}</h2>
       <p class="slide-subtitle">
         <template v-if="project.summaryLink"><a :href="project.summaryLink.url" target="_blank" rel="noopener noreferrer">{{ project.summaryLink.label }}</a> {{ project.summary }}</template>
@@ -311,10 +302,14 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 </template>
 
 <style scoped>
-.ecosystem-project-slide { gap: 18px; }
-.ecosystem-project-slide .slide-header { gap: 5px; }
-.ecosystem-project-slide .slide-header h2 { max-width: 1120px; font-size: 38px; }
-.ecosystem-project-slide .slide-subtitle { max-width: 1130px; font-size: 17px; line-height: 1.35; }
+.ecosystem-project-slide { gap: 14px; }
+.ecosystem-project-slide .slide-header { gap: 2px; }
+.ecosystem-project-slide .slide-header h1 { max-width: 1120px; font-size: 38px; line-height: 1.08; }
+.ecosystem-project-slide .slide-header h1 a { border: 0; color: var(--ord-text); text-decoration: none; }
+.ecosystem-project-slide .slide-header h1 a:hover { color: var(--ord-brand); }
+.ecosystem-project-slide .slide-header h1 a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
+.ecosystem-project-slide .slide-header h2 { max-width: 1120px; color: var(--ord-muted); font-size: 21px; font-weight: 650; line-height: 1.25; }
+.ecosystem-project-slide .slide-subtitle { max-width: 1130px; font-size: 16px; line-height: 1.35; }
 .ecosystem-project-slide .slide-subtitle a { color: var(--ord-brand); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .ecosystem-project-slide .slide-subtitle a:hover { color: var(--ord-text); }
 .ecosystem-project-slide .slide-subtitle a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }

@@ -9,7 +9,6 @@ const folder = 'metadata/\n├── documents/\n│   └── orders.ord.json
 const serve = 'npx @open-resource-discovery/provider-server \\\n  -d ./metadata \\\n  --base-url http://127.0.0.1:8080'
 const springConfig = 'ord:\n  namespace: customer\n  packages:\n    - com.example.orders.resources'
 const overlay = 'action: merge\nselector:\n  operation: getOrder\ndata:\n  description: >-\n    Read the current status of an order.'
-const render = '<MetadataRenderer content={definition} />'
 const csnBefore = '"Orders": {\n  "kind": "entity",\n  "@foo.ui.color": "blue",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
 const csnAfter = '"Orders": {\n  "kind": "entity",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
 const screens = {
@@ -91,11 +90,11 @@ const screens = {
     </template>
 
     <template v-else-if="group === 'ui'">
-      <span class="example-label">One component, several definition formats</span>
+      <span class="example-label">Several definition formats, one consistent view</span>
       <div class="renderer-flow">
         <div class="format-list"><span>OpenAPI</span><span>AsyncAPI</span><span>CSN</span><span>A2A</span><span>MCP Server Cards</span><span>ORD Overlays</span></div>
         <i aria-hidden="true">→</i>
-        <div class="command renderer-code"><pre>{{ render }}</pre></div>
+        <div class="renderer-product"><strong>Metadata Renderer</strong><span>Detect format and render</span></div>
       </div>
       <figure class="tool-screen"><img :src="screens.ui" alt="Metadata Renderer displaying a generic Orders API definition"><figcaption>Public Metadata Renderer playground · example data</figcaption></figure>
     </template>
@@ -185,8 +184,9 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .format-list span { color: var(--ord-text); border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-accent-sky-bg); padding: 9px 11px; font-size: 14px; font-weight: 650; }
 .renderer-flow { display: grid; grid-template-columns: minmax(0, 1fr) 20px minmax(380px, .72fr); align-items: center; gap: 8px; }
 .renderer-flow > i { color: var(--ord-brand); font-size: 22px; font-style: normal; font-weight: 700; text-align: center; }
-.renderer-code { text-align: center; background: var(--ord-accent-teal-bg); }
-.renderer-code pre { font-size: 17px; }
+.renderer-product { display: flex; min-height: 83px; flex-direction: column; justify-content: center; gap: 5px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); text-align: center; }
+.renderer-product strong { color: var(--ord-text); font-size: 18px; }
+.renderer-product span { color: var(--ord-muted); font-size: 13px; }
 .tool-screen { flex-shrink: 0; margin: 0; overflow: hidden; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; }
 .tool-screen img { display: block; width: 100%; }
 .showcase-ui .tool-screen img { max-height: 240px; object-fit: contain; }
