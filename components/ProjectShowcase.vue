@@ -14,7 +14,7 @@ const csnAfter = '"Orders": {\n  "kind": "entity",\n  "elements": {\n    "ID": {
 const screens = {
   explorer: assetUrl('img/tools/explorer.png'),
   ui: assetUrl('img/tools/metadata-renderer-endpoint.png'),
-  a2a: assetUrl('img/tools/a2a-agent-card-skill.png'),
+  a2a: assetUrl('img/tools/a2a-agent-card-skill-detail-2x.png'),
   mcpHeader: assetUrl('img/tools/mcp-header.png'),
   mcpTools: assetUrl('img/tools/mcp-tools.png'),
 }
