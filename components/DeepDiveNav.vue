@@ -64,13 +64,13 @@ withDefaults(
 
 .deep-dive-source {
   position: absolute;
-  right: 110px;
-  bottom: 20px;
+  bottom: 16px;
+  left: 24px;
   z-index: 7;
   color: var(--ord-brand);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 20px;
   text-decoration: underline;
   text-underline-offset: 4px;
 }

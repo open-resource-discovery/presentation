@@ -288,8 +288,8 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
         <template v-if="project.summaryLink"><a :href="project.summaryLink.url" target="_blank" rel="noopener noreferrer">{{ project.summaryLink.label }}</a> {{ project.summary }}</template>
         <template v-else>{{ project.summary }}</template>
       </p>
-      <RouterLink v-if="project.concept" class="concept-link" :to="`/${project.concept.route}`">{{ project.concept.label }} →</RouterLink>
     </header>
+    <RouterLink v-if="project.concept" class="concept-link" :to="`/${project.concept.route}`">{{ project.concept.label }} →</RouterLink>
 
     <div class="project-content">
       <ProjectShowcase :group="group" />
@@ -324,8 +324,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .ecosystem-nav a:focus-visible, .repository-card a:focus-visible, .concept-link:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
 .project-content { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; }
 .project-content :deep(.showcase) { flex: 1; min-height: 0; justify-content: center; }
-.project-content :deep(.showcase-ui) { width: 100%; max-width: 720px; align-self: center; }
-.project-content :deep(.showcase-a2a), .project-content :deep(.showcase-mcp) { width: 100%; max-width: 960px; align-self: center; }
+.project-content :deep(.showcase-ui), .project-content :deep(.showcase-a2a), .project-content :deep(.showcase-mcp) { width: 100%; max-width: 1080px; align-self: center; }
 .repository-rail { display: grid; gap: 12px; min-width: 0; }
 .repository-rail.count-1 { grid-template-columns: 1fr; }
 .repository-rail.count-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -344,6 +343,6 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .repository-card footer { display: flex; grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; gap: 5px; padding: 0; }
 .repository-card footer a { border: 0; color: var(--ord-brand); font-size: 11px; font-weight: 700; text-decoration: none; }
 .repository-card footer a:hover { text-decoration: underline; }
-.concept-link { align-self: flex-start; color: var(--ord-brand); font-size: 13px; font-weight: 700; text-decoration: none; }
+.concept-link { position: absolute; bottom: 16px; left: 24px; z-index: 7; color: var(--ord-brand); font-size: 13px; font-weight: 700; line-height: 20px; text-decoration: none; }
 .concept-link:hover { text-decoration: underline; }
 </style>

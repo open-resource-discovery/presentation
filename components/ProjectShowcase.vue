@@ -92,10 +92,11 @@ const screens = {
 
     <template v-else-if="group === 'ui'">
       <span class="example-label">One component, several definition formats</span>
-      <div class="format-list"><span>OpenAPI</span><span>AsyncAPI</span><span>CSN</span><span>A2A</span><span>MCP Server Cards</span><span>ORD Overlays</span></div>
-      <span class="step-arrow" aria-hidden="true">↓ Detect format</span>
-      <div class="command renderer-code"><pre>{{ render }}</pre></div>
-      <span class="step-arrow" aria-hidden="true">↓ Render</span>
+      <div class="renderer-flow">
+        <div class="format-list"><span>OpenAPI</span><span>AsyncAPI</span><span>CSN</span><span>A2A</span><span>MCP Server Cards</span><span>ORD Overlays</span></div>
+        <i aria-hidden="true">→</i>
+        <div class="command renderer-code"><pre>{{ render }}</pre></div>
+      </div>
       <figure class="tool-screen"><img :src="screens.ui" alt="Metadata Renderer displaying a generic Orders API definition"><figcaption>Public Metadata Renderer playground · example data</figcaption></figure>
     </template>
 
@@ -181,14 +182,21 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .enriched { background: var(--ord-accent-teal-bg); }
 .format-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
 .format-list span { color: var(--ord-text); border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-accent-sky-bg); padding: 9px 11px; font-size: 14px; font-weight: 650; }
+.renderer-flow { display: grid; grid-template-columns: minmax(0, 1fr) 20px minmax(380px, .72fr); align-items: center; gap: 8px; }
+.renderer-flow > i { color: var(--ord-brand); font-size: 22px; font-style: normal; font-weight: 700; text-align: center; }
 .renderer-code { text-align: center; background: var(--ord-accent-teal-bg); }
 .renderer-code pre { font-size: 17px; }
 .tool-screen { margin: 0; overflow: hidden; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; }
 .tool-screen img { display: block; width: 100%; }
-.detail-crops img + img { border-top: 1px solid var(--ord-sep); }
-.showcase-a2a .detail-crops, .showcase-mcp .detail-crops { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
-.showcase-a2a .detail-crops img + img, .showcase-mcp .detail-crops img + img { border-top: 0; border-left: 1px solid var(--ord-sep); }
-.showcase-a2a .detail-crops figcaption, .showcase-mcp .detail-crops figcaption { grid-column: 1 / -1; }
+.showcase-a2a .detail-crops, .showcase-mcp .detail-crops { position: relative; }
+.showcase-a2a .detail-crops { height: 252px; }
+.showcase-mcp .detail-crops { height: 229px; }
+.showcase-a2a .detail-crops img, .showcase-mcp .detail-crops img { position: absolute; width: 72%; }
+.showcase-a2a .detail-crops img:first-of-type, .showcase-mcp .detail-crops img:first-of-type { top: 0; left: 0; }
+.showcase-a2a .detail-crops img:nth-of-type(2), .showcase-mcp .detail-crops img:nth-of-type(2) { right: 0; width: 62%; border: 1px solid var(--ord-sep); border-radius: 8px; box-shadow: 0 8px 20px rgba(21, 36, 44, .12); }
+.showcase-a2a .detail-crops img:nth-of-type(2) { top: 68px; }
+.showcase-mcp .detail-crops img:nth-of-type(2) { top: 56px; }
+.showcase-a2a .detail-crops figcaption, .showcase-mcp .detail-crops figcaption { position: absolute; right: 0; bottom: 0; left: 0; }
 .tool-screen figcaption { padding: 8px 12px; color: var(--ord-muted); background: var(--ord-card-bg); font-size: 11px; line-height: 1.3; }
 .explorer-viewport { height: 402px; overflow: hidden; }
 .explorer-viewport img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
