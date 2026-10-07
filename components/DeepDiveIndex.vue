@@ -52,11 +52,11 @@ const categories = [
         <h3>{{ category.title }}</h3>
         <p>{{ category.description }}</p>
       </header>
-      <a v-for="topic in category.topics" :key="topic.to" :href="'./' + topic.to">
+      <RouterLink v-for="topic in category.topics" :key="topic.to" :to="`/${topic.to}`">
         <strong>{{ topic.title }}</strong>
         <small>{{ topic.description }}</small>
         <span aria-hidden="true">→</span>
-      </a>
+      </RouterLink>
     </section>
   </nav>
 </template>
