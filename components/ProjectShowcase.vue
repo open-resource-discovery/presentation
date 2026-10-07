@@ -6,6 +6,7 @@ defineProps<{ group: string }>()
 const schema = 'openResourceDiscovery:\n  type: string\n  examples: ["1.16"]'
 const folder = 'metadata/\n├── documents/\n│   └── orders.ord.json\n└── apis/\n    └── orders.openapi.json'
 const serve = 'npx @open-resource-discovery/provider-server \\\n  -d ./metadata \\\n  --base-url http://127.0.0.1:8080'
+const springConfig = 'ord:\n  namespace: customer\n  packages:\n    - com.example.orders.resources'
 const overlay = 'action: merge\nselector:\n  operation: getOrder\ndata:\n  description: >-\n    Read the current status of an order.'
 const render = '<MetadataRenderer content={definition} />'
 const csnBefore = '"Orders": {\n  "kind": "entity",\n  "@foo.ui.color": "blue",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
@@ -55,7 +56,20 @@ const screens = {
         <article class="artifact endpoint"><span>Discover over HTTP</span><h3>/.well-known/open-resource-discovery</h3><p>Configuration → ORD Documents → resource definitions</p></article>
       </div>
       <div class="command"><span>Start the Provider server</span><pre>{{ serve }}</pre></div>
-      <p class="takeaway">For a Spring application, expose the same discovery flow through the starter.</p>
+      <p class="takeaway">One reusable server turns a metadata directory into an ORD Provider API.</p>
+    </template>
+
+    <template v-else-if="group === 'framework-publishing'">
+      <span class="example-label">Example · add ORD to a Spring Boot project</span>
+      <div class="framework-flow">
+        <article class="artifact"><span>Your application</span><h3>orders-service</h3><p>Spring Boot already knows the application and its resources.</p></article>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <article class="artifact framework"><span>Framework support</span><h3>ORD starter</h3><p>Scans ORD annotations and can load static documents.</p></article>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <article class="artifact endpoint"><span>Provider API</span><h3>Discovery endpoints</h3><p>Configuration and ORD documents are exposed automatically.</p></article>
+      </div>
+      <div class="command spring-config"><span>application.yml · point the starter at your resource packages</span><pre>{{ springConfig }}</pre></div>
+      <p class="takeaway">Application teams declare metadata; framework integration handles generation and endpoint wiring.</p>
     </template>
 
     <template v-else-if="group === 'overlays'">
@@ -131,6 +145,15 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .endpoint p { font-size: 15px; }
 .command { border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 14px 18px; }
 .command pre { font-size: 14px; line-height: 1.55; }
+.framework-flow { display: grid; grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1fr) 22px minmax(0, 1fr); gap: 8px; align-items: stretch; }
+.framework-flow .artifact { display: flex; min-height: 150px; flex-direction: column; justify-content: center; padding: 14px; }
+.framework-flow .artifact > span { margin-bottom: 6px; }
+.framework-flow .artifact h3 { font-size: 18px; }
+.framework-flow .artifact p { font-size: 14px; line-height: 1.35; }
+.framework { background: var(--ord-accent-teal-bg); }
+.flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--ord-brand); font-size: 22px; font-weight: 700; }
+.spring-config { background: var(--ord-accent-sky-bg); }
+.spring-config pre { font-size: 15px; }
 .overlay-example { display: grid; grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1.3fr); gap: 10px; align-items: center; }
 .overlay-plus { color: var(--ord-brand); font-size: 26px; text-align: center; }
 .overlay-patch { background: var(--ord-accent-violet-bg); }

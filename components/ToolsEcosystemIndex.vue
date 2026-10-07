@@ -5,7 +5,8 @@ const categories = [
     description: 'Define, publish, maintain',
     projects: [
       { title: 'Generate specification artifacts', repositories: 'Schemas, reference docs, and models', route: 'project-specification' },
-      { title: 'Publish metadata', repositories: 'Files or a Spring Boot application', route: 'project-publishing' },
+      { title: 'Serve static metadata', repositories: 'Run provider-server over ORD files', route: 'project-publishing' },
+      { title: 'Integrate publishing', repositories: 'Add ORD at the framework level', route: 'project-framework-publishing' },
     ],
   },
   {

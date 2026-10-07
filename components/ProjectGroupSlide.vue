@@ -67,26 +67,33 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   publishing: {
-    label: 'Publishing',
-    title: 'Publish ORD from files or Java',
-    summary: 'Serve a metadata folder or add discovery endpoints to an existing Spring Boot application.',
+    label: 'Static publishing',
+    title: 'Serve static ORD metadata with provider-server',
+    summary: 'Point one reusable server at ORD files and expose the complete discovery flow over HTTP.',
     repositories: [
       {
         name: 'provider-server',
         role: 'Static metadata server',
-        description: 'Serve metadata from files or GitHub, using npm or Docker.',
+        description: 'Serve metadata from a local directory or GitHub, using npm or Docker.',
         url: 'https://github.com/open-resource-discovery/provider-server',
       },
+    ],
+  },
+  'framework-publishing': {
+    label: 'Framework integration',
+    title: 'Build ORD publishing into the framework',
+    summary: 'A Spring Boot starter turns publishing into application configuration instead of custom endpoint code.',
+    repositories: [
       {
         name: 'spring-boot-starter-ord',
-        role: 'Spring integration',
-        description: 'Add endpoints with annotations, static documents, or both.',
+        role: 'Spring Boot integration',
+        description: 'Auto-configure ORD endpoints from annotations, static documents, or both.',
         url: 'https://github.com/open-resource-discovery/spring-boot-starter-ord',
       },
       {
         name: 'ord-maven',
-        role: 'Java models',
-        description: 'Use generated Java models and annotations for ORD.',
+        role: 'Java building blocks',
+        description: 'Use Java models and annotations generated from the ORD specification.',
         url: 'https://github.com/open-resource-discovery/ord-maven',
       },
     ],
@@ -228,7 +235,7 @@ const groups: Record<string, ProjectGroup> = {
 
 const props = defineProps<{ group: string }>()
 const project = computed(() => groups[props.group])
-const groupOrder = ['specification', 'reference', 'publishing', 'overlays', 'ui', 'a2a', 'mcp', 'compaction']
+const groupOrder = ['specification', 'reference', 'publishing', 'framework-publishing', 'overlays', 'ui', 'a2a', 'mcp', 'compaction']
 const groupIndex = computed(() => groupOrder.indexOf(props.group))
 const previousGroup = computed(() => groupIndex.value > 0 ? groupOrder[groupIndex.value - 1] : undefined)
 const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < groupOrder.length - 1 ? groupOrder[groupIndex.value + 1] : undefined)
