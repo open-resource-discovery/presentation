@@ -15,28 +15,25 @@ type ProjectGroup = {
   label: string
   title: string
   summary: string
+  summaryLink?: { label: string; url: string }
   concept?: { label: string; route: string }
   repositories: Repository[]
 }
 
 const groups: Record<string, ProjectGroup> = {
   specification: {
-    label: 'Specification toolchain',
-    title: 'Generate schemas, docs, and models together',
-    summary: 'Spec Toolkit turns the ORD source schemas into artifacts that stay in sync.',
+    label: 'Schema toolchain',
+    title: 'Generate a specification from one source schema',
+    summary: 'produces published contracts, reference documentation, and developer types in one repeatable build.',
+    summaryLink: {
+      label: 'Spec Toolkit',
+      url: 'https://github.com/open-resource-discovery/spec-toolkit',
+    },
     repositories: [
       {
-        name: 'specification',
-        role: 'Protocol & schemas',
-        description: 'Read the normative rules, validate documents, and use the published schemas and models.',
-        url: 'https://github.com/open-resource-discovery/specification',
-        liveUrl: 'https://open-resource-discovery.org/',
-        liveLabel: 'Read the specification',
-      },
-      {
         name: 'spec-toolkit',
-        role: 'Schema toolchain',
-        description: 'Generate schemas and reference documentation from a shared source model.',
+        role: 'Specification generator',
+        description: 'Generate Markdown docs, distributable JSON Schema, and TypeScript types from one source schema.',
         url: 'https://github.com/open-resource-discovery/spec-toolkit',
         liveUrl: 'https://open-resource-discovery.github.io/spec-toolkit/',
         liveLabel: 'Toolkit documentation',
@@ -67,26 +64,33 @@ const groups: Record<string, ProjectGroup> = {
     ],
   },
   publishing: {
-    label: 'Publishing',
-    title: 'Publish ORD from files or Java',
-    summary: 'Serve a metadata folder or add discovery endpoints to an existing Spring Boot application.',
+    label: 'Static publishing',
+    title: 'Serve static ORD metadata with provider-server',
+    summary: 'Point one reusable server at ORD files and expose the complete discovery flow over HTTP.',
     repositories: [
       {
         name: 'provider-server',
         role: 'Static metadata server',
-        description: 'Serve metadata from files or GitHub, using npm or Docker.',
+        description: 'Serve metadata from a local directory or GitHub, using npm or Docker.',
         url: 'https://github.com/open-resource-discovery/provider-server',
       },
+    ],
+  },
+  'framework-publishing': {
+    label: 'Framework integration',
+    title: 'Build ORD publishing into the framework',
+    summary: 'A Spring Boot starter turns publishing into application configuration instead of custom endpoint code.',
+    repositories: [
       {
         name: 'spring-boot-starter-ord',
-        role: 'Spring integration',
-        description: 'Add endpoints with annotations, static documents, or both.',
+        role: 'Spring Boot integration',
+        description: 'Auto-configure ORD endpoints from annotations, static documents, or both.',
         url: 'https://github.com/open-resource-discovery/spring-boot-starter-ord',
       },
       {
         name: 'ord-maven',
-        role: 'Java models',
-        description: 'Use generated Java models and annotations for ORD.',
+        role: 'Java building blocks',
+        description: 'Use Java models and annotations generated from the ORD specification.',
         url: 'https://github.com/open-resource-discovery/ord-maven',
       },
     ],
@@ -228,7 +232,7 @@ const groups: Record<string, ProjectGroup> = {
 
 const props = defineProps<{ group: string }>()
 const project = computed(() => groups[props.group])
-const groupOrder = ['specification', 'reference', 'publishing', 'overlays', 'ui', 'a2a', 'mcp', 'compaction']
+const groupOrder = ['specification', 'reference', 'publishing', 'framework-publishing', 'overlays', 'ui', 'a2a', 'mcp', 'compaction']
 const groupIndex = computed(() => groupOrder.indexOf(props.group))
 const previousGroup = computed(() => groupIndex.value > 0 ? groupOrder[groupIndex.value - 1] : undefined)
 const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < groupOrder.length - 1 ? groupOrder[groupIndex.value + 1] : undefined)
@@ -244,13 +248,16 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
     </nav>
     <header class="slide-header wide-header">
       <h2>{{ project.title }}</h2>
-      <p class="slide-subtitle">{{ project.summary }}</p>
+      <p class="slide-subtitle">
+        <template v-if="project.summaryLink"><a :href="project.summaryLink.url" target="_blank" rel="noopener noreferrer">{{ project.summaryLink.label }}</a> {{ project.summary }}</template>
+        <template v-else>{{ project.summary }}</template>
+      </p>
     </header>
 
     <div class="project-content" :class="{ 'reference-content': group === 'reference' }">
       <ProjectShowcase :group="group" />
-      <aside class="repository-rail" :class="`count-${project.repositories.length}`" aria-label="Choose a tool">
-        <span class="rail-label">Choose a tool</span>
+      <aside class="repository-rail" :class="`count-${project.repositories.length}`" aria-label="What we offer">
+        <span class="rail-label">What we offer</span>
         <article v-for="repository in project.repositories" :key="repository.name" class="repository-card">
           <span class="repository-role">{{ repository.role }}</span>
           <h3><a :href="repository.url" target="_blank" rel="noopener noreferrer">{{ repository.name }}</a></h3>
@@ -271,6 +278,9 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .ecosystem-project-slide .slide-header { gap: 5px; }
 .ecosystem-project-slide .slide-header h2 { max-width: 1120px; font-size: 38px; }
 .ecosystem-project-slide .slide-subtitle { max-width: 1130px; font-size: 17px; line-height: 1.35; }
+.ecosystem-project-slide .slide-subtitle a { color: var(--ord-brand); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.ecosystem-project-slide .slide-subtitle a:hover { color: var(--ord-text); }
+.ecosystem-project-slide .slide-subtitle a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
 .ecosystem-nav { position: absolute; display: flex; gap: 18px; }
 .ecosystem-nav a { color: var(--ord-muted); font-weight: 650; text-decoration: none; }
 .ecosystem-nav a:hover { color: var(--ord-brand); }

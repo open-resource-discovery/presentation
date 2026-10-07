@@ -762,7 +762,7 @@ routeAlias: tools-ecosystem
 <DeepDiveNav back-to="introduction" back-label="Main presentation" :show-index="false"></DeepDiveNav>
 <header class="slide-header wide-header">
 <h2>From specification to working ecosystem</h2>
-<p class="slide-subtitle">Eight toolsets help you publish ORD, explore metadata, and build integrations.</p>
+<p class="slide-subtitle">Nine toolsets help you publish ORD, explore metadata, and build integrations.</p>
 </header>
 <ToolsEcosystemIndex></ToolsEcosystemIndex>
 </div>
@@ -773,7 +773,7 @@ routeAlias: project-specification
 <ProjectGroupSlide group="specification"></ProjectGroupSlide>
 
 <!--
-This is the toolchain for maintaining the ORD specification. One YAML source model generates schemas, reference docs, and TypeScript models. The snippet is an excerpt of the Document schema, not a complete schema. Document version 1.16 corresponds to the verified specification package release 1.16.4.
+Spec Toolkit is a generic command-line tool for a schema-first specification workflow. One run produces Markdown reference documentation, distributable JSON Schema, and TypeScript types. It also validates configured examples, and optional plugins can add other formats. The simplified Book example is illustrative. The ORD specification uses Spec Toolkit and is a reference example, not a second tool presented on this slide.
 -->
 
 ---
@@ -798,7 +798,16 @@ routeAlias: project-publishing
 <ProjectGroupSlide group="publishing"></ProjectGroupSlide>
 
 <!--
-The folder is a generic example following the Provider server README: documents belong under documents/, while native definitions live elsewhere under the metadata root. The command serves that folder. Spring Boot is an alternative for adding the same discovery flow directly to a Java application; ord-maven supplies the Java models and annotations.
+The folder is a generic example following the Provider server README: documents belong under documents/, while native definitions live elsewhere under the metadata root. The command serves that folder as an ORD Provider API.
+-->
+
+---
+routeAlias: project-framework-publishing
+---
+<ProjectGroupSlide group="framework-publishing"></ProjectGroupSlide>
+
+<!--
+Framework-level support avoids reimplementing the ORD endpoints in each application. The Spring Boot starter can scan packages for ORD annotations, load static documents, or combine both approaches. It auto-configures the discovery configuration and ORD document endpoints. ord-maven supplies Java models and annotations generated from the ORD specification.
 -->
 
 ---

@@ -3,9 +3,11 @@ import { assetUrl } from '../utils/asset-url'
 
 defineProps<{ group: string }>()
 
-const schema = 'openResourceDiscovery:\n  type: string\n  examples: ["1.16"]'
+const schema = 'type: object\nrequired: [title]\nproperties:\n  title:\n    type: string'
+const toolkitConfig = 'outputPath: generated/\ndocsConfig:\n  - id: books\n    sourceFilePath: ./book.schema.yaml'
 const folder = 'metadata/\n├── documents/\n│   └── orders.ord.json\n└── apis/\n    └── orders.openapi.json'
 const serve = 'npx @open-resource-discovery/provider-server \\\n  -d ./metadata \\\n  --base-url http://127.0.0.1:8080'
+const springConfig = 'ord:\n  namespace: customer\n  packages:\n    - com.example.orders.resources'
 const overlay = 'action: merge\nselector:\n  operation: getOrder\ndata:\n  description: >-\n    Read the current status of an order.'
 const render = '<MetadataRenderer content={definition} />'
 const csnBefore = '"Orders": {\n  "kind": "entity",\n  "@foo.ui.color": "blue",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
@@ -23,21 +25,29 @@ const screens = {
 <template>
   <section class="showcase" :class="`showcase-${group}`" aria-label="Tool example">
     <template v-if="group === 'specification'">
-      <span class="example-label">ORD’s own build toolchain</span>
+      <span class="example-label">Schema-first generation workflow</span>
       <div class="generation">
-        <article class="artifact source-model">
-          <span>Source schema · YAML excerpt</span>
-          <h3>Document.schema.yaml</h3>
-          <pre>{{ schema }}</pre>
-        </article>
-        <div class="generation-step"><b>Spec Toolkit</b><span aria-hidden="true">↓</span></div>
+        <div class="generation-inputs">
+          <article class="artifact source-model">
+            <span>Author · JSON Schema in YAML</span>
+            <h3>book.schema.yaml</h3>
+            <pre>{{ schema }}</pre>
+          </article>
+          <article class="artifact toolkit-config">
+            <span>Configure · inputs and output</span>
+            <h3>spec-toolkit.config.yaml</h3>
+            <pre>{{ toolkitConfig }}</pre>
+          </article>
+        </div>
+        <div class="generation-step"><code>spec-toolkit -c spec-toolkit.config.yaml</code><span aria-hidden="true">↓</span></div>
         <div class="outputs">
-          <article class="artifact"><span>Validate</span><h3>JSON Schema</h3><p>Check document structure.</p></article>
-          <article class="artifact"><span>Understand</span><h3>Reference docs</h3><p>Read fields and their rules.</p></article>
-          <article class="artifact"><span>Develop</span><h3>TypeScript models</h3><p>Use generated types.</p></article>
+          <article class="artifact"><span>Publish</span><h3>JSON Schema</h3><p>Distribute a portable validation contract.</p></article>
+          <article class="artifact"><span>Explain</span><h3>Markdown docs</h3><p>Generate a field-level reference.</p></article>
+          <article class="artifact"><span>Develop</span><h3>TypeScript types</h3><p>Use the same contract in code.</p></article>
         </div>
       </div>
-      <p class="takeaway">One source model keeps constraints, documentation, and types aligned.</p>
+      <p class="takeaway">Configured examples are validated during generation; plugins can add further output formats.</p>
+      <p class="reference-example">Reference example: the <a href="https://github.com/open-resource-discovery/specification/blob/main/spec-toolkit.config.json" target="_blank" rel="noopener noreferrer">ORD specification</a> uses Spec Toolkit for its generated artifacts.</p>
     </template>
 
     <template v-else-if="group === 'reference'">
@@ -55,7 +65,20 @@ const screens = {
         <article class="artifact endpoint"><span>Discover over HTTP</span><h3>/.well-known/open-resource-discovery</h3><p>Configuration → ORD Documents → resource definitions</p></article>
       </div>
       <div class="command"><span>Start the Provider server</span><pre>{{ serve }}</pre></div>
-      <p class="takeaway">For a Spring application, expose the same discovery flow through the starter.</p>
+      <p class="takeaway">One reusable server turns a metadata directory into an ORD Provider API.</p>
+    </template>
+
+    <template v-else-if="group === 'framework-publishing'">
+      <span class="example-label">Example · add ORD to a Spring Boot project</span>
+      <div class="framework-flow">
+        <article class="artifact"><span>Your application</span><h3>orders-service</h3><p>Spring Boot already knows the application and its resources.</p></article>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <article class="artifact framework"><span>Framework support</span><h3>ORD starter</h3><p>Scans ORD annotations and can load static documents.</p></article>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <article class="artifact endpoint"><span>Provider API</span><h3>Discovery endpoints</h3><p>Configuration and ORD documents are exposed automatically.</p></article>
+      </div>
+      <div class="command spring-config"><span>application.yml · point the starter at your resource packages</span><pre>{{ springConfig }}</pre></div>
+      <p class="takeaway">Application teams declare metadata; framework integration handles generation and endpoint wiring.</p>
     </template>
 
     <template v-else-if="group === 'overlays'">
@@ -115,14 +138,24 @@ const screens = {
 pre, code { color: #334554; font-family: var(--ord-mono); font-size: 16px; line-height: 1.55; }
 pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .generation { display: flex; flex-direction: column; gap: 12px; }
+.generation-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.generation-inputs .artifact { padding: 14px 16px; }
+.generation-inputs h3 { font-size: 17px; }
+.generation-inputs pre { font-size: 13px; line-height: 1.4; }
 .source-model { background: var(--ord-accent-sky-bg); }
+.toolkit-config { background: var(--ord-card-bg); }
 .generation-step { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--ord-brand); font-size: 17px; }
+.generation-step code { color: var(--ord-brand); font-size: 14px; font-weight: 700; }
 .generation-step span { font-size: 22px; }
 .outputs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .outputs .artifact { background: var(--ord-accent-teal-bg); padding: 15px 12px; }
 .outputs h3 { font-size: 17px; }
 .outputs p { font-size: 15px; }
 .takeaway { color: var(--ord-muted); font-size: 16px; line-height: 1.4; margin: 0; }
+.reference-example { margin: -6px 0 0; color: var(--ord-brand); font-size: 14px; font-weight: 650; line-height: 1.35; }
+.reference-example a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.reference-example a:hover { color: var(--ord-text); }
+.reference-example a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
 .step-arrow { display: block; color: var(--ord-brand); font-size: 18px; font-weight: 650; text-align: center; line-height: 1; }
 .publish-example { display: flex; flex-direction: column; gap: 8px; }
 .publish-example pre { line-height: 1.5; }
@@ -131,6 +164,15 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .endpoint p { font-size: 15px; }
 .command { border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 14px 18px; }
 .command pre { font-size: 14px; line-height: 1.55; }
+.framework-flow { display: grid; grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1fr) 22px minmax(0, 1fr); gap: 8px; align-items: stretch; }
+.framework-flow .artifact { display: flex; min-height: 150px; flex-direction: column; justify-content: center; padding: 14px; }
+.framework-flow .artifact > span { margin-bottom: 6px; }
+.framework-flow .artifact h3 { font-size: 18px; }
+.framework-flow .artifact p { font-size: 14px; line-height: 1.35; }
+.framework { background: var(--ord-accent-teal-bg); }
+.flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--ord-brand); font-size: 22px; font-weight: 700; }
+.spring-config { background: var(--ord-accent-sky-bg); }
+.spring-config pre { font-size: 15px; }
 .overlay-example { display: grid; grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1.3fr); gap: 10px; align-items: center; }
 .overlay-plus { color: var(--ord-brand); font-size: 26px; text-align: center; }
 .overlay-patch { background: var(--ord-accent-violet-bg); }
