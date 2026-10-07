@@ -288,6 +288,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
         <template v-if="project.summaryLink"><a :href="project.summaryLink.url" target="_blank" rel="noopener noreferrer">{{ project.summaryLink.label }}</a> {{ project.summary }}</template>
         <template v-else>{{ project.summary }}</template>
       </p>
+      <RouterLink v-if="project.concept" class="concept-link" :to="`/${project.concept.route}`">{{ project.concept.label }} →</RouterLink>
     </header>
 
     <div class="project-content">
@@ -304,7 +305,6 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
             <a v-if="repository.exampleUrl" :href="repository.exampleUrl" target="_blank" rel="noopener noreferrer">{{ repository.exampleLabel }} ↗</a>
           </footer>
         </article>
-        <RouterLink v-if="project.concept" class="concept-link" :to="`/${project.concept.route}`">{{ project.concept.label }} →</RouterLink>
       </aside>
     </div>
   </div>
@@ -344,6 +344,6 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .repository-card footer { display: flex; grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; gap: 5px; padding: 0; }
 .repository-card footer a { border: 0; color: var(--ord-brand); font-size: 11px; font-weight: 700; text-decoration: none; }
 .repository-card footer a:hover { text-decoration: underline; }
-.concept-link { grid-column: 1 / -1; justify-self: start; color: var(--ord-brand); font-size: 13px; font-weight: 700; text-decoration: none; }
+.concept-link { align-self: flex-start; color: var(--ord-brand); font-size: 13px; font-weight: 700; text-decoration: none; }
 .concept-link:hover { text-decoration: underline; }
 </style>
