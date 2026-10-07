@@ -47,7 +47,7 @@ const screens = {
         </div>
       </div>
       <p class="takeaway">Configured examples are validated during generation; plugins can add further output formats.</p>
-      <p class="reference-example">Reference example: the ORD specification uses Spec Toolkit for its generated artifacts.</p>
+      <p class="reference-example">Reference example: the <a href="https://github.com/open-resource-discovery/specification/blob/main/spec-toolkit.config.json" target="_blank" rel="noopener noreferrer">ORD specification</a> uses Spec Toolkit for its generated artifacts.</p>
     </template>
 
     <template v-else-if="group === 'reference'">
@@ -153,6 +153,9 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .outputs p { font-size: 15px; }
 .takeaway { color: var(--ord-muted); font-size: 16px; line-height: 1.4; margin: 0; }
 .reference-example { margin: -6px 0 0; color: var(--ord-brand); font-size: 14px; font-weight: 650; line-height: 1.35; }
+.reference-example a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.reference-example a:hover { color: var(--ord-text); }
+.reference-example a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
 .step-arrow { display: block; color: var(--ord-brand); font-size: 18px; font-weight: 650; text-align: center; line-height: 1; }
 .publish-example { display: flex; flex-direction: column; gap: 8px; }
 .publish-example pre { line-height: 1.5; }
