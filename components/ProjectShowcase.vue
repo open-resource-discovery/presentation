@@ -41,9 +41,8 @@ const screens = {
         </div>
         <div class="generation-step"><code>spec-toolkit -c spec-toolkit.config.yaml</code><span class="generation-action">Generate &amp; validate <i aria-hidden="true">↓</i></span></div>
         <div class="outputs">
-          <article class="artifact"><span>Publish</span><h3>JSON Schema</h3><p>Publish a machine-readable JSON Schema.</p></article>
-          <article class="artifact"><span>Explain</span><h3>Markdown docs</h3><p>Generate human-readable documentation.</p></article>
-          <article class="artifact"><span>Develop</span><h3>TypeScript types</h3><p>Use the same contract in code; plugins can add further output formats.</p></article>
+          <article class="artifact"><span>Publish</span><h3>Machine-readable contracts</h3><p>Validate examples and publish consistent JSON Schema, TypeScript types, and plugin outputs from one source schema.</p></article>
+          <article class="artifact"><span>Explain</span><h3>Human-readable documentation</h3><p>Generate Markdown documentation from that same source schema.</p></article>
         </div>
       </div>
     </template>
@@ -148,7 +147,7 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .generation-step code { color: var(--ord-brand); font-size: 14px; font-weight: 700; }
 .generation-action { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 700; }
 .generation-action i { font-size: 22px; font-style: normal; }
-.outputs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.outputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .outputs .artifact { background: var(--ord-accent-teal-bg); padding: 15px 12px; }
 .outputs h3 { font-size: 17px; }
 .outputs p { font-size: 15px; }
