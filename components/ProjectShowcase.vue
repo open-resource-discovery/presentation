@@ -14,7 +14,7 @@ const csnAfter = '"Orders": {\n  "kind": "entity",\n  "elements": {\n    "ID": {
 const screens = {
   explorer: assetUrl('img/tools/explorer.png'),
   ui: assetUrl('img/tools/metadata-renderer-endpoint.png'),
-  a2a: assetUrl('img/tools/a2a-agent-card-skill-detail-2x.png'),
+  a2a: assetUrl('img/tools/a2a-agent-card-overview-2x.png'),
   mcpHeader: assetUrl('img/tools/mcp-header.png'),
   mcpTools: assetUrl('img/tools/mcp-tools.png'),
 }
@@ -103,7 +103,7 @@ const screens = {
         <span class="example-label">Read an Agent Card before sending a task</span>
         <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">↓</i><span>Inspect Agent Card</span><i aria-hidden="true">↓</i><span>Interact with A2A</span></div>
       </div>
-      <figure class="tool-screen a2a-preview"><img :src="screens.a2a" alt="A2A Editor displaying an expanded Solar System Weather skill with its description, tags, and example prompts"></figure>
+      <figure class="tool-screen a2a-preview"><img :src="screens.a2a" alt="A2A Editor Overview tab displaying the Solar System Explorer Agent Card and its expanded Solar System Weather skill with example prompts"></figure>
     </template>
 
     <template v-else-if="group === 'mcp'">

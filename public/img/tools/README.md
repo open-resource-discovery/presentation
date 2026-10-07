@@ -9,7 +9,7 @@ The slides display selected sections so the text remains readable at 1280×720.
 | --- | --- | --- |
 | `explorer.png` | [ORD Explorer](https://open-resource-discovery.github.io/explorer/) | Built-in Sample ORD System; original user-supplied capture |
 | `metadata-renderer-endpoint.png` | [Metadata Renderer](https://open-resource-discovery.github.io/metadata-renderer/playground/) | Built-in Petstore OpenAPI · GET /pets endpoint |
-| `a2a-agent-card-skill-detail-2x.png` | [A2A Editor](https://open-resource-discovery.github.io/a2a-editor/playground/) | Built-in Solar System Explorer Agent Card · expanded skill · 2× capture |
+| `a2a-agent-card-overview-2x.png` | [A2A Editor](https://open-resource-discovery.github.io/a2a-editor/playground/) | Built-in Solar System Explorer Agent Card · focused Overview tab with expanded skill · 2× capture |
 | `mcp-header.png`, `mcp-tools.png` | [MCP Server Card UI](https://open-resource-discovery.github.io/mcp-server-card-ui/playground/) | [Server Card](./examples/mcp.json) |
 
 The A2A figure focuses on an expanded skill in the built-in Solar System Explorer Agent Card.
