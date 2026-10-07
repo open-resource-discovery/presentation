@@ -107,10 +107,10 @@ const screens = {
     </template>
 
     <template v-else-if="group === 'mcp'">
-      <span class="example-label">Inspect static tool metadata before connecting</span>
-      <figure class="tool-screen detail-crops"><img :src="screens.mcpHeader" alt="MCP Server Card UI displaying an Orders server"><img :src="screens.mcpTools" alt="get_order and create_shipment tools described in the MCP Server Card"><figcaption>MCP Server Card playground · MCP Server Card and tool details · example data</figcaption></figure>
-      <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">→</i><span>Select from MCP Server Card</span><i aria-hidden="true">→</i><span>Connect with MCP</span></div>
-      <p class="takeaway">* Static tool descriptions in MCP Server Cards are proposed and are not supported by the official MCP specification.</p>
+      <span class="example-label">Playground prototype · static tool metadata*</span>
+      <figure class="tool-screen detail-crops"><img :src="screens.mcpHeader" alt="MCP Server Card UI prototype displaying an Orders server"><img :src="screens.mcpTools" alt="Prototype get_order and create_shipment metadata, outside the accepted Server Card format"><figcaption>MCP Server Card playground · prototype card and tool details · example data</figcaption></figure>
+      <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">→</i><span>Inspect MCP Server Card</span><i aria-hidden="true">→</i><span>Connect &amp; list tools</span></div>
+      <p class="takeaway">SEP-2127 is an accepted, optional extension. * Static tool lists shown here are demo-specific; standard discovery uses <code>tools/list</code> at runtime.</p>
     </template>
 
     <template v-else-if="group === 'compaction'">
@@ -174,6 +174,7 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .spring-config pre { font-size: 15px; }
 .overlay-example { display: grid; grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1.3fr); gap: 10px; align-items: center; }
 .showcase-overlays { gap: 6px; }
+.showcase-overlays .artifact { padding: 12px 16px; }
 .overlay-plus { color: var(--ord-brand); font-size: 26px; text-align: center; }
 .overlay-patch { background: var(--ord-accent-violet-bg); }
 .overlay-example pre { font-size: 15px; }
@@ -186,8 +187,9 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .renderer-flow > i { color: var(--ord-brand); font-size: 22px; font-style: normal; font-weight: 700; text-align: center; }
 .renderer-code { text-align: center; background: var(--ord-accent-teal-bg); }
 .renderer-code pre { font-size: 17px; }
-.tool-screen { margin: 0; overflow: hidden; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; }
+.tool-screen { flex-shrink: 0; margin: 0; overflow: hidden; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; }
 .tool-screen img { display: block; width: 100%; }
+.showcase-ui .tool-screen img { max-height: 240px; object-fit: contain; }
 .showcase-a2a .detail-crops, .showcase-mcp .detail-crops { position: relative; }
 .showcase-a2a .detail-crops { height: 252px; }
 .showcase-mcp .detail-crops { height: 229px; }
@@ -198,7 +200,7 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .showcase-mcp .detail-crops img:nth-of-type(2) { top: 56px; }
 .showcase-a2a .detail-crops figcaption, .showcase-mcp .detail-crops figcaption { position: absolute; right: 0; bottom: 0; left: 0; }
 .tool-screen figcaption { padding: 8px 12px; color: var(--ord-muted); background: var(--ord-card-bg); font-size: 11px; line-height: 1.3; }
-.explorer-viewport { height: 402px; overflow: hidden; }
+.explorer-viewport { height: 370px; overflow: hidden; }
 .explorer-viewport img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
 .explorer-screen figcaption { display: flex; align-items: center; justify-content: space-between; }
 .explorer-screen a { color: var(--ord-brand); font-weight: 700; text-decoration: none; }
@@ -210,6 +212,8 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .compaction-example { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .compaction-example .artifact { padding: 16px 14px; }
 .showcase-compaction .compaction-example .artifact { padding-block: 12px; }
+.showcase-compaction .rule { padding-block: 12px; }
+.showcase-compaction .command { padding-block: 10px; }
 .compaction-example pre { font-size: 14px; }
 .rule { display: grid; grid-template-columns: 180px 1fr; gap: 5px 12px; align-items: start; }
 .rule > span { grid-column: 1 / -1; }

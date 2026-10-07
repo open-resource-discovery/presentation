@@ -23,7 +23,7 @@ const categories = [
     description: 'Describe and use AI resources',
     projects: [
       { title: 'Develop and test agents', repositories: 'Inspect Agent Cards and try A2A', route: 'project-a2a' },
-      { title: 'Inspect MCP servers & tools', repositories: 'Discover and select before connecting', route: 'project-mcp' },
+      { title: 'Discover MCP servers', repositories: 'Inspect connection details, then list tools at runtime', route: 'project-mcp' },
       { title: 'Make metadata context-efficient', repositories: 'Keep only the CSN metadata needed for a task', route: 'project-compaction' },
     ],
   },

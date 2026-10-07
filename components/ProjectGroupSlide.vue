@@ -35,7 +35,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'spec-toolkit',
         role: 'Specification generator',
-        description: 'Generate Markdown docs, distributable JSON Schema, and TypeScript types from one source schema.',
+        description: 'Generate schemas, Markdown documentation, and TypeScript types.',
         url: 'https://github.com/open-resource-discovery/spec-toolkit',
         liveUrl: 'https://open-resource-discovery.github.io/spec-toolkit/',
         liveLabel: 'Toolkit documentation',
@@ -56,7 +56,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'reference-application',
         role: 'Runnable provider',
-        description: 'A running Provider whose embedded Explorer shows public or demo-authenticated tenant metadata.',
+        description: 'Run a Provider with public and demo-authenticated tenant metadata.',
         url: 'https://github.com/open-resource-discovery/reference-application',
         liveUrl: 'https://ord-reference-application.cfapps.sap.hana.ondemand.com/',
         liveLabel: 'Explore live metadata',
@@ -64,7 +64,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'explorer',
         role: 'Discovery client',
-        description: 'Discover, search, and inspect resources as a standalone app or embedded Provider UI.',
+        description: 'Browse resources, relationships, and native definitions.',
         url: 'https://github.com/open-resource-discovery/explorer',
         liveUrl: 'https://open-resource-discovery.github.io/explorer/',
         liveLabel: 'Open live explorer',
@@ -100,13 +100,13 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'spring-boot-starter-ord',
         role: 'Spring Boot integration',
-        description: 'Auto-configure ORD endpoints from annotations, static documents, or both.',
+        description: 'Generate and serve ORD documents from annotations or static files.',
         url: 'https://github.com/open-resource-discovery/spring-boot-starter-ord',
       },
       {
         name: 'ord-maven',
         role: 'Java building blocks',
-        description: 'Use Java models and annotations generated from the ORD specification.',
+        description: 'Use ORD’s generated Java models and annotations.',
         url: 'https://github.com/open-resource-discovery/ord-maven',
       },
     ],
@@ -124,7 +124,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'overlay-editor',
         role: 'View & edit',
-        description: 'View and edit an overlay in the browser or embed the React components.',
+        description: 'View and edit overlays in a browser or React application.',
         url: 'https://github.com/open-resource-discovery/overlay-editor',
         liveUrl: 'https://open-resource-discovery.github.io/overlay-editor/',
         liveLabel: 'Open playground',
@@ -132,13 +132,13 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'overlay-tools',
         role: 'CLI & library',
-        description: 'Validate, dry-run, convert, and apply overlays with a CLI or TypeScript library.',
+        description: 'Validate, dry-run, convert, and apply overlays.',
         url: 'https://github.com/open-resource-discovery/overlay-tools',
       },
       {
         name: 'overlay-golang',
         role: 'Go library',
-        description: 'Apply overlays in Go to supported native definitions.',
+        description: 'Apply overlays to native definitions in Go.',
         url: 'https://github.com/open-resource-discovery/overlay-golang',
       },
     ],
@@ -155,7 +155,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'ui-components',
         role: 'Design system',
-        description: 'Build with the accessible, themeable React components shared across ORD tools.',
+        description: 'Reuse accessible, themeable React controls across ORD tools.',
         url: 'https://github.com/open-resource-discovery/ui-components',
         liveUrl: 'https://open-resource-discovery.github.io/ui-components/',
         liveLabel: 'Browse Storybook',
@@ -163,7 +163,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'metadata-renderer',
         role: 'Format-aware rendering',
-        description: 'Render OpenAPI, AsyncAPI, CSN, A2A, MCP Server Cards, and ORD Overlays through one React API.',
+        description: 'Render supported formats through one React component.',
         url: 'https://github.com/open-resource-discovery/metadata-renderer',
         liveUrl: 'https://open-resource-discovery.github.io/metadata-renderer/playground',
         liveLabel: 'Open playground',
@@ -183,7 +183,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'a2a-editor',
         role: 'Editor & playground',
-        description: 'Inspect and edit Agent Cards; try Chat, Raw HTTP, and Validation views.',
+        description: 'Edit and validate cards; test Chat and Raw HTTP.',
         url: 'https://github.com/open-resource-discovery/a2a-editor',
         liveUrl: 'https://open-resource-discovery.github.io/a2a-editor/playground',
         liveLabel: 'Open playground',
@@ -191,37 +191,37 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'a2a-editor-vscode',
         role: 'IDE extension',
-        description: 'Use the Agent Card editor and protocol testing inside VS Code.',
+        description: 'Edit cards and test A2A inside VS Code.',
         url: 'https://github.com/open-resource-discovery/a2a-editor-vscode',
       },
       {
         name: 'a2a-sample-server',
         role: 'Test backend',
-        description: 'Run agents for testing streaming, protocol versions, and authentication.',
+        description: 'Test streaming, versions, and authentication.',
         url: 'https://github.com/open-resource-discovery/a2a-sample-server',
       },
       {
         name: 'a2a-ord-demo',
         role: 'Integration demo',
-        description: 'See ORD discovery followed by A2A delegation.',
+        description: 'Discover agents with ORD, then delegate using A2A.',
         url: 'https://github.com/open-resource-discovery/a2a-ord-demo',
       },
     ],
   },
   mcp: {
     label: 'MCP tools',
-    title: 'Discover MCP tools before connecting',
-    summary: 'can include static tool descriptions* so a consumer can inspect them before opening a session.',
+    title: 'Discover MCP servers before connecting',
+    summary: 'describes a remote server’s identity, transport endpoints, and supported protocol versions before you connect.',
     summaryLink: {
       label: 'An MCP Server Card',
-      url: 'https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127',
+      url: 'https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/seps/2127-mcp-server-cards.md',
     },
     concept: { label: 'ORD relationships for AI & Agents', route: 'ai-discovery' },
     repositories: [
       {
         name: 'mcp-server-card-ui',
         role: 'Editor & playground',
-        description: 'Inspect and edit MCP Server Cards, validate metadata, and test server interaction.',
+        description: 'Edit cards and test servers; includes prototype tool metadata.',
         url: 'https://github.com/open-resource-discovery/mcp-server-card-ui',
         liveUrl: 'https://open-resource-discovery.github.io/mcp-server-card-ui/playground',
         liveLabel: 'Open playground',
@@ -229,7 +229,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'ord-mcp-server-card-demo',
         role: 'Discovery demo',
-        description: 'Compare manual setup, ORD discovery, and tool selection using static MCP Server Cards.',
+        description: 'Compare manual setup, ORD discovery, and prototype tool selection.',
         url: 'https://github.com/open-resource-discovery/ord-mcp-server-card-demo',
       },
     ],
@@ -246,7 +246,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'metadata-compactor-golang',
         role: 'Library & CLI',
-        description: 'Trim metadata with configurable rules, using the Go library or CLI. Currently supports CSN JSON.',
+        description: 'Compact CSN JSON using configurable rules in Go or the CLI.',
         url: 'https://github.com/open-resource-discovery/metadata-compactor-golang',
       },
     ],
@@ -331,7 +331,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .repository-rail.count-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .repository-rail.count-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .rail-label { color: var(--ord-muted); font-size: 12px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
-.rail-label, .repository-card p { display: none; }
+.rail-label { display: none; }
 .repository-card { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; border: 1px solid var(--ord-sep); border-top: 3px solid var(--ord-accent-teal); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); padding: 10px 15px; }
 .repository-role { color: var(--ord-brand); font-size: 10px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
 .repository-card h3 { font-size: 18px; font-weight: 750; line-height: 1.2; }
@@ -339,7 +339,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .repository-card .repository-role, .repository-card h3 { grid-column: 1; }
 .repository-card h3 a { color: var(--ord-text); border: 0; text-decoration: none; }
 .repository-card h3 a:hover { color: var(--ord-brand); }
-.repository-card p { color: var(--ord-muted); font-size: 14px; line-height: 1.35; }
+.repository-card p { grid-column: 1 / -1; color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
 .repository-card footer { display: flex; grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; gap: 5px; padding: 0; }
 .repository-card footer a { border: 0; color: var(--ord-brand); font-size: 11px; font-weight: 700; text-decoration: none; }
 .repository-card footer a:hover { text-decoration: underline; }
