@@ -9,6 +9,8 @@ type Repository = {
   url: string
   liveUrl?: string
   liveLabel?: string
+  exampleUrl?: string
+  exampleLabel?: string
 }
 
 type ProjectGroup = {
@@ -24,7 +26,7 @@ const groups: Record<string, ProjectGroup> = {
   specification: {
     label: 'Schema toolchain',
     title: 'Generate a specification from one source schema',
-    summary: 'produces published contracts, reference documentation, and developer types in one repeatable build.',
+    summary: 'supports a schema-first workflow for JSON or YAML files: author specifications and contracts in JSON Schema, then generate distributable schemas, documentation, and developer types.',
     summaryLink: {
       label: 'Spec Toolkit',
       url: 'https://github.com/open-resource-discovery/spec-toolkit',
@@ -33,22 +35,28 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'spec-toolkit',
         role: 'Specification generator',
-        description: 'Generate Markdown docs, distributable JSON Schema, and TypeScript types from one source schema.',
+        description: 'Generate schemas, Markdown documentation, and TypeScript types.',
         url: 'https://github.com/open-resource-discovery/spec-toolkit',
         liveUrl: 'https://open-resource-discovery.github.io/spec-toolkit/',
         liveLabel: 'Toolkit documentation',
+        exampleUrl: 'https://github.com/open-resource-discovery/specification/blob/main/spec-toolkit.config.json',
+        exampleLabel: 'ORD example',
       },
     ],
   },
   reference: {
     label: 'Reference & Explorer',
     title: 'Explore metadata from a running Provider',
-    summary: 'Connect the Explorer to a Provider, find a resource, then inspect its native definition.',
+    summary: 'connects to an ORD Provider so you can discover which resources it offers and how to use them.',
+    summaryLink: {
+      label: 'ORD Explorer',
+      url: 'https://github.com/open-resource-discovery/explorer',
+    },
     repositories: [
       {
         name: 'reference-application',
         role: 'Runnable provider',
-        description: 'A running Provider whose embedded Explorer shows public or demo-authenticated tenant metadata.',
+        description: 'Run a Provider with public and demo-authenticated tenant metadata.',
         url: 'https://github.com/open-resource-discovery/reference-application',
         liveUrl: 'https://ord-reference-application.cfapps.sap.hana.ondemand.com/',
         liveLabel: 'Explore live metadata',
@@ -56,7 +64,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'explorer',
         role: 'Discovery client',
-        description: 'Discover, search, and inspect resources as a standalone app or embedded Provider UI.',
+        description: 'Browse resources, relationships, and native definitions.',
         url: 'https://github.com/open-resource-discovery/explorer',
         liveUrl: 'https://open-resource-discovery.github.io/explorer/',
         liveLabel: 'Open live explorer',
@@ -65,8 +73,12 @@ const groups: Record<string, ProjectGroup> = {
   },
   publishing: {
     label: 'Static publishing',
-    title: 'Serve static ORD metadata with provider-server',
-    summary: 'Point one reusable server at ORD files and expose the complete discovery flow over HTTP.',
+    title: 'Publish ORD metadata from files',
+    summary: 'exposes ORD Documents and referenced resource definitions from a local directory or GitHub through the ORD Provider API.',
+    summaryLink: {
+      label: 'provider-server',
+      url: 'https://github.com/open-resource-discovery/provider-server',
+    },
     repositories: [
       {
         name: 'provider-server',
@@ -78,19 +90,23 @@ const groups: Record<string, ProjectGroup> = {
   },
   'framework-publishing': {
     label: 'Framework integration',
-    title: 'Build ORD publishing into the framework',
-    summary: 'A Spring Boot starter turns publishing into application configuration instead of custom endpoint code.',
+    title: 'Add ORD publishing to a Spring Boot application',
+    summary: 'adds ORD discovery and document endpoints to your application using annotations, static documents, or both.',
+    summaryLink: {
+      label: 'Spring Boot Starter for ORD',
+      url: 'https://github.com/open-resource-discovery/spring-boot-starter-ord',
+    },
     repositories: [
       {
         name: 'spring-boot-starter-ord',
         role: 'Spring Boot integration',
-        description: 'Auto-configure ORD endpoints from annotations, static documents, or both.',
+        description: 'Generate and serve ORD documents from annotations or static files.',
         url: 'https://github.com/open-resource-discovery/spring-boot-starter-ord',
       },
       {
         name: 'ord-maven',
         role: 'Java building blocks',
-        description: 'Use Java models and annotations generated from the ORD specification.',
+        description: 'Use ORD’s generated Java models and annotations.',
         url: 'https://github.com/open-resource-discovery/ord-maven',
       },
     ],
@@ -98,13 +114,17 @@ const groups: Record<string, ProjectGroup> = {
   overlays: {
     label: 'Overlay tools',
     title: 'Add guidance to an existing API definition',
-    summary: 'An ORD Overlay patches a consumer’s view while keeping the original definition unchanged.',
+    summary: 'patches a consumer’s view while keeping the original definition unchanged.',
+    summaryLink: {
+      label: 'An ORD Overlay',
+      url: 'https://open-resource-discovery.org/spec-v1/interfaces/OrdOverlay',
+    },
     concept: { label: 'How ORD Overlays work', route: 'ord-overlays' },
     repositories: [
       {
         name: 'overlay-editor',
         role: 'View & edit',
-        description: 'View and edit an overlay in the browser or embed the React components.',
+        description: 'View and edit overlays in a browser or React application.',
         url: 'https://github.com/open-resource-discovery/overlay-editor',
         liveUrl: 'https://open-resource-discovery.github.io/overlay-editor/',
         liveLabel: 'Open playground',
@@ -112,26 +132,30 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'overlay-tools',
         role: 'CLI & library',
-        description: 'Validate, dry-run, convert, and apply overlays with a CLI or TypeScript library.',
+        description: 'Validate, dry-run, convert, and apply overlays.',
         url: 'https://github.com/open-resource-discovery/overlay-tools',
       },
       {
         name: 'overlay-golang',
         role: 'Go library',
-        description: 'Apply overlays in Go to supported native definitions.',
+        description: 'Apply overlays to native definitions in Go.',
         url: 'https://github.com/open-resource-discovery/overlay-golang',
       },
     ],
   },
   ui: {
     label: 'UI foundations',
-    title: 'Embed metadata views in your application',
-    summary: 'Pass a definition to one React component; it selects the renderer for that format.',
+    title: 'Render metadata consistently in React',
+    summary: 'auto-detects OpenAPI, AsyncAPI, CSN, A2A, MCP Server Cards, and ORD Overlays and selects the appropriate React renderer.',
+    summaryLink: {
+      label: 'Metadata Renderer',
+      url: 'https://github.com/open-resource-discovery/metadata-renderer',
+    },
     repositories: [
       {
         name: 'ui-components',
         role: 'Design system',
-        description: 'Reuse the themed controls and styles behind the tool UIs.',
+        description: 'Reuse accessible, themeable React controls across ORD tools.',
         url: 'https://github.com/open-resource-discovery/ui-components',
         liveUrl: 'https://open-resource-discovery.github.io/ui-components/',
         liveLabel: 'Browse Storybook',
@@ -139,7 +163,7 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'metadata-renderer',
         role: 'Format-aware rendering',
-        description: 'Choose a format renderer automatically through one React API.',
+        description: 'Render supported formats through one React component.',
         url: 'https://github.com/open-resource-discovery/metadata-renderer',
         liveUrl: 'https://open-resource-discovery.github.io/metadata-renderer/playground',
         liveLabel: 'Open playground',
@@ -149,13 +173,17 @@ const groups: Record<string, ProjectGroup> = {
   a2a: {
     label: 'A2A tools',
     title: 'Inspect Agent Cards, then test A2A interaction',
-    summary: 'Read what an agent offers, validate its card, and try the protocol against a test server.',
+    summary: 'describe what agents offer; inspect and validate them before trying the A2A protocol against a test server.',
+    summaryLink: {
+      label: 'Agent Cards',
+      url: 'https://agent2agent.info/docs/concepts/agentcard/',
+    },
     concept: { label: 'ORD relationships for AI & Agents', route: 'ai-discovery' },
     repositories: [
       {
         name: 'a2a-editor',
         role: 'Editor & playground',
-        description: 'Inspect and edit cards; try Chat, Raw HTTP, and Validation views.',
+        description: 'Edit and validate cards; test Chat and Raw HTTP.',
         url: 'https://github.com/open-resource-discovery/a2a-editor',
         liveUrl: 'https://open-resource-discovery.github.io/a2a-editor/playground',
         liveLabel: 'Open playground',
@@ -163,33 +191,37 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'a2a-editor-vscode',
         role: 'IDE extension',
-        description: 'Use the card editor and protocol testing inside VS Code.',
+        description: 'Edit cards and test A2A inside VS Code.',
         url: 'https://github.com/open-resource-discovery/a2a-editor-vscode',
       },
       {
         name: 'a2a-sample-server',
         role: 'Test backend',
-        description: 'Run agents for testing streaming, protocol versions, and authentication.',
+        description: 'Test streaming, versions, and authentication.',
         url: 'https://github.com/open-resource-discovery/a2a-sample-server',
       },
       {
         name: 'a2a-ord-demo',
         role: 'Integration demo',
-        description: 'See ORD discovery followed by A2A delegation.',
+        description: 'Discover agents with ORD, then delegate using A2A.',
         url: 'https://github.com/open-resource-discovery/a2a-ord-demo',
       },
     ],
   },
   mcp: {
     label: 'MCP tools',
-    title: 'Discover MCP tools before connecting',
-    summary: 'When a Server Card includes tool definitions, a consumer can inspect them before opening a session.',
+    title: 'Discover MCP servers before connecting',
+    summary: 'describes a remote server’s identity, transport endpoints, and supported protocol versions before you connect.',
+    summaryLink: {
+      label: 'An MCP Server Card',
+      url: 'https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/seps/2127-mcp-server-cards.md',
+    },
     concept: { label: 'ORD relationships for AI & Agents', route: 'ai-discovery' },
     repositories: [
       {
         name: 'mcp-server-card-ui',
         role: 'Editor & playground',
-        description: 'Inspect and edit cards, validate metadata, and test server interaction.',
+        description: 'Edit cards and test servers; includes prototype tool metadata.',
         url: 'https://github.com/open-resource-discovery/mcp-server-card-ui',
         liveUrl: 'https://open-resource-discovery.github.io/mcp-server-card-ui/playground',
         liveLabel: 'Open playground',
@@ -197,20 +229,24 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'ord-mcp-server-card-demo',
         role: 'Discovery demo',
-        description: 'Compare manual setup, ORD discovery, and tool selection using static cards.',
+        description: 'Compare manual setup, ORD discovery, and prototype tool selection.',
         url: 'https://github.com/open-resource-discovery/ord-mcp-server-card-demo',
       },
     ],
   },
   compaction: {
     label: 'Metadata compaction',
-    title: 'Reduce metadata to use less LLM context',
-    summary: 'Trim large definitions to the essentials or the metadata you want to share.',
+    title: 'Make metadata context-efficient for LLMs',
+    summary: 'applies configurable rules to keep only the CSN metadata needed for a task.',
+    summaryLink: {
+      label: 'Metadata Compactor',
+      url: 'https://github.com/open-resource-discovery/metadata-compactor-golang',
+    },
     repositories: [
       {
         name: 'metadata-compactor-golang',
         role: 'Library & CLI',
-        description: 'Trim metadata with configurable rules, using the Go library or CLI. Currently supports CSN JSON.',
+        description: 'Compact CSN JSON using configurable rules in Go or the CLI.',
         url: 'https://github.com/open-resource-discovery/metadata-compactor-golang',
       },
     ],
@@ -253,8 +289,9 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
         <template v-else>{{ project.summary }}</template>
       </p>
     </header>
+    <RouterLink v-if="project.concept" class="concept-link" :to="`/${project.concept.route}`">{{ project.concept.label }} →</RouterLink>
 
-    <div class="project-content" :class="{ 'reference-content': group === 'reference' }">
+    <div class="project-content">
       <ProjectShowcase :group="group" />
       <aside class="repository-rail" :class="`count-${project.repositories.length}`" aria-label="What we offer">
         <span class="rail-label">What we offer</span>
@@ -265,9 +302,9 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
           <footer>
             <a :href="repository.url" target="_blank" rel="noopener noreferrer">Source ↗</a>
             <a v-if="repository.liveUrl" :href="repository.liveUrl" target="_blank" rel="noopener noreferrer">{{ repository.liveLabel }} ↗</a>
+            <a v-if="repository.exampleUrl" :href="repository.exampleUrl" target="_blank" rel="noopener noreferrer">{{ repository.exampleLabel }} ↗</a>
           </footer>
         </article>
-        <RouterLink v-if="project.concept" class="concept-link" :to="`/${project.concept.route}`">{{ project.concept.label }} →</RouterLink>
       </aside>
     </div>
   </div>
@@ -285,29 +322,27 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .ecosystem-nav a { color: var(--ord-muted); font-weight: 650; text-decoration: none; }
 .ecosystem-nav a:hover { color: var(--ord-brand); }
 .ecosystem-nav a:focus-visible, .repository-card a:focus-visible, .concept-link:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
-.project-content { display: grid; flex: 1; min-height: 0; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 20px; align-items: center; }
-.repository-rail { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.project-content { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; }
+.project-content :deep(.showcase) { flex: 1; min-height: 0; justify-content: center; }
+.project-content :deep(.showcase-ui), .project-content :deep(.showcase-a2a), .project-content :deep(.showcase-mcp) { width: 100%; max-width: 1080px; align-self: center; }
+.repository-rail { display: grid; gap: 12px; min-width: 0; }
+.repository-rail.count-1 { grid-template-columns: 1fr; }
+.repository-rail.count-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.repository-rail.count-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.repository-rail.count-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .rail-label { color: var(--ord-muted); font-size: 12px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
-.repository-card { display: flex; flex-direction: column; gap: 5px; min-width: 0; border: 1px solid var(--ord-sep); border-top: 3px solid var(--ord-accent-teal); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); padding: 12px 15px; }
+.rail-label { display: none; }
+.repository-card { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; border: 1px solid var(--ord-sep); border-top: 3px solid var(--ord-accent-teal); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); padding: 10px 15px; }
 .repository-role { color: var(--ord-brand); font-size: 10px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
 .repository-card h3 { font-size: 18px; font-weight: 750; line-height: 1.2; }
 .repository-card h3, .repository-card p, .repository-card footer { margin: 0; }
+.repository-card .repository-role, .repository-card h3 { grid-column: 1; }
 .repository-card h3 a { color: var(--ord-text); border: 0; text-decoration: none; }
 .repository-card h3 a:hover { color: var(--ord-brand); }
-.repository-card p { color: var(--ord-muted); font-size: 14px; line-height: 1.35; }
-.repository-card footer { display: flex; flex-wrap: wrap; gap: 5px 14px; padding-top: 3px; }
+.repository-card p { grid-column: 1 / -1; color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
+.repository-card footer { display: flex; grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; gap: 5px; padding: 0; }
 .repository-card footer a { border: 0; color: var(--ord-brand); font-size: 11px; font-weight: 700; text-decoration: none; }
 .repository-card footer a:hover { text-decoration: underline; }
-.count-4 { gap: 8px; }
-.count-4 .repository-card { gap: 4px; padding: 9px 15px; }
-.count-4 .repository-card p { font-size: 13px; line-height: 1.3; }
-.concept-link { align-self: flex-start; color: var(--ord-brand); font-size: 13px; font-weight: 700; text-decoration: none; }
+.concept-link { position: absolute; bottom: 16px; left: 24px; z-index: 7; color: var(--ord-brand); font-size: 13px; font-weight: 700; line-height: 20px; text-decoration: none; }
 .concept-link:hover { text-decoration: underline; }
-.reference-content { display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; }
-.reference-content .repository-rail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.reference-content .rail-label, .reference-content .repository-card p { display: none; }
-.reference-content .repository-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 12px 15px; }
-.reference-content .repository-role { grid-column: 1; }
-.reference-content .repository-card h3 { grid-column: 1; }
-.reference-content .repository-card footer { grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; padding: 0; }
 </style>

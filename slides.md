@@ -559,7 +559,7 @@ Agent.integrationDependencies references Integration Dependency resources. Their
 
 PR #102 at commit 18fc27e67548f91c13f21ad0b283bb0725d47400 proposes agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. The dashed Capability-to-dependency arrow marks the proposed property. Capability references themselves are already released. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
 
-API subsets can select MCP tools by operationId using the tool name from the MCP Server Card. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
+API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
 
 ---
@@ -782,7 +782,7 @@ routeAlias: project-reference
 <ProjectGroupSlide group="reference"></ProjectGroupSlide>
 
 <!--
-Walk through the task: connect to a Provider, choose a perspective, find a resource, then inspect its ORD relationships and native contract.
+Walk through the task: connect to a Provider, choose a perspective, discover which resources it offers, then inspect their descriptions, relationships, and referenced definitions.
 The slide uses the user-supplied screenshot of the actual Explorer's built-in sample catalog.
 Resource categories, metadata filters, descriptions, protocols, release status, and ORD IDs are visible.
 The CSS viewport focuses on the catalog; the Full screenshot link opens the original image.
@@ -843,7 +843,9 @@ routeAlias: project-mcp
 <ProjectGroupSlide group="mcp"></ProjectGroupSlide>
 
 <!--
-Server Cards are the open MCP SEP-2127 proposal, not a released MCP standard. The screenshots show a card accepted by the current playground validator. Tool definitions in the card enable inspection and selection before connecting. The card does not grant runtime access, and calls still use MCP. The demo compares manual setup, ORD discovery, and static-card tool selection. No example tool was invoked.
+SEP-2127 was merged on 2026-10-06 and is Final on the Extensions Track: Server Cards are an accepted, optional MCP extension, not a mandatory part of core MCP. The accepted format describes remote server identity, transport endpoints, and supported protocol versions. It deliberately excludes static tools, resources, prompts, capabilities, and negotiated extension support; consumers list primitives and negotiate capabilities at runtime.
+The screenshots were captured on 2026-10-04 using the playground's prototype format. Its tool lists and capability fields are outside the accepted contract; playground validation does not establish conformance to the accepted extension. The demo's static tool pre-selection is a custom experiment, while its ORD-based server discovery remains applicable. Server Cards can be linked as ORD resource definitions; AI Catalog is a complementary domain-level discovery mechanism. The recommended card location is <streamable-http-url>/server-card, with /.well-known/ai-catalog.json for the domain catalog. The card does not grant runtime access, and calls still use MCP. No example tool was invoked.
+Grounding: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/seps/2127-mcp-server-cards.md and https://github.com/modelcontextprotocol/ext-server-card/blob/main/docs/discovery.md. The extension repository README still contains pre-acceptance experimental wording as of 2026-10-07; the merged Final SEP is the status reference.
 -->
 
 ---
