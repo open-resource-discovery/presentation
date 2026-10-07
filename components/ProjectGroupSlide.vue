@@ -21,22 +21,14 @@ type ProjectGroup = {
 
 const groups: Record<string, ProjectGroup> = {
   specification: {
-    label: 'Specification toolchain',
-    title: 'Generate schemas, docs, and models together',
-    summary: 'Spec Toolkit turns the ORD source schemas into artifacts that stay in sync.',
+    label: 'Schema toolchain',
+    title: 'Generate a specification from one source schema',
+    summary: 'Spec Toolkit produces published contracts, reference documentation, and developer types in one repeatable build.',
     repositories: [
       {
-        name: 'specification',
-        role: 'Protocol & schemas',
-        description: 'Read the normative rules, validate documents, and use the published schemas and models.',
-        url: 'https://github.com/open-resource-discovery/specification',
-        liveUrl: 'https://open-resource-discovery.org/',
-        liveLabel: 'Read the specification',
-      },
-      {
         name: 'spec-toolkit',
-        role: 'Schema toolchain',
-        description: 'Generate schemas and reference documentation from a shared source model.',
+        role: 'Specification generator',
+        description: 'Generate Markdown docs, distributable JSON Schema, and TypeScript types from one source schema.',
         url: 'https://github.com/open-resource-discovery/spec-toolkit',
         liveUrl: 'https://open-resource-discovery.github.io/spec-toolkit/',
         liveLabel: 'Toolkit documentation',

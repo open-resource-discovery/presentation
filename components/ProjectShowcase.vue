@@ -3,7 +3,8 @@ import { assetUrl } from '../utils/asset-url'
 
 defineProps<{ group: string }>()
 
-const schema = 'openResourceDiscovery:\n  type: string\n  examples: ["1.16"]'
+const schema = 'type: object\nrequired: [title]\nproperties:\n  title:\n    type: string'
+const toolkitConfig = 'outputPath: generated/\ndocsConfig:\n  - id: books\n    sourceFilePath: ./book.schema.yaml'
 const folder = 'metadata/\n├── documents/\n│   └── orders.ord.json\n└── apis/\n    └── orders.openapi.json'
 const serve = 'npx @open-resource-discovery/provider-server \\\n  -d ./metadata \\\n  --base-url http://127.0.0.1:8080'
 const springConfig = 'ord:\n  namespace: customer\n  packages:\n    - com.example.orders.resources'
@@ -24,21 +25,29 @@ const screens = {
 <template>
   <section class="showcase" :class="`showcase-${group}`" aria-label="Tool example">
     <template v-if="group === 'specification'">
-      <span class="example-label">ORD’s own build toolchain</span>
+      <span class="example-label">Schema-first generation workflow</span>
       <div class="generation">
-        <article class="artifact source-model">
-          <span>Source schema · YAML excerpt</span>
-          <h3>Document.schema.yaml</h3>
-          <pre>{{ schema }}</pre>
-        </article>
-        <div class="generation-step"><b>Spec Toolkit</b><span aria-hidden="true">↓</span></div>
+        <div class="generation-inputs">
+          <article class="artifact source-model">
+            <span>Author · JSON Schema in YAML</span>
+            <h3>book.schema.yaml</h3>
+            <pre>{{ schema }}</pre>
+          </article>
+          <article class="artifact toolkit-config">
+            <span>Configure · inputs and output</span>
+            <h3>spec-toolkit.config.yaml</h3>
+            <pre>{{ toolkitConfig }}</pre>
+          </article>
+        </div>
+        <div class="generation-step"><code>spec-toolkit -c spec-toolkit.config.yaml</code><span aria-hidden="true">↓</span></div>
         <div class="outputs">
-          <article class="artifact"><span>Validate</span><h3>JSON Schema</h3><p>Check document structure.</p></article>
-          <article class="artifact"><span>Understand</span><h3>Reference docs</h3><p>Read fields and their rules.</p></article>
-          <article class="artifact"><span>Develop</span><h3>TypeScript models</h3><p>Use generated types.</p></article>
+          <article class="artifact"><span>Publish</span><h3>JSON Schema</h3><p>Distribute a portable validation contract.</p></article>
+          <article class="artifact"><span>Explain</span><h3>Markdown docs</h3><p>Generate a field-level reference.</p></article>
+          <article class="artifact"><span>Develop</span><h3>TypeScript types</h3><p>Use the same contract in code.</p></article>
         </div>
       </div>
-      <p class="takeaway">One source model keeps constraints, documentation, and types aligned.</p>
+      <p class="takeaway">Configured examples are validated during generation; plugins can add further output formats.</p>
+      <p class="reference-example">Reference example: the ORD specification uses Spec Toolkit for its generated artifacts.</p>
     </template>
 
     <template v-else-if="group === 'reference'">
@@ -129,14 +138,21 @@ const screens = {
 pre, code { color: #334554; font-family: var(--ord-mono); font-size: 16px; line-height: 1.55; }
 pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .generation { display: flex; flex-direction: column; gap: 12px; }
+.generation-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.generation-inputs .artifact { padding: 14px 16px; }
+.generation-inputs h3 { font-size: 17px; }
+.generation-inputs pre { font-size: 13px; line-height: 1.4; }
 .source-model { background: var(--ord-accent-sky-bg); }
+.toolkit-config { background: var(--ord-card-bg); }
 .generation-step { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--ord-brand); font-size: 17px; }
+.generation-step code { color: var(--ord-brand); font-size: 14px; font-weight: 700; }
 .generation-step span { font-size: 22px; }
 .outputs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .outputs .artifact { background: var(--ord-accent-teal-bg); padding: 15px 12px; }
 .outputs h3 { font-size: 17px; }
 .outputs p { font-size: 15px; }
 .takeaway { color: var(--ord-muted); font-size: 16px; line-height: 1.4; margin: 0; }
+.reference-example { margin: -6px 0 0; color: var(--ord-brand); font-size: 14px; font-weight: 650; line-height: 1.35; }
 .step-arrow { display: block; color: var(--ord-brand); font-size: 18px; font-weight: 650; text-align: center; line-height: 1; }
 .publish-example { display: flex; flex-direction: column; gap: 8px; }
 .publish-example pre { line-height: 1.5; }

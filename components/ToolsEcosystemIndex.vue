@@ -4,7 +4,7 @@ const categories = [
     title: 'Build & publish',
     description: 'Define, publish, maintain',
     projects: [
-      { title: 'Generate specification artifacts', repositories: 'Schemas, reference docs, and models', route: 'project-specification' },
+      { title: 'Generate specification artifacts', repositories: 'JSON Schema, Markdown docs, and types', route: 'project-specification' },
       { title: 'Serve static metadata', repositories: 'Run provider-server over ORD files', route: 'project-publishing' },
       { title: 'Integrate publishing', repositories: 'Add ORD at the framework level', route: 'project-framework-publishing' },
     ],

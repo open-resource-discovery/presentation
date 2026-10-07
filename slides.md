@@ -773,7 +773,7 @@ routeAlias: project-specification
 <ProjectGroupSlide group="specification"></ProjectGroupSlide>
 
 <!--
-This is the toolchain for maintaining the ORD specification. One YAML source model generates schemas, reference docs, and TypeScript models. The snippet is an excerpt of the Document schema, not a complete schema. Document version 1.16 corresponds to the verified specification package release 1.16.4.
+Spec Toolkit is a generic command-line tool for a schema-first specification workflow. One run produces Markdown reference documentation, distributable JSON Schema, and TypeScript types. It also validates configured examples, and optional plugins can add other formats. The simplified Book example is illustrative. The ORD specification uses Spec Toolkit and is a reference example, not a second tool presented on this slide.
 -->
 
 ---
