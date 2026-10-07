@@ -64,6 +64,11 @@ const dependencyMarker = `${diagramId}-dependency`
         <text class="entity-name" x="152" y="61" text-anchor="middle">Shipment</text>
       </g>
     </svg>
+    <figcaption>
+      <span><i class="dependency-key" aria-hidden="true"></i>Declared dependencies</span>
+      <span><i class="relation-key" aria-hidden="true"></i>Entity Type references</span>
+      <small>Metadata references; runtime execution is separate.</small>
+    </figcaption>
   </figure>
 </template>
 
@@ -88,4 +93,9 @@ text { fill: var(--ord-text); font-family: var(--ord-font); }
 .dependency { stroke: #c6503b; }
 .dependency-head { fill: #c6503b; }
 .dependency-label { fill: #ac4432; font-size: 17px; font-weight: 650; }
+figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; border-top: 1px solid var(--ord-sep); margin-top: 10px; padding-top: 12px; color: var(--ord-muted); font-size: 14px; }
+figcaption span { display: flex; align-items: center; gap: 8px; }
+figcaption i { width: 24px; border-top: 2px solid var(--ord-faint); }
+figcaption i.dependency-key { border-color: #c6503b; }
+figcaption small { margin-left: auto; font-size: inherit; }
 </style>
