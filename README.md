@@ -32,7 +32,7 @@ npm run export   # slides-export.pdf
 
 - Slide content lives in `slides.md`.
 - Diagrams are Vue components under `components/`.
-- The connected metadata graph uses shared data from the specification. Run `npm run sync:diagrams` to update the vendored copy and `npm run check:diagrams` to detect drift (both checkouts required; use `-- --spec-root=/path/to/specification` for a different location). Builds use the local copy. See the specification's [`diagrams/README.md`](https://github.com/open-resource-discovery/specification/blob/main/diagrams/README.md) for the diagram mapping and visual review workflow.
+- The connected metadata graph uses shared data from the specification. Run `npm run sync:diagrams` to update the vendored copy and `npm run check:diagrams` to detect drift. These commands find a sibling checkout named `ord-public` or `ord-spec`; use `-- --spec-root=/path/to/specification` for a different location. Builds use the local copy. See the specification's [`diagrams/README.md`](https://github.com/open-resource-discovery/specification/blob/main/diagrams/README.md) for the diagram mapping and visual review workflow.
 - See [`AGENTS.md`](./AGENTS.md) for authoring conventions (routing, roles, styling).
 
 ## License
