@@ -4,27 +4,27 @@ const categories = [
     title: 'Build & publish',
     description: 'Define, publish, maintain',
     projects: [
-      { title: 'Generate specification artifacts', repositories: 'JSON Schema, Markdown docs, and types', route: 'project-specification' },
-      { title: 'Serve static metadata', repositories: 'Run provider-server over ORD files', route: 'project-publishing' },
-      { title: 'Integrate publishing', repositories: 'Add ORD at the framework level', route: 'project-framework-publishing' },
+      { title: 'Spec Toolkit', repositories: 'Generate JSON Schema, Markdown docs, and types', route: 'project-specification' },
+      { title: 'Provider Server', repositories: 'Serve static ORD metadata', route: 'project-publishing' },
+      { title: 'Spring Boot Starter for ORD', repositories: 'Add ORD at the framework level', route: 'project-framework-publishing' },
     ],
   },
   {
     title: 'Explore & enrich',
     description: 'Discover, enrich, present',
     projects: [
-      { title: 'Explore a Provider', repositories: 'Connect, browse, and inspect contracts', route: 'project-reference' },
-      { title: 'Enrich API definitions', repositories: 'Author, validate, and apply overlays', route: 'project-overlays' },
-      { title: 'Embed metadata views', repositories: 'React components for native formats', route: 'project-ui' },
+      { title: 'ORD Explorer', repositories: 'Connect, browse, and inspect contracts', route: 'project-reference' },
+      { title: 'Overlay Tools', repositories: 'Author, validate, and apply ORD Overlays', route: 'project-overlays' },
+      { title: 'Metadata Renderer', repositories: 'Render supported metadata formats', route: 'project-ui' },
     ],
   },
   {
     title: 'AI & Agents',
     description: 'Describe and use AI resources',
     projects: [
-      { title: 'Develop and test agents', repositories: 'Inspect Agent Cards and try A2A', route: 'project-a2a' },
-      { title: 'Discover MCP servers', repositories: 'Inspect connection details, then list tools at runtime', route: 'project-mcp' },
-      { title: 'Make metadata context-efficient', repositories: 'Keep only the CSN metadata needed for a task', route: 'project-compaction' },
+      { title: 'A2A Editor', repositories: 'Inspect Agent Cards and test A2A', route: 'project-a2a' },
+      { title: 'MCP Server Card UI', repositories: 'Inspect connection details, then list tools at runtime', route: 'project-mcp' },
+      { title: 'Metadata Compactor', repositories: 'Keep only the CSN metadata needed for a task', route: 'project-compaction' },
     ],
   },
 ]

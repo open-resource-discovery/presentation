@@ -825,7 +825,7 @@ routeAlias: project-ui
 <ProjectGroupSlide group="ui"></ProjectGroupSlide>
 
 <!--
-The definition prop contains the input file as a string. MetadataRenderer detects its format and selects the specialized renderer. The screenshot is real Scalar output from the public Metadata Renderer playground with the included generic Orders OpenAPI input. A complete React setup also imports the package styles once. ui-components provides the common UI foundations.
+Metadata Renderer accepts a definition, detects its format, and selects the specialized view. The screenshot shows the GET /pets endpoint from the built-in Petstore OpenAPI example in the public playground.
 -->
 
 ---
@@ -834,7 +834,7 @@ routeAlias: project-a2a
 <ProjectGroupSlide group="a2a"></ProjectGroupSlide>
 
 <!--
-The screenshots show an example Agent Card and its skill list in the real A2A Editor. These are detail crops; no task was sent to the example endpoint. The Skills field belongs to A2A protocol metadata and is distinct from ORD Skill Capabilities. ORD discovers and relates resources; A2A handles agent interaction. The other tools cover VS Code, test servers, and the combined discovery/delegation demo.
+The screenshot shows the expanded Solar System Weather skill from the built-in Solar System Explorer Agent Card in the real A2A Editor. No task was sent to the example endpoint. The Skills field belongs to A2A protocol metadata and is distinct from ORD Skill Capabilities. ORD discovers and relates resources; A2A handles agent interaction. The other tools cover VS Code, test servers, and the combined discovery/delegation demo.
 -->
 
 ---

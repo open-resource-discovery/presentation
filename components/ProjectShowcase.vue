@@ -9,14 +9,12 @@ const folder = 'metadata/\n├── documents/\n│   └── orders.ord.json
 const serve = 'npx @open-resource-discovery/provider-server \\\n  -d ./metadata \\\n  --base-url http://127.0.0.1:8080'
 const springConfig = 'ord:\n  namespace: customer\n  packages:\n    - com.example.orders.resources'
 const overlay = 'action: merge\nselector:\n  operation: getOrder\ndata:\n  description: >-\n    Read the current status of an order.'
-const render = '<MetadataRenderer content={definition} />'
 const csnBefore = '"Orders": {\n  "kind": "entity",\n  "@foo.ui.color": "blue",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
 const csnAfter = '"Orders": {\n  "kind": "entity",\n  "elements": {\n    "ID": { "type": "cds.UUID" }\n  }\n}'
 const screens = {
   explorer: assetUrl('img/tools/explorer.png'),
-  ui: assetUrl('img/tools/metadata-renderer.png'),
-  a2aHeader: assetUrl('img/tools/a2a-header.png'),
-  a2aSkills: assetUrl('img/tools/a2a-skills.png'),
+  ui: assetUrl('img/tools/metadata-renderer-endpoint.png'),
+  a2a: assetUrl('img/tools/a2a-agent-card-overview-2x.png'),
   mcpHeader: assetUrl('img/tools/mcp-header.png'),
   mcpTools: assetUrl('img/tools/mcp-tools.png'),
 }
@@ -91,19 +89,21 @@ const screens = {
     </template>
 
     <template v-else-if="group === 'ui'">
-      <span class="example-label">One component, several definition formats</span>
-      <div class="renderer-flow">
+      <div class="renderer-overview">
+        <span class="example-label">Several definition formats, one consistent view</span>
         <div class="format-list"><span>OpenAPI</span><span>AsyncAPI</span><span>CSN</span><span>A2A</span><span>MCP Server Cards</span><span>ORD Overlays</span></div>
-        <i aria-hidden="true">→</i>
-        <div class="command renderer-code"><pre>{{ render }}</pre></div>
+        <i aria-hidden="true">↓</i>
+        <div class="renderer-product"><strong>Metadata Renderer</strong><span>Detect format and render</span></div>
       </div>
-      <figure class="tool-screen"><img :src="screens.ui" alt="Metadata Renderer displaying a generic Orders API definition"><figcaption>Public Metadata Renderer playground · example data</figcaption></figure>
+      <figure class="tool-screen renderer-preview"><img :src="screens.ui" alt="Metadata Renderer displaying the GET pets endpoint from its built-in Petstore OpenAPI example"></figure>
     </template>
 
     <template v-else-if="group === 'a2a'">
-      <span class="example-label">Read an Agent Card before sending a task</span>
-      <figure class="tool-screen detail-crops"><img :src="screens.a2aHeader" alt="A2A Editor displaying the Order Assistant Agent Card"><img :src="screens.a2aSkills" alt="Order Lookup skill in the Agent Card"><figcaption>A2A Editor playground · Agent Card and skill details · example data</figcaption></figure>
-      <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">→</i><span>Inspect Agent Card</span><i aria-hidden="true">→</i><span>Interact with A2A</span></div>
+      <div class="a2a-overview">
+        <span class="example-label">Read an Agent Card before sending a task</span>
+        <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">↓</i><span>Inspect Agent Card</span><i aria-hidden="true">↓</i><span>Interact with A2A</span></div>
+      </div>
+      <figure class="tool-screen a2a-preview"><img :src="screens.a2a" alt="A2A Editor Overview tab displaying the Solar System Explorer Agent Card and its expanded Solar System Weather skill with example prompts"></figure>
     </template>
 
     <template v-else-if="group === 'mcp'">
@@ -181,24 +181,29 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .overlay-example .step-arrow { grid-column: 1 / -1; font-size: 16px; padding: 7px 0; }
 .overlay-example .enriched { grid-column: 1 / -1; }
 .enriched { background: var(--ord-accent-teal-bg); }
+.showcase-ui { display: grid; grid-template-columns: 340px minmax(0, 1fr); align-items: center; gap: 18px; }
+.renderer-overview { display: flex; flex-direction: column; gap: 14px; }
 .format-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
 .format-list span { color: var(--ord-text); border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-accent-sky-bg); padding: 9px 11px; font-size: 14px; font-weight: 650; }
-.renderer-flow { display: grid; grid-template-columns: minmax(0, 1fr) 20px minmax(380px, .72fr); align-items: center; gap: 8px; }
-.renderer-flow > i { color: var(--ord-brand); font-size: 22px; font-style: normal; font-weight: 700; text-align: center; }
-.renderer-code { text-align: center; background: var(--ord-accent-teal-bg); }
-.renderer-code pre { font-size: 17px; }
+.renderer-overview > i { color: var(--ord-brand); font-size: 22px; font-style: normal; font-weight: 700; line-height: 1; text-align: center; }
+.renderer-product { display: flex; min-height: 83px; flex-direction: column; justify-content: center; gap: 5px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); text-align: center; }
+.renderer-product strong { color: var(--ord-text); font-size: 18px; }
+.renderer-product span { color: var(--ord-muted); font-size: 13px; }
 .tool-screen { flex-shrink: 0; margin: 0; overflow: hidden; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; }
 .tool-screen img { display: block; width: 100%; }
-.showcase-ui .tool-screen img { max-height: 240px; object-fit: contain; }
-.showcase-a2a .detail-crops, .showcase-mcp .detail-crops { position: relative; }
-.showcase-a2a .detail-crops { height: 252px; }
+.showcase-ui .tool-screen img { width: 100%; height: auto; }
+.showcase-a2a { display: grid; grid-template-columns: 340px minmax(0, 1fr); align-items: center; gap: 18px; }
+.a2a-overview { display: flex; flex-direction: column; gap: 14px; }
+.showcase-a2a .protocol-flow { flex-direction: column; gap: 8px; }
+.showcase-a2a .protocol-flow span { width: 100%; flex: none; }
+.showcase-a2a .a2a-preview img { width: 100%; height: auto; }
+.showcase-mcp .detail-crops { position: relative; }
 .showcase-mcp .detail-crops { height: 229px; }
-.showcase-a2a .detail-crops img, .showcase-mcp .detail-crops img { position: absolute; width: 72%; }
-.showcase-a2a .detail-crops img:first-of-type, .showcase-mcp .detail-crops img:first-of-type { top: 0; left: 0; }
-.showcase-a2a .detail-crops img:nth-of-type(2), .showcase-mcp .detail-crops img:nth-of-type(2) { right: 0; width: 62%; border: 1px solid var(--ord-sep); border-radius: 8px; box-shadow: 0 8px 20px rgba(21, 36, 44, .12); }
-.showcase-a2a .detail-crops img:nth-of-type(2) { top: 68px; }
+.showcase-mcp .detail-crops img { position: absolute; width: 72%; }
+.showcase-mcp .detail-crops img:first-of-type { top: 0; left: 0; }
+.showcase-mcp .detail-crops img:nth-of-type(2) { right: 0; width: 62%; border: 1px solid var(--ord-sep); border-radius: 8px; box-shadow: 0 8px 20px rgba(21, 36, 44, .12); }
 .showcase-mcp .detail-crops img:nth-of-type(2) { top: 56px; }
-.showcase-a2a .detail-crops figcaption, .showcase-mcp .detail-crops figcaption { position: absolute; right: 0; bottom: 0; left: 0; }
+.showcase-mcp .detail-crops figcaption { position: absolute; right: 0; bottom: 0; left: 0; }
 .tool-screen figcaption { padding: 8px 12px; color: var(--ord-muted); background: var(--ord-card-bg); font-size: 11px; line-height: 1.3; }
 .explorer-viewport { height: 370px; overflow: hidden; }
 .explorer-viewport img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
@@ -221,5 +226,5 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .rule p { font-size: 15px; }
 .showcase-compaction .command pre { font-size: 13px; }
 .showcase-compaction { gap: 8px; }
-.showcase-a2a, .showcase-mcp { gap: 12px; }
+.showcase-mcp { gap: 12px; }
 </style>
