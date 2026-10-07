@@ -18,7 +18,7 @@ const categories = [
       { to: 'integration-dependencies', title: 'Integration dependencies', description: 'Requirements and alternatives' },
       { to: 'data-products', title: 'Data Products', description: 'Ownership, lineage, ports' },
       { to: 'ai-discovery', title: 'AI & Agents', description: 'Interaction APIs, dependencies' },
-      { to: 'skills-preview', title: 'Skills & Plugins', description: 'Shared, reusable behavior' },
+      { to: 'skills-preview', title: 'Skills & API metadata', description: 'Reusable behavior · 2 slides' },
     ],
   },
   {
