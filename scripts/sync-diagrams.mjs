@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -7,8 +8,13 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const args = process.argv.slice(2);
 const check = args.includes("--check");
 const override = args.find((arg) => arg.startsWith("--spec-root="));
-const specRoot = path.resolve(root, override?.slice("--spec-root=".length) ?? "../ord-public");
 const name = "unified-metadata.json";
+const specRoot = override
+  ? path.resolve(root, override.slice("--spec-root=".length))
+  : ["../ord-public", "../ord-spec"]
+      .map((directory) => path.resolve(root, directory))
+      .find((directory) => existsSync(path.join(directory, "diagrams", name)))
+    ?? path.resolve(root, "../ord-public");
 const source = path.join(specRoot, "diagrams", name);
 const destination = path.join(root, "data/diagrams", name);
 
