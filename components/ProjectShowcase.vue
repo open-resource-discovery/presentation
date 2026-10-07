@@ -95,7 +95,7 @@ const screens = {
 
     <template v-else-if="group === 'ui'">
       <span class="example-label">One component, several definition formats</span>
-      <div class="format-list"><span>OpenAPI</span><span>AsyncAPI</span><span>CSN</span><span>A2A</span><span>MCP cards</span><span>ORD Overlays</span></div>
+      <div class="format-list"><span>OpenAPI</span><span>AsyncAPI</span><span>CSN</span><span>A2A</span><span>MCP Server Cards</span><span>ORD Overlays</span></div>
       <span class="step-arrow" aria-hidden="true">↓ Detect format</span>
       <div class="command renderer-code"><pre>{{ render }}</pre></div>
       <span class="step-arrow" aria-hidden="true">↓ Render</span>
@@ -110,9 +110,9 @@ const screens = {
 
     <template v-else-if="group === 'mcp'">
       <span class="example-label">Inspect static tool metadata before connecting</span>
-      <figure class="tool-screen detail-crops"><img :src="screens.mcpHeader" alt="MCP Server Card UI displaying an Orders server"><img :src="screens.mcpTools" alt="get_order and create_shipment tools described in the Server Card"><figcaption>MCP Server Card playground · card and tool details · example data</figcaption></figure>
-      <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">→</i><span>Select from card</span><i aria-hidden="true">→</i><span>Connect with MCP</span></div>
-      <p class="takeaway">Server Cards are an MCP proposal. Static tool metadata supports selection before runtime calls.</p>
+      <figure class="tool-screen detail-crops"><img :src="screens.mcpHeader" alt="MCP Server Card UI displaying an Orders server"><img :src="screens.mcpTools" alt="get_order and create_shipment tools described in the MCP Server Card"><figcaption>MCP Server Card playground · MCP Server Card and tool details · example data</figcaption></figure>
+      <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">→</i><span>Select from MCP Server Card</span><i aria-hidden="true">→</i><span>Connect with MCP</span></div>
+      <p class="takeaway">* Static tool descriptions in MCP Server Cards are proposed and are not supported by the official MCP specification.</p>
     </template>
 
     <template v-else-if="group === 'compaction'">

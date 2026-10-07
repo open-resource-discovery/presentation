@@ -24,7 +24,7 @@ const categories = [
     projects: [
       { title: 'Develop and test agents', repositories: 'Inspect Agent Cards and try A2A', route: 'project-a2a' },
       { title: 'Inspect MCP servers & tools', repositories: 'Discover and select before connecting', route: 'project-mcp' },
-      { title: 'Trim metadata for LLMs', repositories: 'Keep essentials and choose what to share', route: 'project-compaction' },
+      { title: 'Make metadata context-efficient', repositories: 'Keep only the CSN metadata needed for a task', route: 'project-compaction' },
     ],
   },
 ]

@@ -843,7 +843,7 @@ routeAlias: project-mcp
 <ProjectGroupSlide group="mcp"></ProjectGroupSlide>
 
 <!--
-Server Cards are the open MCP SEP-2127 proposal, not a released MCP standard. The screenshots show a card accepted by the current playground validator. Tool definitions in the card enable inspection and selection before connecting. The card does not grant runtime access, and calls still use MCP. The demo compares manual setup, ORD discovery, and static-card tool selection. No example tool was invoked.
+MCP Server Cards are the open SEP-2127 proposal, not a released MCP standard. The screenshots show an MCP Server Card accepted by the current playground validator. Proposed tool descriptions in the MCP Server Card enable inspection and selection before connecting. The MCP Server Card does not grant runtime access, and calls still use MCP. The demo compares manual setup, ORD discovery, and static MCP Server Card tool selection. No example tool was invoked.
 -->
 
 ---

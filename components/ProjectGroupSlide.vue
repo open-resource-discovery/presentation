@@ -207,13 +207,17 @@ const groups: Record<string, ProjectGroup> = {
   mcp: {
     label: 'MCP tools',
     title: 'Discover MCP tools before connecting',
-    summary: 'When a Server Card includes tool definitions, a consumer can inspect them before opening a session.',
+    summary: 'can include static tool descriptions* so a consumer can inspect them before opening a session.',
+    summaryLink: {
+      label: 'An MCP Server Card',
+      url: 'https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127',
+    },
     concept: { label: 'ORD relationships for AI & Agents', route: 'ai-discovery' },
     repositories: [
       {
         name: 'mcp-server-card-ui',
         role: 'Editor & playground',
-        description: 'Inspect and edit cards, validate metadata, and test server interaction.',
+        description: 'Inspect and edit MCP Server Cards, validate metadata, and test server interaction.',
         url: 'https://github.com/open-resource-discovery/mcp-server-card-ui',
         liveUrl: 'https://open-resource-discovery.github.io/mcp-server-card-ui/playground',
         liveLabel: 'Open playground',
@@ -221,15 +225,19 @@ const groups: Record<string, ProjectGroup> = {
       {
         name: 'ord-mcp-server-card-demo',
         role: 'Discovery demo',
-        description: 'Compare manual setup, ORD discovery, and tool selection using static cards.',
+        description: 'Compare manual setup, ORD discovery, and tool selection using static MCP Server Cards.',
         url: 'https://github.com/open-resource-discovery/ord-mcp-server-card-demo',
       },
     ],
   },
   compaction: {
     label: 'Metadata compaction',
-    title: 'Reduce metadata to use less LLM context',
-    summary: 'Trim large definitions to the essentials or the metadata you want to share.',
+    title: 'Make metadata context-efficient for LLMs',
+    summary: 'applies configurable rules to keep only the CSN metadata needed for a task.',
+    summaryLink: {
+      label: 'Metadata Compactor',
+      url: 'https://github.com/open-resource-discovery/metadata-compactor-golang',
+    },
     repositories: [
       {
         name: 'metadata-compactor-golang',
