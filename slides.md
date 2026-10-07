@@ -825,7 +825,7 @@ routeAlias: project-ui
 <ProjectGroupSlide group="ui"></ProjectGroupSlide>
 
 <!--
-Metadata Renderer accepts a definition, detects its format, and selects the specialized view. The screenshot is real Scalar output from the public Metadata Renderer playground with the included generic Orders OpenAPI input.
+Metadata Renderer accepts a definition, detects its format, and selects the specialized view. The screenshot shows the GET /pets endpoint from the built-in Petstore OpenAPI example in the public playground.
 -->
 
 ---

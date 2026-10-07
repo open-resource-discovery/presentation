@@ -1,15 +1,14 @@
 # Tool screenshots
 
-Captured from the official public playgrounds on 2026-10-04, plus the Explorer
-capture supplied by the user that day. These are actual
-rendered views with vendor-neutral example input, entered through each
-playground's Monaco editor model. UI labels were not replaced or fabricated.
+Captured from the official public playgrounds on 2026-10-04, with the Metadata Renderer capture refreshed on 2026-10-07, plus the Explorer capture supplied by the user on 2026-10-04.
+These are actual rendered views with example input entered through each playground's Monaco editor model or selected from its built-in examples.
+UI labels were not replaced or fabricated.
 The slides display selected sections so the text remains readable at 1280×720.
 
 | Assets | Source playground | Input |
 | --- | --- | --- |
 | `explorer.png` | [ORD Explorer](https://open-resource-discovery.github.io/explorer/) | Built-in Sample ORD System; original user-supplied capture |
-| `metadata-renderer.png` | [Metadata Renderer](https://open-resource-discovery.github.io/metadata-renderer/playground/) | [Orders OpenAPI](./examples/orders.openapi.json) |
+| `metadata-renderer.png` | [Metadata Renderer](https://open-resource-discovery.github.io/metadata-renderer/playground/) | Built-in Petstore OpenAPI |
 | `a2a-header.png`, `a2a-skills.png` | [A2A Editor](https://open-resource-discovery.github.io/a2a-editor/playground/) | [Agent Card](./examples/agent.json) |
 | `mcp-header.png`, `mcp-tools.png` | [MCP Server Card UI](https://open-resource-discovery.github.io/mcp-server-card-ui/playground/) | [Server Card](./examples/mcp.json) |
 

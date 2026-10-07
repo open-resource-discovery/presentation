@@ -273,8 +273,10 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
       <RouterLink v-if="nextGroup" :to="`/project-${nextGroup}`" :title="groups[nextGroup].name">Next →</RouterLink>
     </nav>
     <header class="slide-header wide-header">
-      <h1><a :href="project.projectUrl" target="_blank" rel="noopener noreferrer">{{ project.name }}</a></h1>
-      <h2>{{ project.title }}</h2>
+      <div class="project-heading">
+        <h1><a :href="project.projectUrl" target="_blank" rel="noopener noreferrer">{{ project.name }}</a></h1>
+        <h2>{{ project.title }}</h2>
+      </div>
       <p class="slide-subtitle">
         <template v-if="project.summaryLink"><a :href="project.summaryLink.url" target="_blank" rel="noopener noreferrer">{{ project.summaryLink.label }}</a> {{ project.summary }}</template>
         <template v-else>{{ project.summary }}</template>
@@ -304,11 +306,12 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 <style scoped>
 .ecosystem-project-slide { gap: 14px; }
 .ecosystem-project-slide .slide-header { gap: 2px; }
-.ecosystem-project-slide .slide-header h1 { max-width: 1120px; font-size: 38px; line-height: 1.08; }
+.project-heading { display: flex; max-width: 1136px; min-width: 0; align-items: baseline; gap: 16px; }
+.ecosystem-project-slide .slide-header h1 { flex: none; max-width: none; font-size: 38px; line-height: 1.08; white-space: nowrap; }
 .ecosystem-project-slide .slide-header h1 a { border: 0; color: var(--ord-text); text-decoration: none; }
 .ecosystem-project-slide .slide-header h1 a:hover { color: var(--ord-brand); }
 .ecosystem-project-slide .slide-header h1 a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
-.ecosystem-project-slide .slide-header h2 { max-width: 1120px; color: var(--ord-muted); font-size: 21px; font-weight: 650; line-height: 1.25; }
+.ecosystem-project-slide .slide-header h2 { min-width: 0; max-width: none; border-left: 1px solid var(--ord-sep); color: var(--ord-muted); font-size: 21px; font-weight: 650; line-height: 1.25; padding-left: 16px; white-space: nowrap; }
 .ecosystem-project-slide .slide-subtitle { max-width: 1130px; font-size: 16px; line-height: 1.35; }
 .ecosystem-project-slide .slide-subtitle a { color: var(--ord-brand); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .ecosystem-project-slide .slide-subtitle a:hover { color: var(--ord-text); }
