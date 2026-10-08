@@ -22,7 +22,7 @@
       <section class="path-step connect">
         <header><span>04</span><small>Discover</small></header>
         <h3>Connect and inspect</h3>
-        <p>Onboard to an Aggregator, or consume the Provider directly and inspect it with ORD Explorer.</p>
+        <p>Onboard to an Aggregator, or consume the Provider directly and inspect it with <RouterLink class="tool-link" to="/project-reference">ORD Explorer</RouterLink>.</p>
       </section>
     </div>
 
@@ -70,6 +70,9 @@
 .path-step header small { color: var(--ord-brand); font-size: 10px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
 .path-step h3 { color: var(--ord-text); font-size: 21px; line-height: 1.18; }
 .path-step p { color: var(--ord-muted); font-size: 15px; line-height: 1.42; }
+.tool-link { border: 0 !important; border-radius: 3px; background: var(--ord-link-bg); color: var(--ord-brand) !important; font-weight: 700; padding: 1px 3px; text-decoration: none; transition: background-color 140ms ease; }
+.tool-link:hover { border: 0 !important; background: var(--ord-link-bg-hover); color: var(--ord-brand) !important; box-shadow: none; }
+.tool-link:focus-visible { outline: 2px solid var(--ord-brand-2); outline-offset: 2px; }
 
 .connector { position: relative; height: 2px; background: var(--ord-brand-2); }
 .connector::after {

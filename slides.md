@@ -409,7 +409,7 @@ routeAlias: adoption
 <p class="slide-subtitle">Check framework support first, then decide whether the metadata is static or tenant-aware.</p>
 </header>
 <AdoptionDecisionGuide></AdoptionDecisionGuide>
-<DeepDiveLink to="project-publishing" label="Provider Server" kicker="Tool" source-href="https://open-resource-discovery.org/help/faq/adopt-ord-as-provider" source-label="Provider adoption guide"></DeepDiveLink>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/help/faq/adopt-ord-as-provider" spec-label="Provider adoption guide"></DeepDiveNav>
 </div>
 
 ---
@@ -424,13 +424,15 @@ routeAlias: adoption-path
 <p class="slide-subtitle">Use ORD’s published contracts, test the complete output, then make it discoverable.</p>
 </header>
 <AdoptionPath></AdoptionPath>
-<DeepDiveLink to="project-reference" label="ORD Explorer" kicker="Tool" source-href="https://open-resource-discovery.org/spec-v1/interfaces/" source-label="Schemas &amp; interfaces"></DeepDiveLink>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/" spec-label="Schemas &amp; interfaces"></DeepDiveNav>
 </div>
 
 <!--
 Developer adoption guide based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md
 and ../ord-public/docs/spec-v1/concepts/implementing-ord-natively.md
 (specification 1.16.4).
+The reference application serves its static system-version baseline directly
+from the application and adds a generated system-instance view per tenant.
 -->
 
 ---

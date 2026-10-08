@@ -19,23 +19,19 @@
     <div class="publishing-paths">
       <article class="path static-path">
         <header><span>No</span><small>Static only</small></header>
-        <h3>Publish from files</h3>
-        <p>Use the <strong>ORD Provider Server</strong> or another static Provider to serve metadata from a local directory or GitHub.</p>
+        <h3>Publish static metadata</h3>
+        <p>Serve a prebuilt baseline directly from your app, for example through static-file handling. Or use <RouterLink class="tool-link" to="/project-publishing">ORD Provider Server</RouterLink> for a local directory or GitHub.</p>
         <code>system-type / system-version</code>
       </article>
 
       <article class="path dynamic-path">
         <header><span>Yes</span><small>Tenant-aware</small></header>
         <h3>Implement a native Provider</h3>
-        <p>Generate complete tenant-specific metadata and definitions at runtime. Keep the static baseline separate.</p>
-        <code>system-instance + static baseline</code>
+        <p>Add complete tenant-specific metadata and definitions at runtime. Do this in addition to publishing the static baseline.</p>
+        <code>static baseline + system-instance</code>
       </article>
     </div>
 
-    <figcaption>
-      <strong>Describe the complete resource surface you intend to publish.</strong>
-      <span>Generate dynamically only what actually varies.</span>
-    </figcaption>
   </figure>
 </template>
 
@@ -105,7 +101,8 @@
 .path p { color: var(--ord-muted); font-size: 16px; line-height: 1.35; }
 .path p strong { color: var(--ord-text); }
 .path code { justify-self: start; border-radius: 4px; background: var(--ord-pill-bg); color: var(--ord-brand); font-size: 12px; padding: 4px 7px; }
+.tool-link { border: 0 !important; border-radius: 3px; background: var(--ord-link-bg); color: var(--ord-brand) !important; font-weight: 700; padding: 1px 3px; text-decoration: none; transition: background-color 140ms ease; }
+.tool-link:hover { border: 0 !important; background: var(--ord-link-bg-hover); color: var(--ord-brand) !important; box-shadow: none; }
+.tool-link:focus-visible { outline: 2px solid var(--ord-brand-2); outline-offset: 2px; }
 
-figcaption { display: flex; align-items: baseline; justify-content: center; gap: 10px; color: var(--ord-muted); font-size: 14px; }
-figcaption strong { color: var(--ord-text); }
 </style>
