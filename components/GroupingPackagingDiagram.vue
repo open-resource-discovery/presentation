@@ -16,7 +16,7 @@
       <div><small>Group Type</small><strong>Business process</strong></div>
       <p>Publish both the group and its semantics so consumers can understand the assignment.</p>
     </div>
-    <figcaption><p><b>Tags</b> add keywords; <b>labels</b> add queryable key-value metadata. Resources inherit shared metadata from their Package.<br>ORD documents are transport containers. Namespaces govern identity; use groups for flexible taxonomy.</p><a href="https://open-resource-discovery.org/spec-v1/concepts/grouping-and-bundling" target="_blank" rel="noopener noreferrer">Specification ↗</a></figcaption>
+    <figcaption><p><b>Tags</b> add keywords; <b>labels</b> add queryable key-value metadata. Resources inherit shared metadata from their Package.<br>ORD documents are transport containers. Namespaces govern identity; use groups for flexible taxonomy.</p></figcaption>
   </figure>
 </template>
 
@@ -39,7 +39,6 @@ th small { display: inline-block; margin-left: 6px; color: var(--ord-brand); fon
 .group-example strong { color: var(--ord-text); font-size: 18px; }
 .group-example > span { color: var(--ord-brand); font-size: 24px; }
 .group-example p { flex: 1.4; color: var(--ord-muted); font-size: 14px; line-height: 1.4; border-left: 1px solid var(--ord-sep); padding-left: 20px; }
-figcaption { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--ord-muted); font-size: 14px; line-height: 1.5; }
+figcaption { color: var(--ord-muted); font-size: 14px; line-height: 1.5; }
 figcaption b { color: var(--ord-text); }
-figcaption a { flex-shrink: 0; border: 0; color: var(--ord-brand); font-size: 12px; }
 </style>

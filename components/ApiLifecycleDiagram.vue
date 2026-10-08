@@ -15,14 +15,14 @@
       <g class="resource" transform="translate(0 66)"><rect width="224" height="136" rx="8" /><text x="18" y="30" class="name">Orders API</text><text x="18" y="62" class="id">…:Order:v1</text><text x="18" y="91">version: 1.0.0</text><text x="18" y="116">releaseStatus: active</text></g>
       <g class="resource" transform="translate(304 66)"><rect width="224" height="136" rx="8" /><text x="18" y="30" class="name">Same resource</text><text x="18" y="62" class="id">…:Order:v1</text><text x="18" y="91">version: 1.1.0</text><text x="18" y="116">releaseStatus: active</text></g>
       <g class="resource old-resource" transform="translate(608 66)"><rect width="224" height="136" rx="8" /><text x="18" y="30" class="name">Retained contract</text><text x="18" y="62" class="id">…:Order:v1</text><text x="18" y="91">version: 1.1.0</text><text x="18" y="116">releaseStatus: deprecated</text></g>
-      <g class="resource" transform="translate(912 66)"><rect width="224" height="136" rx="8" /><text x="18" y="30" class="name">Publish a tombstone</text><text x="18" y="62" class="id">…:Order:v1</text><text x="18" y="91">Record sunsetDate</text><text x="18" y="116">Remove or keep as sunset</text></g>
+      <g class="resource" transform="translate(912 66)"><rect width="224" height="136" rx="8" /><text x="18" y="30" class="name">Sunset old API</text><text x="18" y="62" class="id">…:Order:v1</text><text x="18" y="91">releaseStatus: sunset</text><text x="18" y="116">Record sunsetDate</text></g>
       <g class="resource successor" transform="translate(608 238)"><rect width="224" height="136" rx="8" /><text x="18" y="30" class="name">New resource</text><text x="18" y="62" class="id">…:Order:v2</text><text x="18" y="91">version: 2.0.0</text><text x="18" y="116">releaseStatus: active</text></g>
       <g class="resource" transform="translate(912 238)"><rect width="224" height="136" rx="8" /><text x="18" y="30" class="name">Continues evolving</text><text x="18" y="62" class="id">…:Order:v2</text><text x="18" y="91">version: 2.1.0</text><text x="18" y="116">releaseStatus: active</text></g>
       <text x="0" y="238" class="annotation">Optional feature added?</text><text x="0" y="264" class="explanation">Update version; preserve the ORD ID.</text>
       <text x="304" y="338" class="annotation breaking-note">Consumer contract breaks?</text><text x="304" y="364" class="explanation">Create a successor with a new major ID.</text>
       <text x="618" y="225" class="coexist">Both contracts coexist during migration</text>
     </svg>
-    <figcaption><p>Deprecation is an explicit decision: link <code>successors</code> and provide migration dates. Development and beta resources may break without a new major ID; tenant extensions update <code>lastUpdate</code>.</p><a href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle" target="_blank" rel="noopener noreferrer">Specification diagram ↗</a></figcaption>
+    <figcaption><p>Deprecation is an explicit decision: link <code>successors</code> and provide migration dates. Development and beta resources may break without a new major ID; tenant extensions update <code>lastUpdate</code>.</p></figcaption>
   </figure>
 </template>
 
@@ -44,8 +44,6 @@ text { fill: var(--ord-muted); font-family: var(--ord-font); font-size: 15px; }
 .breaking-note { fill: #bd4c36; }
 .explanation { font-size: 14px; }
 .coexist { fill: var(--ord-faint); font-size: 12px; }
-figcaption { display: flex; align-items: center; gap: 28px; border-top: 1px solid var(--ord-sep); padding-top: 16px; color: var(--ord-muted); font-size: 14px; line-height: 1.5; }
-figcaption p { flex: 1; }
+figcaption { border-top: 1px solid var(--ord-sep); padding-top: 16px; color: var(--ord-muted); font-size: 14px; line-height: 1.5; }
 figcaption code { color: var(--ord-brand); font-size: 12px; }
-figcaption a { flex-shrink: 0; border: 0; color: var(--ord-brand); font-size: 12px; }
 </style>

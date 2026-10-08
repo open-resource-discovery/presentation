@@ -258,20 +258,11 @@ const groups: Record<string, ProjectGroup> = {
 
 const props = defineProps<{ group: string }>()
 const project = computed(() => groups[props.group])
-const groupOrder = ['specification', 'reference', 'publishing', 'framework-publishing', 'overlays', 'ui', 'a2a', 'mcp', 'compaction']
-const groupIndex = computed(() => groupOrder.indexOf(props.group))
-const previousGroup = computed(() => groupIndex.value > 0 ? groupOrder[groupIndex.value - 1] : undefined)
-const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < groupOrder.length - 1 ? groupOrder[groupIndex.value + 1] : undefined)
 </script>
 
 <template>
   <div v-if="project" class="slide-shell light-slide deep-slide ecosystem-project-slide">
     <DeckLogo :section="project.label"></DeckLogo>
-    <nav class="ecosystem-nav" aria-label="Tools and ecosystem navigation">
-      <RouterLink to="/tools-ecosystem">All tools</RouterLink>
-      <RouterLink v-if="previousGroup" :to="`/project-${previousGroup}`" :title="groups[previousGroup].name">← Previous</RouterLink>
-      <RouterLink v-if="nextGroup" :to="`/project-${nextGroup}`" :title="groups[nextGroup].name">Next →</RouterLink>
-    </nav>
     <header class="slide-header wide-header">
       <div class="project-heading">
         <h1><a :href="project.projectUrl" target="_blank" rel="noopener noreferrer">{{ project.name }}</a></h1>
@@ -316,10 +307,7 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .ecosystem-project-slide .slide-subtitle a { color: var(--ord-brand); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .ecosystem-project-slide .slide-subtitle a:hover { color: var(--ord-text); }
 .ecosystem-project-slide .slide-subtitle a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
-.ecosystem-nav { position: absolute; display: flex; gap: 18px; }
-.ecosystem-nav a { color: var(--ord-muted); font-weight: 650; text-decoration: none; }
-.ecosystem-nav a:hover { color: var(--ord-brand); }
-.ecosystem-nav a:focus-visible, .repository-card a:focus-visible, .concept-link:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
+.repository-card a:focus-visible, .concept-link:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
 .project-content { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; }
 .project-content :deep(.showcase) { flex: 1; min-height: 0; justify-content: center; }
 .project-content :deep(.showcase-ui), .project-content :deep(.showcase-a2a), .project-content :deep(.showcase-mcp) { width: 100%; max-width: 1080px; align-self: center; }
