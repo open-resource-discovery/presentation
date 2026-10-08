@@ -3,7 +3,6 @@
     <div class="preview-banner">
       <span>Proposal</span>
       <strong>Capability types <code>agent-skill</code> and <code>agent-plugin</code></strong>
-      <a href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank" rel="noreferrer">PR #102 ↗</a>
     </div>
 
     <div class="skill-flow">
@@ -39,11 +38,10 @@
 
 <style scoped>
 .skills-preview { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; gap: 18px; margin: 0; }
-.preview-banner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; border: 1px solid var(--ord-lime); border-radius: var(--ord-radius); background: var(--ord-lime-soft); padding: 13px 17px; }
+.preview-banner { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 16px; border: 1px solid var(--ord-lime); border-radius: var(--ord-radius); background: var(--ord-lime-soft); padding: 13px 17px; }
 .preview-banner > span { color: #527d3e; font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
 .preview-banner strong { color: var(--ord-text); font-size: 15px; }
 .preview-banner code { font-size: .9em; }
-.preview-banner a { color: var(--ord-brand); font-size: 12px; font-weight: 700; text-decoration: none; }
 .skill-flow { display: grid; grid-template-columns: 1fr 105px 1fr 125px 1fr; align-items: center; }
 .skill-card { display: grid; min-height: 260px; grid-template-rows: 18px 52px 28px 1fr; align-content: start; gap: 11px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 23px; }
 .skill-card.primary { border: 2px solid var(--ord-brand-2); background: var(--ord-teal-soft); }

@@ -1,79 +1,59 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    backTo?: string
-    backLabel?: string
-    nextTo?: string
-    nextLabel?: string
-    showIndex?: boolean
     specHref?: string
     specLabel?: string
+    secondaryHref?: string
+    secondaryLabel?: string
   }>(),
   {
-    backTo: 'deep-dives',
-    backLabel: 'Deep dives',
-    nextTo: undefined,
-    nextLabel: undefined,
-    showIndex: true,
     specHref: undefined,
     specLabel: 'ORD specification',
+    secondaryHref: undefined,
+    secondaryLabel: 'Source',
   },
 )
 </script>
 
 <template>
-  <nav class="deep-dive-nav" aria-label="Presentation navigation">
-    <RouterLink v-if="showIndex" to="/deep-dives">All topics</RouterLink>
-    <RouterLink v-if="backTo !== 'deep-dives'" class="previous-link" :to="`/${backTo}`">← {{ backLabel }}</RouterLink>
-    <RouterLink v-if="nextTo" class="next-link" :to="`/${nextTo}`">{{ nextLabel }} →</RouterLink>
-  </nav>
-  <a v-if="specHref" class="deep-dive-source" :href="specHref" target="_blank" rel="noopener noreferrer">{{ specLabel }} ↗</a>
+  <div v-if="specHref || secondaryHref" class="deep-dive-sources">
+    <a v-if="specHref" class="deep-dive-source" :href="specHref" target="_blank" rel="noopener noreferrer">{{ specLabel }} ↗</a>
+    <a v-if="secondaryHref" class="deep-dive-source" :href="secondaryHref" target="_blank" rel="noopener noreferrer">{{ secondaryLabel }} ↗</a>
+  </div>
 </template>
 
 <style scoped>
-.deep-dive-nav {
-  position: absolute !important;
-  top: 31px;
-  right: 72px;
-  z-index: 3;
-  display: flex;
-  gap: 8px;
-}
-
-.deep-dive-nav a {
-  border: 1px solid var(--ord-border);
-  border-radius: 999px;
-  background: var(--ord-pill-bg);
-  color: var(--ord-muted);
-  font-size: 11px;
-  font-weight: 650;
-  padding: 7px 11px;
-  text-decoration: none;
-}
-
-.deep-dive-nav a:hover {
-  border-color: var(--ord-brand-2);
-  color: var(--ord-text);
-}
-
-.deep-dive-nav a:focus-visible,
 .deep-dive-source:focus-visible {
   outline: 2px solid var(--ord-brand);
   outline-offset: 4px;
 }
 
-.deep-dive-source {
+.deep-dive-sources {
   position: absolute;
-  bottom: 16px;
-  left: 24px;
+  bottom: 15px;
+  left: 20px;
   z-index: 7;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.deep-dive-source {
+  border: 0;
+  border-radius: 3px;
+  background: var(--ord-link-bg);
   color: var(--ord-brand);
   font-size: 13px;
   font-weight: 600;
   line-height: 20px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  padding: 1px 4px;
+  text-decoration: none;
+  transition: background-color 140ms ease;
 }
 
-.deep-dive-source:hover { color: var(--ord-text); }
+.deep-dive-source:hover {
+  border: 0;
+  background: var(--ord-link-bg-hover);
+  color: var(--ord-brand);
+}
 </style>

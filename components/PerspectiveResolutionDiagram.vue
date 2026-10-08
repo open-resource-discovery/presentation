@@ -19,7 +19,7 @@
     </div>
 
     <div class="rules">
-      <p><strong>Complete representations.</strong> Never merge properties. A tombstone blocks fallback for that ORD ID.</p>
+      <p><strong>Complete representations.</strong> Never merge properties across layers. A complete system-instance view replaces the static view.</p>
       <p><strong>Exact means exact.</strong> A missing specifically requested system version is an error, not a reason to substitute another version.</p>
       <p><strong>System-independent stays separate.</strong> Shared global content sits outside the fallback chain.</p>
     </div>

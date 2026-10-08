@@ -30,7 +30,12 @@ routeAlias: metadata-silos
 <div class="slide-shell split-slide light-slide challenge-slide">
 <DeckLogo section="Metadata silos"></DeckLogo>
 <section class="text-column">
-<h2 class="combined-heading"><span>The challenge:</span> Resource metadata lives in silos</h2>
+<header class="slide-header">
+<div class="topic-heading">
+<h1>Metadata Silos</h1>
+<h2>Resource metadata remains fragmented</h2>
+</div>
+</header>
 <p class="lead small">Specialized standards describe individual resources well, but they do not provide a shared inventory of a system or landscape.</p>
 <ul class="statement-list compact-list">
 <li>Catalogs often integrate with every provider and format separately.</li>
@@ -49,7 +54,10 @@ routeAlias: metadata-alignment
 <div class="slide-shell light-slide">
 <DeckLogo section="Alignment"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>One metadata interface, fewer custom adapters</h2>
+<div class="topic-heading">
+<h1>Metadata Alignment</h1>
+<h2>One interface reduces custom adapters</h2>
+</div>
 <p class="slide-subtitle">ORD gives providers and consumers a common way to describe and discover metadata, while resource definitions stay in their specialized standards.</p>
 </header>
 <AlignmentDiagram></AlignmentDiagram>
@@ -61,7 +69,10 @@ routeAlias: unified-metadata-view
 <div class="slide-shell light-slide unified-metadata-slide">
 <DeckLogo section="One connected view"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>One Discovery API based on<br /> a well-connected metadata graph</h2>
+<div class="topic-heading">
+<h1>Connected Metadata</h1>
+<h2>One Discovery API over a well-connected graph</h2>
+</div>
 <p class="slide-subtitle">An ORD aggregator connects resources, shared semantics, and taxonomy into one view for consumers.</p>
 </header>
 <UnifiedMetadataDiagram></UnifiedMetadataDiagram>
@@ -94,18 +105,22 @@ routeAlias: self-description
 <div class="slide-shell split-slide light-slide self-description-slide">
 <DeckLogo section="What is ORD?"></DeckLogo>
 <section class="text-column">
-<h2>A protocol for self-description</h2>
+<header class="slide-header">
+<div class="topic-heading">
+<h1>ORD Self-Description</h1>
+<h2>Publish exposed resources in a common form</h2>
+</div>
+</header>
 <p class="lead small">Applications and services publish a standard, machine-readable description of their resources and capabilities.</p>
 <div class="boundary-callout">
 <strong>ORD adds the shared context.</strong>
 <span>Detailed contracts stay in OpenAPI, AsyncAPI, OData CSDL, A2A Agent Cards, and other formats.</span>
 </div>
-<a class="spec-link" href="https://open-resource-discovery.org/spec-v1#ord-provider" target="_blank" rel="noopener noreferrer">Provider specification ↗</a>
 </section>
 <section class="diagram-column">
 <ProviderDiagram></ProviderDiagram>
 </section>
-<DeepDiveLink to="integration-dependencies" label="Dependencies"></DeepDiveLink>
+<DeepDiveLink to="integration-dependencies" label="Dependencies" source-href="https://open-resource-discovery.org/spec-v1#ord-provider" source-label="Provider specification"></DeepDiveLink>
 </div>
 
 ---
@@ -114,7 +129,10 @@ routeAlias: ord-roles
 <div class="slide-shell light-slide">
 <DeckLogo section="Architecture"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Three roles, clear responsibilities</h2>
+<div class="topic-heading">
+<h1>ORD Roles</h1>
+<h2>Three roles divide the responsibilities</h2>
+</div>
 <p class="slide-subtitle">Providers publish a simple self-description, aggregators build a connected view, and consumers retrieve metadata through a discovery-oriented API.</p>
 </header>
 <RolesDiagram></RolesDiagram>
@@ -127,7 +145,10 @@ routeAlias: scope
 <div class="slide-shell light-slide">
 <DeckLogo section="Scope"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>ORD standardizes discovery, not everything</h2>
+<div class="topic-heading">
+<h1>ORD Scope</h1>
+</div>
+<p class="slide-subtitle">Standardize discovery, not every resource format.</p>
 </header>
 <div class="scope-grid">
 <section class="scope-card does">
@@ -159,7 +180,10 @@ routeAlias: pull-overview
 <div class="slide-shell light-slide">
 <DeckLogo section="Pull transport"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Discovery follows links from one known entry point</h2>
+<div class="topic-heading">
+<h1>Pull Discovery</h1>
+<h2>Follow links from one known entry point</h2>
+</div>
 <p class="slide-subtitle">An aggregator or direct consumer starts with a known system, reads its ORD configuration, then crawls the linked metadata.</p>
 </header>
 <DiscoveryFlowDiagram></DiscoveryFlowDiagram>
@@ -172,7 +196,10 @@ routeAlias: ord-by-example
 <div class="slide-shell light-slide example-slide">
 <DeckLogo section="ORD by example"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Discover the Orders API and follow its contract</h2>
+<div class="topic-heading">
+<h1>ORD by Example</h1>
+</div>
+<p class="slide-subtitle">Discover the Orders API and follow its contract.</p>
 </header>
 <OrdExampleExplorer></OrdExampleExplorer>
 </div>
@@ -183,18 +210,23 @@ routeAlias: information-model
 <div class="slide-shell split-slide light-slide">
 <DeckLogo section="Information model"></DeckLogo>
 <section class="text-column">
-<h2>Resources become connected metadata</h2>
+<header class="slide-header">
+<div class="topic-heading">
+<h1>Information Model</h1>
+<h2>Turn resources into connected metadata</h2>
+</div>
+</header>
 <ul class="statement-list compact-list">
 <li><strong>Resources:</strong> APIs, Events, Data Products, Agents, Capabilities, and Integration Dependencies.</li>
 <li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
-<li><strong>Relationships:</strong> connect resources to definitions, semantics, ownership, lifecycle, and dependencies.</li>
+<li><strong>Common attributes and cross-relationships:</strong> stable, globally unique design-time IDs, ownership, lifecycle, visibility, definition references, and typed links connect the concepts.</li>
 </ul>
 <p class="feature-status-note">Beta in ORD 1.16.4: Data Products, Agents, Perspectives, and ORD Overlays.</p>
 </section>
 <section class="diagram-column">
 <DataModelDiagram></DataModelDiagram>
 </section>
-<DeepDiveLink to="namespace-concept" label="Namespaces and IDs"></DeepDiveLink>
+<DeepDiveLink to="namespace-concept" label="Namespaces and IDs" source-href="https://github.com/open-resource-discovery/specification/pull/158" source-label="Workflow proposal"></DeepDiveLink>
 </div>
 
 <!--
@@ -205,6 +237,7 @@ Capabilities also provide an extensibility mechanism. A Provider can publish cus
 The capability type is identified by a Specification ID, or by customType when type is custom. The generic Capability concept is released in ORD 1.16.4. Standardizing Skill types and their dependency semantics is a separate proposal, PR #102; the examples here do not imply standardized type IDs.
 
 Beta status is collected here so it does not distract from the diagrams that follow. Data Products, Agents, Perspectives, and ORD Overlays retain their specified beta status.
+Workflow capabilities and their Arazzo definitions are proposed in specification PR #158.
 -->
 
 ---
@@ -213,18 +246,22 @@ routeAlias: perspectives-overview
 <div class="slide-shell split-slide light-slide">
 <DeckLogo section="Perspectives"></DeckLogo>
 <section class="text-column">
-<h2>Describe what is offered and what is running</h2>
+<header class="slide-header">
+<div class="topic-heading">
+<h1>Perspectives</h1>
+<h2>Separate what is offered from what is running</h2>
+</div>
+</header>
 <ul class="statement-list compact-list">
 <li><strong>Static:</strong> a system type or version describes the reusable baseline without tenant-specific context.</li>
 <li><strong>Dynamic:</strong> a system instance describes the complete runtime view, including configuration and extensions.</li>
 <li><strong>System-independent:</strong> shared taxonomy can be published once outside a system context.</li>
 </ul>
-<a class="spec-link" href="https://open-resource-discovery.org/spec-v1/concepts/perspectives" target="_blank" rel="noopener noreferrer">Perspectives specification ↗</a>
 </section>
 <section class="diagram-column">
 <PerspectivesDiagram></PerspectivesDiagram>
 </section>
-<DeepDiveLink to="perspective-resolution" label="Resolution rules"></DeepDiveLink>
+<DeepDiveLink to="perspective-resolution" label="Resolution rules" source-href="https://open-resource-discovery.org/spec-v1/concepts/perspectives" source-label="Perspectives specification"></DeepDiveLink>
 </div>
 
 ---
@@ -233,8 +270,11 @@ routeAlias: connected-landscape
 <div class="slide-shell light-slide">
 <DeckLogo section="Connected landscape"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>A connected resource graph</h2>
-<p class="slide-subtitle">An order event triggers the Agent to read the order and create a shipment.</p>
+<div class="topic-heading">
+<h1>Resource Graph</h1>
+<h2>Connect APIs, events, agents, and data</h2>
+</div>
+<p class="slide-subtitle"><strong>Example:</strong> An order event triggers the Agent to read the order and create a shipment.</p>
 </header>
 <LandscapeDiagram></LandscapeDiagram>
 <DeepDiveLink to="grouping-packaging" label="Taxonomy and grouping"></DeepDiveLink>
@@ -266,7 +306,10 @@ routeAlias: outcomes
 <div class="slide-shell light-slide">
 <DeckLogo section="Outcomes"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>One foundation, many metadata-driven experiences</h2>
+<div class="topic-heading">
+<h1>ORD Outcomes</h1>
+</div>
+<p class="slide-subtitle">One foundation supports many metadata-driven experiences.</p>
 </header>
 <div class="outcome-grid">
 <section class="outcome-card"><span>01</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="2"/><rect x="19" y="3" width="10" height="10" rx="2"/><rect x="3" y="19" width="10" height="10" rx="2"/><rect x="19" y="19" width="10" height="10" rx="2"/></svg><h3>Catalogs</h3><p>Build searchable inventories across resource types and providers.</p></section>
@@ -283,7 +326,10 @@ routeAlias: sap-case-study
 <div class="slide-shell light-slide sap-case-slide">
 <DeckLogo section="SAP case study"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>SAP: shared metadata, connected views</h2>
+<div class="topic-heading">
+<h1>ORD at SAP</h1>
+<h2>Connect product metadata and running systems</h2>
+</div>
 <p class="slide-subtitle">Applications describe what they offer and what is running, through the same protocol.</p>
 </header>
 <SapArchitectureDiagram></SapArchitectureDiagram>
@@ -325,7 +371,10 @@ routeAlias: sap-landscape-examples
 <div class="slide-shell light-slide sap-case-slide">
 <DeckLogo section="SAP case study · UI examples"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>SAP: the two views in practice</h2>
+<div class="topic-heading">
+<h1>SAP Discovery Views</h1>
+<h2>See product and runtime perspectives in practice</h2>
+</div>
 <p class="slide-subtitle">Business Accelerator Hub for product discovery; BTP System Landscape for running systems.</p>
 </header>
 <SapLandscapeExamples></SapLandscapeExamples>
@@ -354,27 +403,37 @@ routeAlias: adoption
 <div class="slide-shell light-slide">
 <DeckLogo section="Adoption"></DeckLogo>
 <header class="slide-header wide-header">
-<h2>Start with one API and one useful consumer</h2>
+<div class="topic-heading">
+<h1>Choose a Publishing Path</h1>
+</div>
+<p class="slide-subtitle">Check framework support first, then decide whether the metadata is static or tenant-aware.</p>
 </header>
-<div class="adoption-grid">
-<section class="adoption-card provider-card">
-<span class="adoption-number">01</span>
-<h3>Provider</h3>
-<p>Publish a Package and one API Resource. Link the existing OpenAPI definition and expose ORD configuration.</p>
-</section>
-<section class="adoption-card aggregator-card">
-<span class="adoption-number">02</span>
-<h3>Aggregator</h3>
-<p>Crawl and validate the metadata. Resolve the effective view and preserve metadata access boundaries.</p>
-</section>
-<section class="adoption-card consumer-card">
-<span class="adoption-number">03</span>
-<h3>Consumer</h3>
-<p>Make the API discoverable in one catalog or developer tool, through an aggregator or directly from its Provider.</p>
-</section>
+<AdoptionDecisionGuide></AdoptionDecisionGuide>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/help/faq/adopt-ord-as-provider" spec-label="Provider adoption guide"></DeepDiveNav>
 </div>
-<div class="adoption-note"><strong>Pilot: describe → validate → discover.</strong><span>Keep the contract in its native format; add Entity Types and dependencies as the use case grows.</span><nav aria-label="Pilot tools"><RouterLink to="/project-reference">Explore a reference implementation →</RouterLink><RouterLink to="/project-publishing">Choose publishing tools →</RouterLink></nav></div>
+
+---
+routeAlias: adoption-path
+---
+<div class="slide-shell light-slide">
+<DeckLogo section="Adoption · Developer guide"></DeckLogo>
+<header class="slide-header wide-header">
+<div class="topic-heading">
+<h1>Build, Validate, Connect</h1>
 </div>
+<p class="slide-subtitle">Use ORD’s published contracts, test the complete output, then make it discoverable.</p>
+</header>
+<AdoptionPath></AdoptionPath>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/" spec-label="Schemas &amp; interfaces"></DeepDiveNav>
+</div>
+
+<!--
+Developer adoption guide based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md
+and ../ord-public/docs/spec-v1/concepts/implementing-ord-natively.md
+(specification 1.16.4).
+The reference application serves its static system-version baseline directly
+from the application and adds a generated system-instance view per tenant.
+-->
 
 ---
 routeAlias: closing
@@ -396,7 +455,6 @@ routeAlias: closing
 <ClosingQr></ClosingQr>
 </div>
 <GovernanceNotice></GovernanceNotice>
-<DeepDiveLink to="tools-ecosystem" label="Tools &amp; Ecosystem" kicker="Explore"></DeepDiveLink>
 </div>
 
 ---
@@ -414,9 +472,11 @@ routeAlias: deep-dives
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Overview"></DeckLogo>
-<DeepDiveNav back-to="introduction" back-label="Main presentation" :show-index="false"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Explore ORD by topic</h2>
+<div class="topic-heading">
+<h1>ORD Deep Dives</h1>
+<h2>Explore the protocol by topic</h2>
+</div>
 <p class="slide-subtitle">Choose a topic, or follow the four paths from left to right.</p>
 </header>
 <DeepDiveIndex></DeepDiveIndex>
@@ -427,9 +487,12 @@ routeAlias: landscape-model
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="System landscape model"></DeckLogo>
-<DeepDiveNav back-to="connected-landscape" back-label="Resource graph" spec-href="https://open-resource-discovery.org/spec-v1/concepts/system-landscape-model"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/system-landscape-model"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>ORD adds detail to systems you already know</h2>
+<div class="topic-heading">
+<h1>System Landscape</h1>
+<h2>Add metadata to systems you already know</h2>
+</div>
 <p class="slide-subtitle">Service discovery identifies system instances; ORD describes their resources and connects them to static system and portfolio context.</p>
 </header>
 <LandscapeModelDiagram></LandscapeModelDiagram>
@@ -440,9 +503,12 @@ routeAlias: namespace-concept
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Namespace concept"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-v1#namespaces"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#namespaces"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Identity starts with clear ownership</h2>
+<div class="topic-heading">
+<h1>Namespaces</h1>
+<h2>Make ownership explicit in every identifier</h2>
+</div>
 <p class="slide-subtitle">System namespaces describe system-owned information; authority namespaces identify shared contracts, definitions, or taxonomy.</p>
 </header>
 <NamespaceConceptDiagram></NamespaceConceptDiagram>
@@ -453,9 +519,12 @@ routeAlias: ord-identifiers
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="ORD identifiers"></DeckLogo>
-<DeepDiveNav back-to="namespace-concept" back-label="Namespace concept" next-to="related-identifiers" next-label="Related IDs" spec-href="https://open-resource-discovery.org/spec-v1#ord-id-construction"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#ord-id-construction"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>ORD ID: How to construct the type-level ID</h2>
+<div class="topic-heading">
+<h1>ORD IDs</h1>
+<h2>Construct a stable type-level identifier</h2>
+</div>
 <p class="slide-subtitle">An ORD ID identifies the governed resource at design time. Runtime uniqueness also needs the system-instance context.</p>
 </header>
 <OrdIdDiagram></OrdIdDiagram>
@@ -466,9 +535,12 @@ routeAlias: related-identifiers
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Identifier families"></DeckLogo>
-<DeepDiveNav back-to="ord-identifiers" back-label="ORD IDs" spec-href="https://open-resource-discovery.org/spec-v1#id-concepts"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#id-concepts"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Three common identifiers, three jobs</h2>
+<div class="topic-heading">
+<h1>Related IDs</h1>
+<h2>Give each identifier family one job</h2>
+</div>
 <p class="slide-subtitle">The namespace establishes who governs the identifier; its remaining fragments determine what kind of reference it represents.</p>
 </header>
 <IdentifierTypesDiagram></IdentifierTypesDiagram>
@@ -483,9 +555,12 @@ import GroupingPackagingDiagram from './components/GroupingPackagingDiagram.vue'
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Grouping &amp; packaging"></DeckLogo>
-<DeepDiveNav back-to="connected-landscape" back-label="Resource graph" spec-href="https://open-resource-discovery.org/spec-v1/concepts/grouping-and-bundling#choosing-the-right-concept"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/grouping-and-bundling"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Grouping &amp; packaging: choose by concern</h2>
+<div class="topic-heading">
+<h1>Groups &amp; Packages</h1>
+</div>
+<p class="slide-subtitle">Choose the model by concern.</p>
 </header>
 <GroupingPackagingDiagram></GroupingPackagingDiagram>
 </div>
@@ -495,9 +570,12 @@ routeAlias: perspective-resolution
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Perspective resolution"></DeckLogo>
-<DeepDiveNav back-to="perspectives-overview" back-label="Perspectives" spec-href="https://open-resource-discovery.org/spec-v1/concepts/perspectives#effective-system-instance-resolution"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/perspectives#effective-system-instance-resolution"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Resolve the most specific complete view</h2>
+<div class="topic-heading">
+<h1>Perspective Resolution</h1>
+</div>
+<p class="slide-subtitle">Select the most specific complete view.</p>
 </header>
 <PerspectiveResolutionDiagram></PerspectiveResolutionDiagram>
 </div>
@@ -507,9 +585,12 @@ routeAlias: integration-dependencies
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Integration dependencies"></DeckLogo>
-<DeepDiveNav back-to="self-description" back-label="Self-description" spec-href="https://open-resource-discovery.org/spec-v1/concepts/integration-dependency#concept"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/integration-dependency#concept"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Describe what a system needs from others</h2>
+<div class="topic-heading">
+<h1>Integration Dependencies</h1>
+</div>
+<p class="slide-subtitle">Describe what a system needs from others.</p>
 </header>
 <IntegrationDependencyDiagram></IntegrationDependencyDiagram>
 </div>
@@ -519,9 +600,12 @@ routeAlias: data-products
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Data Products"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-v1/concepts/data-product"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/data-product"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Data Products: ownership, lineage, and access</h2>
+<div class="topic-heading">
+<h1>Data Products</h1>
+<h2>Connect ownership, lineage, and access</h2>
+</div>
 <p class="slide-subtitle">ORD describes a governed data set and connects it to its input lineage, output ports, and business meaning.</p>
 </header>
 <DataProductDiagram></DataProductDiagram>
@@ -544,9 +628,12 @@ routeAlias: ai-discovery
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="AI &amp; Agents"></DeckLogo>
-<DeepDiveNav back-to="connected-landscape" back-label="Resource graph" next-to="skills-preview" next-label="Skills &amp; Plugins" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>AI &amp; Agents: interaction and dependencies</h2>
+<div class="topic-heading">
+<h1>AI &amp; Agents</h1>
+<h2>Connect discovery, interaction, and dependencies</h2>
+</div>
 <p class="slide-subtitle">Including Skills and Plugins as proposed in <a href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank" rel="noopener noreferrer">PR #102</a> for 1.17.</p>
 </header>
 <AiDiscoveryDiagram></AiDiscoveryDiagram>
@@ -567,9 +654,12 @@ routeAlias: skills-preview
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Preview · proposed for 1.17"></DeckLogo>
-<DeepDiveNav back-to="ai-discovery" back-label="AI &amp; Agents" next-to="metadata-skills-boundary" next-label="Metadata boundary" spec-href="https://github.com/open-resource-discovery/specification/blob/18fc27e67548f91c13f21ad0b283bb0725d47400/docs/spec-v1/concepts/ai-agents-and-protocols.md#agent-skills-as-capabilities" spec-label="Skills proposal"></DeepDiveNav>
+<DeepDiveNav spec-href="https://github.com/open-resource-discovery/specification/blob/18fc27e67548f91c13f21ad0b283bb0725d47400/docs/spec-v1/concepts/ai-agents-and-protocols.md#agent-skills-as-capabilities" spec-label="Skills proposal" secondary-href="https://github.com/open-resource-discovery/specification/pull/102" secondary-label="PR #102"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Make reusable agent skills discoverable</h2>
+<div class="topic-heading">
+<h1>Agent Skills &amp; Plugins</h1>
+<h2>Make reusable agent capabilities discoverable</h2>
+</div>
 </header>
 <SkillsPreviewDiagram></SkillsPreviewDiagram>
 </div>
@@ -579,9 +669,12 @@ routeAlias: metadata-skills-boundary
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Skills and API metadata"></DeckLogo>
-<DeepDiveNav back-to="skills-preview" back-label="Skills &amp; Plugins" next-to="ai-enrichment" next-label="AI enrichment" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>API knowledge belongs in metadata. Skills orchestrate it.</h2>
+<div class="topic-heading">
+<h1>Skills &amp; API Metadata</h1>
+<h2>Keep knowledge governed and workflows reusable</h2>
+</div>
 <p class="slide-subtitle">Keep shared, tenant-aware API meaning in governed metadata; let skills describe how an agent applies it in a workflow.</p>
 </header>
 <MetadataSkillsBoundaryDiagram></MetadataSkillsBoundaryDiagram>
@@ -592,9 +685,12 @@ routeAlias: versioning-lifecycle
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Versioning and lifecycle"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model" next-to="api-lifecycle" next-label="API lifecycle example" spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Identity, change, and maturity are separate signals</h2>
+<div class="topic-heading">
+<h1>Lifecycle Signals</h1>
+</div>
+<p class="slide-subtitle">Separate identity, change, and maturity.</p>
 </header>
 <LifecycleDiagram></LifecycleDiagram>
 </div>
@@ -608,9 +704,12 @@ import ApiLifecycleDiagram from './components/ApiLifecycleDiagram.vue'
 
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="API lifecycle example"></DeckLogo>
-<DeepDiveNav back-to="versioning-lifecycle" back-label="Versioning &amp; lifecycle" spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle#lifecycle"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle#lifecycle"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>API lifecycle: evolve, replace, then retire</h2>
+<div class="topic-heading">
+<h1>API Lifecycle</h1>
+</div>
+<p class="slide-subtitle">Evolve, replace, then retire.</p>
 </header>
 <ApiLifecycleDiagram></ApiLifecycleDiagram>
 </div>
@@ -620,9 +719,12 @@ routeAlias: ord-overlays
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="ORD Overlays"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-v1/interfaces/OrdOverlay"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/OrdOverlay"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Enrich a definition without changing its source</h2>
+<div class="topic-heading">
+<h1>ORD Overlays</h1>
+</div>
+<p class="slide-subtitle">Enrich a definition without changing its source.</p>
 </header>
 <OverlayDiagram></OverlayDiagram>
 </div>
@@ -632,9 +734,12 @@ routeAlias: ai-enrichment
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="AI-oriented metadata enrichment"></DeckLogo>
-<DeepDiveNav back-to="metadata-skills-boundary" back-label="Metadata boundary" spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Help AI choose a resource, then use it well</h2>
+<div class="topic-heading">
+<h1>AI Enrichment</h1>
+</div>
+<p class="slide-subtitle">Help AI choose a resource, then use it well.</p>
 </header>
 <AiEnrichmentDiagram></AiEnrichmentDiagram>
 </div>
@@ -650,7 +755,10 @@ import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
 <DeckLogo section="Extensibility in ORD"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#capability"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Extend through the right ORD extension point</h2>
+<div class="topic-heading">
+<h1>ORD Extensions</h1>
+<h2>Add domain meaning at the right extension point</h2>
+</div>
 <p class="slide-subtitle">Keep the shared discovery model; add domain-specific meaning where ORD provides an extension mechanism.</p>
 </header>
 <ExtensibilityDiagram></ExtensibilityDiagram>
@@ -661,9 +769,12 @@ routeAlias: visibility
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Visibility and access"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#api-resource_visibility"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#api-resource_visibility"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Expose metadata only to its intended audience</h2>
+<div class="topic-heading">
+<h1>Metadata Visibility</h1>
+</div>
+<p class="slide-subtitle">Expose metadata only to its intended audience.</p>
 </header>
 <VisibilityDiagram></VisibilityDiagram>
 </div>
@@ -673,9 +784,12 @@ routeAlias: policy-validation
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Policy levels &amp; validation"></DeckLogo>
-<DeepDiveNav back-to="information-model" back-label="Information model" spec-href="https://open-resource-discovery.org/spec-extensions/policy-levels/"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-extensions/policy-levels/"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Make metadata governance evolvable</h2>
+<div class="topic-heading">
+<h1>Policy Validation</h1>
+<h2>Evolve governance without breaking validity</h2>
+</div>
 <p class="slide-subtitle">Keep a stable validity gate, then let providers declare and shift-left validate the policies their resources meet.</p>
 </header>
 <PolicyValidationDiagram></PolicyValidationDiagram>
@@ -705,9 +819,12 @@ routeAlias: pull-sequence
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Pull transport sequence"></DeckLogo>
-<DeepDiveNav back-to="pull-overview" back-label="Pull transport" next-to="aggregator-discovery" next-label="Discovery API" spec-href="https://open-resource-discovery.org/spec-v1#pull-transport-sequence-diagram"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#pull-transport-sequence-diagram"></DeepDiveNav>
 <header class="slide-header wide-header">
+<div class="topic-heading">
+<h1>Pull Sequence</h1>
 <h2>Discover, fetch, then follow definitions</h2>
+</div>
 <p class="slide-subtitle">Service discovery supplies known system instances; ORD begins at the provider's well-known configuration.</p>
 </header>
 <PullSequenceDiagram></PullSequenceDiagram>
@@ -718,9 +835,12 @@ routeAlias: aggregator-discovery
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Aggregation &amp; Discovery API"></DeckLogo>
-<DeepDiveNav back-to="ord-roles" back-label="Roles" spec-href="https://open-resource-discovery.org/spec-v1#ord-discovery-api"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#ord-discovery-api"></DeepDiveNav>
 <header class="slide-header wide-header">
+<div class="topic-heading">
+<h1>Aggregation</h1>
 <h2>Turn provider metadata into a useful discovery view</h2>
+</div>
 <p class="slide-subtitle">Keep provider publishing simple; let the aggregator do the work for consumers.</p>
 </header>
 <div class="adoption-grid">
@@ -736,9 +856,12 @@ routeAlias: push-preview
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Preview · proposal"></DeckLogo>
-<DeepDiveNav back-to="pull-overview" back-label="Pull transport" spec-href="https://github.com/open-resource-discovery/specification/pull/187" spec-label="Push proposal"></DeepDiveNav>
+<DeepDiveNav spec-href="https://github.com/open-resource-discovery/specification/pull/187" spec-label="Push proposal"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>Preview: ORD Push Transport Mode</h2>
+<div class="topic-heading">
+<h1>Push Transport</h1>
+</div>
+<p class="slide-subtitle">Preview provider-initiated metadata delivery.</p>
 </header>
 <PushPreviewDiagram></PushPreviewDiagram>
 </div>
@@ -759,9 +882,11 @@ routeAlias: tools-ecosystem
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Overview"></DeckLogo>
-<DeepDiveNav back-to="introduction" back-label="Main presentation" :show-index="false"></DeepDiveNav>
 <header class="slide-header wide-header">
-<h2>From specification to working ecosystem</h2>
+<div class="topic-heading">
+<h1>Tools &amp; Ecosystem</h1>
+<h2>Move from specification to working software</h2>
+</div>
 <p class="slide-subtitle">Nine toolsets help you publish ORD, explore metadata, and build integrations.</p>
 </header>
 <ToolsEcosystemIndex></ToolsEcosystemIndex>

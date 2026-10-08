@@ -1,5 +1,5 @@
 <template>
-  <figure class="data-model-diagram" aria-label="ORD high-level information model">
+  <figure class="data-model-diagram" aria-label="Three areas of the ORD information model: system context, resources and capabilities, and taxonomy and access">
     <section class="model-column system">
       <header>
         <span>Context</span>
@@ -19,7 +19,7 @@
         <div class="item">APIs</div>
         <div class="item">Events</div>
         <div class="item">Data Products</div>
-        <div class="item capability">Capabilities<span>(skills, agent plugins)</span></div>
+        <div class="item capability">Capabilities<span>(skills, agent plugins, workflows)</span></div>
         <div class="item">Agents</div>
         <div class="item wide">Integration Dependencies</div>
       </div>
@@ -37,10 +37,6 @@
       <div class="item">Consumption Bundle</div>
     </section>
 
-    <figcaption>
-      <strong>ORD Document</strong>
-      <span>Stable IDs, lifecycle, visibility, definitions, and relationships connect the three parts.</span>
-    </figcaption>
   </figure>
 </template>
 
@@ -50,7 +46,6 @@
   width: min(100%, 620px);
   min-height: 500px;
   grid-template-columns: 0.8fr 1.35fr 0.95fr;
-  grid-template-rows: 1fr auto;
   gap: 12px;
   margin: 0;
 }
@@ -123,29 +118,4 @@
 
 .item.capability { flex-direction: column; align-items: flex-start; gap: 5px; }
 .item.capability span { color: var(--ord-muted); font-size: 13px; font-weight: 500; }
-
-figcaption {
-  display: flex;
-  grid-column: 1 / -1;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border: 1px solid var(--ord-teal-line);
-  border-radius: var(--ord-radius);
-  background: var(--ord-teal-soft);
-  padding: 15px 18px;
-}
-
-figcaption strong {
-  color: var(--ord-text);
-  font-size: 18px;
-  white-space: nowrap;
-}
-
-figcaption span {
-  color: var(--ord-muted);
-  font-size: 13px;
-  line-height: 1.35;
-  text-align: right;
-}
 </style>

@@ -18,7 +18,7 @@
       <section class="breaking">
         <header><span>Incompatible change</span><strong>Create a successor identity</strong></header>
         <div class="version-row"><code>…:Order:v1</code><b>deprecated</b><i>→</i><code>…:Order:v2</code><b>active</b></div>
-        <p>Link the successor; deprecation is a separate decision. When decommissioned, remove or mark sunset and publish a tombstone.</p>
+        <p>Link the successor; deprecation is a separate decision. When decommissioned, mark the resource as sunset.</p>
       </section>
     </div>
 

@@ -13,14 +13,19 @@ withDefaults(
 )
 
 const { $page, $nav } = useSlideContext()
+const overviewRoutes: Record<string, string> = {
+  'Deep dives': 'deep-dives',
+  'Tools & Ecosystem': 'tools-ecosystem',
+}
 const chapter = computed(() => {
   const divider = $nav.value.slides
     .filter(slide => slide.no <= $page.value && slide.meta?.slide?.frontmatter.deckSection)
     .at(-1)
   if (!divider) return undefined
+  const label = String(divider.meta.slide.frontmatter.deckSection)
   return {
-    label: String(divider.meta.slide.frontmatter.deckSection),
-    to: divider.meta.slide.frontmatter.routeAlias ?? String(divider.no),
+    label,
+    to: overviewRoutes[label] ?? divider.meta.slide.frontmatter.routeAlias ?? String(divider.no),
     no: divider.no,
   }
 })
@@ -35,7 +40,7 @@ const chapter = computed(() => {
     <span class="deck-context-separator" aria-hidden="true"></span>
     <nav class="deck-breadcrumb" aria-label="Breadcrumb">
       <template v-if="chapter && chapter.no !== $page">
-        <RouterLink class="deck-chapter" :to="`/${chapter.to}`" :aria-label="`Back to ${chapter.label} divider`">{{ chapter.label }}</RouterLink>
+        <RouterLink class="deck-chapter" :to="`/${chapter.to}`" :aria-label="`Back to ${chapter.label}`">{{ chapter.label }}</RouterLink>
         <span class="breadcrumb-separator" aria-hidden="true">›</span>
       </template>
       <span class="deck-context" aria-current="page">{{ section }}</span>
