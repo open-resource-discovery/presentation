@@ -67,13 +67,22 @@ withDefaults(
   bottom: 16px;
   left: 24px;
   z-index: 7;
+  border: 0;
+  border-radius: 3px;
+  background: var(--ord-link-bg);
   color: var(--ord-brand);
   font-size: 13px;
   font-weight: 600;
   line-height: 20px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  margin: -1px -4px;
+  padding: 1px 4px;
+  text-decoration: none;
+  transition: background-color 140ms ease;
 }
 
-.deep-dive-source:hover { color: var(--ord-text); }
+.deep-dive-source:hover {
+  border: 0;
+  background: var(--ord-link-bg-hover);
+  color: var(--ord-brand);
+}
 </style>

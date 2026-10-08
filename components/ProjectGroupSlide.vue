@@ -306,12 +306,12 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 <style scoped>
 .ecosystem-project-slide { gap: 14px; }
 .ecosystem-project-slide .slide-header { gap: 2px; }
-.project-heading { display: flex; max-width: 1136px; min-width: 0; align-items: baseline; gap: 16px; }
+.project-heading { display: flex; max-width: 1136px; min-width: 0; align-items: baseline; gap: 10px; }
 .ecosystem-project-slide .slide-header h1 { flex: none; max-width: none; font-size: 38px; line-height: 1.08; white-space: nowrap; }
 .ecosystem-project-slide .slide-header h1 a { border: 0; color: var(--ord-text); text-decoration: none; }
 .ecosystem-project-slide .slide-header h1 a:hover { color: var(--ord-brand); }
 .ecosystem-project-slide .slide-header h1 a:focus-visible { outline: 2px solid var(--ord-brand); outline-offset: 3px; }
-.ecosystem-project-slide .slide-header h2 { min-width: 0; max-width: none; border-left: 1px solid var(--ord-sep); color: var(--ord-muted); font-size: 21px; font-weight: 650; line-height: 1.25; padding-left: 16px; white-space: nowrap; }
+.ecosystem-project-slide .slide-header h2 { min-width: 0; max-width: none; transform: translateY(1px); color: #1e9095; font-size: 21px; font-weight: 650; line-height: 1.25; white-space: nowrap; }
 .ecosystem-project-slide .slide-subtitle { max-width: 1130px; font-size: 16px; line-height: 1.35; }
 .ecosystem-project-slide .slide-subtitle a { color: var(--ord-brand); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .ecosystem-project-slide .slide-subtitle a:hover { color: var(--ord-text); }
@@ -341,6 +341,6 @@ const nextGroup = computed(() => groupIndex.value >= 0 && groupIndex.value < gro
 .repository-card footer { display: flex; grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; gap: 5px; padding: 0; }
 .repository-card footer a { border: 0; color: var(--ord-brand); font-size: 11px; font-weight: 700; text-decoration: none; }
 .repository-card footer a:hover { text-decoration: underline; }
-.concept-link { position: absolute; bottom: 16px; left: 24px; z-index: 7; color: var(--ord-brand); font-size: 13px; font-weight: 700; line-height: 20px; text-decoration: none; }
-.concept-link:hover { text-decoration: underline; }
+.concept-link { position: absolute; bottom: 16px; left: 24px; z-index: 7; border: 0; border-radius: 3px; background: var(--ord-link-bg); color: var(--ord-brand); font-size: 13px; font-weight: 700; line-height: 20px; margin: -1px -4px; padding: 1px 4px; text-decoration: none; transition: background-color 140ms ease; }
+.concept-link:hover { border: 0; background: var(--ord-link-bg-hover); color: var(--ord-brand); }
 </style>
