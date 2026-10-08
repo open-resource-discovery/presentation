@@ -911,45 +911,6 @@
 .outcome-card p { color: var(--ord-muted); font-size: 18px; line-height: 1.4; }
 .outcome-card svg { width: 64px; height: 64px; fill: none; stroke: var(--ord-brand); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 
-.adoption-grid {
-  display: grid;
-  flex: 1;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  align-content: center;
-}
-
-.adoption-card {
-  display: grid;
-  grid-template-rows: 22px 36px 1fr;
-  gap: 20px;
-  border: 1px solid var(--ord-sep);
-  border-top: 5px solid var(--ord-provider);
-  border-radius: var(--ord-radius);
-  background: var(--ord-card-bg);
-  padding: 27px;
-}
-
-.adoption-card.provider-card { background: var(--ord-provider-soft); }
-.adoption-card.aggregator-card { border-top-color: var(--ord-aggregator); background: var(--ord-aggregator-soft); }
-.adoption-card.consumer-card { border-top-color: var(--ord-consumer); background: var(--ord-consumer-soft); }
-.adoption-number { color: var(--ord-faint); font-family: var(--ord-font); font-size: 14px; font-weight: 700; }
-.adoption-card h3 { font-size: 27px; }
-.adoption-card p { min-height: 100px; color: var(--ord-muted); font-size: 19px; line-height: 1.42; }
-.adoption-note {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  border-left: 4px solid var(--ord-brand-2);
-  background: var(--ord-teal-soft);
-  color: var(--ord-muted);
-  font-size: 17px;
-  line-height: 1.4;
-  padding: 14px 18px;
-}
-.adoption-note strong { color: var(--ord-text); font-size: 19px; }
-.adoption-note nav { display: flex; gap: 28px; margin-top: 3px; }
-.adoption-note a { color: var(--ord-brand); font-size: 16px; }
 .feature-status-note { margin-top: 18px !important; color: var(--ord-muted); font-size: 16px; line-height: 1.4; }
 .statement-list li::before {
   position: absolute;

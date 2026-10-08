@@ -404,49 +404,33 @@ routeAlias: adoption
 <DeckLogo section="Adoption"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
-<h1>ORD Adoption</h1>
+<h1>Choose a Publishing Path</h1>
 </div>
-<p class="slide-subtitle">Start with one API and one useful consumer.</p>
+<p class="slide-subtitle">Check framework support first, then decide whether the metadata is static or tenant-aware.</p>
 </header>
-<div class="adoption-grid">
-<section class="adoption-card provider-card">
-<span class="adoption-number">01</span>
-<h3>Provider</h3>
-<p>Publish a Package and one API Resource. Link the existing OpenAPI definition and expose ORD configuration.</p>
-</section>
-<section class="adoption-card aggregator-card">
-<span class="adoption-number">02</span>
-<h3>Aggregator</h3>
-<p>Crawl and validate the metadata. Resolve the effective view and preserve metadata access boundaries.</p>
-</section>
-<section class="adoption-card consumer-card">
-<span class="adoption-number">03</span>
-<h3>Consumer</h3>
-<p>Make the API discoverable in one catalog or developer tool, through an aggregator or directly from its Provider.</p>
-</section>
-</div>
-<div class="adoption-note"><strong>Pilot: describe → validate → discover.</strong><span>Keep the contract in its native format; add Entity Types and dependencies as the use case grows.</span><nav aria-label="Pilot tools"><RouterLink to="/project-reference">Explore a reference implementation →</RouterLink><RouterLink to="/project-publishing">Choose publishing tools →</RouterLink></nav></div>
+<AdoptionDecisionGuide></AdoptionDecisionGuide>
+<DeepDiveLink to="project-publishing" label="Provider Server" kicker="Tool" source-href="https://open-resource-discovery.org/help/faq/adopt-ord-as-provider" source-label="Provider adoption guide"></DeepDiveLink>
 </div>
 
 ---
 routeAlias: adoption-path
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Adoption · Alternative"></DeckLogo>
+<DeckLogo section="Adoption · Developer guide"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
-<h1>Prove One Discovery Path</h1>
+<h1>Build, Validate, Connect</h1>
 </div>
-<p class="slide-subtitle">Make the value visible before expanding the metadata model or rollout.</p>
+<p class="slide-subtitle">Use ORD’s published contracts, test the complete output, then make it discoverable.</p>
 </header>
 <AdoptionPath></AdoptionPath>
-<DeepDiveLink to="project-reference" label="Reference implementation" source-href="https://open-resource-discovery.org/help/faq/adopt-ord-as-provider" source-label="Provider adoption guide"></DeepDiveLink>
+<DeepDiveLink to="project-reference" label="ORD Explorer" kicker="Tool" source-href="https://open-resource-discovery.org/spec-v1/interfaces/" source-label="Schemas &amp; interfaces"></DeepDiveLink>
 </div>
 
 <!--
-Alternative adoption slide based on ../ord-public/docs/introduction.mdx#start-with-one-api-and-one-useful-consumer
-(specification 1.16.4). It emphasizes the end-to-end proof of value rather
-than organizing the same pilot around the three ORD roles.
+Developer adoption guide based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md
+and ../ord-public/docs/spec-v1/concepts/implementing-ord-natively.md
+(specification 1.16.4).
 -->
 
 ---
