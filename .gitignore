@@ -4,6 +4,7 @@
 /slides-export.pdf
 /test-results/
 /playwright-report/
+/.playwright-cli/
 /screenshots/
 /grounding/
 
