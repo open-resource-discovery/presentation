@@ -221,23 +221,23 @@ routeAlias: information-model
 <li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
 <li><strong>Common attributes and cross-relationships:</strong> stable, globally unique design-time IDs, ownership, lifecycle, visibility, definition references, and typed links connect the concepts.</li>
 </ul>
-<p class="feature-status-note">Beta in ORD 1.16.4: Data Products, Agents, Perspectives, and ORD Overlays.</p>
+<p class="feature-status-note">Beta in ORD 1.17: Data Products, Agents, Perspectives, and ORD Overlays.</p>
 </section>
 <section class="diagram-column">
 <DataModelDiagram></DataModelDiagram>
 </section>
-<DeepDiveLink to="namespace-concept" label="Namespaces and IDs" source-href="https://github.com/open-resource-discovery/specification/pull/158" source-label="Workflow proposal"></DeepDiveLink>
+<DeepDiveLink to="namespace-concept" label="Namespaces and IDs"></DeepDiveLink>
 </div>
 
 <!--
 Resources describe what a system exposes or requires. Taxonomy and access context make those descriptions easier to understand, group, and consume.
 
-Capabilities also provide an extensibility mechanism. A Provider can publish custom capabilities and define custom capability types, then link a machine-readable capability definition when more detail is needed. Skills and agent plugins are examples of what a capability could describe.
+Capabilities also provide an extensibility mechanism. A Provider can publish custom capability types and link a machine-readable capability definition when more detail is needed. ORD 1.17 standardizes Agent Skills, Agent Plugins, and Workflows as examples.
 
-The capability type is identified by a Specification ID, or by customType when type is custom. The generic Capability concept is released in ORD 1.16.4. Standardizing Skill types and their dependency semantics is a separate proposal, PR #102; the examples here do not imply standardized type IDs.
+The capability type is identified by a Specification ID, or by customType when type is custom. ORD 1.17 standardizes agent-skill, agent-plugin, and workflow types, including their recommended definition formats and dependency semantics.
 
 Beta status is collected here so it does not distract from the diagrams that follow. Data Products, Agents, Perspectives, and ORD Overlays retain their specified beta status.
-Workflow capabilities and their Arazzo definitions are proposed in specification PR #158.
+Workflow capabilities can link Arazzo definitions through the standardized arazzo-v1 definition type.
 -->
 
 ---
@@ -617,7 +617,7 @@ The Data Product resource owns the descriptive metadata; inputPorts reference
 Integration Dependencies for lineage, outputPorts reference API or Event
 Resources, and entityTypes connect the data set to business semantics.
 ORD describes discovery metadata and relationships, not the data transport.
-The Data Product concept contains beta properties in ORD 1.16.4.
+The Data Product concept contains beta properties in ORD 1.17.
 
 Sources: ../ord-public/docs/spec-v1/concepts/data-product.md and
 ../ord-public/spec/v1/Document.schema.yaml#DataProduct.
@@ -634,7 +634,7 @@ routeAlias: ai-discovery
 <h1>AI &amp; Agents</h1>
 <h2>Connect discovery, interaction, and dependencies</h2>
 </div>
-<p class="slide-subtitle">Including Skills and Plugins as proposed in <a href="https://github.com/open-resource-discovery/specification/pull/102" target="_blank" rel="noopener noreferrer">PR #102</a> for 1.17.</p>
+<p class="slide-subtitle">ORD 1.17 standardizes Agent Skills and Agent Plugins as discoverable Capabilities.</p>
 </header>
 <AiDiscoveryDiagram></AiDiscoveryDiagram>
 </div>
@@ -642,9 +642,9 @@ routeAlias: ai-discovery
 <!--
 An Agent is a conceptual resource describing autonomous task execution. It can exist without an exposed API. When it exposes an interaction contract, exposedApiResources references a separate API Resource; A2A with an Agent Card is one example, not a required protocol.
 
-Agent.integrationDependencies references Integration Dependency resources. Their aspects already support apiResources, eventResources, and generic capabilities in ORD 1.16.4. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
+Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
 
-PR #102 at commit 18fc27e67548f91c13f21ad0b283bb0725d47400 proposes agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. The dashed Capability-to-dependency arrow marks the proposed property. Capability references themselves are already released. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
+ORD 1.17 adds agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
 
 API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
@@ -653,8 +653,8 @@ API subsets can select MCP tools by operationId using the tool name. The accepte
 routeAlias: skills-preview
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Preview · proposed for 1.17"></DeckLogo>
-<DeepDiveNav spec-href="https://github.com/open-resource-discovery/specification/blob/18fc27e67548f91c13f21ad0b283bb0725d47400/docs/spec-v1/concepts/ai-agents-and-protocols.md#agent-skills-as-capabilities" spec-label="Skills proposal" secondary-href="https://github.com/open-resource-discovery/specification/pull/102" secondary-label="PR #102"></DeepDiveNav>
+<DeckLogo section="AI &amp; Agents"></DeckLogo>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#agent-skills-as-capabilities" spec-label="Agent Skills guidance"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Agent Skills &amp; Plugins</h1>

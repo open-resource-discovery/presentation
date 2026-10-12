@@ -1,7 +1,7 @@
 <template>
-  <figure class="skills-preview" aria-label="Proposed flow for publishing and consuming agent skills through ORD">
+  <figure class="skills-preview" aria-label="Flow for publishing and consuming agent skills through ORD">
     <div class="preview-banner">
-      <span>Proposal</span>
+      <span>ORD 1.17</span>
       <strong>Capability types <code>agent-skill</code> and <code>agent-plugin</code></strong>
     </div>
 
