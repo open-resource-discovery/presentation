@@ -11,7 +11,8 @@ const descriptionId = `${diagramId}-provider-desc`;
     <svg viewBox="0 0 700 570" role="img" :aria-labelledby="`${titleId} ${descriptionId}`">
       <title :id="titleId">ORD provider overview</title>
       <desc :id="descriptionId">
-        An application or service exposes ORD resources through provided interfaces and states integration dependencies
+        An application or service exposes ORD resources and capabilities, including Agent Skills, Agent Plugins, and
+        Workflows, through provided interfaces and states integration dependencies
         through a required interface socket connected to a resource described by another ORD Provider.
         The protocols and formats shown are examples; ORD supports more.
       </desc>
@@ -53,10 +54,13 @@ const descriptionId = `${diagramId}-provider-desc`;
         <tspan x="350" dy="30">/ Service</tspan>
       </text>
 
-      <g class="tag provided-tag" transform="translate(200 52)">
-        <rect width="260" height="62" rx="8" />
+      <g class="tag provided-tag" transform="translate(200 36)">
+        <rect width="260" height="78" rx="8" />
         <text x="130" y="25" text-anchor="middle">Capabilities</text>
-        <text class="protocol-examples" x="130" y="47" text-anchor="middle">Features · configuration · Skills</text>
+        <text class="protocol-examples" x="130" y="47" text-anchor="middle">
+          <tspan x="130">Agent Skills · Agent Plugins</tspan>
+          <tspan x="130" dy="17">Workflows · custom types</tspan>
+        </text>
       </g>
 
       <g class="tag provided-tag api-examples" transform="translate(520 100)">
