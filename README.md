@@ -32,8 +32,16 @@ npm run export   # slides-export.pdf
 
 - Slide content lives in `slides.md`.
 - Diagrams are Vue components under `components/`.
-- The connected metadata graph uses shared data from the specification. Run `npm run sync:diagrams` to update the vendored copy and `npm run check:diagrams` to detect drift. These commands find a sibling checkout named `ord-public` or `ord-spec`; use `-- --spec-root=/path/to/specification` for a different location. Builds use the local copy. See the specification's [`diagrams/README.md`](https://github.com/open-resource-discovery/specification/blob/main/diagrams/README.md) for the diagram mapping and visual review workflow.
+- The connected metadata graph, overlay explanation, and Draw.io SVGs use shared sources from the specification. Run `npm run sync:diagrams` to update the vendored copies and `npm run check:diagrams` to detect drift. These commands find a sibling checkout named `ord-public` or `ord-spec`; use `-- --spec-root=/path/to/specification` for a different location. Builds use the local copies. See the specification's [`diagrams/README.md`](https://github.com/open-resource-discovery/specification/blob/main/diagrams/README.md) for the diagram mapping and visual review workflow.
 - See [`AGENTS.md`](./AGENTS.md) for authoring conventions (routing, roles, styling).
+
+## Visual checks
+
+Run `npm run inspect` to render every visible slide at 1280×720. It writes screenshots and `inspection.json` to `screenshots/` and exits with a failure status for content overflow, text overlaps, broken images, browser errors, or text contrast below 3:1. Decorative background bleed and scrolling code are excluded from geometry checks.
+
+The contrast check composites solid and transparent CSS backgrounds, including code labels. It is a conservative regression guard, not a complete accessibility audit: SVG text, image/gradient backgrounds, and group opacity need visual review. Use `-- --min-contrast=4.5` for a stricter threshold, or `-- --report-only=true` to collect findings without failing. Inspect an existing dev server with `-- --url=http://localhost:3030`.
+
+Install the browser with `npx playwright install chromium --only-shell` if needed. `npm run test:inspection` exercises the inspection logic against browser fixtures, including the pale-text-on-white regression.
 
 ## License
 

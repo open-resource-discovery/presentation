@@ -161,7 +161,7 @@ onUnmounted(() => pendingRequest?.abort())
 <template>
   <div class="example-explorer" :class="{ 'live-mode': mode === 'live' }">
     <aside>
-      <span class="example-label">Orders example · ORD 1.16</span>
+      <span class="example-label">Orders example · ORD {{ document.openResourceDiscovery }}</span>
       <button v-for="(step, index) in steps" :key="step.file" class="step" :class="{ active: active === index }" :aria-pressed="active === index" @click="select(index)">
         <span>0{{ index + 1 }}</span><strong>{{ step.label }}</strong><small>{{ step.purpose }}</small>
       </button>

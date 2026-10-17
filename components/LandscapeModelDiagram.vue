@@ -4,7 +4,7 @@ import { assetUrl } from '../utils/asset-url'
 
 <template>
   <figure class="landscape-model" aria-label="Authoritative ORD system landscape model, including namespaces and cardinalities">
-    <!-- Unmodified diagram from ord-public/static/img/system-landscape/system.drawio.svg (1.16.4). -->
+    <!-- Shared SVG from the specification; sync with npm run sync:diagrams. -->
     <img :src="assetUrl('img/spec/system-landscape.drawio.svg')" alt="System instances belong to deployments and system types; types connect to products, vendors, and namespaces. ORD resources are provided by instances and can declare a minimum system version." />
     <figcaption><span><b>Static context</b> · types, versions, products, namespaces</span><span><b>Dynamic context</b> · deployments and instances</span></figcaption>
   </figure>

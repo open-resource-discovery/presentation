@@ -18,11 +18,11 @@
       <section class="breaking">
         <header><span>Incompatible change</span><strong>Create a successor identity</strong></header>
         <div class="version-row"><code>…:Order:v1</code><b>deprecated</b><i>→</i><code>…:Order:v2</code><b>active</b></div>
-        <p>Link the successor; deprecation is a separate decision. When decommissioned, mark the resource as sunset.</p>
+        <p>Link the successor; deprecation is a separate decision. On retirement, publish a tombstone; remove the resource or retain it as sunset with a sunsetDate.</p>
       </section>
     </div>
 
-    <figcaption><strong>Three separate signals:</strong> identity in the ORD ID, API contract state in <code>version</code>, and maturity in <code>releaseStatus</code>. <span class="exception">Development and beta resources may break without a new major ID; tenant extensions update <code>lastUpdate</code>.</span></figcaption>
+    <figcaption><strong>Three separate signals:</strong> identity in the ORD ID, contract state in <code>version</code>, and maturity in <code>releaseStatus</code>. <span class="exception">Development and beta resources may break without a new major ID; tenant extensions update <code>lastUpdate</code>.</span></figcaption>
   </figure>
 </template>
 
