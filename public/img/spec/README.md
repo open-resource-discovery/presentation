@@ -11,4 +11,6 @@ Originally imported from release **1.16.4**, commit `ce0dea1478c56238f0aff75f766
 
 Preserve the embedded Draw.io source and vector connectors when refreshing these files. The surrounding Vue components handle slide sizing, accessible descriptions, captions, and explanatory text.
 
+Edit layouts and styling in the specification first, then sync here. The [specification's Draw.io style guide](https://github.com/open-resource-discovery/specification/blob/main/diagrams/README.md#retained-drawio-sources) documents the shared palette. Native Vue diagrams, including `DataProductDiagram.vue`, remain separate implementations.
+
 The source specification is licensed under Apache-2.0; the original license is included in [LICENSE](./LICENSE).
