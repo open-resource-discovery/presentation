@@ -2,7 +2,7 @@
 
 These SVGs are copied byte-for-byte from the authoritative sibling specification checkout (`ord-spec` or `ord-public`). Run `npm run sync:diagrams` to refresh them and `npm run check:diagrams` to detect drift.
 
-Originally imported from release **1.16.4**, commit `ce0dea1478c56238f0aff75f7665c301e74f0577`, they now use the presentation's pale accent palette, neutral connectors, and rounded cards. The layout, labels, connector paths, and embedded editable Draw.io geometry are preserved; the embedded source carries the same styling.
+Originally imported from release **1.16.4**, commit `ce0dea1478c56238f0aff75f7665c301e74f0577`, they now use the presentation's accent colors, neutral connectors, and rounded cards. Fills and outlines are stronger in these dense diagrams so color groups remain distinct at slide size. The layout, labels, connector paths, and embedded editable Draw.io geometry are preserved; the embedded source carries the same styling.
 
 | Presentation asset | Source in specification | Slide slug |
 | --- | --- | --- |
