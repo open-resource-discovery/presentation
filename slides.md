@@ -634,7 +634,7 @@ routeAlias: ai-discovery
 <h1>AI &amp; Agents</h1>
 <h2>Connect discovery, interaction, and dependencies</h2>
 </div>
-<p class="slide-subtitle">ORD 1.17 standardizes Agent Skills and Agent Plugins as discoverable Capabilities.</p>
+<p class="slide-subtitle">Capabilities describe Agent Skills, Agent Plugins, Workflows, and custom behavior.</p>
 </header>
 <AiDiscoveryDiagram></AiDiscoveryDiagram>
 </div>
@@ -670,7 +670,7 @@ An Agent is a conceptual resource describing autonomous task execution. It can e
 
 The diagram is a resource model: one box per concept, with multiplicity shown by 1 or 0..n rather than stacked copies. Every Agent belongs to one Package; Products, Groups, Entity Types, successor Agents, interaction APIs, and Integration Dependencies are optional relationships. Product assignments can also be inherited from the Package.
 
-Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. Capability references can point to Agent Skills or Agent Plugins, as well as other Capability types. Multiple mandatory aspects combine with AND; alternatives within an aspect combine with OR. Arrows show metadata references, not runtime calls.
+Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. Capability references can point to Agent Skills, Agent Plugins, Workflows, or custom Capability types. Multiple mandatory aspects combine with AND; alternatives within an aspect combine with OR. Arrows show metadata references, not runtime calls.
 
 The next slide covers the ORD 1.17 agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and plugin subset selection through skillName. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
 

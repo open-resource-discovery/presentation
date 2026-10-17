@@ -6,7 +6,7 @@ const id = useId()
 </script>
 
 <template>
-  <figure class="ai-diagram" aria-label="AI and Agents: interaction contracts and external dependencies, including Agent Skills and Agent Plugins">
+  <figure class="ai-diagram" aria-label="AI and Agents: interaction contracts and external dependencies, including Agent Skills, Agent Plugins, and Workflows">
     <svg :viewBox="graph.viewBox" role="img" :aria-labelledby="id + '-title ' + id + '-desc'">
       <title :id="id + '-title'">Fulfillment Agent: interaction and external dependencies</title>
       <desc :id="id + '-desc'">{{ graph.description }}</desc>

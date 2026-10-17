@@ -5,7 +5,7 @@ import { assetUrl } from '../utils/asset-url'
 <template>
   <figure class="agent-model-diagram" aria-label="Agent relationship model: ownership, interaction APIs, domain context, and dependencies">
     <!-- Canonical editable model lives in the specification; refresh with npm run sync:diagrams. -->
-    <img :src="assetUrl('img/spec/ord-ai-agent.drawio.svg')" alt="An Agent belongs to one Package and can reference Products, Groups, Entity Types, successor Agents, APIs and Integration Dependencies. Dependency aspects can reference Agent Skills and Plugins through Capabilities." />
+    <img :src="assetUrl('img/spec/ord-ai-agent.drawio.svg')" alt="An Agent belongs to one Package and can reference Products, Groups, Entity Types, successor Agents, APIs and Integration Dependencies. Dependency aspects can reference Agent Skills, Plugins, and Workflows through Capabilities." />
   </figure>
 </template>
 
