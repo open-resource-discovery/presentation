@@ -15,7 +15,7 @@
 
       <div class="connection definition"><span>definition</span><i>→</i></div>
       <section class="skill-card">
-        <small>Portable package</small>
+        <small>ZIP definition</small>
         <strong>Agent Skill</strong>
         <code>agent-skill-zip</code>
         <span>instructions · scripts · resources</span>
@@ -33,6 +33,7 @@
       <span>Agents and Capabilities declare requirements through Integration Dependencies</span>
       <b>APIs / MCP</b><b>Events</b><b>Skills</b><b>Plugins</b>
     </div>
+    <figcaption>Definitions are optional. Recommended formats: <code>agent-skill-zip</code> and <code>agent-plugin-zip</code>; ORD does not prescribe the archive layout.</figcaption>
   </figure>
 </template>
 
@@ -57,4 +58,6 @@
 .dependency-row { display: grid; grid-template-columns: 1fr repeat(4, auto); align-items: center; gap: 10px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 14px 17px; }
 .dependency-row span { color: var(--ord-muted); font-size: 13px; }
 .dependency-row b { border-radius: 999px; background: var(--ord-card-bg); color: var(--ord-text); font-size: 11px; padding: 7px 10px; }
+figcaption { color: var(--ord-muted); font-size: 14px; line-height: 1.4; }
+figcaption code { font-size: inherit; }
 </style>

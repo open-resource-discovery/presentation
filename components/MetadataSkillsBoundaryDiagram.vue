@@ -41,7 +41,7 @@ header strong { color: var(--ord-text); font-size: 25px; }
 .metadata-layers div { display: flex; min-width: 0; flex-direction: column; gap: 8px; border: 1px solid var(--ord-border); border-radius: 8px; background: #fff; padding: 15px; }
 .metadata-layers small { color: var(--ord-brand); font-size: 11px; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; }
 .metadata-layers b { color: var(--ord-text); font-size: 16px; line-height: 1.3; }
-.metadata-layers code { margin-top: auto; color: var(--ord-muted); font-size: 11px; line-height: 1.35; }
+.metadata-layers code { margin-top: auto; border-radius: 4px; background: var(--ord-panel-soft); color: var(--ord-brand); font-size: 12px; line-height: 1.35; padding: 5px 7px; }
 .metadata-plane footer { display: flex; flex-direction: column; gap: 3px; margin-top: 12px; border-radius: 7px; background: var(--ord-panel); padding: 12px 15px; }
 .metadata-plane footer strong { color: var(--ord-text); font-size: 15px; }
 .metadata-plane footer span { color: var(--ord-muted); font-size: 13px; line-height: 1.35; }

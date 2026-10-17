@@ -4,8 +4,12 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
 import { parseSync } from "@slidev/parser";
+import { inspectSlide } from "./slide-inspection.mjs";
 
 const options = parseArgs(process.argv.slice(2));
+const minimumContrast = Number(options["min-contrast"] ?? 3);
+if (!Number.isFinite(minimumContrast) || minimumContrast < 1 || minimumContrast > 21)
+  throw new Error("--min-contrast must be a ratio between 1 and 21.");
 const port = Number(options.port ?? process.env.PORT ?? 3131);
 const source = await readFile("slides.md", "utf8");
 const parsed = parseSync(source, "slides.md");
@@ -62,48 +66,7 @@ try {
     await page.locator(`.slidev-page-${index} .slide-shell`).waitFor();
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(800);
-    report.push(await page.evaluate((slide) => {
-      const root = document.querySelector(`.slidev-page-${slide} .slide-shell`);
-      const bounds = root.getBoundingClientRect();
-      const overflow = [];
-      const textBoxes = [];
-      for (const element of root.querySelectorAll("*")) {
-        const style = getComputedStyle(element);
-        const rect = element.getBoundingClientRect();
-        if (!rect.width || !rect.height || style.display === "none" || style.visibility === "hidden") continue;
-        // Scrollable example code intentionally extends beyond its viewport.
-        if (element.closest("pre, .json-viewer")) continue;
-        if (rect.left < bounds.left - 1 || rect.right > bounds.right + 1 || rect.top < bounds.top - 1 || rect.bottom > bounds.bottom + 1)
-          overflow.push({ element: element.tagName, class: element.getAttribute("class"), text: element.textContent.trim().slice(0, 100) });
-      }
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-      let textNode = 0;
-      while (walker.nextNode()) {
-        textNode += 1;
-        const node = walker.currentNode;
-        if (!node.textContent.trim() || node.parentElement.closest("svg, pre, .json-viewer, style, script")) continue;
-        const range = document.createRange();
-        range.selectNodeContents(node);
-        for (const rect of range.getClientRects()) {
-          if (rect.width && rect.height)
-            textBoxes.push({ textNode, text: node.textContent.trim().slice(0, 80), left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom });
-        }
-      }
-      const overlaps = [];
-      for (let a = 0; a < textBoxes.length; a++) {
-        for (let b = a + 1; b < textBoxes.length; b++) {
-          const first = textBoxes[a], second = textBoxes[b];
-          if (first.textNode === second.textNode) continue;
-          if (Math.min(first.right, second.right) - Math.max(first.left, second.left) > 2 &&
-              Math.min(first.bottom, second.bottom) - Math.max(first.top, second.top) > 2)
-            overlaps.push([first.text, second.text]);
-        }
-      }
-      const brokenImages = [...root.querySelectorAll("img")]
-        .filter(image => image.complete && image.naturalWidth === 0)
-        .map(image => image.currentSrc || image.src);
-      return { slide, title: root.querySelector("h1, h2")?.textContent.trim(), overflow, overlaps, brokenImages };
-    }, index));
+    report.push(await page.evaluate(inspectSlide, { slide: index, minimumContrast }));
     report.at(-1).slug = slug;
     await page.screenshot({
       path: path.join(outDir, `slide-${String(index).padStart(2, "0")}.png`),
@@ -112,8 +75,15 @@ try {
     await page.close();
   }
 
-  await writeFile(path.join(outDir, "inspection.json"), JSON.stringify({ viewport: { width: 1280, height: 720 }, errors, slides: report }, null, 2));
+  await writeFile(path.join(outDir, "inspection.json"), JSON.stringify({ viewport: { width: 1280, height: 720 }, minimumContrast, errors, slides: report }, null, 2));
+  const issues = report.filter(slide => slide.overflow.length || slide.overlaps.length || slide.brokenImages.length || slide.lowContrast.length);
   console.log(`Wrote ${report.length} screenshots and inspection.json to ${outDir}/`);
+  for (const slide of issues)
+    console.error(`${slide.slug}: ${slide.overflow.length} overflow, ${slide.overlaps.length} overlaps, ${slide.brokenImages.length} broken images, ${slide.lowContrast.length} low-contrast text nodes`);
+  if (errors.length || issues.length) {
+    console.error(`Inspection found issues on ${issues.length} slides and ${errors.length} browser errors.`);
+    if (options["report-only"] !== "true") process.exitCode = 1;
+  }
 } catch (error) {
   console.error(logTail);
   throw error;

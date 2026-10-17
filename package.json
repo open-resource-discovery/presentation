@@ -16,6 +16,7 @@
     "build:pages": "slidev build --base /presentation/ --out dist && node scripts/install-pages-fallback.mjs",
     "export": "slidev export --format pdf --output slides-export.pdf",
     "inspect": "node scripts/inspect-slides.mjs",
+    "test:inspection": "node --test scripts/slide-inspection.test.mjs",
     "sync:diagrams": "node scripts/sync-diagrams.mjs",
     "check:diagrams": "node scripts/sync-diagrams.mjs --check"
   },

@@ -1,5 +1,12 @@
+<script setup>
+import overlay from '../data/diagrams/overlay.json'
+</script>
+
 <template>
   <figure class="overlay-diagram" aria-label="An ORD Overlay enriches a resource definition without modifying the source">
+    <div class="overview">
+      <section v-for="item in overlay.overview" :key="item.title"><strong>{{ item.title }}</strong><span>{{ item.text }}</span></section>
+    </div>
     <div class="flow">
       <section class="artifact source">
         <span class="kind">Source definition</span>
@@ -13,7 +20,7 @@
       <section class="artifact overlay">
         <span class="kind">ORD Overlay 0.1</span>
         <strong>orders.overlay.json</strong>
-        <code><i>action</i>: merge<br><i>selector</i>: {<br>&nbsp; <i>operation</i>: listOrders<br>}<br><i>data</i>: { summary: … }</code>
+        <code><i>action</i>: merge<br><i>selector</i>:<br>&nbsp; <i>operation</i>: listOrders<br><i>data</i>: { summary: … }</code>
         <small>Separately owned, versioned, and governed</small>
       </section>
 
@@ -28,17 +35,20 @@
     </div>
 
     <figcaption>
-      <span><b>Target</b> ORD ID + definition type or URL</span>
-      <span><b>Select</b> operation, entity, property, root, or JSONPath</span>
-      <span><b>Patch</b> merge, update, or remove</span>
+      <span v-for="step in overlay.steps" :key="step.title"><b>{{ step.title }}</b> {{ step.text }}</span>
     </figcaption>
+    <p class="comparison">{{ overlay.comparison }}</p>
   </figure>
 </template>
 
 <style scoped>
-.overlay-diagram { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; gap: 18px; margin: 0; }
+.overlay-diagram { display: flex; flex: 1; min-height: 0; flex-direction: column; justify-content: center; gap: 12px; margin: 0; }
+.overview { display: grid; grid-template-columns: 1.15fr 1.2fr 1fr; gap: 12px; }
+.overview section { display: flex; flex-direction: column; gap: 4px; border-left: 3px solid var(--ord-brand-2); background: var(--ord-teal-soft); padding: 10px 13px; }
+.overview strong { color: var(--ord-text); font-size: 16px; }
+.overview span { color: var(--ord-muted); font-size: 14px; line-height: 1.35; }
 .flow { display: grid; grid-template-columns: 1fr 62px 1fr 62px 1fr; align-items: stretch; }
-.artifact { display: flex; min-width: 0; min-height: 280px; flex-direction: column; gap: 12px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 22px; }
+.artifact { display: flex; min-width: 0; min-height: 270px; flex-direction: column; gap: 10px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 18px; }
 .artifact.overlay { border: 2px solid var(--ord-brand-2); background: var(--ord-teal-soft); }
 .artifact.result { border-color: var(--ord-brand); background: linear-gradient(145deg, var(--ord-card-bg), var(--ord-sky-soft)); }
 .kind { color: var(--ord-brand); font-size: 14px; font-weight: 750; }
@@ -52,4 +62,5 @@
 figcaption { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: center; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 13px 16px; }
 figcaption span { color: var(--ord-muted); font-size: 16px; }
 figcaption b { color: var(--ord-text); }
+.comparison { color: var(--ord-muted); font-size: 14px; line-height: 1.35; }
 </style>

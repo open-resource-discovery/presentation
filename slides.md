@@ -124,22 +124,6 @@ routeAlias: self-description
 </div>
 
 ---
-routeAlias: ord-roles
----
-<div class="slide-shell light-slide">
-<DeckLogo section="Architecture"></DeckLogo>
-<header class="slide-header wide-header">
-<div class="topic-heading">
-<h1>ORD Roles</h1>
-<h2>Three roles divide the responsibilities</h2>
-</div>
-<p class="slide-subtitle">Providers publish a simple self-description, aggregators build a connected view, and consumers retrieve metadata through a discovery-oriented API.</p>
-</header>
-<RolesDiagram></RolesDiagram>
-<DeepDiveLink to="aggregator-discovery" label="Discovery API"></DeepDiveLink>
-</div>
-
----
 routeAlias: scope
 ---
 <div class="slide-shell light-slide">
@@ -155,23 +139,39 @@ routeAlias: scope
 <p class="scope-label">ORD does</p>
 <h3>Describe and connect</h3>
 <ul>
-<li>Inventory exposed resources and capabilities</li>
-<li>Link detailed machine-readable definitions</li>
-<li>Add common identity, lifecycle, taxonomy, and relations</li>
-<li>Standardize publishing and discovery behavior</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Inventory exposed resources and capabilities</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l2-2"/></svg><span>Link detailed machine-readable definitions</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="M10.5 8 6.5 16M13.5 8l4 8M8 19h8"/></svg><span>Add common identity, lifecycle, taxonomy, and relations</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="6" height="9" rx="1.5"/><rect x="15" y="8" width="6" height="9" rx="1.5"/><path d="M9 12h6m-3-3 3 3-3 3"/></svg><span>Standardize publishing and discovery behavior</span></li>
 </ul>
 </section>
 <section class="scope-card does-not">
 <p class="scope-label">ORD does not</p>
 <h3>Replace specialized concerns</h3>
 <ul>
-<li>Replace OpenAPI, AsyncAPI, A2A, or other contracts</li>
-<li>Transport business data or fast-moving telemetry</li>
-<li>Discover unknown systems before their location is known</li>
-<li>Make private or internal metadata public</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></svg><span>Replace OpenAPI, AsyncAPI, A2A, or other contracts</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h5l3-8 4 16 3-8h5"/></svg><span>Transport business data or fast-moving telemetry</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Discover unknown systems before their location is known</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="12" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4m-4 5v3"/></svg><span>Make private or internal metadata public</span></li>
 </ul>
 </section>
 </div>
+</div>
+
+---
+routeAlias: ord-roles
+---
+<div class="slide-shell light-slide">
+<DeckLogo section="Architecture"></DeckLogo>
+<header class="slide-header wide-header">
+<div class="topic-heading">
+<h1>ORD Roles</h1>
+<h2>Three roles divide the responsibilities</h2>
+</div>
+<p class="slide-subtitle">Providers publish a simple self-description, aggregators build a connected view, and consumers retrieve metadata through a discovery-oriented API.</p>
+</header>
+<RolesDiagram></RolesDiagram>
+<DeepDiveLink to="aggregator-discovery" label="Discovery API"></DeepDiveLink>
 </div>
 
 ---
@@ -219,7 +219,7 @@ routeAlias: information-model
 <ul class="statement-list compact-list">
 <li><strong>Resources:</strong> APIs, Events, Data Products, Agents, Capabilities, and Integration Dependencies.</li>
 <li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
-<li><strong>Common attributes and cross-relationships:</strong> stable, globally unique design-time IDs, ownership, lifecycle, visibility, definition references, and typed links connect the concepts.</li>
+<li><strong>Common attributes and cross-relationships:</strong> stable design-time IDs, ownership, lifecycle, visibility, definition references, and typed links connect the concepts.</li>
 </ul>
 <p class="feature-status-note">Beta in ORD 1.17: Data Products, Agents, Perspectives, and ORD Overlays.</p>
 </section>
@@ -404,9 +404,9 @@ routeAlias: adoption
 <DeckLogo section="Adoption"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
-<h1>Choose a Publishing Path</h1>
+<h1>Static Baseline, Then Tenant Context</h1>
 </div>
-<p class="slide-subtitle">Check framework support first, then decide whether the metadata is static or tenant-aware.</p>
+<p class="slide-subtitle">Always publish a static perspective; add a complete tenant view when metadata differs per tenant.</p>
 </header>
 <AdoptionDecisionGuide></AdoptionDecisionGuide>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/help/faq/adopt-ord-as-provider" spec-label="Provider adoption guide"></DeepDiveNav>
@@ -519,7 +519,7 @@ routeAlias: ord-identifiers
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="ORD identifiers"></DeckLogo>
-<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#ord-id-construction"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/identifiers#ord-id-construction"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD IDs</h1>
@@ -709,7 +709,7 @@ import ApiLifecycleDiagram from './components/ApiLifecycleDiagram.vue'
 <div class="topic-heading">
 <h1>API Lifecycle</h1>
 </div>
-<p class="slide-subtitle">Evolve, replace, then retire.</p>
+<p class="slide-subtitle">Evolve, allow migration, then retire.</p>
 </header>
 <ApiLifecycleDiagram></ApiLifecycleDiagram>
 </div>
@@ -843,12 +843,12 @@ routeAlias: aggregator-discovery
 </div>
 <p class="slide-subtitle">Keep provider publishing simple; let the aggregator do the work for consumers.</p>
 </header>
-<div class="adoption-grid">
-<section class="adoption-card provider-card"><span class="adoption-number">01 · Collect</span><h3>Crawl and validate</h3><p>Fetch ORD documents and linked definitions. Validate identities, references, and consistency across providers.</p></section>
-<section class="adoption-card aggregator-card"><span class="adoption-number">02 · Resolve</span><h3>Connect the view</h3><p>Resolve the effective perspective and relationships. Preserve visibility and metadata access boundaries.</p></section>
-<section class="adoption-card consumer-card"><span class="adoption-number">03 · Serve</span><h3>Support discovery</h3><p>Offer a consumer API that can support search, filtering, pagination, and expansion over the connected metadata.</p></section>
+<div class="aggregation-grid">
+<section class="aggregation-card"><span class="aggregation-number">01 · Collect</span><h3>Crawl and validate</h3><p>Fetch ORD documents and linked definitions. Validate identities, references, and consistency across providers.</p></section>
+<section class="aggregation-card"><span class="aggregation-number">02 · Resolve</span><h3>Connect the view</h3><p>Resolve the effective perspective and relationships. Preserve visibility and metadata access boundaries.</p></section>
+<section class="aggregation-card"><span class="aggregation-number">03 · Serve</span><h3>Support discovery</h3><p>Offer a consumer API that can support search, filtering, pagination, and expansion over the connected metadata.</p></section>
 </div>
-<div class="adoption-note"><strong>Each aggregator defines its Discovery API contract.</strong><span>ORD standardizes provider interfaces and aggregation responsibilities; a common Discovery API contract is not yet standardized.</span></div>
+<div class="aggregation-note"><strong>Each aggregator defines its Discovery API contract.</strong><span>ORD standardizes provider interfaces and aggregation responsibilities; a common Discovery API contract is not yet standardized.</span></div>
 </div>
 
 ---

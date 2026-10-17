@@ -1,8 +1,10 @@
 # Specification diagrams
 
-These SVGs are copied unchanged from the authoritative sibling `ord-public` repository, release **1.16.4**, commit `ce0dea1478c56238f0aff75f7665c301e74f0577`.
+These SVGs are copied byte-for-byte from the authoritative sibling specification checkout (`ord-spec` or `ord-public`). Run `npm run sync:diagrams` to refresh them and `npm run check:diagrams` to detect drift.
 
-| Presentation asset | Source in `ord-public` | Slide slug |
+Originally imported from release **1.16.4**, commit `ce0dea1478c56238f0aff75f7665c301e74f0577`, they now use the presentation's pale accent palette, neutral connectors, and rounded cards. The layout, labels, connector paths, and embedded editable Draw.io geometry are preserved; the embedded source carries the same styling.
+
+| Presentation asset | Source in specification | Slide slug |
 | --- | --- | --- |
 | `system-landscape.drawio.svg` | `static/img/system-landscape/system.drawio.svg` | `landscape-model` |
 | `integration-dependency.drawio.svg` | `static/img/integration-dependency.drawio.svg` | `integration-dependencies` |

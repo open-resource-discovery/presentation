@@ -35,7 +35,7 @@
 .code-card code { color: #d4d4d4; font-family: var(--ord-mono); font-size: 18px; line-height: 1.65; }
 .code-card i { color: #9cdcfe; font-style: normal; }
 .code-card em { color: #ce9178; font-style: normal; }
-.code-card mark { display: inline-block; border-left: 3px solid var(--ord-brand-2); background: rgba(50,188,172,.12); padding: 2px 5px; }
+.code-card mark { display: inline-block; border-left: 3px solid var(--ord-brand-2); background: rgba(50,188,172,.12); color: inherit; padding: 2px 5px; }
 .definition-stack { display: grid; grid-template-rows: auto 24px auto; align-content: center; gap: 4px; }
 .definition-stack > div { display: flex; flex-direction: column; justify-content: center; gap: 6px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 12px 18px; }
 .definition-stack > div.overlay { border-color: #9b7cff; background: rgba(155,124,255,.08); }
