@@ -2,12 +2,13 @@
 
 These SVGs are copied byte-for-byte from the authoritative sibling specification checkout (`ord-spec` or `ord-public`). Run `npm run sync:diagrams` to refresh them and `npm run check:diagrams` to detect drift.
 
-Originally imported from release **1.16.4**, commit `ce0dea1478c56238f0aff75f7665c301e74f0577`, they now use the presentation's accent colors, neutral connectors, and rounded cards. Fills and outlines are stronger in these dense diagrams so color groups remain distinct at slide size. The layout, labels, connector paths, and embedded editable Draw.io geometry are preserved; the embedded source carries the same styling.
+The System Landscape and Integration Dependency diagrams were originally imported from release **1.16.4**, commit `ce0dea1478c56238f0aff75f7665c301e74f0577`. Their latest layouts come from the spec. The Agent model was rebuilt using the spec's Data Product diagram as a visual basis. All three use the same accent palette, neutral connectors, and rounded cards; the embedded editable sources carry the same layout and styling.
 
 | Presentation asset | Source in specification | Slide slug |
 | --- | --- | --- |
 | `system-landscape.drawio.svg` | `static/img/system-landscape/system.drawio.svg` | `landscape-model` |
 | `integration-dependency.drawio.svg` | `static/img/integration-dependency.drawio.svg` | `integration-dependencies` |
+| `ord-ai-agent.drawio.svg` | `static/img/ord-ai-agent.drawio.svg` | `agent-model` |
 
 Preserve the embedded Draw.io source and vector connectors when refreshing these files. The surrounding Vue components handle slide sizing, accessible descriptions, captions, and explanatory text.
 

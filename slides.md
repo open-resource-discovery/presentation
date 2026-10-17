@@ -628,7 +628,7 @@ routeAlias: ai-discovery
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="AI &amp; Agents"></DeckLogo>
-<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#agent-example"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>AI &amp; Agents</h1>
@@ -645,6 +645,34 @@ An Agent is a conceptual resource describing autonomous task execution. It can e
 Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
 
 ORD 1.17 adds agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
+
+API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
+-->
+
+---
+routeAlias: agent-model
+---
+<div class="slide-shell light-slide deep-slide">
+<DeckLogo section="AI &amp; Agents"></DeckLogo>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
+<header class="slide-header wide-header">
+<div class="topic-heading">
+<h1>Agent Model</h1>
+<h2>Relationships and cardinalities</h2>
+</div>
+<p class="slide-subtitle">Describe ownership, domain context, optional interaction APIs, and external requirements.</p>
+</header>
+<AgentModelDiagram></AgentModelDiagram>
+</div>
+
+<!--
+An Agent is a conceptual resource describing autonomous task execution. It can exist without an exposed API. When it exposes an interaction contract, exposedApiResources references a separate API Resource; A2A with an Agent Card is one example, not a required protocol.
+
+The diagram is a resource model: one box per concept, with multiplicity shown by 1 or 0..n rather than stacked copies. Every Agent belongs to one Package; Products, Groups, Entity Types, successor Agents, interaction APIs, and Integration Dependencies are optional relationships. Product assignments can also be inherited from the Package.
+
+Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. Capability references can point to Agent Skills or Agent Plugins, as well as other Capability types. Multiple mandatory aspects combine with AND; alternatives within an aspect combine with OR. Arrows show metadata references, not runtime calls.
+
+The next slide covers the ORD 1.17 agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and plugin subset selection through skillName. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
 
 API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
