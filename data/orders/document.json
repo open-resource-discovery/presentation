@@ -1,5 +1,5 @@
 {
-  "openResourceDiscovery": "1.16",
+  "openResourceDiscovery": "1.17",
   "perspective": "system-type",
   "baseUrl": "https://orders.example.com",
   "describedSystemType": { "systemNamespace": "foo.orders" },

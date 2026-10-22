@@ -1,78 +1,26 @@
 <script setup>
 import { useId } from 'vue'
+import graph from '../data/diagrams/agent-example.json'
 
 const id = useId()
-const dependencyMarker = id + '-dependency'
-const interactionMarker = id + '-interaction'
 </script>
 
 <template>
-  <figure class="ai-diagram" aria-label="AI and Agents: interaction contracts and external dependencies, including Agent Skills and Agent Plugins">
-    <svg viewBox="0 0 1136 474" role="img" aria-label="Agents expose an interaction API and declare Integration Dependencies. Agent Skills and Agent Plugins can declare dependencies through the same model, referencing external APIs, Events, and Capabilities.">
-      <desc>This is a concept model, not one deployed workflow. An Agent links to its interaction API through exposedApiResources and to Integration Dependencies through integrationDependencies. Each dependency has aspects that reference external API Resources, Event Resources, or Capabilities. ORD 1.17 standardizes agent-skill and agent-plugin capability types, their ZIP definitions, Capability.integrationDependencies, and plugin subsets. Each Agent or Capability can reference its own Integration Dependencies; the central node represents the common concept.</desc>
+  <figure class="ai-diagram" aria-label="AI and Agents: interaction contracts and external dependencies, including Agent Skills, Agent Plugins, and Workflows">
+    <svg :viewBox="graph.viewBox" role="img" :aria-labelledby="id + '-title ' + id + '-desc'">
+      <title :id="id + '-title'">Fulfillment Agent: interaction and external dependencies</title>
+      <desc :id="id + '-desc'">{{ graph.description }}</desc>
       <defs>
-        <marker :id="dependencyMarker" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto"><path class="dependency-head" d="M0 0L10 5L0 10Z" /></marker>
-        <marker :id="interactionMarker" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto"><path class="interaction-head" d="M0 0L10 5L0 10Z" /></marker>
+        <marker v-for="type in ['dependency', 'interaction']" :key="type" :id="id + '-' + type" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto"><path :class="type + '-head'" d="M0 0L10 5L0 10Z" /></marker>
       </defs>
-
-      <text class="column-label" x="20" y="20">Described resources</text>
-      <text class="column-label" x="406" y="20">Declared requirements</text>
-      <text class="column-label" x="840" y="20">External resources</text>
-
-      <path class="interaction-edge" d="M170 146V208" :marker-end="'url(#' + interactionMarker + ')'" />
-      <text class="field-label interaction-label" x="184" y="180">exposedApiResources</text>
-      <path class="dependency-edge" d="M320 98H380V216H406" :marker-end="'url(#' + dependencyMarker + ')'" />
-      <text class="field-label dependency-label" x="392" y="178">integrationDependencies</text>
-      <path class="dependency-edge" d="M320 412H380V252H406" :marker-end="'url(#' + dependencyMarker + ')'" />
-      <text class="field-label dependency-label" x="392" y="346">integrationDependencies</text>
-
-      <path class="dependency-edge" d="M690 206H770V98H840" :marker-end="'url(#' + dependencyMarker + ')'" />
-      <path class="dependency-edge" d="M690 244H840" :marker-end="'url(#' + dependencyMarker + ')'" />
-      <path class="dependency-edge" d="M690 268H770V412H840" :marker-end="'url(#' + dependencyMarker + ')'" />
-      <text class="field-label dependency-label" x="784" y="178">apiResources</text>
-      <text class="field-label dependency-label" x="765" y="230" text-anchor="middle">eventResources</text>
-      <text class="field-label dependency-label" x="784" y="338">capabilities</text>
-
-      <g class="agent-node" transform="translate(20 50)">
-        <rect width="300" height="96" rx="8" />
-        <text class="kind" x="20" y="26">Agent</text>
-        <text class="name" x="20" y="57">Fulfillment Agent</text>
-        <text class="detail" x="20" y="82">Autonomous task execution</text>
-      </g>
-      <g class="api-node" transform="translate(20 208)">
-        <rect width="300" height="96" rx="8" />
-        <text class="kind" x="20" y="26">API Resource · A2A example</text>
-        <text class="name" x="20" y="57">Interaction API</text>
-        <text class="detail" x="20" y="82">Agent Card definition</text>
-      </g>
-      <g class="capability-node" transform="translate(20 364)">
-        <rect width="300" height="96" rx="8" />
-        <text class="kind" x="20" y="26">Capability · Agent Skill / Plugin</text>
-        <text class="name" x="20" y="57">Skill / Plugin</text>
-        <text class="detail" x="20" y="82">Declares its own needs</text>
-      </g>
-      <g class="dependency-node" transform="translate(406 196)">
-        <rect width="284" height="96" rx="8" />
-        <text class="name" x="20" y="34"><tspan>Integration</tspan><tspan x="20" dy="26">Dependency</tspan></text>
-        <text class="detail" x="20" y="84">Aspects reference ORD IDs</text>
-      </g>
-      <g class="api-node" transform="translate(840 50)">
-        <rect width="272" height="96" rx="8" />
-        <text class="kind" x="20" y="26">API Resource</text>
-        <text class="name" x="20" y="57">REST / MCP / …</text>
-        <text class="detail" x="20" y="82">MCP subsets select tools</text>
-      </g>
-      <g class="event-node" transform="translate(840 196)">
-        <rect width="272" height="96" rx="8" />
-        <text class="kind" x="20" y="26">Event Resource</text>
-        <text class="name" x="20" y="57">Business events</text>
-        <text class="detail" x="20" y="82">e.g. Order Created</text>
-      </g>
-      <g class="capability-node" transform="translate(840 364)">
-        <rect width="272" height="96" rx="8" />
-        <text class="kind" x="20" y="26">Capability · Agent Skill / Plugin</text>
-        <text class="name" x="20" y="57">Skills / Plugins</text>
-        <text class="detail" x="20" y="82">Reusable behavior</text>
+      <text v-for="column in graph.columns" :key="column.x" class="column-label" :x="column.x" y="20">{{ column.label }}</text>
+      <path v-for="link in graph.links" :key="link.from + '-' + link.to" :class="link.type + '-edge'" :d="link.path" :marker-end="'url(#' + id + '-' + link.type + ')'" />
+      <text v-for="label in graph.labels" :key="label.x + '-' + label.y" :class="['field-label', label.type + '-label']" :x="label.x" :y="label.y" :text-anchor="label.anchor">{{ label.text }}</text>
+      <g v-for="node in graph.nodes" :key="node.id" :class="node.type + '-node'" :transform="'translate(' + node.x + ' ' + node.y + ')'">
+        <rect :width="node.width" height="96" rx="8" />
+        <text v-if="node.kind" class="kind" x="20" y="26">{{ node.kind }}</text>
+        <text class="name" x="20" :y="node.nameY"><tspan v-for="(line, index) in node.name" :key="line" x="20" :dy="index ? 26 : 0">{{ line }}</tspan></text>
+        <text class="detail" x="20" y="82">{{ node.detail }}</text>
       </g>
     </svg>
   </figure>

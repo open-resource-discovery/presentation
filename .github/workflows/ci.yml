@@ -10,10 +10,21 @@ jobs:
     steps:
       - name: Check out presentation
         uses: actions/checkout@v4
+      - name: Select ORD specification ref
+        id: specification-ref
+        env:
+          PRESENTATION_HEAD_REF: ${{ github.head_ref }}
+        run: |
+          if git ls-remote --exit-code --heads https://github.com/open-resource-discovery/specification.git "refs/heads/$PRESENTATION_HEAD_REF" >/dev/null; then
+            echo "ref=$PRESENTATION_HEAD_REF" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=main" >> "$GITHUB_OUTPUT"
+          fi
       - name: Check out ORD specification
         uses: actions/checkout@v4
         with:
           repository: open-resource-discovery/specification
+          ref: ${{ steps.specification-ref.outputs.ref }}
           path: ord-public
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -26,3 +37,16 @@ jobs:
         run: npm run check:diagrams -- --spec-root=ord-public
       - name: Build GitHub Pages artifact
         run: npm run build:pages
+      - name: Install inspection browser
+        run: npx playwright install --with-deps chromium --only-shell
+      - name: Test visual inspection
+        run: npm run test:inspection
+      - name: Inspect all slides
+        run: npm run inspect
+      - name: Upload slide inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: slide-inspection
+          path: screenshots/
+          if-no-files-found: ignore

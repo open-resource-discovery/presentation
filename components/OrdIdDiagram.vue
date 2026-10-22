@@ -23,11 +23,14 @@
       <b>=</b>
       <p>A unique resource instance at runtime</p>
     </div>
+    <figcaption>For <code>customer.*</code> / <code>c.*</code> IDs, retain the customer scope. Matching ID strings in different customer scopes do not identify the same resource.</figcaption>
   </figure>
 </template>
 
 <style scoped>
 .ord-id-diagram { display: flex; flex: 1; flex-direction: column; justify-content: center; gap: 20px; margin: 0; }
+figcaption { color: var(--ord-muted); font-size: 15px; line-height: 1.4; }
+figcaption code { font-size: inherit; }
 .id-example { display: flex; align-items: stretch; justify-content: center; font-family: var(--ord-mono); font-size: 28px; font-weight: 700; }
 .id-example span { display: flex; align-items: center; border-radius: 6px; padding: 14px 18px; }
 .id-example i { display: flex; align-items: center; color: var(--ord-faint); font-style: normal; padding: 0 6px; }

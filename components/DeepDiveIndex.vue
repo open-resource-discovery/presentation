@@ -17,7 +17,7 @@ const categories = [
     topics: [
       { to: 'integration-dependencies', title: 'Integration dependencies', description: 'Requirements and alternatives' },
       { to: 'data-products', title: 'Data Products', description: 'Ownership, lineage, ports' },
-      { to: 'ai-discovery', title: 'AI & Agents', description: 'Interaction APIs, dependencies' },
+      { to: 'ai-discovery', title: 'AI & Agents', description: 'Example & model · 2 slides' },
       { to: 'skills-preview', title: 'Skills & API metadata', description: 'Reusable behavior · 2 slides' },
     ],
   },

@@ -2,7 +2,7 @@
   <figure class="skills-preview" aria-label="Flow for publishing and consuming agent skills through ORD">
     <div class="preview-banner">
       <span>ORD 1.17</span>
-      <strong>Capability types <code>agent-skill</code> and <code>agent-plugin</code></strong>
+      <strong>Capability types <code>agent-skill</code>, <code>agent-plugin</code>, and <code>workflow</code></strong>
     </div>
 
     <div class="skill-flow">
@@ -15,7 +15,7 @@
 
       <div class="connection definition"><span>definition</span><i>→</i></div>
       <section class="skill-card">
-        <small>Portable package</small>
+        <small>ZIP definition</small>
         <strong>Agent Skill</strong>
         <code>agent-skill-zip</code>
         <span>instructions · scripts · resources</span>
@@ -31,8 +31,9 @@
 
     <div class="dependency-row">
       <span>Agents and Capabilities declare requirements through Integration Dependencies</span>
-      <b>APIs / MCP</b><b>Events</b><b>Skills</b><b>Plugins</b>
+      <b>APIs / MCP</b><b>Events</b><b>Skills</b><b>Plugins</b><b>Workflows</b>
     </div>
+    <figcaption>Skills/plugins: optional definitions, preferably <code>agent-skill-zip</code> or <code>agent-plugin-zip</code>; archive layout stays format-neutral. Workflows can link <code>arazzo-v1</code> definitions.</figcaption>
   </figure>
 </template>
 
@@ -54,7 +55,9 @@
 .connection { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--ord-faint); }
 .connection span { font-size: 10px; font-weight: 700; text-transform: uppercase; }
 .connection i { color: var(--ord-brand); font-size: 32px; font-style: normal; }
-.dependency-row { display: grid; grid-template-columns: 1fr repeat(4, auto); align-items: center; gap: 10px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 14px 17px; }
+.dependency-row { display: grid; grid-template-columns: 1fr repeat(5, auto); align-items: center; gap: 10px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 14px 17px; }
 .dependency-row span { color: var(--ord-muted); font-size: 13px; }
 .dependency-row b { border-radius: 999px; background: var(--ord-card-bg); color: var(--ord-text); font-size: 11px; padding: 7px 10px; }
+figcaption { color: var(--ord-muted); font-size: 14px; line-height: 1.4; }
+figcaption code { font-size: inherit; }
 </style>
