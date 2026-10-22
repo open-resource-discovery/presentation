@@ -10,10 +10,21 @@ jobs:
     steps:
       - name: Check out presentation
         uses: actions/checkout@v4
+      - name: Select ORD specification ref
+        id: specification-ref
+        env:
+          PRESENTATION_HEAD_REF: ${{ github.head_ref }}
+        run: |
+          if git ls-remote --exit-code --heads https://github.com/open-resource-discovery/specification.git "refs/heads/$PRESENTATION_HEAD_REF" >/dev/null; then
+            echo "ref=$PRESENTATION_HEAD_REF" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=main" >> "$GITHUB_OUTPUT"
+          fi
       - name: Check out ORD specification
         uses: actions/checkout@v4
         with:
           repository: open-resource-discovery/specification
+          ref: ${{ steps.specification-ref.outputs.ref }}
           path: ord-public
       - name: Set up Node.js
         uses: actions/setup-node@v4
