@@ -52,7 +52,7 @@ routeAlias: metadata-silos
 routeAlias: metadata-alignment
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Alignment"></DeckLogo>
+<DeckLogo section="Metadata alignment"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Metadata Alignment</h1>
@@ -67,7 +67,7 @@ routeAlias: metadata-alignment
 routeAlias: unified-metadata-view
 ---
 <div class="slide-shell light-slide unified-metadata-slide">
-<DeckLogo section="One connected view"></DeckLogo>
+<DeckLogo section="Connected metadata"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Connected Metadata</h1>
@@ -103,7 +103,7 @@ deckSection: How
 routeAlias: self-description
 ---
 <div class="slide-shell split-slide light-slide self-description-slide">
-<DeckLogo section="What is ORD?"></DeckLogo>
+<DeckLogo section="ORD self-description"></DeckLogo>
 <section class="text-column">
 <header class="slide-header">
 <div class="topic-heading">
@@ -127,7 +127,7 @@ routeAlias: self-description
 routeAlias: scope
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Scope"></DeckLogo>
+<DeckLogo section="ORD scope"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD Scope</h1>
@@ -162,7 +162,7 @@ routeAlias: scope
 routeAlias: ord-roles
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Architecture"></DeckLogo>
+<DeckLogo section="ORD roles"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD Roles</h1>
@@ -178,7 +178,7 @@ routeAlias: ord-roles
 routeAlias: pull-overview
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Pull transport"></DeckLogo>
+<DeckLogo section="Pull discovery"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Pull Discovery</h1>
@@ -268,7 +268,7 @@ routeAlias: perspectives-overview
 routeAlias: connected-landscape
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Connected landscape"></DeckLogo>
+<DeckLogo section="Resource graph"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Resource Graph</h1>
@@ -304,7 +304,7 @@ deckSection: What it enables
 routeAlias: outcomes
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Outcomes"></DeckLogo>
+<DeckLogo section="ORD outcomes"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD Outcomes</h1>
@@ -324,7 +324,7 @@ routeAlias: outcomes
 routeAlias: sap-case-study
 ---
 <div class="slide-shell light-slide sap-case-slide">
-<DeckLogo section="SAP case study"></DeckLogo>
+<DeckLogo section="ORD at SAP"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD at SAP</h1>
@@ -369,7 +369,7 @@ implies that ORD executes business processes or transports business data.
 routeAlias: sap-landscape-examples
 ---
 <div class="slide-shell light-slide sap-case-slide">
-<DeckLogo section="SAP case study · UI examples"></DeckLogo>
+<DeckLogo section="SAP discovery views"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>SAP Discovery Views</h1>
@@ -401,7 +401,7 @@ screenshots from the introduction rather than captures of today's product UI.
 routeAlias: adoption
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Adoption"></DeckLogo>
+<DeckLogo section="Static baseline, then tenant context"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Static Baseline, Then Tenant Context</h1>
@@ -425,7 +425,7 @@ and keep the static baseline published alongside it.
 routeAlias: adoption-path
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Adoption · Developer guide"></DeckLogo>
+<DeckLogo section="Build, validate, connect"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Build, Validate, Connect</h1>
@@ -494,7 +494,7 @@ routeAlias: deep-dives
 routeAlias: landscape-model
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="System landscape model"></DeckLogo>
+<DeckLogo section="System landscape"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/system-landscape-model"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -510,7 +510,7 @@ routeAlias: landscape-model
 routeAlias: namespace-concept
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Namespace concept"></DeckLogo>
+<DeckLogo section="Namespaces"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#namespaces"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -526,7 +526,7 @@ routeAlias: namespace-concept
 routeAlias: ord-identifiers
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="ORD identifiers"></DeckLogo>
+<DeckLogo section="ORD IDs"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/identifiers#ord-id-construction"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -542,7 +542,7 @@ routeAlias: ord-identifiers
 routeAlias: related-identifiers
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Identifier families"></DeckLogo>
+<DeckLogo section="Related IDs"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#id-concepts"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -568,7 +568,7 @@ import GroupingPackagingDiagram from './components/GroupingPackagingDiagram.vue'
 </script>
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Grouping &amp; packaging"></DeckLogo>
+<DeckLogo section="Groups &amp; Packages"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/grouping-and-bundling"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -598,7 +598,7 @@ routeAlias: perspective-resolution
 routeAlias: integration-dependencies
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Integration dependencies"></DeckLogo>
+<DeckLogo section="Integration Dependencies"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/integration-dependency#concept"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -667,7 +667,7 @@ API subsets can select MCP tools by operationId using the tool name. The accepte
 routeAlias: agent-model
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI &amp; Agents"></DeckLogo>
+<DeckLogo section="Agent model"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -695,7 +695,7 @@ API subsets can select MCP tools by operationId using the tool name. The accepte
 routeAlias: skills-preview
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI &amp; Agents"></DeckLogo>
+<DeckLogo section="Agent Skills &amp; Plugins"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#agent-skills-as-capabilities" spec-label="Agent Skills guidance"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -710,7 +710,7 @@ routeAlias: skills-preview
 routeAlias: metadata-skills-boundary
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Skills and API metadata"></DeckLogo>
+<DeckLogo section="Skills &amp; API metadata"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -726,7 +726,7 @@ routeAlias: metadata-skills-boundary
 routeAlias: versioning-lifecycle
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Versioning and lifecycle"></DeckLogo>
+<DeckLogo section="Lifecycle signals"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -745,7 +745,7 @@ import ApiLifecycleDiagram from './components/ApiLifecycleDiagram.vue'
 </script>
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="API lifecycle example"></DeckLogo>
+<DeckLogo section="API lifecycle"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle#lifecycle"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -782,7 +782,7 @@ policy level requires SAP publishers to use ord:overlay:v1 for published overlay
 routeAlias: ai-enrichment
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI-oriented metadata enrichment"></DeckLogo>
+<DeckLogo section="AI enrichment"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -801,7 +801,7 @@ import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
 </script>
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Extensibility in ORD"></DeckLogo>
+<DeckLogo section="ORD extensions"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#capability"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -817,7 +817,7 @@ import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
 routeAlias: visibility
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Visibility and access"></DeckLogo>
+<DeckLogo section="Metadata visibility"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#api-resource_visibility"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -841,7 +841,7 @@ Sources: ../ord-public/spec/v1/Document.schema.yaml#visibility and
 routeAlias: policy-validation
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Policy levels &amp; validation"></DeckLogo>
+<DeckLogo section="Policy validation"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-extensions/policy-levels"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -876,7 +876,7 @@ Sources: ../ord-public/docs/spec-extensions/policy-levels/index.mdx,
 routeAlias: pull-sequence
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Pull transport sequence"></DeckLogo>
+<DeckLogo section="Pull sequence"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#pull-transport-sequence-diagram"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -892,7 +892,7 @@ routeAlias: pull-sequence
 routeAlias: aggregator-discovery
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Aggregation &amp; Discovery API"></DeckLogo>
+<DeckLogo section="Aggregation"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#ord-discovery-api"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -913,7 +913,7 @@ routeAlias: aggregator-discovery
 routeAlias: push-preview
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Preview · proposal"></DeckLogo>
+<DeckLogo section="Push transport · proposal"></DeckLogo>
 <DeepDiveNav spec-href="https://github.com/open-resource-discovery/specification/pull/187" spec-label="Push proposal"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">

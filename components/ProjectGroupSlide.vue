@@ -262,7 +262,7 @@ const project = computed(() => groups[props.group])
 
 <template>
   <div v-if="project" class="slide-shell light-slide deep-slide ecosystem-project-slide">
-    <DeckLogo :section="project.label"></DeckLogo>
+    <DeckLogo :section="project.name"></DeckLogo>
     <header class="slide-header wide-header">
       <div class="project-heading">
         <h1><a :href="project.projectUrl" target="_blank" rel="noopener noreferrer">{{ project.name }}</a></h1>
