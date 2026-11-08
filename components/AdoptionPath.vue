@@ -39,7 +39,7 @@
   flex: 1;
   min-height: 0;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 24px;
   margin: 0;
 }
