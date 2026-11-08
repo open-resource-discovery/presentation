@@ -217,7 +217,7 @@ routeAlias: information-model
 </div>
 </header>
 <ul class="statement-list compact-list">
-<li><strong>Resources:</strong> APIs, Events, Data Products, Agents, Capabilities, and Integration Dependencies.</li>
+<li><strong>Resources:</strong> APIs, Events, Data Products, Capabilities, Agents, and Integration Dependencies.</li>
 <li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
 <li><strong>Common attributes and cross-relationships:</strong> stable design-time IDs, ownership, lifecycle, visibility, definition references, and typed links connect the concepts.</li>
 </ul>
@@ -315,7 +315,7 @@ routeAlias: outcomes
 <section class="outcome-card"><span>01</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="2"/><rect x="19" y="3" width="10" height="10" rx="2"/><rect x="3" y="19" width="10" height="10" rx="2"/><rect x="19" y="19" width="10" height="10" rx="2"/></svg><h3>Catalogs</h3><p>Build searchable inventories across resource types and providers.</p></section>
 <section class="outcome-card"><span>02</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="4" width="28" height="24" rx="3"/><path d="M2 10H30M11 15L7 19L11 23M21 15L25 19L21 23M18 14L14 24"/></svg><h3>Developer tooling</h3><p>Find contracts, documentation, and access context programmatically.</p></section>
 <section class="outcome-card"><span>03</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 10V15M7 22V15H25V22"/><rect x="11" y="2" width="10" height="8" rx="2"/><rect x="2" y="22" width="10" height="8" rx="2"/><rect x="20" y="22" width="10" height="8" rx="2"/></svg><h3>Landscape insight</h3><p>Understand capabilities and declared dependencies across systems.</p></section>
-<section class="outcome-card"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="20" rx="4"/><path d="M16 3V8M2 15V22M30 15V22M11 22H21"/><circle cx="11" cy="16" r="1.5"/><circle cx="21" cy="16" r="1.5"/></svg><h3>Automation and AI</h3><p>Ground tools and agents in structured, discoverable metadata.</p></section>
+<section class="outcome-card"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="20" rx="4"/><path d="M16 3V8M2 15V22M30 15V22M11 22H21"/><circle cx="11" cy="16" r="1.5"/><circle cx="21" cy="16" r="1.5"/></svg><h3>Automation &amp; AI</h3><p>Ground tools and agents in structured, discoverable metadata.</p></section>
 </div>
 <DeepDiveLink to="ai-discovery" label="AI &amp; Agents"></DeepDiveLink>
 </div>
@@ -936,11 +936,11 @@ routeAlias: push-preview
 
 ---
 routeAlias: tools-ecosystem-section
-deckSection: Tools & Ecosystem
+deckSection: Tools & ecosystem
 ---
 <SectionSlide
   number="05"
-  title="Tools &amp; Ecosystem"
+  title="Tools &amp; ecosystem"
   text="Open-source building blocks for publishing, exploring, enriching, rendering, and governing ORD metadata."
   backdrop="orbit"
 ></SectionSlide>

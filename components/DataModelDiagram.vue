@@ -19,7 +19,7 @@
         <div class="item">APIs</div>
         <div class="item">Events</div>
         <div class="item">Data Products</div>
-        <div class="item capability">Capabilities<span>(skills, agent plugins, workflows)</span></div>
+        <div class="item capability">Capabilities<span>(e.g. Agent Skills, Plugins, Workflows)</span></div>
         <div class="item">Agents</div>
         <div class="item wide">Integration Dependencies</div>
       </div>
