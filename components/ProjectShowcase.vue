@@ -108,7 +108,7 @@ const screens = {
 
     <template v-else-if="group === 'mcp'">
       <span class="example-label">Playground prototype · static tool metadata*</span>
-      <figure class="tool-screen detail-crops"><img :src="screens.mcpHeader" alt="MCP Server Card UI prototype displaying an Orders server"><img :src="screens.mcpTools" alt="Prototype get_order and create_shipment metadata, outside the accepted Server Card format"><figcaption>MCP Server Card playground · prototype card and tool details · example data</figcaption></figure>
+      <figure class="tool-screen detail-crops"><img :src="screens.mcpHeader" alt="MCP Server Card UI prototype displaying an Orders server"><span class="tools-crop"><img :src="screens.mcpTools" alt="Prototype get_order and create_shipment metadata, outside the accepted Server Card format"></span><figcaption>MCP Server Card playground · prototype card and tool details · example data</figcaption></figure>
       <div class="protocol-flow"><span>Discover with ORD</span><i aria-hidden="true">→</i><span>Inspect MCP Server Card</span><i aria-hidden="true">→</i><span>Connect &amp; list tools</span></div>
       <p class="takeaway">SEP-2127 is an accepted, optional extension. * Static tool lists shown here are demo-specific; standard discovery uses <code>tools/list</code> at runtime.</p>
     </template>
@@ -198,13 +198,14 @@ pre { margin: 0; background: transparent; padding: 0; white-space: pre-wrap; }
 .showcase-a2a .protocol-flow { flex-direction: column; gap: 8px; }
 .showcase-a2a .protocol-flow span { width: 100%; flex: none; }
 .showcase-a2a .a2a-preview img { width: 100%; height: auto; }
-.showcase-mcp .detail-crops { position: relative; }
-.showcase-mcp .detail-crops { height: 229px; }
-.showcase-mcp .detail-crops img { position: absolute; width: 72%; }
-.showcase-mcp .detail-crops img:first-of-type { top: 0; left: 0; }
-.showcase-mcp .detail-crops img:nth-of-type(2) { right: 0; width: 62%; border: 1px solid var(--ord-sep); border-radius: 8px; box-shadow: 0 8px 20px rgba(21, 36, 44, .12); }
-.showcase-mcp .detail-crops img:nth-of-type(2) { top: 56px; }
-.showcase-mcp .detail-crops figcaption { position: absolute; right: 0; bottom: 0; left: 0; }
+/* Two crops of the same playground view, side by side at the same scale; the header crop keeps its content area. */
+.showcase-mcp .detail-crops { display: grid; grid-template-columns: minmax(0, 420fr) minmax(0, 632fr); align-items: start; gap: 14px; padding: 14px 14px 0; }
+.showcase-mcp .detail-crops > img, .showcase-mcp .tools-crop { width: 100%; border: 1px solid var(--ord-sep); border-radius: 6px; }
+.showcase-mcp .detail-crops > img { aspect-ratio: 420 / 176; object-fit: cover; object-position: left top; }
+/* Show only the inner Tools card (x 24–656, y 0–130 of the 680×142 capture), not the surrounding page card edges. */
+.showcase-mcp .tools-crop { display: block; aspect-ratio: 632 / 130; overflow: hidden; }
+.showcase-mcp .tools-crop img { width: calc(100% * 680 / 632); max-width: none; margin-left: calc(-100% * 24 / 632); }
+.showcase-mcp .detail-crops figcaption { grid-column: 1 / -1; margin: 0 -14px; }
 .tool-screen figcaption { padding: 8px 12px; color: var(--ord-muted); background: var(--ord-card-bg); font-size: 11px; line-height: 1.3; }
 .explorer-viewport { height: 370px; overflow: hidden; }
 .explorer-viewport img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
