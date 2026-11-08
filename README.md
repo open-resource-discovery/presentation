@@ -37,7 +37,7 @@ npm run export   # slides-export.pdf
 
 ## Visual checks
 
-Run `npm run inspect` to render every visible slide at 1280×720. It writes screenshots and `inspection.json` to `screenshots/` and exits with a failure status for content overflow, text overlaps, broken images, browser errors, or text contrast below 3:1. Decorative background bleed and scrolling code are excluded from geometry checks.
+Run `npm run inspect` to render every visible slide at 1280×720 with the self-hosted Inter font and font hinting disabled, matching desktop browser rendering. It writes screenshots and `inspection.json` to `screenshots/` and exits with a failure status for content overflow, text overlaps, broken images, browser errors, or text contrast below 3:1. Decorative background bleed and scrolling code are excluded from geometry checks.
 
 The contrast check composites solid and transparent CSS backgrounds, including code labels. It is a conservative regression guard, not a complete accessibility audit: SVG text, image/gradient backgrounds, and group opacity need visual review. Use `-- --min-contrast=4.5` for a stricter threshold, or `-- --report-only=true` to collect findings without failing. Inspect an existing dev server with `-- --url=http://localhost:3030`.
 

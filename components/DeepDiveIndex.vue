@@ -63,12 +63,12 @@ const categories = [
 
 <style scoped>
 .deep-dive-index { display: grid; flex: 1; min-height: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-content: stretch; align-items: stretch; }
-.topic-category { --category-accent: var(--ord-accent-sky); --category-bg: var(--ord-accent-sky-bg); display: flex; min-height: 0; flex-direction: column; gap: 8px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--category-accent); border-radius: var(--ord-radius); background: var(--category-bg); padding: 0 10px 12px; }
+.topic-category { --category-accent: var(--ord-accent-sky); --category-bg: var(--ord-accent-sky-bg); display: flex; min-height: 0; flex-direction: column; gap: 8px; border: 1px solid var(--ord-sep); border-top: 4px solid var(--category-accent); border-radius: var(--ord-radius); background: var(--category-bg); padding: 0 12px 12px; }
 .topic-category:nth-child(2) { --category-accent: var(--ord-accent-teal); --category-bg: var(--ord-accent-teal-bg); }
 .topic-category:nth-child(3) { --category-accent: var(--ord-accent-coral); --category-bg: var(--ord-accent-coral-bg); }
 .topic-category:nth-child(4) { --category-accent: var(--ord-accent-violet); --category-bg: var(--ord-accent-violet-bg); }
 header { display: flex; min-height: 54px; flex: 0 0 54px; flex-direction: column; justify-content: center; gap: 3px; padding: 8px 2px 4px; }
-h3 { color: var(--ord-text); font-size: 17.5px; font-weight: 800; line-height: 1.15; letter-spacing: -0.015em; white-space: nowrap; }
+h3 { color: var(--ord-text); font-size: 19px; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; white-space: nowrap; }
 header p { color: var(--ord-muted); font-size: 12.5px; font-weight: 600; line-height: 1.35; white-space: nowrap; }
 .topic-category a { position: relative; display: flex; min-height: 0; flex: 1; flex-direction: column; justify-content: center; gap: 4px; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: #fff; color: var(--ord-text); padding: 8px 28px 8px 14px; text-decoration: none; }
 .topic-category a:hover { border-color: var(--category-accent); background: #fff; box-shadow: 0 2px 10px rgba(10, 15, 18, 0.08); }

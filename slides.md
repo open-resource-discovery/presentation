@@ -456,8 +456,8 @@ routeAlias: closing
 <p class="lead small">ORD is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache 2.0</a> and governed by the <a href="https://neonephos.org/" target="_blank" rel="noopener noreferrer">NeoNephos Foundation</a> under <a href="https://linuxfoundation.eu/" target="_blank" rel="noopener noreferrer">Linux Foundation Europe</a>.</p>
 <div class="next-grid">
 <a href="https://open-resource-discovery.org/introduction" target="_blank" rel="noopener noreferrer"><span>ORD introduction</span><small>open-resource-discovery.org<wbr>/introduction</small></a>
-<a href="https://open-resource-discovery.org/spec-v1" target="_blank" rel="noopener noreferrer"><span>ORD specification</span><small>open-resource-discovery.org/spec-v1</small></a>
-<a href="https://github.com/open-resource-discovery" target="_blank" rel="noopener noreferrer"><span>Project on GitHub</span><small>github.com/open-resource-discovery</small></a>
+<a href="https://open-resource-discovery.org/spec-v1" target="_blank" rel="noopener noreferrer"><span>ORD specification</span><small>open-resource-discovery.org<wbr>/spec-v1</small></a>
+<a href="https://github.com/open-resource-discovery" target="_blank" rel="noopener noreferrer"><span>Project on GitHub</span><small>github.com<wbr>/open-resource-discovery</small></a>
 </div>
 </section>
 <ClosingQr></ClosingQr>
