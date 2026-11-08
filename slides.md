@@ -221,7 +221,7 @@ routeAlias: information-model
 <li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
 <li><strong>Common attributes and cross-relationships:</strong> stable design-time IDs, ownership, lifecycle, visibility, definition references, and typed links connect the concepts.</li>
 </ul>
-<p class="feature-status-note">Beta in ORD 1.17: Data Products, Agents, Perspectives, and ORD Overlays.</p>
+<p class="feature-status-note">Beta: Data Products, Agents, Perspectives, and ORD Overlays. Changes by release are listed in the <a href="https://github.com/open-resource-discovery/specification/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">changelog ↗</a>.</p>
 </section>
 <section class="diagram-column">
 <DataModelDiagram></DataModelDiagram>
@@ -232,9 +232,9 @@ routeAlias: information-model
 <!--
 Resources describe what a system exposes or requires. Taxonomy and access context make those descriptions easier to understand, group, and consume.
 
-Capabilities also provide an extensibility mechanism. A Provider can publish custom capability types and link a machine-readable capability definition when more detail is needed. ORD 1.17 standardizes Agent Skills, Agent Plugins, and Workflows as examples.
+Capabilities also provide an extensibility mechanism. A Provider can publish custom capability types and link a machine-readable capability definition when more detail is needed. ORD standardizes Agent Skills, Agent Plugins, and Workflows as examples.
 
-The capability type is identified by a Specification ID, or by customType when type is custom. ORD 1.17 standardizes agent-skill, agent-plugin, and workflow types, including their recommended definition formats and dependency semantics.
+The capability type is identified by a Specification ID, or by customType when type is custom. ORD standardizes agent-skill, agent-plugin, and workflow types, including their recommended definition formats and dependency semantics.
 
 Beta status is collected here so it does not distract from the diagrams that follow. Data Products, Agents, Perspectives, and ORD Overlays retain their specified beta status.
 Workflow capabilities can link Arazzo definitions through the standardized arazzo-v1 definition type.
@@ -414,7 +414,7 @@ routeAlias: adoption
 
 <!--
 Based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md#scenarios
-(specification 1.17.1). The base specification recommends publishing a static
+and ../ord-public/docs/spec-v1/index.md. The base specification recommends publishing a static
 perspective (system-type, system-version, or both); the sap:core:v1 and sap:dp:v1
 policy levels require it. When metadata differs per tenant, additionally publish
 a complete system-instance perspective per tenant, including unchanged resources,
@@ -438,8 +438,7 @@ routeAlias: adoption-path
 
 <!--
 Developer adoption guide based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md
-and ../ord-public/docs/spec-v1/concepts/implementing-ord-natively.md
-(specification 1.17.1).
+and ../ord-public/docs/spec-v1/concepts/implementing-ord-natively.md.
 The reference application serves its static system-version baseline directly
 from the application and adds a generated system-instance view per tenant.
 -->
@@ -539,14 +538,6 @@ routeAlias: ord-identifiers
 <OrdIdDiagram></OrdIdDiagram>
 </div>
 
-<!--
-ORD 1.17.1 removed the earlier requirement to compare, look up, and deduplicate
-ORD IDs case-insensitively. Customer-scoped IDs (customer.* / c.*) must still be
-compared within their customer scope.
-
-Source: ../ord-public/docs/spec-v1/concepts/identifiers.md#ord-id and CHANGELOG 1.17.1.
--->
-
 ---
 routeAlias: related-identifiers
 ---
@@ -565,8 +556,8 @@ routeAlias: related-identifiers
 
 <!--
 Correlation IDs use the ORD Correlation ID format and are stored in correlationIds.
-Since ORD 1.17.1, Vendors can also carry correlationIds to correlate a vendor with
-identifiers in external systems.
+Resources and taxonomy such as Packages, Products, and Vendors can carry them to
+correlate ORD content with identifiers in external systems of record.
 -->
 
 ---
@@ -640,7 +631,7 @@ The Data Product resource owns the descriptive metadata; inputPorts reference
 Integration Dependencies for lineage, outputPorts reference API or Event
 Resources, and entityTypes connect the data set to business semantics.
 ORD describes discovery metadata and relationships, not the data transport.
-The Data Product concept contains beta properties in ORD 1.17.
+The Data Product concept contains beta properties.
 
 Sources: ../ord-public/docs/spec-v1/concepts/data-product.md and
 ../ord-public/spec/v1/Document.schema.yaml#DataProduct.
@@ -667,7 +658,7 @@ An Agent is a conceptual resource describing autonomous task execution. It can e
 
 Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
 
-ORD 1.17 adds agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. A plugin bundles skills and assets. ORD treats skill and plugin archives as opaque, format-neutral artifacts and does not prescribe their internal layout or format version.
+ORD defines agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. A plugin bundles skills and assets. ORD treats skill and plugin archives as opaque, format-neutral artifacts and does not prescribe their internal layout or format version.
 
 API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
@@ -695,7 +686,7 @@ The diagram is a resource model: one box per concept, with multiplicity shown by
 
 Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. Capability references can point to Agent Skills, Agent Plugins, Workflows, or custom Capability types. Multiple mandatory aspects combine with AND; alternatives within an aspect combine with OR. Arrows show metadata references, not runtime calls.
 
-The next slide covers the ORD 1.17 agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and plugin subset selection through skillName. A plugin bundles skills and assets. ORD treats skill and plugin archives as opaque, format-neutral artifacts and does not prescribe their internal layout or format version.
+The next slide covers the agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and plugin subset selection through skillName. A plugin bundles skills and assets. ORD treats skill and plugin archives as opaque, format-neutral artifacts and does not prescribe their internal layout or format version.
 
 API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
@@ -782,10 +773,9 @@ routeAlias: ord-overlays
 
 <!--
 ORD Overlays (ord:overlay:v1) and OpenAPI Overlays (oas-overlay-v1) are complementary.
-Since ORD 1.17.1, oas-overlay-v1 is documented as a valid API Resource definition type
-for the odata-v2, odata-v4, and rest protocols, matching the OpenAPI Overlay support
-added in 1.17.0. The sap:core:v1 policy level requires SAP publishers to use
-ord:overlay:v1 for published overlays.
+API Resources can publish oas-overlay-v1 definitions, for example for the rest,
+odata-v2, and odata-v4 protocols, and ORD Overlays can target them. The sap:core:v1
+policy level requires SAP publishers to use ord:overlay:v1 for published overlays.
 -->
 
 ---
@@ -839,12 +829,12 @@ routeAlias: visibility
 </div>
 
 <!--
-Visibility is declared per resource and per resource definition. Since ORD 1.17.1,
-the sap:core:v1 policy level also allows resources with different visibility
-values in the same Package; each resource and its definitions remain subject to
-their own visibility rules.
+Visibility is declared per resource and per resource definition, not per Package.
+One Package can therefore group resources with different visibility; each resource
+and its definitions remain subject to their own visibility rules.
 
-Source: ../ord-public/docs/spec-extensions/policy-levels/sap-core-v1.md#package.
+Sources: ../ord-public/spec/v1/Document.schema.yaml#visibility and
+../ord-public/docs/spec-extensions/policy-levels/sap-core-v1.md#package.
 -->
 
 ---

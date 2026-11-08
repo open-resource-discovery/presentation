@@ -978,6 +978,7 @@
   border: 2px solid var(--ord-brand-2);
   border-radius: 999px;
   content: "";
+.feature-status-note a { color: var(--ord-brand); font-weight: 650; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 }
 
 .end-slide {
