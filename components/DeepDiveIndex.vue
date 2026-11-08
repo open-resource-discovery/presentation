@@ -25,7 +25,7 @@ const categories = [
     title: 'Change & extension',
     description: 'Evolve and enrich safely',
     topics: [
-      { to: 'versioning-lifecycle', title: 'Versioning & lifecycle', description: 'Compatible change, maturity' },
+      { to: 'versioning-lifecycle', title: 'Versioning & lifecycle', description: 'Identity, change, maturity' },
       { to: 'api-lifecycle', title: 'API lifecycle example', description: 'Successors, retirement' },
       { to: 'ord-overlays', title: 'ORD Overlays', description: 'Enrich an existing definition' },
       { to: 'ai-enrichment', title: 'AI enrichment', description: 'Hints and definition guidance' },

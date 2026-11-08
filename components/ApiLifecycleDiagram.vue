@@ -22,7 +22,7 @@
       <text x="304" y="338" class="annotation breaking-note">Consumer contract breaks?</text><text x="304" y="364" class="explanation">Create a successor with a new major ID.</text>
       <text x="618" y="225" class="coexist">Keep v1 running while consumers migrate</text>
     </svg>
-    <figcaption><p><strong>Give the new API a new ORD ID. Keep the old API running during a migration window so consumers can move.</strong> Link <code>successors</code> and provide migration dates. On retirement, publish a tombstone; remove the resource or retain it as <code>sunset</code> with a <code>sunsetDate</code>. Development and beta resources may break without a new major ID; tenant extensions update <code>lastUpdate</code>.</p></figcaption>
+    <figcaption><p><strong>Give the new API a new ORD ID. Keep the old API running during a migration window so consumers can move.</strong> Link <code>successors</code> and set <code>deprecationDate</code> and, once known, <code>sunsetDate</code>. On retirement, publish a tombstone; remove the resource or retain it as <code>sunset</code> with a <code>sunsetDate</code>.</p></figcaption>
   </figure>
 </template>
 
