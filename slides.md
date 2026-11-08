@@ -406,11 +406,20 @@ routeAlias: adoption
 <div class="topic-heading">
 <h1>Static Baseline, Then Tenant Context</h1>
 </div>
-<p class="slide-subtitle">Always publish a static perspective; add a complete tenant view when metadata differs per tenant.</p>
+<p class="slide-subtitle">Publish a static perspective as the baseline; add a complete tenant view when metadata differs per tenant.</p>
 </header>
 <AdoptionDecisionGuide></AdoptionDecisionGuide>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/help/faq/adopt-ord-as-provider" spec-label="Provider adoption guide"></DeepDiveNav>
 </div>
+
+<!--
+Based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md#scenarios
+(specification 1.17.1). The base specification recommends publishing a static
+perspective (system-type, system-version, or both); the sap:core:v1 and sap:dp:v1
+policy levels require it. When metadata differs per tenant, additionally publish
+a complete system-instance perspective per tenant, including unchanged resources,
+and keep the static baseline published alongside it.
+-->
 
 ---
 routeAlias: adoption-path
@@ -430,7 +439,7 @@ routeAlias: adoption-path
 <!--
 Developer adoption guide based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md
 and ../ord-public/docs/spec-v1/concepts/implementing-ord-natively.md
-(specification 1.16.4).
+(specification 1.17.1).
 The reference application serves its static system-version baseline directly
 from the application and adds a generated system-instance view per tenant.
 -->
@@ -530,6 +539,14 @@ routeAlias: ord-identifiers
 <OrdIdDiagram></OrdIdDiagram>
 </div>
 
+<!--
+ORD 1.17.1 removed the earlier requirement to compare, look up, and deduplicate
+ORD IDs case-insensitively. Customer-scoped IDs (customer.* / c.*) must still be
+compared within their customer scope.
+
+Source: ../ord-public/docs/spec-v1/concepts/identifiers.md#ord-id and CHANGELOG 1.17.1.
+-->
+
 ---
 routeAlias: related-identifiers
 ---
@@ -545,6 +562,12 @@ routeAlias: related-identifiers
 </header>
 <IdentifierTypesDiagram></IdentifierTypesDiagram>
 </div>
+
+<!--
+Correlation IDs use the ORD Correlation ID format and are stored in correlationIds.
+Since ORD 1.17.1, Vendors can also carry correlationIds to correlate a vendor with
+identifiers in external systems.
+-->
 
 ---
 routeAlias: grouping-packaging
@@ -644,7 +667,7 @@ An Agent is a conceptual resource describing autonomous task execution. It can e
 
 Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
 
-ORD 1.17 adds agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
+ORD 1.17 adds agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. A plugin bundles skills and assets. ORD treats skill and plugin archives as opaque, format-neutral artifacts and does not prescribe their internal layout or format version.
 
 API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
@@ -672,7 +695,7 @@ The diagram is a resource model: one box per concept, with multiplicity shown by
 
 Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. Capability references can point to Agent Skills, Agent Plugins, Workflows, or custom Capability types. Multiple mandatory aspects combine with AND; alternatives within an aspect combine with OR. Arrows show metadata references, not runtime calls.
 
-The next slide covers the ORD 1.17 agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and plugin subset selection through skillName. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
+The next slide covers the ORD 1.17 agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and plugin subset selection through skillName. A plugin bundles skills and assets. ORD treats skill and plugin archives as opaque, format-neutral artifacts and does not prescribe their internal layout or format version.
 
 API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
@@ -757,6 +780,14 @@ routeAlias: ord-overlays
 <OverlayDiagram></OverlayDiagram>
 </div>
 
+<!--
+ORD Overlays (ord:overlay:v1) and OpenAPI Overlays (oas-overlay-v1) are complementary.
+Since ORD 1.17.1, oas-overlay-v1 is documented as a valid API Resource definition type
+for the odata-v2, odata-v4, and rest protocols, matching the OpenAPI Overlay support
+added in 1.17.0. The sap:core:v1 policy level requires SAP publishers to use
+ord:overlay:v1 for published overlays.
+-->
+
 ---
 routeAlias: ai-enrichment
 ---
@@ -806,6 +837,15 @@ routeAlias: visibility
 </header>
 <VisibilityDiagram></VisibilityDiagram>
 </div>
+
+<!--
+Visibility is declared per resource and per resource definition. Since ORD 1.17.1,
+the sap:core:v1 policy level also allows resources with different visibility
+values in the same Package; each resource and its definitions remain subject to
+their own visibility rules.
+
+Source: ../ord-public/docs/spec-extensions/policy-levels/sap-core-v1.md#package.
+-->
 
 ---
 routeAlias: policy-validation
