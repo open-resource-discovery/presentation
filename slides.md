@@ -424,7 +424,7 @@ routeAlias: adoption-path
 <p class="slide-subtitle">Use ORD’s published contracts, test the complete output, then make it discoverable.</p>
 </header>
 <AdoptionPath></AdoptionPath>
-<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/" spec-label="Schemas &amp; interfaces"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces" spec-label="Schemas &amp; interfaces"></DeepDiveNav>
 </div>
 
 <!--
@@ -812,7 +812,7 @@ routeAlias: policy-validation
 ---
 <div class="slide-shell light-slide deep-slide">
 <DeckLogo section="Policy levels &amp; validation"></DeckLogo>
-<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-extensions/policy-levels/"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-extensions/policy-levels"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Policy Validation</h1>
