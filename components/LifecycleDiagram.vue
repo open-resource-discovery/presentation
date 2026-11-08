@@ -1,7 +1,7 @@
 <template>
   <figure class="lifecycle-diagram" aria-label="ORD versioning and lifecycle model">
     <div class="status-flow">
-      <span class="label">Common releaseStatus path</span>
+      <span class="label">Common release status path</span>
       <div class="status development">development</div><i>→</i>
       <div class="status beta">beta</div><i>→</i>
       <div class="status active">active</div><i>→</i>

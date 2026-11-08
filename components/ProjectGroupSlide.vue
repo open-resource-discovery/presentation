@@ -327,6 +327,8 @@ const project = computed(() => groups[props.group])
 .repository-card h3 a:hover { color: var(--ord-brand); }
 .repository-card p { grid-column: 1 / -1; color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
 .repository-card footer { display: flex; grid-column: 2; grid-row: 1 / 3; flex-direction: column; align-self: center; align-items: flex-end; gap: 5px; padding: 0; }
+.repository-rail.count-4 .repository-card { grid-template-columns: minmax(0, 1fr); align-content: start; }
+.repository-rail.count-4 .repository-card footer { grid-column: 1; grid-row: auto; flex-direction: row; align-self: start; align-items: center; gap: 12px; }
 .repository-card footer a { border: 0; color: var(--ord-brand); font-size: 11px; font-weight: 700; text-decoration: none; }
 .repository-card footer a:hover { text-decoration: underline; }
 .concept-link { position: absolute; bottom: 16px; left: 24px; z-index: 7; border: 0; border-radius: 3px; background: var(--ord-link-bg); color: var(--ord-brand); font-size: 13px; font-weight: 700; line-height: 20px; margin: -1px -4px; padding: 1px 4px; text-decoration: none; transition: background-color 140ms ease; }

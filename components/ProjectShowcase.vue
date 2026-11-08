@@ -77,7 +77,7 @@ const screens = {
     </template>
 
     <template v-else-if="group === 'overlays'">
-      <span class="example-label">Example · enrich the getOrder operation</span>
+      <span class="example-label">Example · enrich the <code>getOrder</code> operation</span>
       <div class="overlay-example">
         <article class="artifact"><span>Original OpenAPI</span><h3>getOrder</h3><p>Operation has no description.</p></article>
         <span class="overlay-plus" aria-hidden="true">+</span>
@@ -129,6 +129,7 @@ const screens = {
 <style scoped>
 .showcase { display: flex; min-width: 0; flex-direction: column; gap: 14px; }
 .example-label { color: var(--ord-muted); font-size: 12px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
+.example-label code { border-radius: 3px; background: var(--ord-accent-teal-bg); color: var(--ord-brand); font-size: 12.5px; letter-spacing: 0; padding: 1px 4px; text-transform: none; }
 .artifact { min-width: 0; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 16px 18px; }
 .artifact > span, .command > span { display: block; color: var(--ord-muted); font-size: 12px; font-weight: 700; margin-bottom: 8px; }
 .artifact h3 { font-size: 20px; font-weight: 750; line-height: 1.2; margin: 0 0 7px; }

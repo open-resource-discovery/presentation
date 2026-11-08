@@ -44,6 +44,6 @@ marker path { fill: var(--ord-brand); }
 .validation rect { fill: var(--ord-aggregator-soft); stroke: var(--ord-aggregator); }
 .validation text { fill: var(--ord-muted); font-size: 11px; text-anchor: middle; }
 figcaption { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: center; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-panel-soft); padding: 12px 16px; }
-figcaption span { color: var(--ord-muted); font-size: 11px; line-height: 1.3; }
+figcaption span { color: var(--ord-muted); font-size: 13px; line-height: 1.35; }
 figcaption b { color: var(--ord-text); }
 </style>
