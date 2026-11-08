@@ -8,7 +8,7 @@ import { assetUrl } from '../utils/asset-url'
     <img :src="assetUrl('img/spec/integration-dependency.drawio.svg')" alt="System A declares three integration aspects. Aspect 1 references alternative APIs on B; aspect 2 references B's events; aspect 3 references A's own callback API, called by B." />
     <aside>
       <section><small>Across aspects</small><strong>AND</strong><p>Each mandatory aspect must be satisfied. An aspect can also be marked optional.</p></section>
-      <section><small>Within an aspect</small><strong>OR</strong><p>Alternative references satisfy the same need. ORD 1.17 also supports system-type requirements without a specific resource contract.</p></section>
+      <section><small>Within an aspect</small><strong>OR</strong><p>Entries are alternatives: API Resources, Event Resources, Capabilities, or whole system types when no specific contract matters.</p></section>
       <section><small>Callbacks and subsets</small><p>A reference can point to the system's own callback API. A subset can narrow operations, tools, event types, or plugin skills.</p></section>
       <span class="scope">Describes a type-level integration capability; runtime connections are outside ORD's scope.</span>
       <div class="line-legend"><span><i class="reference"></i>ORD reference</span><span><i></i>Runtime call</span></div>
