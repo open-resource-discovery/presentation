@@ -3,7 +3,7 @@
     <section class="metadata-plane">
       <header><span>Shared source of truth</span><strong>API knowledge as metadata</strong></header>
       <div class="metadata-layers">
-        <div><small>Contract</small><b>Operations · schemas · query behavior</b><code>OpenAPI · OData · MCP · …</code></div>
+        <div><small>Contract</small><b>Operations · schemas · query behavior</b><code>OpenAPI · OData · MCP…</code></div>
         <div><small>ORD context</small><b>Identity · ownership · lifecycle · visibility</b><code>ORD resources and relationships</code></div>
         <div><small>Enrichment</small><b>Business semantics · AI hints · guidance</b><code>Entity Types · ORD Overlays</code></div>
       </div>

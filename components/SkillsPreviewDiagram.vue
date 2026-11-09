@@ -1,7 +1,7 @@
 <template>
   <figure class="skills-preview" aria-label="Flow for publishing and consuming agent skills through ORD">
     <div class="preview-banner">
-      <span>ORD 1.17</span>
+      <span>Standardized</span>
       <strong>Capability types <code>agent-skill</code>, <code>agent-plugin</code>, and <code>workflow</code></strong>
     </div>
 
@@ -42,7 +42,7 @@
 .preview-banner { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 16px; border: 1px solid var(--ord-lime); border-radius: var(--ord-radius); background: var(--ord-lime-soft); padding: 13px 17px; }
 .preview-banner > span { color: #527d3e; font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
 .preview-banner strong { color: var(--ord-text); font-size: 15px; }
-.preview-banner code { font-size: .9em; }
+.preview-banner code { border: 1px solid rgba(82, 125, 62, .28); border-radius: 4px; font-size: .9em; }
 .skill-flow { display: grid; grid-template-columns: 1fr 105px 1fr 125px 1fr; align-items: center; }
 .skill-card { display: grid; min-height: 260px; grid-template-rows: 18px 52px 28px 1fr; align-content: start; gap: 11px; border: 1px solid var(--ord-border); border-radius: var(--ord-radius); background: var(--ord-card-bg); padding: 23px; }
 .skill-card.primary { border: 2px solid var(--ord-brand-2); background: var(--ord-teal-soft); }

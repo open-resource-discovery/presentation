@@ -1,3 +1,12 @@
+/* Inter 4.1 (SIL OFL 1.1) is self-hosted so every viewer and the visual checks render the same metrics. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+}
+
 :root {
   --ord-bg: #1b1b1f;
   --ord-bg-alt: #161618;
@@ -827,7 +836,7 @@
   display: grid;
   flex: 1;
   grid-template-columns: 1fr 1fr;
-  align-content: center;
+  align-content: start;
   gap: 22px;
 }
 
@@ -898,7 +907,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   align-items: stretch;
-  align-content: center;
+  align-content: start;
 }
 
 .outcome-card {
@@ -929,10 +938,7 @@
 
 .aggregation-grid {
   display: grid;
-  flex: 1;
-  min-height: 0;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-content: center;
   gap: 18px;
 }
 
@@ -969,6 +975,7 @@
 .aggregation-note strong { color: var(--ord-text); }
 
 .feature-status-note { margin-top: 18px !important; color: var(--ord-muted); font-size: 16px; line-height: 1.4; }
+.feature-status-note a { color: var(--ord-brand); font-weight: 650; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .statement-list li::before {
   position: absolute;
   top: 0.62em;
@@ -1076,7 +1083,7 @@
   min-height: 88px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 7px;
   border: 1px solid var(--ord-sep);
   border-radius: var(--ord-radius);

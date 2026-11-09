@@ -52,7 +52,7 @@ routeAlias: metadata-silos
 routeAlias: metadata-alignment
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Alignment"></DeckLogo>
+<DeckLogo section="Metadata alignment"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Metadata Alignment</h1>
@@ -67,7 +67,7 @@ routeAlias: metadata-alignment
 routeAlias: unified-metadata-view
 ---
 <div class="slide-shell light-slide unified-metadata-slide">
-<DeckLogo section="One connected view"></DeckLogo>
+<DeckLogo section="Connected metadata"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Connected Metadata</h1>
@@ -103,7 +103,7 @@ deckSection: How
 routeAlias: self-description
 ---
 <div class="slide-shell split-slide light-slide self-description-slide">
-<DeckLogo section="What is ORD?"></DeckLogo>
+<DeckLogo section="ORD self-description"></DeckLogo>
 <section class="text-column">
 <header class="slide-header">
 <div class="topic-heading">
@@ -127,7 +127,7 @@ routeAlias: self-description
 routeAlias: scope
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Scope"></DeckLogo>
+<DeckLogo section="ORD scope"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD Scope</h1>
@@ -162,7 +162,7 @@ routeAlias: scope
 routeAlias: ord-roles
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Architecture"></DeckLogo>
+<DeckLogo section="ORD roles"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD Roles</h1>
@@ -178,7 +178,7 @@ routeAlias: ord-roles
 routeAlias: pull-overview
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Pull transport"></DeckLogo>
+<DeckLogo section="Pull discovery"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Pull Discovery</h1>
@@ -217,11 +217,11 @@ routeAlias: information-model
 </div>
 </header>
 <ul class="statement-list compact-list">
-<li><strong>Resources:</strong> APIs, Events, Data Products, Agents, Capabilities, and Integration Dependencies.</li>
+<li><strong>Resources:</strong> APIs, Events, Data Products, Capabilities, Agents, and Integration Dependencies.</li>
 <li><strong>Taxonomy and access context:</strong> Vendors, Products, Packages, Entity Types, Groups / Group Types, and Consumption Bundles.</li>
 <li><strong>Common attributes and cross-relationships:</strong> stable design-time IDs, ownership, lifecycle, visibility, definition references, and typed links connect the concepts.</li>
 </ul>
-<p class="feature-status-note">Beta in ORD 1.17: Data Products, Agents, Perspectives, and ORD Overlays.</p>
+<p class="feature-status-note">Beta: Data Products, Agents, Perspectives, and ORD Overlays. Changes by release are listed in the <a href="https://github.com/open-resource-discovery/specification/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">changelog ↗</a>.</p>
 </section>
 <section class="diagram-column">
 <DataModelDiagram></DataModelDiagram>
@@ -232,9 +232,9 @@ routeAlias: information-model
 <!--
 Resources describe what a system exposes or requires. Taxonomy and access context make those descriptions easier to understand, group, and consume.
 
-Capabilities also provide an extensibility mechanism. A Provider can publish custom capability types and link a machine-readable capability definition when more detail is needed. ORD 1.17 standardizes Agent Skills, Agent Plugins, and Workflows as examples.
+Capabilities also provide an extensibility mechanism. A Provider can publish custom capability types and link a machine-readable capability definition when more detail is needed. ORD standardizes Agent Skills, Agent Plugins, and Workflows as examples.
 
-The capability type is identified by a Specification ID, or by customType when type is custom. ORD 1.17 standardizes agent-skill, agent-plugin, and workflow types, including their recommended definition formats and dependency semantics.
+The capability type is identified by a Specification ID, or by customType when type is custom. ORD standardizes agent-skill, agent-plugin, and workflow types, including their recommended definition formats and dependency semantics.
 
 Beta status is collected here so it does not distract from the diagrams that follow. Data Products, Agents, Perspectives, and ORD Overlays retain their specified beta status.
 Workflow capabilities can link Arazzo definitions through the standardized arazzo-v1 definition type.
@@ -268,7 +268,7 @@ routeAlias: perspectives-overview
 routeAlias: connected-landscape
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Connected landscape"></DeckLogo>
+<DeckLogo section="Resource graph"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Resource Graph</h1>
@@ -304,7 +304,7 @@ deckSection: What it enables
 routeAlias: outcomes
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Outcomes"></DeckLogo>
+<DeckLogo section="ORD outcomes"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD Outcomes</h1>
@@ -315,7 +315,7 @@ routeAlias: outcomes
 <section class="outcome-card"><span>01</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="2"/><rect x="19" y="3" width="10" height="10" rx="2"/><rect x="3" y="19" width="10" height="10" rx="2"/><rect x="19" y="19" width="10" height="10" rx="2"/></svg><h3>Catalogs</h3><p>Build searchable inventories across resource types and providers.</p></section>
 <section class="outcome-card"><span>02</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="4" width="28" height="24" rx="3"/><path d="M2 10H30M11 15L7 19L11 23M21 15L25 19L21 23M18 14L14 24"/></svg><h3>Developer tooling</h3><p>Find contracts, documentation, and access context programmatically.</p></section>
 <section class="outcome-card"><span>03</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 10V15M7 22V15H25V22"/><rect x="11" y="2" width="10" height="8" rx="2"/><rect x="2" y="22" width="10" height="8" rx="2"/><rect x="20" y="22" width="10" height="8" rx="2"/></svg><h3>Landscape insight</h3><p>Understand capabilities and declared dependencies across systems.</p></section>
-<section class="outcome-card"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="20" rx="4"/><path d="M16 3V8M2 15V22M30 15V22M11 22H21"/><circle cx="11" cy="16" r="1.5"/><circle cx="21" cy="16" r="1.5"/></svg><h3>Automation and AI</h3><p>Ground tools and agents in structured, discoverable metadata.</p></section>
+<section class="outcome-card"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="20" rx="4"/><path d="M16 3V8M2 15V22M30 15V22M11 22H21"/><circle cx="11" cy="16" r="1.5"/><circle cx="21" cy="16" r="1.5"/></svg><h3>Automation &amp; AI</h3><p>Ground tools and agents in structured, discoverable metadata.</p></section>
 </div>
 <DeepDiveLink to="ai-discovery" label="AI &amp; Agents"></DeepDiveLink>
 </div>
@@ -324,7 +324,7 @@ routeAlias: outcomes
 routeAlias: sap-case-study
 ---
 <div class="slide-shell light-slide sap-case-slide">
-<DeckLogo section="SAP case study"></DeckLogo>
+<DeckLogo section="ORD at SAP"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>ORD at SAP</h1>
@@ -369,7 +369,7 @@ implies that ORD executes business processes or transports business data.
 routeAlias: sap-landscape-examples
 ---
 <div class="slide-shell light-slide sap-case-slide">
-<DeckLogo section="SAP case study · UI examples"></DeckLogo>
+<DeckLogo section="SAP discovery views"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>SAP Discovery Views</h1>
@@ -401,22 +401,31 @@ screenshots from the introduction rather than captures of today's product UI.
 routeAlias: adoption
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Adoption"></DeckLogo>
+<DeckLogo section="Static baseline, then tenant context"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Static Baseline, Then Tenant Context</h1>
 </div>
-<p class="slide-subtitle">Always publish a static perspective; add a complete tenant view when metadata differs per tenant.</p>
+<p class="slide-subtitle">Publish a static perspective as the baseline; add a complete tenant view when metadata differs per tenant.</p>
 </header>
 <AdoptionDecisionGuide></AdoptionDecisionGuide>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/help/faq/adopt-ord-as-provider" spec-label="Provider adoption guide"></DeepDiveNav>
 </div>
 
+<!--
+Based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md#scenarios
+and ../ord-public/docs/spec-v1/index.md. The base specification recommends publishing a static
+perspective (system-type, system-version, or both); the sap:core:v1 and sap:dp:v1
+policy levels require it. When metadata differs per tenant, additionally publish
+a complete system-instance perspective per tenant, including unchanged resources,
+and keep the static baseline published alongside it.
+-->
+
 ---
 routeAlias: adoption-path
 ---
 <div class="slide-shell light-slide">
-<DeckLogo section="Adoption · Developer guide"></DeckLogo>
+<DeckLogo section="Build, validate, connect"></DeckLogo>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Build, Validate, Connect</h1>
@@ -424,13 +433,12 @@ routeAlias: adoption-path
 <p class="slide-subtitle">Use ORD’s published contracts, test the complete output, then make it discoverable.</p>
 </header>
 <AdoptionPath></AdoptionPath>
-<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/" spec-label="Schemas &amp; interfaces"></DeepDiveNav>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces" spec-label="Schemas &amp; interfaces"></DeepDiveNav>
 </div>
 
 <!--
 Developer adoption guide based on ../ord-public/docs/help/faq/adopt-ord-as-provider.md
-and ../ord-public/docs/spec-v1/concepts/implementing-ord-natively.md
-(specification 1.16.4).
+and ../ord-public/docs/spec-v1/concepts/implementing-ord-natively.md.
 The reference application serves its static system-version baseline directly
 from the application and adds a generated system-instance view per tenant.
 -->
@@ -447,9 +455,9 @@ routeAlias: closing
 <h2>Explore, implement, and help shape ORD</h2>
 <p class="lead small">ORD is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache 2.0</a> and governed by the <a href="https://neonephos.org/" target="_blank" rel="noopener noreferrer">NeoNephos Foundation</a> under <a href="https://linuxfoundation.eu/" target="_blank" rel="noopener noreferrer">Linux Foundation Europe</a>.</p>
 <div class="next-grid">
-<a href="https://open-resource-discovery.org/introduction" target="_blank" rel="noopener noreferrer"><span>ORD introduction</span><small>open-resource-discovery.org/introduction</small></a>
-<a href="https://open-resource-discovery.org/spec-v1" target="_blank" rel="noopener noreferrer"><span>ORD specification</span><small>open-resource-discovery.org/spec-v1</small></a>
-<a href="https://github.com/open-resource-discovery" target="_blank" rel="noopener noreferrer"><span>Project on GitHub</span><small>github.com/open-resource-discovery</small></a>
+<a href="https://open-resource-discovery.org/introduction" target="_blank" rel="noopener noreferrer"><span>ORD introduction</span><small>open-resource-discovery.org<wbr>/introduction</small></a>
+<a href="https://open-resource-discovery.org/spec-v1" target="_blank" rel="noopener noreferrer"><span>ORD specification</span><small>open-resource-discovery.org<wbr>/spec-v1</small></a>
+<a href="https://github.com/open-resource-discovery" target="_blank" rel="noopener noreferrer"><span>Project on GitHub</span><small>github.com<wbr>/open-resource-discovery</small></a>
 </div>
 </section>
 <ClosingQr></ClosingQr>
@@ -486,7 +494,7 @@ routeAlias: deep-dives
 routeAlias: landscape-model
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="System landscape model"></DeckLogo>
+<DeckLogo section="System landscape"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/system-landscape-model"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -502,7 +510,7 @@ routeAlias: landscape-model
 routeAlias: namespace-concept
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Namespace concept"></DeckLogo>
+<DeckLogo section="Namespaces"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#namespaces"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -518,7 +526,7 @@ routeAlias: namespace-concept
 routeAlias: ord-identifiers
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="ORD identifiers"></DeckLogo>
+<DeckLogo section="ORD IDs"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/identifiers#ord-id-construction"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -534,7 +542,7 @@ routeAlias: ord-identifiers
 routeAlias: related-identifiers
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Identifier families"></DeckLogo>
+<DeckLogo section="Related IDs"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#id-concepts"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -546,6 +554,12 @@ routeAlias: related-identifiers
 <IdentifierTypesDiagram></IdentifierTypesDiagram>
 </div>
 
+<!--
+Correlation IDs use the ORD Correlation ID format and are stored in correlationIds.
+Resources and taxonomy such as Packages, Products, and Vendors can carry them to
+correlate ORD content with identifiers in external systems of record.
+-->
+
 ---
 routeAlias: grouping-packaging
 ---
@@ -554,7 +568,7 @@ import GroupingPackagingDiagram from './components/GroupingPackagingDiagram.vue'
 </script>
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Grouping &amp; packaging"></DeckLogo>
+<DeckLogo section="Groups &amp; Packages"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/grouping-and-bundling"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -584,7 +598,7 @@ routeAlias: perspective-resolution
 routeAlias: integration-dependencies
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Integration dependencies"></DeckLogo>
+<DeckLogo section="Integration Dependencies"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/integration-dependency#concept"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -617,7 +631,7 @@ The Data Product resource owns the descriptive metadata; inputPorts reference
 Integration Dependencies for lineage, outputPorts reference API or Event
 Resources, and entityTypes connect the data set to business semantics.
 ORD describes discovery metadata and relationships, not the data transport.
-The Data Product concept contains beta properties in ORD 1.17.
+The Data Product concept contains beta properties.
 
 Sources: ../ord-public/docs/spec-v1/concepts/data-product.md and
 ../ord-public/spec/v1/Document.schema.yaml#DataProduct.
@@ -644,7 +658,7 @@ An Agent is a conceptual resource describing autonomous task execution. It can e
 
 Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. The central box represents that shared concept, not a single dependency instance used by every resource. Each owner describes its own external requirements. Multiple aspects combine with AND; alternatives within an aspect combine with OR.
 
-ORD 1.17 adds agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
+ORD defines agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and Capability subset selection through skillName. A plugin bundles skills and assets. ORD treats skill and plugin archives as opaque, format-neutral artifacts and does not prescribe their internal layout or format version.
 
 API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
@@ -653,7 +667,7 @@ API subsets can select MCP tools by operationId using the tool name. The accepte
 routeAlias: agent-model
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI &amp; Agents"></DeckLogo>
+<DeckLogo section="Agent model"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#connectivity--protocols"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -672,7 +686,7 @@ The diagram is a resource model: one box per concept, with multiplicity shown by
 
 Agent.integrationDependencies references Integration Dependency resources. Their aspects support apiResources, eventResources, capabilities, and systemTypes. Capability references can point to Agent Skills, Agent Plugins, Workflows, or custom Capability types. Multiple mandatory aspects combine with AND; alternatives within an aspect combine with OR. Arrows show metadata references, not runtime calls.
 
-The next slide covers the ORD 1.17 agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and plugin subset selection through skillName. A plugin bundles skills and assets; its internal layout depends on the consuming format, not a vendor-neutral ORD packaging standard.
+The next slide covers the agent-skill and agent-plugin types, agent-skill-zip and agent-plugin-zip definitions, Capability.integrationDependencies, and plugin subset selection through skillName. A plugin bundles skills and assets. ORD treats skill and plugin archives as opaque, format-neutral artifacts and does not prescribe their internal layout or format version.
 
 API subsets can select MCP tools by operationId using the tool name. The accepted SEP-2127 Server Card format excludes static tool lists, so a consumer obtains tool definitions through runtime tools/list or demo-specific metadata. Plugin subsets use skillName. Runtime loading, invocation, and configuration remain the responsibility of the consumer. Agents and Capabilities also relate to Entity Types, Groups, labels, and tags; the main resource graph and other deep dives cover that context.
 -->
@@ -681,7 +695,7 @@ API subsets can select MCP tools by operationId using the tool name. The accepte
 routeAlias: skills-preview
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI &amp; Agents"></DeckLogo>
+<DeckLogo section="Agent Skills &amp; Plugins"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#agent-skills-as-capabilities" spec-label="Agent Skills guidance"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -696,7 +710,7 @@ routeAlias: skills-preview
 routeAlias: metadata-skills-boundary
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Skills and API metadata"></DeckLogo>
+<DeckLogo section="Skills &amp; API metadata"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -712,7 +726,7 @@ routeAlias: metadata-skills-boundary
 routeAlias: versioning-lifecycle
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Versioning and lifecycle"></DeckLogo>
+<DeckLogo section="Lifecycle signals"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -731,7 +745,7 @@ import ApiLifecycleDiagram from './components/ApiLifecycleDiagram.vue'
 </script>
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="API lifecycle example"></DeckLogo>
+<DeckLogo section="API lifecycle"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/versioning-and-lifecycle#lifecycle"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -757,11 +771,18 @@ routeAlias: ord-overlays
 <OverlayDiagram></OverlayDiagram>
 </div>
 
+<!--
+ORD Overlays (ord:overlay:v1) and OpenAPI Overlays (oas-overlay-v1) are complementary.
+API Resources can publish oas-overlay-v1 definitions, for example for the rest,
+odata-v2, and odata-v4 protocols, and ORD Overlays can target them. The sap:core:v1
+policy level requires SAP publishers to use ord:overlay:v1 for published overlays.
+-->
+
 ---
 routeAlias: ai-enrichment
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="AI-oriented metadata enrichment"></DeckLogo>
+<DeckLogo section="AI enrichment"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/concepts/ai-agents-and-protocols#ai-hints-on-ord-resources"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -780,7 +801,7 @@ import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
 </script>
 
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Extensibility in ORD"></DeckLogo>
+<DeckLogo section="ORD extensions"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#capability"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -796,7 +817,7 @@ import ExtensibilityDiagram from './components/ExtensibilityDiagram.vue'
 routeAlias: visibility
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Visibility and access"></DeckLogo>
+<DeckLogo section="Metadata visibility"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1/interfaces/Document#api-resource_visibility"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -807,12 +828,21 @@ routeAlias: visibility
 <VisibilityDiagram></VisibilityDiagram>
 </div>
 
+<!--
+Visibility is declared per resource and per resource definition, not per Package.
+One Package can therefore group resources with different visibility; each resource
+and its definitions remain subject to their own visibility rules.
+
+Sources: ../ord-public/spec/v1/Document.schema.yaml#visibility and
+../ord-public/docs/spec-extensions/policy-levels/sap-core-v1.md#package.
+-->
+
 ---
 routeAlias: policy-validation
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Policy levels &amp; validation"></DeckLogo>
-<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-extensions/policy-levels/"></DeepDiveNav>
+<DeckLogo section="Policy validation"></DeckLogo>
+<DeepDiveNav spec-href="https://open-resource-discovery.org/spec-extensions/policy-levels"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
 <h1>Policy Validation</h1>
@@ -846,7 +876,7 @@ Sources: ../ord-public/docs/spec-extensions/policy-levels/index.mdx,
 routeAlias: pull-sequence
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Pull transport sequence"></DeckLogo>
+<DeckLogo section="Pull sequence"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#pull-transport-sequence-diagram"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -862,7 +892,7 @@ routeAlias: pull-sequence
 routeAlias: aggregator-discovery
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Aggregation &amp; Discovery API"></DeckLogo>
+<DeckLogo section="Aggregation"></DeckLogo>
 <DeepDiveNav spec-href="https://open-resource-discovery.org/spec-v1#ord-discovery-api"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -883,7 +913,7 @@ routeAlias: aggregator-discovery
 routeAlias: push-preview
 ---
 <div class="slide-shell light-slide deep-slide">
-<DeckLogo section="Preview · proposal"></DeckLogo>
+<DeckLogo section="Push transport · proposal"></DeckLogo>
 <DeepDiveNav spec-href="https://github.com/open-resource-discovery/specification/pull/187" spec-label="Push proposal"></DeepDiveNav>
 <header class="slide-header wide-header">
 <div class="topic-heading">
@@ -896,11 +926,11 @@ routeAlias: push-preview
 
 ---
 routeAlias: tools-ecosystem-section
-deckSection: Tools & Ecosystem
+deckSection: Tools & ecosystem
 ---
 <SectionSlide
   number="05"
-  title="Tools &amp; Ecosystem"
+  title="Tools &amp; ecosystem"
   text="Open-source building blocks for publishing, exploring, enriching, rendering, and governing ORD metadata."
   backdrop="orbit"
 ></SectionSlide>

@@ -42,7 +42,9 @@ let browser;
 try {
   const baseUrl = await waitForHttp(baseUrls, 45_000, server);
 
-  browser = await chromium.launch();
+  // Headless Chromium on Linux applies full font hinting, which widens and unevenly spaces small text.
+  // Disable it so screenshots and geometry checks match how desktop browsers render the deck.
+  browser = await chromium.launch({ args: ["--font-render-hinting=none"] });
   const context = await browser.newContext({
     viewport: { width: 1280, height: 720 },
     deviceScaleFactor: 1,

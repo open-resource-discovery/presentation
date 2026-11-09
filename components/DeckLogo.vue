@@ -15,7 +15,7 @@ withDefaults(
 const { $page, $nav } = useSlideContext()
 const overviewRoutes: Record<string, string> = {
   'Deep dives': 'deep-dives',
-  'Tools & Ecosystem': 'tools-ecosystem',
+  'Tools & ecosystem': 'tools-ecosystem',
 }
 const chapter = computed(() => {
   const divider = $nav.value.slides
