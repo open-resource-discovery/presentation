@@ -2,3 +2,4 @@
 /.github/ @Fannon
 /package.json @Fannon
 /package-lock.json @Fannon
+/scripts/ @Fannon
