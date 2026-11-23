@@ -55,5 +55,3 @@ jobs:
           name: slide-inspection
           path: screenshots/
           if-no-files-found: ignore
-    permissions:
-      contents: read
