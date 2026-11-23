@@ -6,13 +6,14 @@ on:
 
 permissions:
   contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out presentation
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
       - name: Select ORD specification ref
         id: specification-ref
         env:
@@ -29,6 +30,7 @@ jobs:
           repository: open-resource-discovery/specification
           ref: ${{ steps.specification-ref.outputs.ref }}
           path: ord-public
+          persist-credentials: false
       - name: Set up Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
@@ -53,3 +55,5 @@ jobs:
           name: slide-inspection
           path: screenshots/
           if-no-files-found: ignore
+    permissions:
+      contents: read
