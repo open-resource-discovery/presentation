@@ -43,6 +43,12 @@
   "overrides": {
     "@slidev/cli": {
       "image-size": "2.0.3"
+    },
+    "monaco-editor": {
+      "dompurify": "3.4.17"
+    },
+    "mermaid": {
+      "katex": "0.18.2"
     }
   }
 }
