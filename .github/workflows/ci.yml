@@ -40,7 +40,7 @@ jobs:
         run: npm install --global --ignore-scripts npm@11.20.0 --registry=https://registry.npmjs.org/
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
       - name: Check shared diagram data
         run: npm run check:diagrams -- --spec-root=ord-public
       - name: Build GitHub Pages artifact
