@@ -31,11 +31,9 @@
 
 <style scoped>
 .metadata-skills-boundary { display: grid; flex: 1; min-height: 0; grid-template-columns: minmax(0, 1.65fr) 110px minmax(0, .85fr); grid-template-rows: 1fr auto; gap: 18px; margin: 0; }
-.metadata-plane, .skill-plane { display: flex; min-width: 0; flex-direction: column; border: 1px solid var(--ord-sep); border-top: 4px solid var(--ord-accent-teal); border-radius: var(--ord-radius); background: var(--ord-accent-teal-bg); padding: 20px; }
-.skill-plane { border-top-color: var(--ord-accent-violet); background: var(--ord-accent-violet-bg); }
+.metadata-plane, .skill-plane { display: flex; min-width: 0; flex-direction: column; border: 1px solid var(--ord-sep); border-radius: var(--ord-radius); background: var(--ord-card-bg); box-shadow: 0 3px 12px rgba(10, 15, 18, 0.05); padding: 20px; }
 header { display: flex; flex-direction: column; gap: 4px; }
 header span { color: var(--ord-brand); font-size: 12px; font-weight: 800; letter-spacing: .055em; text-transform: uppercase; }
-.skill-plane header span { color: #6b49bc; }
 header strong { color: var(--ord-text); font-size: 25px; }
 .metadata-layers { display: grid; flex: 1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; align-items: stretch; margin-top: 18px; }
 .metadata-layers div { display: flex; min-width: 0; flex-direction: column; gap: 8px; border: 1px solid var(--ord-border); border-radius: 8px; background: #fff; padding: 15px; }
@@ -49,8 +47,8 @@ header strong { color: var(--ord-text); font-size: 25px; }
 .reference-flow span { font-size: 11px; font-weight: 750; letter-spacing: .04em; line-height: 1.25; text-transform: uppercase; }
 .reference-flow b { color: var(--ord-brand); font-size: 37px; line-height: 1; }
 .skill-body { display: grid; flex: 1; align-content: center; gap: 10px; margin: 16px 0; }
-.skill-body b { border: 1px solid #cfc3eb; border-radius: 7px; background: #fff; color: var(--ord-text); font-size: 15px; padding: 11px 13px; }
-.skill-plane footer { border-top: 1px solid #cfc3eb; color: var(--ord-muted); font-size: 13px; line-height: 1.4; padding-top: 13px; }
+.skill-body b { border: 1px solid var(--ord-sep); border-radius: 7px; background: #fff; color: var(--ord-text); font-size: 15px; padding: 11px 13px; }
+.skill-plane footer { border-top: 1px solid var(--ord-sep); color: var(--ord-muted); font-size: 13px; line-height: 1.4; padding-top: 13px; }
 figcaption { display: flex; grid-column: 1 / -1; align-items: center; justify-content: center; gap: 7px; border-radius: var(--ord-radius); background: var(--ord-panel); color: var(--ord-muted); font-size: 15px; padding: 12px 16px; text-align: center; }
 figcaption strong { color: var(--ord-text); }
 </style>

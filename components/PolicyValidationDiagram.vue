@@ -87,18 +87,14 @@
   flex-direction: column;
   gap: 11px;
   border: 1px solid var(--ord-sep);
-  border-top: 5px solid var(--stage-color);
   border-radius: var(--ord-radius);
-  background: var(--stage-bg);
+  background: var(--ord-card-bg);
+  box-shadow: 0 3px 12px rgba(10, 15, 18, 0.05);
   padding: 20px 18px;
 }
 
-.baseline { --stage-color: var(--ord-provider); --stage-bg: var(--ord-provider-soft); }
-.declare { --stage-color: var(--ord-brand); --stage-bg: var(--ord-accent-teal-bg); }
-.evolve { --stage-color: var(--ord-aggregator); --stage-bg: var(--ord-aggregator-soft); }
-
 .step {
-  color: var(--stage-color);
+  color: var(--ord-brand);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
@@ -136,7 +132,7 @@
   flex: 0 0 36px;
   place-items: center;
   border-radius: 50%;
-  background: var(--ord-provider);
+  background: var(--ord-brand);
   color: white !important;
   font-size: 21px !important;
   font-weight: 800;
@@ -147,13 +143,13 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 6px;
-  background: color-mix(in srgb, var(--ord-provider) 11%, white);
+  background: var(--ord-teal-soft);
   color: var(--ord-text);
   font-size: 13px;
   padding: 9px 11px;
 }
 
-.gate-label b { color: var(--ord-provider); text-transform: uppercase; }
+.gate-label b { color: var(--ord-brand); text-transform: uppercase; }
 
 .stage code {
   display: grid;
@@ -168,7 +164,7 @@
   padding: 11px 10px;
 }
 
-.stage code b { color: var(--ord-provider); font-weight: 700; }
+.stage code b { color: var(--ord-brand); font-weight: 700; }
 .stage code i { color: var(--ord-brand); font-style: normal; }
 .policy-value { padding-left: 13px; }
 
@@ -219,16 +215,16 @@
 }
 
 .version.old { background: var(--ord-soft); color: var(--ord-muted); }
-.version.current { background: var(--ord-aggregator); color: white; }
+.version.current { background: var(--ord-brand); color: white; }
 .new-policy { background: var(--ord-accent-coral-bg); color: var(--ord-text); }
 
 .compare {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  border-left: 4px solid var(--ord-aggregator);
+  border: 1px solid var(--ord-sep);
   border-radius: 5px;
-  background: color-mix(in srgb, var(--ord-aggregator) 8%, white);
+  background: var(--ord-panel);
   padding: 9px 11px;
 }
 

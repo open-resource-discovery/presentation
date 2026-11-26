@@ -44,7 +44,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
 
       <div class="discovery-flow" aria-hidden="true"><span></span></div>
 
-      <section class="consumer-lane" aria-label="Consumers use a single ORD Discovery API">
+      <section class="discovery-lane" aria-label="An aggregator's Discovery API serves consumers">
         <header class="lane-heading">
           <span>One interface</span>
           <h3>Discovery API</h3>
@@ -83,7 +83,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
 
 .source-lane,
 .graph-service,
-.consumer-lane {
+.discovery-lane {
   min-width: 0;
   border: 1px solid var(--ord-sep);
   border-radius: var(--ord-radius);
@@ -92,7 +92,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
 }
 
 .source-lane,
-.consumer-lane {
+.discovery-lane {
   display: flex;
   flex-direction: column;
 }
@@ -157,7 +157,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
   position: relative;
   width: 100%;
   height: 2px;
-  background: var(--ord-provider);
+  background: var(--ord-brand);
 }
 
 .metadata-flow span::after,
@@ -167,7 +167,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
   right: -1px;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-left: 8px solid var(--ord-provider);
+  border-left: 8px solid var(--ord-brand);
   content: "";
 }
 
@@ -229,8 +229,7 @@ const links = graph.links.map(({ from, to, kind }) => ({
   text-align: center;
 }
 
-.consumer-lane { border-top: 5px solid var(--ord-consumer); padding-top: 16px; }
-.consumer-lane .lane-heading span { color: var(--ord-consumer); }
+.discovery-lane { box-shadow: 0 3px 12px rgba(10, 15, 18, 0.05); }
 
 .api-endpoint {
   display: flex;
