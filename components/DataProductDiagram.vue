@@ -104,9 +104,9 @@ text { fill: var(--ord-text); font-family: var(--ord-font); }
 .lineage-edge { stroke: #c6503b; }
 .lineage-head { fill: #c6503b; }
 .lineage-label { fill: #ac4432; }
-.output-edge { stroke: var(--ord-provider); }
-.output-head { fill: var(--ord-provider); }
-.output-label { fill: var(--ord-provider); }
+.output-edge { stroke: var(--ord-brand); }
+.output-head { fill: var(--ord-brand); }
+.output-label { fill: var(--ord-brand); }
 .semantics-edge { stroke: #8061bd; }
 .semantics-head { fill: #8061bd; }
 .semantics-label { fill: #6b49bc; }

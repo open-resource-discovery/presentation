@@ -396,6 +396,14 @@
   max-width: 1080px;
 }
 
+.cover-pretitle {
+  color: var(--ord-brand-3);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .slidev-layout .ord-cover h1 {
   max-width: 1080px;
   font-size: 80px;
@@ -816,30 +824,23 @@
   flex-direction: column;
   gap: 12px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-accent-teal);
   border-radius: var(--ord-radius);
   background: var(--ord-card-bg);
+  box-shadow: 0 3px 12px rgba(10, 15, 18, 0.05);
   padding: 24px;
-}
-
-.scope-card.does-not {
-  border-top-color: var(--ord-accent-coral);
 }
 
 .scope-label {
   align-self: flex-start;
-  border-radius: 999px;
-  background: var(--ord-teal-soft);
   color: var(--ord-brand);
   font-family: var(--ord-font);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 750;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 4px 9px;
 }
 
 .scope-card.does-not .scope-label {
-  background: var(--ord-coral-soft);
   color: #bd4c36;
 }
 
@@ -869,7 +870,7 @@
 }
 .scope-card li:first-child { border-top: 0; }
 .scope-card li:last-child { padding-bottom: 0; }
-.scope-card svg { width: 32px; height: 32px; border-radius: 8px; background: var(--ord-teal-soft); fill: none; stroke: var(--ord-brand); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; padding: 6px; }
+.scope-card svg { width: 32px; height: 32px; border-radius: 6px; background: var(--ord-teal-soft); fill: none; stroke: var(--ord-brand); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; padding: 6px; }
 .scope-card.does-not svg { background: var(--ord-coral-soft); stroke: #bd4c36; }
 
 .outcome-grid {
@@ -919,14 +920,12 @@
   flex-direction: column;
   gap: 18px;
   border: 1px solid var(--ord-sep);
-  border-top: 4px solid var(--ord-accent-sky);
   border-radius: var(--ord-radius);
-  background: var(--ord-accent-sky-bg);
+  background: var(--ord-card-bg);
+  box-shadow: 0 3px 12px rgba(10, 15, 18, 0.05);
   padding: 24px;
 }
 
-.aggregation-card:nth-child(2) { border-top-color: var(--ord-accent-violet); background: var(--ord-accent-violet-bg); }
-.aggregation-card:nth-child(3) { border-top-color: var(--ord-accent-teal); background: var(--ord-accent-teal-bg); }
 .aggregation-number { color: var(--ord-brand); font-size: 13px; font-weight: 750; }
 .aggregation-card h3 { font-size: 24px; }
 .aggregation-card p { color: var(--ord-muted); font-size: 19px; line-height: 1.4; }

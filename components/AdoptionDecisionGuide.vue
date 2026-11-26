@@ -36,7 +36,7 @@
   flex: 1;
   min-height: 0;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 18px;
   margin: 0;
 }
@@ -47,16 +47,14 @@
   flex-direction: column;
   gap: 12px;
   border: 1px solid var(--ord-sep);
-  border-top: 5px solid var(--ord-accent-teal);
   border-radius: var(--ord-radius);
-  background: var(--ord-accent-teal-bg);
+  background: var(--ord-card-bg);
+  box-shadow: 0 3px 12px rgba(10, 15, 18, 0.05);
   padding: 20px;
 }
-.tenant-view { border-top-color: var(--ord-accent-violet); background: var(--ord-accent-violet-bg); }
 .publication-card header { display: flex; align-items: center; gap: 12px; }
 .step-number { color: var(--ord-brand); font-size: 14px; font-weight: 800; }
 .publication-card small { color: var(--ord-brand); font-size: 12px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
-.tenant-view .step-number, .tenant-view small { color: #6b49bc; }
 .publication-card h3 { color: var(--ord-text); font-size: 26px; }
 .publication-card p { color: var(--ord-muted); font-size: 17px; line-height: 1.4; }
 .static-perspectives { display: flex; flex-direction: column; gap: 10px; }
@@ -64,7 +62,6 @@
 .publication-card code { width: fit-content; border: 1px solid var(--ord-border); border-radius: 5px; background: var(--ord-pill-bg); color: var(--ord-brand); font-size: 14px; padding: 5px 9px; }
 .static-perspectives span, .tenant-perspective span { color: var(--ord-muted); font-size: 15px; line-height: 1.4; }
 .tenant-perspective { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-.tenant-perspective code { color: #6b49bc; }
 .publication-card footer { margin-top: auto; border-top: 1px solid var(--ord-sep); color: var(--ord-text); font-size: 15px; font-weight: 650; line-height: 1.4; padding-top: 12px; }
 .addition { display: flex; align-items: center; justify-content: center; color: var(--ord-brand); }
 .addition span { font-size: 42px; font-weight: 400; }

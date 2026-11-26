@@ -4,6 +4,7 @@
     <DeckLogo></DeckLogo>
     <div class="cover-grid">
       <section class="cover-copy">
+        <p class="cover-pretitle">APIs, events, data products, agents, and more</p>
         <h1>Open Resource Discovery</h1>
         <p class="lead">
           An open protocol to connect fragmented metadata, building on the industry standards that describe application and service resources.
