@@ -407,17 +407,6 @@
   max-width: 840px;
 }
 
-.cover-index {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--ord-brand-3);
-  font-size: 14px;
-  font-weight: 720;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 .cover-links {
   display: flex;
   flex-wrap: wrap;
@@ -470,8 +459,7 @@
   right: 0;
 }
 
-/* Cover agenda: full-width chapter strip anchored at the bottom.
-   The first chapter gets extra width so its label stays on one line. */
+/* Divider agenda: full-width chapter strip anchored at the bottom. */
 .cover-agenda {
   display: grid;
   grid-template-columns: repeat(5, auto);
@@ -507,7 +495,7 @@
 .slidev-layout .cover-agenda a:hover { border-top-color: var(--ord-brand-3); color: var(--ord-brand-3); }
 .slidev-layout .cover-agenda a.active { border-top-color: var(--ord-brand-3); color: var(--ord-brand-3); }
 
-/* Divider slides pin the same agenda strip to the bottom. */
+/* Divider slides pin the agenda strip to the bottom. */
 .section-slide .section-copy {
   flex: 1;
   justify-content: center;
@@ -534,15 +522,6 @@
 .cover-orbit .spoke { stroke: #4fb3a7; stroke-width: 1; stroke-dasharray: 2 5; opacity: 0.32; }
 .cover-orbit .node { fill: #1d1f22; stroke: #4fb3a7; stroke-width: 1.25; opacity: 0.6; }
 .cover-orbit .hub { fill: rgba(50, 188, 172, 0.35); stroke: var(--ord-brand-2); stroke-width: 1.25; opacity: 0.8; }
-
-.eyebrow {
-  color: var(--ord-brand-3);
-  font-family: var(--ord-font);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 
 .slidev-layout .lead {
   max-width: 710px;
@@ -572,14 +551,6 @@
 
 .slide-header.wide-header {
   max-width: 1136px;
-}
-
-.slide-header > .eyebrow {
-  border-right: 2px solid color-mix(in srgb, var(--ord-brand-2) 70%, transparent);
-  font-size: 17px;
-  letter-spacing: 0;
-  padding-right: 12px;
-  text-transform: none;
 }
 
 .slide-header > h2 {
