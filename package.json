@@ -23,7 +23,7 @@
   "devDependencies": {
     "@slidev/cli": "^52.16.0",
     "@slidev/theme-default": "^0.25.0",
-    "playwright": "^1.61.1"
+    "playwright": "^1.65.1"
   },
   "engines": {
     "node": ">=26"
