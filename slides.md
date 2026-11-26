@@ -451,7 +451,6 @@ routeAlias: closing
 <DeckLogo></DeckLogo>
 <div class="end-layout">
 <section class="end-copy">
-<p class="eyebrow">Open standard</p>
 <h2>Explore, implement, and help shape ORD</h2>
 <p class="lead small">ORD is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache 2.0</a> and governed by the <a href="https://neonephos.org/" target="_blank" rel="noopener noreferrer">NeoNephos Foundation</a> under <a href="https://linuxfoundation.eu/" target="_blank" rel="noopener noreferrer">Linux Foundation Europe</a>.</p>
 <div class="next-grid">

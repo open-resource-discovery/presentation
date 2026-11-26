@@ -4,7 +4,6 @@
     <DeckLogo></DeckLogo>
     <div class="cover-grid">
       <section class="cover-copy">
-        <p class="cover-index">Connected metadata, open discovery</p>
         <h1>Open Resource Discovery</h1>
         <p class="lead">
           An open protocol to connect fragmented metadata, building on the industry standards that describe application and service resources.
@@ -19,7 +18,6 @@
         </div>
       </section>
     </div>
-    <CoverAgenda />
     <GovernanceLogos class="cover-governance" />
   </div>
 </template>
